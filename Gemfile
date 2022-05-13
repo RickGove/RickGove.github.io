@@ -7,7 +7,6 @@ source 'https://rubygems.org'
 ## the build server(s) before they commit to master
 ruby '2.5.8'
 
-gem 'github-pages'
 
 
 ## Used on the build server. If you add a package here (like nokogiri)
@@ -17,6 +16,7 @@ gem 'github-pages'
 ## your dependencies, then nothing extra needs to be done
 group :development do
   gem 'ffi-icu'
+  gem 'github-pages'
   gem 'jekyll'
   gem 'json'
   gem 'less'
