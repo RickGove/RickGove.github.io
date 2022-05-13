@@ -1,0 +1,821 @@
+<!DOCTYPE HTML>
+<html lang="sv">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Undvik bedrägerier - Bitcoin</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org är ett projekt som finansieras av sin community. Donationer tas tacksamt emot och används för att förbättra webbplatsen.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Gör en donation
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org behöver din hjälp!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Donera till Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">Använd denna QR-kod eller adressen nedan</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Eller eget belopp? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Eller eget belopp? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Valfri beskrivning (för din plånbok)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/sv/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">Inledning</a>
+    <ul>
+      <li><a href="/sv/bitcoin-for-privatpersoner">Privatpersoner</a></li>
+      <li><a href="/sv/bitcoin-for-foretag">Företag</a></li>
+      <li><a href="https://developer.bitcoin.org/">Utvecklare</a></li>
+      <li><a href="/sv/kom-igang">Kom igång</a></li>
+      <li><a href="/sv/hur-det-fungerar">Hur det fungerar</a></li>
+      
+      <li><a href="/sv/bitcoinartikel">Vitbok</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">Resurser</a>
+    <ul>
+      <li><a href="/sv/resurser">Resurser</a>
+      <li><a href="/sv/borser">Börser</a></li>
+      <li><a href="/sv/community">Community</a></li>
+      
+      
+      <li><a href="/sv/ordlista">Ordlista</a></li>
+      <li><a href="/sv/evenemang">Evenemang</a></li>
+      
+        <li><a href="/sv/ladda-ner">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/sv/innovation">Innovation</a></li>
+  <li><a class="is-expand">Delta</a>
+    <ul>
+      <li><a href="/sv/stod-bitcoin">Stöd Bitcoin</a>
+      <li><a href="/sv/kop">Köp Bitcoin</a></li>
+      
+      <li><a href="/sv/utveckling">Utveckling</a></li>
+    </ul>
+  </li>
+  <li><a href="/sv/faq">FAQ</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>Svenska</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/scam">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/estafes">Català</a></li>
+        
+        
+          <li><a href="/da/">Dansk</a></li>
+        
+        
+          <li><a href="/de/scams">Deutsch</a></li>
+        
+        
+          <li><a href="/en/scams">English</a></li>
+        
+        
+          <li><a href="/es/">Español</a></li>
+        
+        
+          <li><a href="/fr/">Français</a></li>
+        
+        
+          <li><a href="/it/truffe">Italiano</a></li>
+        
+        
+          <li><a href="/hu/atveresek">Magyar</a></li>
+        
+        
+          <li><a href="/nl/oplichtingspraktijken">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/fraudes">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/">Română</a></li>
+        
+        
+          <li><a href="/sl/">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/prevare">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/bedragerier" class="active">Svenska</a></li>
+        
+        
+          <li><a href="/tr/">Türkçe</a></li>
+        
+        
+          <li><a href="/el/">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/">български</a></li>
+        
+        
+          <li><a href="/ru/">Русский</a></li>
+        
+        
+          <li><a href="/uk/">Українська</a></li>
+        
+        
+          <li><a href="/ar/">العربية</a></li>
+        
+        
+          <li><a href="/fa/">فارسی</a></li>
+        
+        
+          <li><a href="/he/">עברית</a></li>
+        
+        
+          <li><a href="/hi/">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/">한국어</a></li>
+        
+        
+          <li><a href="/ja/scams">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/scam" >Bahasa Indonesia</option>
+            
+            <option value="/ca/estafes" >Català</option>
+            
+            <option value="/da/" >Dansk</option>
+            
+            <option value="/de/scams" >Deutsch</option>
+            
+            <option value="/en/scams" >English</option>
+            
+            <option value="/es/" >Español</option>
+            
+            <option value="/fr/" >Français</option>
+            
+            <option value="/it/truffe" >Italiano</option>
+            
+            <option value="/hu/atveresek" >Magyar</option>
+            
+            <option value="/nl/oplichtingspraktijken" >Nederlands</option>
+            
+            <option value="/pl/" >Polski</option>
+            
+            <option value="/pt_BR/fraudes" >Português Brasil</option>
+            
+            <option value="/ro/" >Română</option>
+            
+            <option value="/sl/" >Slovenščina</option>
+            
+            <option value="/sr/prevare" >Srpski</option>
+            
+            <option value="/sv/bedragerier"  selected="selected">Svenska</option>
+            
+            <option value="/tr/" >Türkçe</option>
+            
+            <option value="/el/" >Ελληνικά</option>
+            
+            <option value="/bg/" >български</option>
+            
+            <option value="/ru/" >Русский</option>
+            
+            <option value="/uk/" >Українська</option>
+            
+            <option value="/ar/" >العربية</option>
+            
+            <option value="/fa/" >فارسی</option>
+            
+            <option value="/he/" >עברית</option>
+            
+            <option value="/hi/" >हिन्दी</option>
+            
+            <option value="/ko/" >한국어</option>
+            
+            <option value="/ja/scams" >日本語</option>
+            
+            <option value="/zh_CN/" >简体中文</option>
+            
+            <option value="/zh_TW/" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">sv</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>Undvik bedrägerier</h1>
+    <p class="summarytxt">Lär dig känna igen några av de vanligast förekommande bitcoinbedrägerierna för att skydda dig själv och dina ekonomiska tillgångar.</p>
+  </div>
+</div>
+
+<div class="toc-container">
+  <div class="row toc-row">
+    <div id="toc" class="toc">
+      <div>
+        <button class="mob-sidebar-open" hidden>Typer av bedrägerier</button>
+        <div class="sidebar">
+          <div class="sidebar-inner vocabulary-list">
+            <button class="mob-sidebar-close" hidden></button>
+            <ul>
+            
+              <li><a href="#utpressning">Utpressning</a></li>
+            
+              <li><a href="#falska-valutaborser">Falska valutabörser</a></li>
+            
+              <li><a href="#gratis-gavor">Gratis gåvor</a></li>
+            
+              <li><a href="#imitation">Imitation</a></li>
+            
+              <li><a href="#skadlig-kod">Skadlig kod</a></li>
+            
+              <li><a href="#traffas-personligen">Träffas personligen</a></li>
+            
+              <li><a href="#pengaoverforingsbedrageri">Pengaöverföringsbedrägeri</a></li>
+            
+              <li><a href="#natfiskemeddelanden">Nätfiskemeddelande</a></li>
+            
+              <li><a href="#natfiskewebbplatser">Nätfiskewebbplatser</a></li>
+            
+              <li><a href="#ponzibedragerier">Ponzibedrägerier</a></li>
+            
+              <li><a href="#pyramidspel">Pyramidspel</a></li>
+            
+              <li><a href="#prisutlottningar">Prisutlottningar</a></li>
+            
+              <li><a href="#pumpa-och-dumpa">Pumpa och dumpa</a></li>
+            
+              <li><a href="#utpressningstrojan">Utpressningstrojan</a></li>
+            
+              <li><a href="#bedragerivalutor">Bedrägerivalutor</a></li>
+            
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toccontent">
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="utpressning">Utpressning</h2>
+        <p>Var på din vakt mot utpressningsförsök där en okänd person hotar dig för att få bitcoin i utbyte. Ett vanligt exempel på denna metod är ett e-postmeddelande där avsändaren påstår att de har tagit sig in i din dator och styr den via funktionen för fjärrskrivbord (remote desktop protocol, RDP). Avsändaren säger att en tangentloggare har installerats och att din webbkamera använts för att filma dig när du gör något du antagligen inte vill att andra ska känna till. Du får två alternativ - antingen skickar du bitcoin för att radera materialet, eller så skickas materialet till alla dina e-postkontakter och publiceras på sociala medier. Bedragare använder stulna listor med e-postadresser och annan användarinformation som läckt ut för att skicka samma meddelande till tusentals personer samtidigt.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="falska-valutaborser">Falska valutabörser</h2>
+        <p>Allteftersom bitcoin har blivit mer populärt är det fler och fler människor som försöker skaffa sig lite bitcoin. Tyvärr finns det skoningslösa människor som drar nytta av detta och har satt upp falska valutabörser. Dessa falska börser försöker lura användare genom att erbjuda extremt attraktiva marknadspriser som lockar dem att tro de att gör ett fynd, och får snabb och bekväm tillgång till lite billiga bitcoin. Se till att du använder en <a href="/en/exchanges">känd och trovärdig börs</a> när du köper eller säljer bitcoin.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="gratis-gavor">Gratis gåvor</h2>
+        <p>Eftersom information sprids viralt på nätet försöker bedragare utnyttja andra genom att erbjuda gåvor i form av bitcoin eller andra digitala valutor i utbyte mot att de skickar in ett litet belopp vid registreringen, eller genom att dela med sig av någon personlig information. När du ser detta på en webbplats eller sociala nätverk är det bäst att omedelbart rapportera innehållet som bedrägligt, så att andra inte blir lurade.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="imitation">Imitation</h2>
+        <p>Tyvärr är det väldigt lätt för bedragare att skapa konton på sociala medier och imitera andra människor De ligger ofta och väntar på att personen de försöker imitera ska publicera någonting. Imitatören svarar då på detta med ett uppföljningsmeddelande eller uppmaning att vidta någon åtgärd - som en gratis gåva - från ett konto som ser nästan identiskt ut med den som skrev det ursprungliga inlägget. Detta får det att se ut som om det är den ursprungliga personen som säger det. Alternativt kan imitatörer också försöka använda samma falska konton för att via privata eller direkta meddelanden lura andra att vidta någon åtgärd i ett försök att bedra eller kompromettera. Delta aldrig i gratis gåvor, och om du får en konstig förfrågan från någon i ditt nätverk är det bäst att dubbelkolla via andra kommunikationskanaler.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="skadlig-kod">Skadlig kod</h2>
+        <p>Hackare har blivit väldigt kreativa när det gäller att stjäla från andra människor. När du skickar bitcoin ska du alltid både dubbel- och trippelkolla adressen du skickar till. Viss skadlig kod, om den lyckas ta sig in på enheten, byter ut bitcoinadresser när de klistras in från Urklipp, så att alla bitcoin istället skickas till hackarens adress. Eftersom det finns väldigt begränsade möjligheter att häva en bitcointransaktion när den väl har bekräftats av nätverket är det försent att upptäcka misstaget när det redan skett och pengarna går förmodligen inte att få tillbaka. Det är en bra idé att vara på sin vakt om vilka program som ges administratörsrättighet på dina enheter. En uppdaterad virusprogramvara med gott rykte kan också hjälpa men är ingen garanti.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="traffas-personligen">Träffas personligen</h2>
+        <p>När du köper eller säljer bitcoin lokalt kan motparten be om ett personligt möte för utföra växlingen. Om det inte är en person du redan känner och litar på kan detta vara ett riskabelt önskemål som skulle kunna leda till att du rånas eller skadas. Det har också hänt att bedragare har växlat förfalskad fiatvaluta i utbyte mot bitcoin. Överväg att använda en icke-hierarkisk plattform för att deponera medlen istället för att träffas personligen.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="pengaoverforingsbedrageri">Pengaöverföringsbedrägeri</h2>
+        <p>Svara inte på e-post eller inkommande meddelanden från främlingar som berättar att de behöver hjälp att flytta pengar, varefter du som ersättning för dina tjänster ska få en del pengarna.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="natfiskemeddelanden">Nätfiskemeddelande</h2>
+        <p>Var försiktig när det gäller e-post som påstår sig komma från tjänster du använder och som uppmanar dig att vidta någon åtgärd, som till exempel återställa ditt lösenord, eller klicka vidare för någon typ av interaktion som gäller ditt konto. Det kan vara väldigt svårt se skillnad mellan ett falskt meddelande som försöker få dig att ge åtkomst till ditt konto, och ett äkta meddelande som skickats avseende en produkt eller tjänst som du använder. Om du är osäker ska du överväga att trippel-kolla äktheten hos kommunikationen genom att vidarebefordra den till företaget, genom att använda den e-postadress för kontakt som finns på deras webbplats, ringa upp dem på telefon och/eller kontakta dem via deras officiella konton på sociala media.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="natfiskewebbplatser">Nätfiskewebbplatser</h2>
+        <p>Nätfiskewebbplatser går ofta hand-i-hand med nätfiske-e-post. Sådan e-post kan innehålla länkar till en förfalskad webbsida som är utformad för att stjäla inloggningsuppgifter eller uppmana dig att installera skadlig programvara. Installera inga program eller logga in på någon webbplats om du inte är 100 % säker på att den är äkta. Nätfiskesidor kan också dyka upp som sponsrade länkar i resultatet från en sökmotor eller på app-marknadsplatser som används av mobila enheter. Var på din vakt så att du inte laddar ner en falsk app eller klickar på en sponsrad länk till en falsk webbplats.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="ponzibedragerier">Ponzibedrägerier</h2>
+        <p>Delta inte i erbjudanden där en eller flera personer erbjuder dig garanterad avkastning i utbyte mot en betalning i förskott. Detta kallas för ponzibedrägeri och innebär att nya investerares insättningar används för att betala tidigare investerare. Det slutar i regel alltid med att en massa människor förlorar en massa pengar.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="pyramidspel">Pyramidspel</h2>
+        <p>Ett pyramidspel utlovar en avkastning till deltagarna baserat på hur många människor de kan locka med sig. Det gör att upplägget kan växa viralt och snabbt. Men det leder dock sällan till någon meningsfull avkastning för deltagarna och/eller de inbjudna som också gick med. Bjud aldrig in ditt personliga nätverk med det enda målet att få belöning eller avkastning från en produkt eller tjänst. Och bidra inte med egna pengar på uppmaning av andra för att skynda på processen.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="prisutlottningar">Prisutlottningar</h2>
+        <p>I likhet med gratis gåvor lurar prisutlottningar människor att vidta någon åtgärd eller tillhandahålla information om dem själva. Till exempel uppge namn, adress, e-post och telefonnummer för att få ett pris. Detta kan göra det möjligt för en hackare att använda informationen för att komma åt ett konto genom att utge sig för att vara du.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="pumpa-och-dumpa">Pumpa och dumpa</h2>
+        <p>Lita inte på någon som försöker övertala dig eller andra att investera eftersom de påstår sig veta vad bitcoinpriset kommer att bli. I ett "pumpa-och-dumpa"-upplägg är det en eller flera personer som försöker att artificiellt driva upp (pumpa) priset så att de själva kan sälja av (dumpa) sitt innehav med vinst.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="utpressningstrojan">Utpressningstrojan</h2>
+        <p>Detta är en typ av skadlig programvara som helt eller delvis blockerar åtkomst till en enhet om du inte betalar en lösensumma i bitcoin. Det är bättre att be en datorexpert du litar på om hjälp att lösa problemet än att betala lösensumman. Var försiktig när du installerar nya program på dina enheter, särskilt de som begär administratörsrättigheter. Se också till att dubbelkolla att det program du laddar ner inte är en falsk version som imiterar en äkta version du använt tidigare.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="bedragerivalutor">Bedrägerivalutor</h2>
+        <p>Var försiktig när du investerar i alternativa valutor (altcoins). Bland alla alternativvalutor kan det finnas bedrägerier, som lockar användare att investera via privata erbjudanden, eller ge rabatt till den som går med tidigt. Bedrägerivalutor kan ha en prålig webbplats och/eller skryta om en stor community för att skapa effekten av oro för att gå miste om något hos de människor som upptäcker valutan. Detta gör det möjligt för tidiga innehavare att driva upp priset så att de kan sälja all sin valuta och ta hem en vinst. En bedrägerivaluta utan stor community kan göra en s.k. airdrop, då de erbjuder gratis mynt (eller token) till människor mot att de går med i valutans community. Detta gör att bedrägerivalutor kan visa upp sina initiativ med överdrivna popularitetssiffror för att få investerare att känna att de är på väg att gå miste om en bra tillfällighet. Bedrägerivalutor kan också använda ordet Bitcoin för att lura eller vilseleda människor till att tro att det finns en legitim koppling.</p>
+      </div>
+      
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/sv/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Stöd Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Donera</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">Inledning:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/sv/bitcoin-for-privatpersoner">Privatpersoner</a>
+        </li>
+        <li>
+          <a href="/sv/bitcoin-for-foretag">Företag</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">Utvecklare</a>
+        </li>
+        <li>
+          <a href="/sv/kom-igang">Kom igång</a>
+        </li>
+        <li>
+          <a href="/sv/hur-det-fungerar">Hur det fungerar</a>
+        </li>
+        <li>
+          <a href="/sv/du-behover-kanna-till">Du behöver känna till</a>
+        </li>
+        
+        <li>
+          <a href="/sv/bitcoinartikel">Vitbok</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">Resurser:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/sv/resurser">Resurser</a>
+        <li>
+          <a href="/sv/borser">Börser</a>
+        </li>
+        <li>
+          <a href="/sv/community">Community</a>
+        </li>
+        <li>
+          <a href="/sv/ordlista">Ordlista
+          </a>
+        </li>
+        <li>
+          <a href="/sv/evenemang">Evenemang</a>
+        </li>
+        
+          <li>
+            <a href="/sv/ladda-ner">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">Delta:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/sv/stod-bitcoin">Stöd Bitcoin</a>
+        
+        
+        <li>
+          <a href="/sv/utveckling">Utveckling</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Övrigt:</p>
+      
+      <a href="/sv/juridiskt">Juridiskt</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/sv/press">Press</a>
+      <a href="/sv/om-oss">Om bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>En communitywebbplats sponsrad av</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 Publicerad under <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT-licensen</a></div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Nätverksstatus</a>
+        
+<ul class="lang is-expand">
+  <li><a>Svenska</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/scam">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/estafes">Català</a></li>
+        
+        
+          <li><a href="/da/">Dansk</a></li>
+        
+        
+          <li><a href="/de/scams">Deutsch</a></li>
+        
+        
+          <li><a href="/en/scams">English</a></li>
+        
+        
+          <li><a href="/es/">Español</a></li>
+        
+        
+          <li><a href="/fr/">Français</a></li>
+        
+        
+          <li><a href="/it/truffe">Italiano</a></li>
+        
+        
+          <li><a href="/hu/atveresek">Magyar</a></li>
+        
+        
+          <li><a href="/nl/oplichtingspraktijken">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/fraudes">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/">Română</a></li>
+        
+        
+          <li><a href="/sl/">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/prevare">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/bedragerier" class="active">Svenska</a></li>
+        
+        
+          <li><a href="/tr/">Türkçe</a></li>
+        
+        
+          <li><a href="/el/">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/">български</a></li>
+        
+        
+          <li><a href="/ru/">Русский</a></li>
+        
+        
+          <li><a href="/uk/">Українська</a></li>
+        
+        
+          <li><a href="/ar/">العربية</a></li>
+        
+        
+          <li><a href="/fa/">فارسی</a></li>
+        
+        
+          <li><a href="/he/">עברית</a></li>
+        
+        
+          <li><a href="/hi/">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/">한국어</a></li>
+        
+        
+          <li><a href="/ja/scams">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/scam" >Bahasa Indonesia</option>
+              
+              <option value="/ca/estafes" >Català</option>
+              
+              <option value="/da/" >Dansk</option>
+              
+              <option value="/de/scams" >Deutsch</option>
+              
+              <option value="/en/scams" >English</option>
+              
+              <option value="/es/" >Español</option>
+              
+              <option value="/fr/" >Français</option>
+              
+              <option value="/it/truffe" >Italiano</option>
+              
+              <option value="/hu/atveresek" >Magyar</option>
+              
+              <option value="/nl/oplichtingspraktijken" >Nederlands</option>
+              
+              <option value="/pl/" >Polski</option>
+              
+              <option value="/pt_BR/fraudes" >Português Brasil</option>
+              
+              <option value="/ro/" >Română</option>
+              
+              <option value="/sl/" >Slovenščina</option>
+              
+              <option value="/sr/prevare" >Srpski</option>
+              
+              <option value="/sv/bedragerier"  selected="selected">Svenska</option>
+              
+              <option value="/tr/" >Türkçe</option>
+              
+              <option value="/el/" >Ελληνικά</option>
+              
+              <option value="/bg/" >български</option>
+              
+              <option value="/ru/" >Русский</option>
+              
+              <option value="/uk/" >Українська</option>
+              
+              <option value="/ar/" >العربية</option>
+              
+              <option value="/fa/" >فارسی</option>
+              
+              <option value="/he/" >עברית</option>
+              
+              <option value="/hi/" >हिन्दी</option>
+              
+              <option value="/ko/" >한국어</option>
+              
+              <option value="/ja/scams" >日本語</option>
+              
+              <option value="/zh_CN/" >简体中文</option>
+              
+              <option value="/zh_TW/" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">sv</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+  <script>updateToc();</script>
+<script>accordion();</script>
+<script>onScrollButton();</script>
+<script>boxShow();</script>
+
+
+
+
+
+</body>
+
+</html>

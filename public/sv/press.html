@@ -1,0 +1,917 @@
+<!DOCTYPE HTML>
+<html lang="sv">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Press - Bitcoin</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org är ett projekt som finansieras av sin community. Donationer tas tacksamt emot och används för att förbättra webbplatsen.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Gör en donation
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org behöver din hjälp!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Donera till Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">Använd denna QR-kod eller adressen nedan</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Eller eget belopp? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Eller eget belopp? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Valfri beskrivning (för din plånbok)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/sv/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">Inledning</a>
+    <ul>
+      <li><a href="/sv/bitcoin-for-privatpersoner">Privatpersoner</a></li>
+      <li><a href="/sv/bitcoin-for-foretag">Företag</a></li>
+      <li><a href="https://developer.bitcoin.org/">Utvecklare</a></li>
+      <li><a href="/sv/kom-igang">Kom igång</a></li>
+      <li><a href="/sv/hur-det-fungerar">Hur det fungerar</a></li>
+      
+      <li><a href="/sv/bitcoinartikel">Vitbok</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">Resurser</a>
+    <ul>
+      <li><a href="/sv/resurser">Resurser</a>
+      <li><a href="/sv/borser">Börser</a></li>
+      <li><a href="/sv/community">Community</a></li>
+      
+      
+      <li><a href="/sv/ordlista">Ordlista</a></li>
+      <li><a href="/sv/evenemang">Evenemang</a></li>
+      
+        <li><a href="/sv/ladda-ner">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/sv/innovation">Innovation</a></li>
+  <li><a class="is-expand">Delta</a>
+    <ul>
+      <li><a href="/sv/stod-bitcoin">Stöd Bitcoin</a>
+      <li><a href="/sv/kop">Köp Bitcoin</a></li>
+      
+      <li><a href="/sv/utveckling">Utveckling</a></li>
+    </ul>
+  </li>
+  <li><a href="/sv/faq">FAQ</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>Svenska</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/pers">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/premsa">Català</a></li>
+        
+        
+          <li><a href="/da/presse">Dansk</a></li>
+        
+        
+          <li><a href="/de/presse">Deutsch</a></li>
+        
+        
+          <li><a href="/en/press">English</a></li>
+        
+        
+          <li><a href="/es/prensa">Español</a></li>
+        
+        
+          <li><a href="/fr/presse">Français</a></li>
+        
+        
+          <li><a href="/it/stampa">Italiano</a></li>
+        
+        
+          <li><a href="/hu/sajto">Magyar</a></li>
+        
+        
+          <li><a href="/nl/pers">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/prasa">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/imprensa">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/presa">Română</a></li>
+        
+        
+          <li><a href="/sl/mediji">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/mediji">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/press" class="active">Svenska</a></li>
+        
+        
+          <li><a href="/tr/basin">Türkçe</a></li>
+        
+        
+          <li><a href="/el/press">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/press">български</a></li>
+        
+        
+          <li><a href="/ru/press">Русский</a></li>
+        
+        
+          <li><a href="/uk/press">Українська</a></li>
+        
+        
+          <li><a href="/ar/press">العربية</a></li>
+        
+        
+          <li><a href="/fa/press">فارسی</a></li>
+        
+        
+          <li><a href="/he/press">עברית</a></li>
+        
+        
+          <li><a href="/hi/press">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/press">한국어</a></li>
+        
+        
+          <li><a href="/ja/press">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/press">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/press">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/pers" >Bahasa Indonesia</option>
+            
+            <option value="/ca/premsa" >Català</option>
+            
+            <option value="/da/presse" >Dansk</option>
+            
+            <option value="/de/presse" >Deutsch</option>
+            
+            <option value="/en/press" >English</option>
+            
+            <option value="/es/prensa" >Español</option>
+            
+            <option value="/fr/presse" >Français</option>
+            
+            <option value="/it/stampa" >Italiano</option>
+            
+            <option value="/hu/sajto" >Magyar</option>
+            
+            <option value="/nl/pers" >Nederlands</option>
+            
+            <option value="/pl/prasa" >Polski</option>
+            
+            <option value="/pt_BR/imprensa" >Português Brasil</option>
+            
+            <option value="/ro/presa" >Română</option>
+            
+            <option value="/sl/mediji" >Slovenščina</option>
+            
+            <option value="/sr/mediji" >Srpski</option>
+            
+            <option value="/sv/press"  selected="selected">Svenska</option>
+            
+            <option value="/tr/basin" >Türkçe</option>
+            
+            <option value="/el/press" >Ελληνικά</option>
+            
+            <option value="/bg/press" >български</option>
+            
+            <option value="/ru/press" >Русский</option>
+            
+            <option value="/uk/press" >Українська</option>
+            
+            <option value="/ar/press" >العربية</option>
+            
+            <option value="/fa/press" >فارسی</option>
+            
+            <option value="/he/press" >עברית</option>
+            
+            <option value="/hi/press" >हिन्दी</option>
+            
+            <option value="/ko/press" >한국어</option>
+            
+            <option value="/ja/press" >日本語</option>
+            
+            <option value="/zh_CN/press" >简体中文</option>
+            
+            <option value="/zh_TW/press" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">sv</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>Presscenter</h1>
+    
+      <p class="summarytxt">Hitta intervjuade personer, svar på vanliga frågor och pressmaterial av hög kvalitet.</p>
+    
+  </div>
+</div>
+
+<div class="toc-container">
+  <div class="row toc-row">
+
+    <div id="toc" class="toc">
+      <div>
+        <button class="mob-sidebar-open" hidden>View All</button>
+        <div class="sidebar">
+          <div class="sidebar-inner">
+            <button class="mob-sidebar-close" hidden></button>
+            
+
+<ul>
+  <li><a href="#volunteer">Intervjuade personer</a></li>
+  <li><a href="#layout">FAQ</a>
+    <ul>
+      <li><a href="#whatisbitcoin">Vad är Bitcoin?</a></li>
+      <li><a href="#howitworks">Hur fungerar Bitcoin?</a></li>
+      <li><a href="#whatismining">Vad är Bitcoingrävning?</a></li>
+      <li><a href="#acquire">Hur får man tag på bitcoin?</a></li>
+      <li><a href="#used">Används Bitcoin verkligen av någon?</a></li>
+      <li><a href="#makepayment">Hur svårt är det att göra en Bitcoinbetalning?</a></li>
+      <li><a href="#advantages">Vilka är fördelarna med Bitcoin?</a></li>
+      <li><a href="#disadvantages">Vilka är nackdelarna med Bitcoin?</a></li>
+      <li><a href="#secure">Är Bitcoin säkert?</a></li>
+      <li><a href="#islegal">Är Bitcoin lagligt?</a></li>
+      <li><a href="#taxes">Hur fungerar Bitcoin och skatter?</a></li>
+      <li><a href="#illegalactivities">Är Bitcoin användbart för illegala aktiviteter?</a></li>
+      <li><a href="#bubble">Är Bitcoin en bubbla?</a></li>
+      <li><a href="#whyvalue">Varför har bitcoin värde?</a></li>
+      <li><a href="#ponzi">Är Bitcoin ett ponzibedrägeri?</a></li>
+      <li><a href="#creator">Vem skapade Bitcoin?</a></li>
+      <li><a href="#worthless">Kan bitcoin bli värdelösa?</a></li>
+      <li><a href="#virtual">Är Bitcoin helt virtuellt och immateriellt?</a></li>
+      <li><a href="#trust">Hur kan man ha förtroende för Bitcoin?</a></li>
+      <li><a href="#anonymous">Är Bitcoin anonymt?</a></li>
+    </ul>
+  </li>
+</ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toccontent">
+      <div class="toccontent-intro">
+  <h2 id="volunteer">Intervjuade personer</h2>
+  <p>Ta kontakt med <a href="https://www.bitgivefoundation.org">BitGive</a>, <a href="https://bitcoincore.org/en/contact">Bitcoin Core-projektet</a> eller lokala <a href="/sv/community#ideell">ideella organisationer</a>.</p>
+</div>
+
+<div class="toccontent-block boxexpand expanded">
+  <h2 id="layout">FAQ</h2>
+  <div class="press-faq">
+    <div>
+      <h3 id="whatisbitcoin" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Vad är Bitcoin?</h3>
+      <div>
+        <p>Bitcoin är ett konsensusnätverk som möjliggör ett nytt betalningssystem och en helt digital valuta. Det är det första decentraliserade icke-hierarkiska betalningsnätverk som drivs av sina användare utan någon central auktoritet eller några mellanhänder. Ur en användares perspektiv är Bitcoin ungefär som kontanter för Internet. Bitcoin kan också ses som det mest dominerande <a href="http://financialcryptography.com/mt/archives/001325.html">systemet för trippel bokföring</a> som existerar.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="howitworks" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Hur fungerar Bitcoin?</h3>
+      <div>
+        <p>Ur ett användarperspektiv är Bitcoin inget annat än en mobilapp eller datorprogram som tillhandahåller en personlig Bitcoinplånbok, och låter en användare skicka och ta emot bitcoin med den. Så fungerar Bitcoin för de allra flesta.</p>
+        <p>Bakom kulisserna använder Bitcoinnätverket en delad offentlig liggare som kallas "blockkedjan". Denna liggare innehåller alla transaktioner som någonsin har utförts, vilket gör det möjligt för en användares dator att verifiera giltigheten hos varje transaktion. Äktheten hos varje transaktion skyddas av digitala signaturer som motsvarar avsändaradresserna, vilket gör att varje användare har full kontroll när det gäller att skicka bitcoin från deras egna Bitcoinadresser. Dessutom kan vem som helst bearbeta transaktioner genom att använda beräkningskraften hos speciellt utvecklad hårdvara och få betalt i bitcoin för detta arbete. Detta kallas ofta "grävning". För att lära dig mer om Bitcoin kan du besöka den <a href="/sv/hur-det-fungerar">avsedda sidan</a> för detta och <a href="/sv/bitcoinartikel">originalartikeln</a>.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="whatismining" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Vad är Bitcoingrävning?</h3>
+      <div>
+        <p>Grävning är processen att använda datorkraft för att bearbeta transaktioner, säkra nätverket, och hålla alla i systemet synkroniserade med varandra. Det kan betraktas som ett datacenter för Bitcoin med den skillnaden att det har utformats till att vara helt decentraliserat, med grävare som arbetar i alla länder och där ingen enskild individ har kontroll över nätverket. Denna process kallas "grävning" eller "brytning" som en analogi till guldgrävning eller guldbrytning, eftersom det också är en tillfällig mekanism för att ge ut nya bitcoin. Till skillnad från guldbrytning ger Bitcoinbrytning en belöning i utbyte mot nyttiga tjänster som krävs för att driva ett säkert betalningsnätverk. Det kommer fortfarande att krävas grävning efter att den sista bitcoin har utgivits.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="acquire" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Hur får man tag på bitcoin?</h3>
+      <div>
+        <ul>
+          <li>Som betalning för varor eller tjänster.</li>
+          <li>Genom att köpa bitcoin på en  <a href="http://howtobuybitcoins.info">Bitcoinbörs</a>.</li>
+          <li>Växla till sig bitcoin med <a href="https://localbitcoins.com/">någon i närheten</a>.</li>
+          <li>Tjäna bitcoin genom konkurrensutsatt  <a href="http://www.bitcoinmining.com/">grävning</a>.</li>
+        </ul>
+        <p>Det går kanske att hitta privatpersoner som vill sälja bitcoin mot betalning med kreditkort eller PayPal, men de flesta valutabörser accepterar inte betalning med dessa metoder. Det har hänt att någon köper bitcoin med PayPal och sedan häver sin del av transaktionen. Det brukar kallas "chargeback".</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="used" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Används Bitcoin verkligen av någon?</h3>
+      <div>
+        <p>Ja. Det finns ett <a href="http://usebitcoins.info/">växande antal företag</a> och privatpersoner som använder Bitcoin. Detta inkluderar vanliga företag som restauranger, hyresvärder och advokatbyråer, såväl som populära nättjänster som Namecheap and Overstock.com. Även om Bitcoin fortfarande är ett ganska nytt fenomen, växer det snabbt. I maj 2018 överskred <a href="https://bitcoincharts.com/bitcoin/">det sammanlagda värdet av alla existerande bitcoin</a>100 miljarder US dollar, och bitcoin till ett värde av många miljoner bytte ägare varje dag. </p>
+        <p>
+          <img style="height:165px;width:380px;" src="/img/faq/merchants_map.png?1651746487" alt="Screenshot">
+        </p>
+      </div>
+    </div>
+    <div>
+      <h3 id="makepayment" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Hur svårt är det att göra en Bitcoinbetalning?</h3>
+      <div>
+        <p>Det är lättare att göra en bitcoinbetalning än att köpa något med betal- eller kreditkort, och betalningen kan tas emot utan något speciellt handlarkonto. Betalningar görs från en plånboksapp, antingen på datorn eller smarttelefonen, genom att man anger mottagarens adress och betalningens belopp och sedan trycker på skicka. För att göra det lättare att skriva mottagarens adress kan många plånböcker läsa in adressen genom att skanna en QR-kod, eller låta två telefoner med NFC-teknik vidröra varandra.</p>
+        <p>
+          <img src="/img/faq/mobile_send.png?1651746487" style="height:325px;width:190px;" alt="Screenshot">
+          <img src="/img/faq/mobile_receive.png?1651746487" style="height:325px;width:190px;" alt="Screenshot">
+        </p>
+      </div>
+    </div>
+    <div>
+      <h3 id="advantages" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Vilka är fördelarna med Bitcoin?</h3>
+      <div>
+        <ul>
+          <li><em><b>Betalningsfrihet</b></em> - Det går att skicka och ta emot bitcoin var som helst i världen, när som helst. Inga semestrar. Inga landsgränser. Ingen byråkrati. Bitcoin låter sina användare ha full kontroll över sina pengar.
+</li>
+          <li><em><b>Välj dina egna avgifter</b></em> - Det kostar ingenting att ta emot bitcoin, och många plånböcker låter dig styra hur stor avgift som ska betalas när du skickar bitcoin. En högre avgift kan göra att dina transaktioner <a href="/sv/du-behover-kanna-till#instant">bekräftas</a> snabbare av nätverket. Avgiften har inget att göra med det belopp som överförs, så det går att skicka 100 000 bitcoin för samma avgift som det kostar att skicka 1 bitcoin. Dessutom finns det betalningshanterare som hjälper handlare att bearbeta transaktioner genom att konvertera bitcoin till fiatvaluta och dagligen sätta in pengar direkt på handlarens bankkonto. Eftersom dessa tjänster baseras på Bitcoin kan de erbjudas till mycket lägre kostnad än PayPal och kreditkortsnätverk.
+</li>
+          <li><em><b>Färre risker för handlare</b></em> - Bitcointransaktioner är säkra, de går inte att häva och innehåller inte någon personlig eller känslig information om kunden. Handlare skyddas därför från bedrägerier eller "chargebacks" och det finns inget behov att följa PCI. Handlare kan enkelt expandera till nya marknader där kreditkort antingen inte används eller bedrägerinivåerna är för höga. Resultatet är lägre avgifter, större marknad och minskade administrativa kostnader.</li>
+          <li><em><b>Säkerhet och kontroll</b></em> - Bitcoinanvändare har full kontroll över sina transaktioner. Det är omöjligt för en handlare att tvinga på dig oönskade eller osynliga avgifter, vilket är något som kan ske med andra betalningsmetoder. Bitcoinbetalningar kan göras utan att någon personlig information knyts till transaktionen. Det ger ett starkt skydd mot identitetsstöld. Bitcoinanvändare kan också skydda sina pengar genom säkerhetskopiering och kryptering.</li>
+          <li><em><b>Transparens och neutralitet</b></em> - <a href="https://live.blockcypher.com/btc/">All information</a> som gäller Bitcoins penningmängd finns tillgänglig på blockkedjan och går att verifiera och använda i realtid av vem som helst. Ingen individ eller organisation kan styra eller manipulera Bitcoinprotokollet eftersom det säkras av kryptografi. Det gör att man kan lita på att Bitcoins centrala funktion är helt neutral, transparent och förutsägbar.</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3 id="disadvantages" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Vilka är nackdelarna med Bitcoin?</h3>
+      <div>
+        <ul>
+          <li><em><b>Graden av acceptans</b></em> - Många känner fortfarande inte till Bitcoin. Varje dag så är det fler företag som accepterar bitcoin eftersom de vill åt fördelarna i att göra så.  Dock är det fortfarande ett litet antal företag och de behöver bli fler för att kunna dra nytta av <a href="https://en.wikipedia.org/wiki/Network_effect">nätverkseffekter</a>.</li>
+          <li><em><b>Volatilitet</b></em> - Det <a href="https://bitcoincharts.com/bitcoin/">sammanlagda värdet</a> av alla bitcoin i omlopp och antalet företag som använder Bitcoin är fortfarande väldigt litet jämfört med vad de skulle kunna vara. Därför kan relativt små händelser, transaktioner eller företagsaktiviteter signifikant påverka priset. Teoretiskt kommer volatiliteten att minska när Bitcoins marknader och teknologi mognar. Världen har aldrig tidigare sett en start-up valuta, så det är verkligen svårt (och spännande) att föreställa sig hur den kommer utvecklas i framtiden.</li>
+          <li><em><b>Pågående utveckling</b></em> - Bitcoinmjukvaran är fortfarande i beta och har många ofullständiga funktioner som är under aktiv utveckling. Nya verktyg, funktioner och tjänster utvecklas för att göra Bitcoin säkrare och lättare att använda för allmänheten. Några av dessa är inte färdiga för att användas av alla. De flesta Bitcoinföretag är nya och erbjuder inte någon försäkring. Generellt så håller Bitcoin fortfarande på att mogna.</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3 id="secure" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Är Bitcoin säkert?</h3>
+      <div>
+        <p>Bitcointeknologin, alltså protokollet och kryptografin, har historiskt varit mycket säkert och Bitcoinnätverket är förmodligen det största distribuerade beräkningsprojektet i världen. Bitcoins vanligaste sårbarhet är användarfel. Bitcoinplånboksfiler som innehåller de nödvändiga privata nycklarna kan av misstag raderas, förloras eller stjälas. Detta är ganska likt fysiska pengar som förvaras i en digital form. Som tur är kan användare införa goda <a href="/sv/sakra-din-planbok">säkerhetsrutiner</a> för att skydda sina pengar eller använda tjänsteleverantörer som erbjuder en bra säkerhetsnivå och försäkring mot stöld eller förlust.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="islegal" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Är Bitcoin lagligt?</h3>
+      <div>
+        <p>Så vitt vi känner till har de flesta jurisdiktioner <a href="https://en.wikipedia.org/wiki/Legality_of_bitcoin_by_country">inte gjort Bitcoin olagligt</a>. Däremot finns det några jurisdiktioner (som Argentina och Ryssland) som allvarligt begränsar eller förbjuder utländska valutor. Andra jurisdiktioner (som Thailand) kan begränsa möjligheten att få licens för viss typ av verksamhet som till exempel Bitcoinbörser.</p>
+        <p>Tillsynsmyndigheter i olika  jurisdiktioner arbetar för att ta fram regler för privatpersoner och företag för hur den här nya tekniken kan integreras med det formella och reglerade finanssystemet. Till exempel har Financial Crimes Enforcement Network (FinCEN), en avdelning inom Förenta staternas finansministerium, gett ut en icke bindande guide till hur de ser på olika aktiviteter som involverar virtuella valutor.</p>
+        <ul>
+          <li>
+            <a href="https://www.ecb.europa.eu/pub/pdf/other/virtualcurrencyschemes201210en.pdf">Virtual Currency Schemes - European Central Bank</a>
+          </li>
+          <li>
+            <a href="https://www.fincen.gov/statutes_regs/guidance/pdf/FIN-2013-G001.pdf">Application of FinCEN’s Regulations to Persons Administering, Exchanging, or Using Virtual Currencies</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3 id="taxes" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Hur fungerar Bitcoin och skatter?</h3>
+      <div>
+        <p>Bitcoin är inte en fiatvaluta med status som lagligt betalningsmedel i någon jurisdiktion, men skattskyldighet gäller oftast oavsett vilket medium som används. Det finns lagstiftning i många olika jurisdiktioner som kan göra att skattskyldighet på intäkt, försäljning, lön, kapitalvinst, eller liknande uppstår med Bitcoin.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="illegalactivities" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Är Bitcoin användbart för illegala aktiviteter?</h3>
+      <div>
+        <p>Bitcoin är pengar och pengar har alltid använts i både legalt och illegalt syfte. Kontanter, kreditkort och nuvarande banksystem används i mycket större utsträckning än Bitcoin för att finansiera brottslighet. Bitcoin kan bidra med betydande innovation inom betalningssystem och fördelarna med sådan innovation anses ofta vara fler än dess eventuella nackdelar.  </p>
+        <p>Bitcoin är utformat att vara ett stort steg framåt för att göra pengar säkrare att använda och kan också skapa ett starkt skydd mot många former av ekonomisk brottslighet. Det är till exempel helt omöjligt att förfalska bitcoin. Användare har full kontroll och kan inte drabbas av oönskade avgifter, vilket är möjligt med kreditkort. Bitcointransaktioner går inte att häva och är immuna mot bedrägerier med "chargeback". Bitcoin gör det möjligt att skydda pengar mot stöld och förlust, genom att använda starka funktioner som säkerhetskopiering, kryptering och multisignaturer.</p>
+        <p>Viss oro har framförts över att Bitcoin kan vara attraktivt för brottslingar, eftersom det kan användas för att göra privata betalningar som inte kan hävas. Detta kan man dock redan uppnå med kontanter och elektroniska banköverföringar, vilka är utbredda och väletablerade. Bitcoin kommer garanterat att utsättas för liknande reglering som redan finns i rådande finansiella system och Bitcoin kommer knappast sätta stopp för någon brottsutredning. Det är vanligt att stora genombrott uppfattas som kontroversiella innan deras fördelar är välkända. Internet är ett bra exempel bland många andra för att illustrera detta.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="bubble" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Är Bitcoin en bubbla?</h3>
+      <div>
+        <p>En snabb ökning av priset är i sig inte en bubbla. En artificiell övervärdering som leder till en plötsligt korrigering nedåt är en bubbla. De val som görs av hundratusentals individer som handlar med bitcoin får priset att variera när marknaden söker stabilitet. Olika anledningar till att attityden till bitcoin förändras kan vara förlust av förtroende för Bitcoin, stor skillnad mellan värde och pris som inte baseras på fundamenta hos Bitcoinekonomin, ökad uppmärksamhet i media som kan skapa spekulativ efterfrågan, rädsla för osäkerhet, och traditionell "irrationell entusiasm" och girighet.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="whyvalue" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Varför har bitcoin värde?</h3>
+      <div>
+        <p>Bitcoin har ett värde eftersom de kan användas som en form av pengar. Bitcoin har samma egenskaper som pengar (beständighet, flyttbarhet, fungibilitet, knapphet, delbarhet, igenkännlighet) baserade på matematiska egenskaper istället för att vara beroende av fysiska egenskaper (som guld och silver) eller tillit till en central auktoritet (som fiatvalutor). Bitcoin bygger kort sagt på matematik. Med dessa attribut är tillit och införande allt som krävs för att en form av pengar ska bevara värde. I Bitcoins fall kan detta mätas i dess växande bas av användare, handlare och startupföretag. Bitcoins värde kommer, i likhet med alla valutor, endast och direkt från personer som är villiga att acceptera bitcoin som betalning.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="ponzi" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Är Bitcoin ett ponzibedrägeri?</h3>
+      <div>
+        <p>Ett ponzibedrägeri är ett investeringsupplägg som betalar utdelning till investerarna från deras egna pengar, eller de pengar som efterföljande investerare betalar in, istället för vinst skapad av de personer som driver verksamheten. Ponzibedrägerier är uppbyggda så att de kollapsar på bekostnad av de sista investerarna, när det inte längre finns tillräckligt många nya deltagare.</p>
+        <p>Bitcoin är ett fritt mjukvaruprojekt utan någon central auktoritet. Därför finns det ingen som är i stånd att göra vilseledande uttalanden om en investerings avkastning. Precis som för andra större valutor, som guld, US dollar, euro, yen, osv. finns det ingen garanterad köpkraft och växelkursen flyter fritt. Det leder till volatilitet där den som äger bitcoin oförutsägbart kan både tjäna och förlora pengar. Utöver spekulation är Bitcoin också ett användbart och konkurrenskraftigt betalningssystem, som används av tusentals privatpersoner och företag.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="creator" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Vem skapade Bitcoin?</h3>
+      <div>
+        <p>Bitcoin är den första implementationen av ett koncept som kallas "kryptovaluta", som först beskrevs 1998 av Wei Dai på e-postlistan cypherpunks. Han presenterade idén om en ny form av pengar som använder kryptografi för att styra utgivning och transaktioner, istället för en central auktoritet. Den första Bitcoinspecifikationen och koncepttestet publicerades 2009 av Satoshi Nakamoto på en kryptografisk e-postlista. Satoshi lämnade projektet sent 2010 utan att avslöja särskilt mycket om sig själv. Communityn har sedan dess vuxit exponentiellt och har <a href="/sv/utveckling">många utvecklare</a> som arbetar på Bitcoin.</p>
+        <p>Satoshis anonymitet har ofta väckt oberättigad oro, till stor del kopplat till missförstånd när det gäller Bitcoins öppna källkod. Bitcoinprotokollet och mjukvaran publiceras öppet och vilken utvecklare som helst i världen kan granska koden och skapa sin egen modifierade version av Bitcoinmjukvaran. Precis som för de nuvarande utvecklarna var Satoshis påverkan begränsad till att de ändringar han gjorde skulle införas av andra och därför styrde han inte Bitcoin. Så identiteten hos Bitcoins skapare är förmodligen lika relevant idag som identiteten hos personen som uppfann pappret.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="worthless" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Kan bitcoin bli värdelösa?</h3>
+      <div>
+        <p>Ja. Historien fylld av valutor som misslyckades och inte längre används, som den <a href="https://en.wikipedia.org/wiki/German_gold_mark">tyska Papiermark</a> under Weimarrepubliken och mer nyligen <a href="https://en.wikipedia.org/wiki/Zimbabwean_dollar">Zimbabwe-dollarn</a>. Även om tidigare valutor oftast gick under på grund av extrem inflation av en typ som är omöjlig med Bitcoin, finns det alltid en risk för tekniska problem, konkurrerande valutor, politiska svårigheter och så vidare. En enkel tumregel är att ingen valuta ska anses som helt säker från misslyckande eller svåra perioder. Bitcoin har visat sig vara tillförlitlig i många år sedan starten och det finns stor potential för Bitcoin att fortsätta växa. Däremot finns det ingen som kan förutsäga hur Bitcoins framtid kommer se ut.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="virtual" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Är Bitcoin helt virtuellt och immateriellt?</h3>
+      <div>
+        <p>Bitcoin är lika virtuellt som de kreditkort och banktjänster på nätet som människor använder varje dag. Bitcoin kan användas för att betala online och i fysiska butiker precis som alla andra former av pengar. Bitcoin kan också användas i fysisk form såsom <a href="https://denarium.com/">Denariummynten</a>, men det är oftast bekvämare att betala med en mobiltelefon. Bitcoinsaldon lagras i ett stort distribuerat nätverk, och de kan inte ändras på ett bedrägligt sätt av någon över huvud taget. Bitcoinanvändare har med andra ord full kontroll över sina medel och bitcoin kan inte försvinna bara för att de är virtuella.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="trust" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Hur kan man ha förtroende för Bitcoin?</h3>
+      <div>
+        <p>Mycket av förtroendet för Bitcoin kommer av det faktum att det inte behövs något förtroende alls. Bitcoins källkod är helt öppen och decentraliserad. Det betyder att vem som helst, när som helst, har tillgång till hela källkoden. Alla utvecklare världen över kan därför verifiera exakt hur Bitcoin fungerar. Alla transaktioner och alla bitcoin som skapas kan följas transparent i realtid av vem som helst. Alla betalningar kan genomföras utan att det krävs någon tredjepart och hela systemet skyddas av expertgranskade kryptografiska algoritmer motsvarande de som används av banker online. Ingen organisation eller enskild individ har kontroll över Bitcoin och nätverket fortsätter att vara säkert trots att det inte går att lita på alla dess användare.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="anonymous" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Är Bitcoin anonymt?</h3>
+      <div>
+        <p>Bitcoin är utformat så att dess användare kan skicka och ta emot betalningar med en godtagbar nivå av sekretess precis som andra former av pengar. Dock är Bitcoin inte anonymt och kan inte erbjuda samma nivå av sekretess som kontanter. Användningen av Bitcoin lämnar omfattande offentliga spår. <a href="/sv/skydda-din-integritet">Olika mekanismer</a> finns för att skydda användarnas integritet, och fler är under utveckling. Men det finns fortfarande mycket arbete kvar innan dessa funktioner används korrekt av de flesta bitcoinanvändare.</p>
+        <p>Viss oro har framförts för att privata bitcointransaktioner skulle kunna användas i olagligt syfte. Det är dock värt att notera att Bitcoin utan tvekan kommer att genomgå liknande reglering som redan gäller i befintliga finansiella system. Bitcoin kan inte vara mer anonymt än kontanter och det är inte troligt att Bitcoin skulle sätta stopp för någon brottsutredning. Dessutom är Bitcoin utformat för att förhindra ett stort antal ekonomiska brott.</p>
+      </div>
+    </div>
+    <p>Läs den fullständiga <a href="/en/faq">FAQ:n</a> eller besök <a href="https://en.bitcoin.it/wiki/Help:FAQ">Bitcoin-wikin</a> för att lära dig mer om Bitcoin.</p>
+  </div>
+</div>
+
+
+
+    </div>
+  </div>
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/sv/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Stöd Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Donera</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">Inledning:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/sv/bitcoin-for-privatpersoner">Privatpersoner</a>
+        </li>
+        <li>
+          <a href="/sv/bitcoin-for-foretag">Företag</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">Utvecklare</a>
+        </li>
+        <li>
+          <a href="/sv/kom-igang">Kom igång</a>
+        </li>
+        <li>
+          <a href="/sv/hur-det-fungerar">Hur det fungerar</a>
+        </li>
+        <li>
+          <a href="/sv/du-behover-kanna-till">Du behöver känna till</a>
+        </li>
+        
+        <li>
+          <a href="/sv/bitcoinartikel">Vitbok</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">Resurser:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/sv/resurser">Resurser</a>
+        <li>
+          <a href="/sv/borser">Börser</a>
+        </li>
+        <li>
+          <a href="/sv/community">Community</a>
+        </li>
+        <li>
+          <a href="/sv/ordlista">Ordlista
+          </a>
+        </li>
+        <li>
+          <a href="/sv/evenemang">Evenemang</a>
+        </li>
+        
+          <li>
+            <a href="/sv/ladda-ner">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">Delta:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/sv/stod-bitcoin">Stöd Bitcoin</a>
+        
+        
+        <li>
+          <a href="/sv/utveckling">Utveckling</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Övrigt:</p>
+      
+      <a href="/sv/juridiskt">Juridiskt</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/sv/press">Press</a>
+      <a href="/sv/om-oss">Om bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>En communitywebbplats sponsrad av</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 Publicerad under <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT-licensen</a></div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Nätverksstatus</a>
+        
+<ul class="lang is-expand">
+  <li><a>Svenska</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/pers">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/premsa">Català</a></li>
+        
+        
+          <li><a href="/da/presse">Dansk</a></li>
+        
+        
+          <li><a href="/de/presse">Deutsch</a></li>
+        
+        
+          <li><a href="/en/press">English</a></li>
+        
+        
+          <li><a href="/es/prensa">Español</a></li>
+        
+        
+          <li><a href="/fr/presse">Français</a></li>
+        
+        
+          <li><a href="/it/stampa">Italiano</a></li>
+        
+        
+          <li><a href="/hu/sajto">Magyar</a></li>
+        
+        
+          <li><a href="/nl/pers">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/prasa">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/imprensa">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/presa">Română</a></li>
+        
+        
+          <li><a href="/sl/mediji">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/mediji">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/press" class="active">Svenska</a></li>
+        
+        
+          <li><a href="/tr/basin">Türkçe</a></li>
+        
+        
+          <li><a href="/el/press">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/press">български</a></li>
+        
+        
+          <li><a href="/ru/press">Русский</a></li>
+        
+        
+          <li><a href="/uk/press">Українська</a></li>
+        
+        
+          <li><a href="/ar/press">العربية</a></li>
+        
+        
+          <li><a href="/fa/press">فارسی</a></li>
+        
+        
+          <li><a href="/he/press">עברית</a></li>
+        
+        
+          <li><a href="/hi/press">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/press">한국어</a></li>
+        
+        
+          <li><a href="/ja/press">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/press">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/press">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/pers" >Bahasa Indonesia</option>
+              
+              <option value="/ca/premsa" >Català</option>
+              
+              <option value="/da/presse" >Dansk</option>
+              
+              <option value="/de/presse" >Deutsch</option>
+              
+              <option value="/en/press" >English</option>
+              
+              <option value="/es/prensa" >Español</option>
+              
+              <option value="/fr/presse" >Français</option>
+              
+              <option value="/it/stampa" >Italiano</option>
+              
+              <option value="/hu/sajto" >Magyar</option>
+              
+              <option value="/nl/pers" >Nederlands</option>
+              
+              <option value="/pl/prasa" >Polski</option>
+              
+              <option value="/pt_BR/imprensa" >Português Brasil</option>
+              
+              <option value="/ro/presa" >Română</option>
+              
+              <option value="/sl/mediji" >Slovenščina</option>
+              
+              <option value="/sr/mediji" >Srpski</option>
+              
+              <option value="/sv/press"  selected="selected">Svenska</option>
+              
+              <option value="/tr/basin" >Türkçe</option>
+              
+              <option value="/el/press" >Ελληνικά</option>
+              
+              <option value="/bg/press" >български</option>
+              
+              <option value="/ru/press" >Русский</option>
+              
+              <option value="/uk/press" >Українська</option>
+              
+              <option value="/ar/press" >العربية</option>
+              
+              <option value="/fa/press" >فارسی</option>
+              
+              <option value="/he/press" >עברית</option>
+              
+              <option value="/hi/press" >हिन्दी</option>
+              
+              <option value="/ko/press" >한국어</option>
+              
+              <option value="/ja/press" >日本語</option>
+              
+              <option value="/zh_CN/press" >简体中文</option>
+              
+              <option value="/zh_TW/press" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">sv</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+  <script>updateToc();</script>
+<script>accordion();</script>
+<script>onScrollButton();</script>
+<script>boxShow();</script>
+
+
+
+</body>
+
+</html>

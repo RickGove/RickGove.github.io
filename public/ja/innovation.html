@@ -1,0 +1,765 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>革新 - ビットコイン</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.orgはコミュニティの支援金によって成り立つプロジェクトであり、頂いた寄付は、本ウェブサイトの改善に使用します。
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        寄付する
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.orgにはサポートが必要です！
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Bitcoin.orgに寄付する</p>
+    </div>
+    <p class="modal-subheader">このQRコードまたは以下のアドレスを使用する</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="または自分で金額を設定しますか？ (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="または自分で金額を設定しますか？ (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="（各ユーザーのウォレットのための）追加の記述"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/ja/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">紹介</a>
+    <ul>
+      <li><a href="/ja/bitcoin-for-individuals">個人</a></li>
+      <li><a href="/ja/bitcoin-for-businesses">ビジネス</a></li>
+      <li><a href="https://developer.bitcoin.org/">開発者</a></li>
+      <li><a href="/ja/getting-started">開始する</a></li>
+      <li><a href="/ja/how-it-works">ビットコインの仕組み</a></li>
+      
+      <li><a href="/ja/bitcoin-paper">ホワイトペーパー</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">リソース</a>
+    <ul>
+      <li><a href="/ja/resources">リソース</a>
+      <li><a href="/ja/exchanges">取引所</a></li>
+      <li><a href="/ja/community">コミュニティ</a></li>
+      
+      
+      <li><a href="/ja/vocabulary">用語</a></li>
+      <li><a href="/ja/events">イベント</a></li>
+      
+        <li><a href="/ja/download">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li class="active"><a href="/ja/innovation">革新</a></li>
+  <li><a class="is-expand">参加</a>
+    <ul>
+      <li><a href="/ja/support-bitcoin">ビットコインを支援</a>
+      <li><a href="/ja/buy">ビットコインを購入</a></li>
+      
+      <li><a href="/ja/development">開発</a></li>
+    </ul>
+  </li>
+  <li><a href="/ja/faq">よくある質問</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>日本語</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/inovasi">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/innovacio">Català</a></li>
+        
+        
+          <li><a href="/da/innovation">Dansk</a></li>
+        
+        
+          <li><a href="/de/innovation">Deutsch</a></li>
+        
+        
+          <li><a href="/en/innovation">English</a></li>
+        
+        
+          <li><a href="/es/innovacion">Español</a></li>
+        
+        
+          <li><a href="/fr/innovation">Français</a></li>
+        
+        
+          <li><a href="/it/innovazione">Italiano</a></li>
+        
+        
+          <li><a href="/hu/innovacio">Magyar</a></li>
+        
+        
+          <li><a href="/nl/innovatie">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/innowacje">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/inovacao">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/inovatie">Română</a></li>
+        
+        
+          <li><a href="/sl/inovacije">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/inovacija">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/innovation">Svenska</a></li>
+        
+        
+          <li><a href="/tr/yenilik">Türkçe</a></li>
+        
+        
+          <li><a href="/el/innovation">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/innovation">български</a></li>
+        
+        
+          <li><a href="/ru/innovation">Русский</a></li>
+        
+        
+          <li><a href="/uk/innovation">Українська</a></li>
+        
+        
+          <li><a href="/ar/innovation">العربية</a></li>
+        
+        
+          <li><a href="/fa/innovation">فارسی</a></li>
+        
+        
+          <li><a href="/he/innovation">עברית</a></li>
+        
+        
+          <li><a href="/hi/innovation">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/innovation">한국어</a></li>
+        
+        
+          <li><a href="/ja/innovation" class="active">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/innovation">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/innovation">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/inovasi" >Bahasa Indonesia</option>
+            
+            <option value="/ca/innovacio" >Català</option>
+            
+            <option value="/da/innovation" >Dansk</option>
+            
+            <option value="/de/innovation" >Deutsch</option>
+            
+            <option value="/en/innovation" >English</option>
+            
+            <option value="/es/innovacion" >Español</option>
+            
+            <option value="/fr/innovation" >Français</option>
+            
+            <option value="/it/innovazione" >Italiano</option>
+            
+            <option value="/hu/innovacio" >Magyar</option>
+            
+            <option value="/nl/innovatie" >Nederlands</option>
+            
+            <option value="/pl/innowacje" >Polski</option>
+            
+            <option value="/pt_BR/inovacao" >Português Brasil</option>
+            
+            <option value="/ro/inovatie" >Română</option>
+            
+            <option value="/sl/inovacije" >Slovenščina</option>
+            
+            <option value="/sr/inovacija" >Srpski</option>
+            
+            <option value="/sv/innovation" >Svenska</option>
+            
+            <option value="/tr/yenilik" >Türkçe</option>
+            
+            <option value="/el/innovation" >Ελληνικά</option>
+            
+            <option value="/bg/innovation" >български</option>
+            
+            <option value="/ru/innovation" >Русский</option>
+            
+            <option value="/uk/innovation" >Українська</option>
+            
+            <option value="/ar/innovation" >العربية</option>
+            
+            <option value="/fa/innovation" >فارسی</option>
+            
+            <option value="/he/innovation" >עברית</option>
+            
+            <option value="/hi/innovation" >हिन्दी</option>
+            
+            <option value="/ko/innovation" >한국어</option>
+            
+            <option value="/ja/innovation"  selected="selected">日本語</option>
+            
+            <option value="/zh_CN/innovation" >简体中文</option>
+            
+            <option value="/zh_TW/innovation" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">ja</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>支払いシステムの革新</h1>
+    <p class="summarytxt">ビットコインは、単にお金を送付するためだけのものではなく、様々な機能があり、コミュニティによって未だ探索されている多くの可能性を秘めています。調査が進められている技術、あるいは、実際の商品やサービスとなった技術としては、以下の様なものが挙げられます。ビットコインの最も面白い用途は、まだ見出されていないのかもしれません。</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row card-row">
+
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/ico_control.svg?1651746487" alt="Icon" />
+      <h2 id="control">詐欺に対する管理</h2>
+      <p>ビットコインの使用により、かつてないほど安全に取引や保管ができます。このネットワークは、支払取消や不要な手数料の請求の様な典型的な詐欺の多くを防ぎ、ビットコインの複製もできません。ユーザーはウォレットのバックアップを取ったり暗号化したりする事ができ、ハードウェアウォレットを使用すれば、資産が盗まれたり紛失したりする事も困難となります。つまり、ビットコインは、ユーザーが資産を完全にコントロールできる様に設計されているのです。</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/accessibility.svg?1651746487" alt="Icon" />
+      <h2 id="global">世界中とのアクセス</h2>
+      <p>ビットコインを使用する事により、世界中全ての支払いを完全に相互運用する事ができます。ビットコインでは、銀行、事業者または個人が、それぞれの銀行口座の有無に関わらず、いつでもどこでも安全に支払いを送受信する事ができます。 ビットコインは、独自の制限のために支払い手段が限定されている国々でも使用できます。 ビットコインは、商業へのグローバルなアクセスを向上させ、国際取引の繁栄に貢献します。</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/efficiency.svg?1651746487" alt="Icon" />
+      <h2 id="cost">費用対効果</h2>
+      <p>暗号手法の使用により、遅延が生じる事無く、費用が掛かる仲介者も無しに、安全な決済が可能になります。もちろん代替えとなるサービスも存在しますが、ビットコインの取引はそれよりも安く、短時間で完了します。つまり、ビットコインは、どんな通貨も送金できる一般的手段になる可能性を秘めているのです。ビットコインが、労働者の給与に対する高すぎる手数料を削減し、多くの国々の<a href="https://www.youtube.com/watch?v=BrRXP1tp6Kw">貧困削減</a>の役割を担う事も考えられます。</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/donation.svg?1651746487" alt="Icon" />
+      <h2 id="donation">チップと寄付金</h2>
+      <p>ビットコインは、特にチップや寄付金を集めるのに効果的です。ワンクリックで支払の送信ができ、QRコードの表示だけで寄付金を受信できます。寄付金は公開されるため、非営利団体の透明性を高めます。天災等の緊急時にビットコインを使用すれば、迅速に国際協力を得る事ができます。</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/crowdfunding.svg?1651746487" alt="Icon" />
+      <h2 id="crowdfunding">クラウドファンディング</h2>
+      <p>ビットコインは、プロジェクトに対する寄付の申し出合計額が目標金額に達した場合にのみ、その申し出額が引き取られる、Kickstarterの様なクラウドファンディング・キャンペーンに使用する事ができます。こうした保証契約は、ビットコイン・プロトコルによって処理され、状況に見合うまで取引が留保されます。クラウドファンディングで使用されている技術については、<a href="https://en.bitcoin.it/wiki/Contracts#Example_3:_Assurance_contracts">こちらの詳細</a> をご覧ください。</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/micro-payments.svg?1651746487" alt="Icon" />
+      <h2 id="micro">マイクロペイメント</h2>
+      <p>1秒ごとに支払われるインターネットラジオを聞いたり、少額の支払いにより広告が表示されないWEBページを見たり、WiFiのホットスポットから1キロバイト毎に帯域幅を購入する事を想像してみてください。ビットコインによりこうしたアイデアが可能となります。ビットコインの<a href="https://bitcoinj.github.io/working-with-micropayments">マイクロペイメントを支える技術</a>、またはマイクロペイメントをより使いやすくするために、現在設計され実装されている、<a href="http://lightning.network/">将来のアップグレード</a>の詳細をご覧ください。
+</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/mediation.svg?1651746487" alt="Icon" />
+      <h2 id="mediation">紛争に対する調停</h2>
+      <p>ビットコインは、マルチシグを使用した革新的な紛争調停サービスの開発に使用する事ができます。こうしたサービスは、取引に関わる者同士の間で不合意が生じた場合、彼らのお金をコントロールする事なく、第三者が取引を承認したり拒絶したりする事ができます。こうしたサービスは、ビットコインを使用する全てのユーザーや商業者に対応する事から、自由競争を促し、品質が高まる事でしょう。</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/multi-signature.svg?1651746487" alt="Icon" />
+      <h2 id="multisig">マルチシグアカウント</h2>
+      <p>マルチシグは、特定グループに属する人々のうち、一定人数がトランザクションに署名する事に合意した場合のみ、ネットワークがそのトランザクションに承認を与えるものです。これは、役員会等によって使用され、他のメンバーの合意なしにメンバーの誰かが勝手に資金を使用する事を防ぎます。また、これは銀行によって使用される事も考えられ、ユーザーが追加の証明情報を提供しなければ、定められた値以上の支払いを止める事で、窃盗防止にもなり得ます。</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/trust.svg?1651746487" alt="Icon" />
+      <h2 id="trust">信頼性と誠実性</h2>
+      <p>ビットコインは、銀行を悩ます数々の信頼問題の解決策となります。透明性の高い会計、デジタル契約、取り消しができない契約という特徴をもつビットコインは、信頼と合意を取り戻すための地盤となります。不正な銀行が、他の銀行や一般市民を犠牲にして、利益を得るためにシステムを悪用する事はできません。大手銀行がビットコインを支援する日が来れば、金融機関の信頼性と誠実性の回復に役立つ事でしょう。</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/decentralization.svg?1651746487" alt="Icon" />
+      <h2 id="resiliency">強靭性と分散化</h2>
+      <p>分散化によって、ビットコインは優れた弾力性と冗長性を備えた、従来にない決済ネットワークを作り出しました。ビットコインは、軍事的な保護を必要とせずに、何百万ドルをも処理する事ができます。データセンターの様な中心点が機能不全に陥る事がないため、ビットコインネットワークを攻撃する事は非常に困難です。ビットコインは、ローカルまたはグローバルな金融システムの安全性に関して、進化を示す存在と言えるでしょう。</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/transparency.svg?1651746487" alt="Icon" />
+      <h2 id="transparency">柔軟な透明性</h2>
+      <p>ビットコインの全トランザクションはデフォルトで公表されており、透明性があり、当事者の身元は非公開となっています。これにより、個人や企業は柔軟で透明性がある規則の基、活動ができます。例えば、非営利団体が日々または月々の寄付をいくら受けたか自由に公表する様に、企業は特定の取引や残高を特定の被雇用者に公開する事が選択できるのです。</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/automatization.svg?1651746487" alt="Icon" />
+      <h2 id="automation">自動ソリューション</h2>
+      <p>自動化されたサービスでは通常、現金やクレジットカード決済の費用や制限への対応がつきものです。これには、電車のチケット販売機や飲料販売機等、全ての自動販売機が含まれます。ビットコインは運営費を削減するための次世代自動化サービスに最適です。自動運転タクシーや、列に並ばなくても支払いを済ませられる店等を想像してみてください。沢山のアイデアが実現可能になります。</p>
+    </div>
+
+  </div>
+</div>
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/ja/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Bitcoin.orgを支援する:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">寄付する</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">紹介:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/ja/bitcoin-for-individuals">個人</a>
+        </li>
+        <li>
+          <a href="/ja/bitcoin-for-businesses">ビジネス</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">開発者</a>
+        </li>
+        <li>
+          <a href="/ja/getting-started">開始する</a>
+        </li>
+        <li>
+          <a href="/ja/how-it-works">ビットコインの仕組み</a>
+        </li>
+        <li>
+          <a href="/ja/you-need-to-know">知っておくべき事</a>
+        </li>
+        
+        <li>
+          <a href="/ja/bitcoin-paper">ホワイトペーパー</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">リソース:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/ja/resources">リソース</a>
+        <li>
+          <a href="/ja/exchanges">取引所</a>
+        </li>
+        <li>
+          <a href="/ja/community">コミュニティ</a>
+        </li>
+        <li>
+          <a href="/ja/vocabulary">用語
+          </a>
+        </li>
+        <li>
+          <a href="/ja/events">イベント</a>
+        </li>
+        
+          <li>
+            <a href="/ja/download">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">参加:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/ja/support-bitcoin">ビットコインを支援</a>
+        
+        
+        <li>
+          <a href="/ja/development">開発</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">その他:</p>
+      
+      <a href="/ja/legal">法律</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/ja/press">プレス</a>
+      <a href="/ja/about-us">bitcoin.org について</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>コミュニティ・ウェブサイト　主催：</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MITライセンス</a>の下でのリリース</div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">ネットワークステータス</a>
+        
+<ul class="lang is-expand">
+  <li><a>日本語</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/inovasi">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/innovacio">Català</a></li>
+        
+        
+          <li><a href="/da/innovation">Dansk</a></li>
+        
+        
+          <li><a href="/de/innovation">Deutsch</a></li>
+        
+        
+          <li><a href="/en/innovation">English</a></li>
+        
+        
+          <li><a href="/es/innovacion">Español</a></li>
+        
+        
+          <li><a href="/fr/innovation">Français</a></li>
+        
+        
+          <li><a href="/it/innovazione">Italiano</a></li>
+        
+        
+          <li><a href="/hu/innovacio">Magyar</a></li>
+        
+        
+          <li><a href="/nl/innovatie">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/innowacje">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/inovacao">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/inovatie">Română</a></li>
+        
+        
+          <li><a href="/sl/inovacije">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/inovacija">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/innovation">Svenska</a></li>
+        
+        
+          <li><a href="/tr/yenilik">Türkçe</a></li>
+        
+        
+          <li><a href="/el/innovation">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/innovation">български</a></li>
+        
+        
+          <li><a href="/ru/innovation">Русский</a></li>
+        
+        
+          <li><a href="/uk/innovation">Українська</a></li>
+        
+        
+          <li><a href="/ar/innovation">العربية</a></li>
+        
+        
+          <li><a href="/fa/innovation">فارسی</a></li>
+        
+        
+          <li><a href="/he/innovation">עברית</a></li>
+        
+        
+          <li><a href="/hi/innovation">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/innovation">한국어</a></li>
+        
+        
+          <li><a href="/ja/innovation" class="active">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/innovation">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/innovation">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/inovasi" >Bahasa Indonesia</option>
+              
+              <option value="/ca/innovacio" >Català</option>
+              
+              <option value="/da/innovation" >Dansk</option>
+              
+              <option value="/de/innovation" >Deutsch</option>
+              
+              <option value="/en/innovation" >English</option>
+              
+              <option value="/es/innovacion" >Español</option>
+              
+              <option value="/fr/innovation" >Français</option>
+              
+              <option value="/it/innovazione" >Italiano</option>
+              
+              <option value="/hu/innovacio" >Magyar</option>
+              
+              <option value="/nl/innovatie" >Nederlands</option>
+              
+              <option value="/pl/innowacje" >Polski</option>
+              
+              <option value="/pt_BR/inovacao" >Português Brasil</option>
+              
+              <option value="/ro/inovatie" >Română</option>
+              
+              <option value="/sl/inovacije" >Slovenščina</option>
+              
+              <option value="/sr/inovacija" >Srpski</option>
+              
+              <option value="/sv/innovation" >Svenska</option>
+              
+              <option value="/tr/yenilik" >Türkçe</option>
+              
+              <option value="/el/innovation" >Ελληνικά</option>
+              
+              <option value="/bg/innovation" >български</option>
+              
+              <option value="/ru/innovation" >Русский</option>
+              
+              <option value="/uk/innovation" >Українська</option>
+              
+              <option value="/ar/innovation" >العربية</option>
+              
+              <option value="/fa/innovation" >فارسی</option>
+              
+              <option value="/he/innovation" >עברית</option>
+              
+              <option value="/hi/innovation" >हिन्दी</option>
+              
+              <option value="/ko/innovation" >한국어</option>
+              
+              <option value="/ja/innovation"  selected="selected">日本語</option>
+              
+              <option value="/zh_CN/innovation" >简体中文</option>
+              
+              <option value="/zh_TW/innovation" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">ja</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+
+</body>
+
+</html>

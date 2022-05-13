@@ -1,0 +1,917 @@
+<!DOCTYPE HTML>
+<html lang="sr">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Štampa - Bitkoin</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org je projekat koji se finansira od strane zajednice. Veoma cenimo vaše donacije i koristimo ih kako bi poboljšali sajt.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Doniraj
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org treba tvoju pomoć!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Doniraj Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">Koristi QR kod ili adresu ispod</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Ili drugi iznos? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Ili drugi iznos? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Opcioni opis (za vaš novčanik)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/sr/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">Uvod</a>
+    <ul>
+      <li><a href="/sr/bitkoin-za-lica">Fizička lica</a></li>
+      <li><a href="/sr/bitkoin-za-preduzeca">Preduzeća</a></li>
+      <li><a href="https://developer.bitcoin.org/">Programeri</a></li>
+      <li><a href="/sr/prvi-koraci">Početni koraci</a></li>
+      <li><a href="/sr/kako-to-radi">Kako funkcioniše</a></li>
+      
+      <li><a href="/sr/bitkoin-papir">Osnovni dokument - beli papir</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">Sredstva</a>
+    <ul>
+      <li><a href="/sr/sredstva">Sredstva</a>
+      <li><a href="/sr/menjacnice">Menjačnice</a></li>
+      <li><a href="/sr/zajednica">Zajednica</a></li>
+      
+      
+      <li><a href="/sr/vokabular">Rečnik</a></li>
+      <li><a href="/sr/dogadaji">Događaji</a></li>
+      
+        <li><a href="/sr/preuzimanje">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/sr/inovacija">Inovacija</a></li>
+  <li><a class="is-expand">Učestvujte</a>
+    <ul>
+      <li><a href="/sr/podrzite-bitkoin">Podržite Bitkoin</a>
+      <li><a href="/sr/kupi">Kupi Bitkoin</a></li>
+      
+      <li><a href="/sr/razvoj">Razvoj</a></li>
+    </ul>
+  </li>
+  <li><a href="/sr/cesto-postavljanja-pitanja">ČPP</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>Srpski</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/pers">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/premsa">Català</a></li>
+        
+        
+          <li><a href="/da/presse">Dansk</a></li>
+        
+        
+          <li><a href="/de/presse">Deutsch</a></li>
+        
+        
+          <li><a href="/en/press">English</a></li>
+        
+        
+          <li><a href="/es/prensa">Español</a></li>
+        
+        
+          <li><a href="/fr/presse">Français</a></li>
+        
+        
+          <li><a href="/it/stampa">Italiano</a></li>
+        
+        
+          <li><a href="/hu/sajto">Magyar</a></li>
+        
+        
+          <li><a href="/nl/pers">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/prasa">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/imprensa">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/presa">Română</a></li>
+        
+        
+          <li><a href="/sl/mediji">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/mediji" class="active">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/press">Svenska</a></li>
+        
+        
+          <li><a href="/tr/basin">Türkçe</a></li>
+        
+        
+          <li><a href="/el/press">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/press">български</a></li>
+        
+        
+          <li><a href="/ru/press">Русский</a></li>
+        
+        
+          <li><a href="/uk/press">Українська</a></li>
+        
+        
+          <li><a href="/ar/press">العربية</a></li>
+        
+        
+          <li><a href="/fa/press">فارسی</a></li>
+        
+        
+          <li><a href="/he/press">עברית</a></li>
+        
+        
+          <li><a href="/hi/press">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/press">한국어</a></li>
+        
+        
+          <li><a href="/ja/press">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/press">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/press">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/pers" >Bahasa Indonesia</option>
+            
+            <option value="/ca/premsa" >Català</option>
+            
+            <option value="/da/presse" >Dansk</option>
+            
+            <option value="/de/presse" >Deutsch</option>
+            
+            <option value="/en/press" >English</option>
+            
+            <option value="/es/prensa" >Español</option>
+            
+            <option value="/fr/presse" >Français</option>
+            
+            <option value="/it/stampa" >Italiano</option>
+            
+            <option value="/hu/sajto" >Magyar</option>
+            
+            <option value="/nl/pers" >Nederlands</option>
+            
+            <option value="/pl/prasa" >Polski</option>
+            
+            <option value="/pt_BR/imprensa" >Português Brasil</option>
+            
+            <option value="/ro/presa" >Română</option>
+            
+            <option value="/sl/mediji" >Slovenščina</option>
+            
+            <option value="/sr/mediji"  selected="selected">Srpski</option>
+            
+            <option value="/sv/press" >Svenska</option>
+            
+            <option value="/tr/basin" >Türkçe</option>
+            
+            <option value="/el/press" >Ελληνικά</option>
+            
+            <option value="/bg/press" >български</option>
+            
+            <option value="/ru/press" >Русский</option>
+            
+            <option value="/uk/press" >Українська</option>
+            
+            <option value="/ar/press" >العربية</option>
+            
+            <option value="/fa/press" >فارسی</option>
+            
+            <option value="/he/press" >עברית</option>
+            
+            <option value="/hi/press" >हिन्दी</option>
+            
+            <option value="/ko/press" >한국어</option>
+            
+            <option value="/ja/press" >日本語</option>
+            
+            <option value="/zh_CN/press" >简体中文</option>
+            
+            <option value="/zh_TW/press" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">sr</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>Press centar</h1>
+    
+      <p class="summarytxt">Nađite sagovornike, odgovore i materijal za medije visokog kvaliteta.</p>
+    
+  </div>
+</div>
+
+<div class="toc-container">
+  <div class="row toc-row">
+
+    <div id="toc" class="toc">
+      <div>
+        <button class="mob-sidebar-open" hidden>View All</button>
+        <div class="sidebar">
+          <div class="sidebar-inner">
+            <button class="mob-sidebar-close" hidden></button>
+            
+
+<ul>
+  <li><a href="#volunteer">Ispitanici</a></li>
+  <li><a href="#layout">ČPP</a>
+    <ul>
+      <li><a href="#whatisbitcoin">Šta je Bitkoin?</a></li>
+      <li><a href="#howitworks">Kako Bitkoin funkcioniše?</a></li>
+      <li><a href="#whatismining">Šta je Bitkoin rudarenje?</a></li>
+      <li><a href="#acquire">Kako se Bitkoin može steći?</a></li>
+      <li><a href="#used">Da li ljudi stvarno koriste Bitkoin?</a></li>
+      <li><a href="#makepayment">Koliko je teško izvršiti uplatu u Bitkoinu?</a></li>
+      <li><a href="#advantages">Koje su prednosti Bitkoina?</a></li>
+      <li><a href="#disadvantages">Koji su nedostaci Bitkoina?</a></li>
+      <li><a href="#secure">Da li je Bitkoin bezbedan?</a></li>
+      <li><a href="#islegal">Da li je Bitkoin legalan?</a></li>
+      <li><a href="#taxes">Šta je sa Bitkoinom i porezima?</a></li>
+      <li><a href="#illegalactivities">Da li Bitkoin može da se koristi za nelegalne aktivnosti?</a></li>
+      <li><a href="#bubble">Da li je Bitkoin balon koji će pući?</a></li>
+      <li><a href="#whyvalue">Zašto bitkoini imaju vrednost?</a></li>
+      <li><a href="#ponzi">Da li je Bitkoin Ponzijeva šema?</a></li>
+      <li><a href="#creator">Ko je stvorio Bitkoin?</a></li>
+      <li><a href="#worthless">Mogu li bitkoini postati bezvredni?</a></li>
+      <li><a href="#virtual">Da li je Bitkoin u potpunosti virtualan i nematerijalan?</a></li>
+      <li><a href="#trust">Zašto ljudi veruju u Bitkoin?</a></li>
+      <li><a href="#anonymous">Da li je Bitkoin anoniman?</a></li>
+    </ul>
+  </li>
+</ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toccontent">
+      <div class="toccontent-intro">
+  <h2 id="volunteer">Ispitanici</h2>
+  <p>Stupite u kontakt sa <a href="https://www.bitgivefoundation.org">BitGive</a>, <a href="https://bitcoincore.org/en/contact">Bitcoin Core Projektom</a> ili <a href="/sr/zajednica#neprofitna">lokalnom neprofitnom organizacijom.</a></p>
+</div>
+
+<div class="toccontent-block boxexpand expanded">
+  <h2 id="layout">ČPP</h2>
+  <div class="press-faq">
+    <div>
+      <h3 id="whatisbitcoin" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Šta je Bitkoin?</h3>
+      <div>
+        <p>Bitkoin je mreža koncenzusa koja omogućuje novi sistem plaćanja i potpuno digitalan novac. To je prva decentralizovana, P2P mreža plaćanja koju pokreću korisnici, bez centralne vlasti ili posrednika. Iz korisničke perspektive, Bitcoin je poput keša za Internet. Bitcoin se takođe može gledati kao najbitniji sistem <a href="http://financialcryptography.com/mt/archives/001325.html">trostrukog knjigovodstva</a> koji postoji.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="howitworks" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Kako Bitkoin funkcioniše?</h3>
+      <div>
+        <p>Sa korisničke perspektive, Bitoin nije ništa više od mobilne aplikacije ili računarskog programa koji pruža lični Bitkoin novčanik i dozvoljava korisniku da šalje i prima bitkoine preko njega. To je način na koji Bitkoin funkcioniše za većinu korisnika.</p>
+        <p>Iza kulisa, Bitkoin mreža sadrži javnu knjigu zvanu "block chain". Ova knjiga sardži svaku transakciju ikada obrađenu, omogućavajući računarima korisnika verifikaciju i validaciju svake transakcije. Autentičnost svake transakcije zaštićena je digitalnim potpisim vezanim za adresu pošiljaoca, što daje punu kontrolu korisnicima nad bitkoina sa svojih Bitkoin adresa. Svako može obrađivati transakcije koristeći svoju računarsku snagu specijalizovanim harverima i zaraditi nagradu u bitkoinima za svoju uslugu. Ova radnja se zove "rudarenje". Ukoliko želite da naučite još o Bitcoin-u, pogledajte <a href="/sr/kako-to-radi">stranicu posvećenu tome</a> kao i <a href="/sr/bitkoin-papir">originalni beli papir</a>.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="whatismining" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Šta je Bitkoin rudarenje?</h3>
+      <div>
+        <p>Rudarenje je process pri kome se određena kompjuterska moć i resursi troše kako bi se transakcije obradile, mreža ostala sigurna a korisnici ostali sinhronizovani jedni sa drugima. Zamislite da je rudarenje ogromna Bitkoin baza podataka, s izuzetkom da je osmišljena da bude u potpunosti decentralizovana, sa rudarima širom sveta, bez mogućnosti da pojedinac kontroliše mrežu. Analogija Bitkoin kopanja ili rudarenja zapravo dolazi iz rudarenja zlatom, zbog toga što je to proces pri kojem se privremeno i ograničeno izdaju novi Bitkoini. Za razliku od kopanja zlata, Bitkoin kopanje se nagrađuje nagradom u zamenu za korisnu uslugu koji rudari izvršavaju kako bi mreža ostala sigurna. Kopanje tj rudarenje, biće neophodno čak i kada se svi bitkoini izdaju.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="acquire" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Kako se Bitkoin može steći?</h3>
+      <div>
+        <ul>
+          <li>Kao platno sredstvo za robu i usluge.</li>
+          <li>Kupi bitkoin preko <a href="https://www.buybitcoinworldwide.com">Bitkoin menjačnica</a>.</li>
+          <li>Razmeni bitkoine sa <a href="https://localbitcoins.com/">nekim u blizini</a>.</li>
+          <li>Zaradi bitkoine preko konkurentnog <a href="http://www.bitcoinmining.com/">rudarenja</a>.</li>
+        </ul>
+        <p>Iako je moguće da pojedinci prodaju svoje bitkoine preko u zamenu za uplatu preko kreditne kartice ili PayPal-a, većina menjačnica neće dozvoliti kupovinu preko ovih metoda plaćanja. Razlog tome je veliki rizik od poništavanje transakcije i povraćaja novca od strane kupca, a samim tim i veća mogućnost prevare.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="used" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Da li ljudi stvarno koriste Bitkoin?</h3>
+      <div>
+        <p>Da. Postoji <a href="/en/spend-bitcoin">sve veći broj poslovnihi pojedninačnih subjekata</a> koji koriste Bitkoin. Ovo uključuje prodavnice sa fizičkom lokacijom poput restorana, hotelijerstva, adokatskih kancelarija kao i popularnih onlajn servisa poput Namecheap, Overstock.com i Reddit-a. Iako relativno novi fenomen, Bitkoin raste brzo. Zaključno sa Majem 2018 <a href="https://bitcoincharts.com/bitcoin/">celokupna vrednost svih bitkoina u opticaju</a> premašuje je vrednost od stotinu milijardi američkih dolara, sa dnevnom vrednošću razmene koja se odvija svakog dana koja je višemilionska.</p>
+        <p>
+          <img style="height:165px;width:380px;" src="/img/faq/merchants_map.png?1651746487" alt="Screenshot">
+        </p>
+      </div>
+    </div>
+    <div>
+      <h3 id="makepayment" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Koliko je teško izvršiti uplatu u Bitkoinu?</h3>
+      <div>
+        <p>Bitkoin uplate su lakše plaćanja preko debitih ili kreditnih kartica i mogu se primati bez posebnog trgovinskog naloga. Uplate se šalju preko specijalnih novčanika, aplikacija koje se nalaze na vašem računaru ili telefonu, tako što ćete uneti adresu primaoca, iznos, i pritisnuti na dugme pošalji. Kako bi unos adrese primaoca bio ubrzan i olakšan, veliki broj novčanika koristi tehnologiju skeniranja QR koda sa uređaja ili samim dodirivanjem dva telefona uz pomoć NFC tehnologije.</p>
+        <p>
+          <img src="/img/faq/mobile_send.png?1651746487" style="height:325px;width:190px;" alt="Screenshot">
+          <img src="/img/faq/mobile_receive.png?1651746487" style="height:325px;width:190px;" alt="Screenshot">
+        </p>
+      </div>
+    </div>
+    <div>
+      <h3 id="advantages" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Koje su prednosti Bitkoina?</h3>
+      <div>
+        <ul>
+          <li><em><b>Sloboda plaćanja</b></em> - Moguće je slati i primati bitkoin bilo gde u svetu u bilo koje vreme. Nema praznika, nema granica, nema biroktratije. Bitkoin daje korisnicima potpunu vlas nad svojim sredstvima.
+</li>
+          <li><em><b>Sami birate proviziju</b></em> - Ne postoji naknada kada primate uplatu u bitkoinima, i veliki broj novčanika pruža mogućnost izbora visine provizije koju želite da platite kada šaljete uplatu. Viši iznos naknade znači da će transakcije biti brže <a href="/sr/trebali-bi-da-znate#instant">potvrđena</a>. Ovaj trošak ne zavisi od iznosa koji šaljete, tako da je svejedno da li ćete poslati 1 ili 100,000 bitkoina, nakdnada će biti ista. Takođe postoje sistemi koji trgovcima pomažu prilikom prihvatanja uplate u bitkoinima, vrše konverziju u lokalnu monetarnu valutu i automatski prebacuju novčana sredstva direktno na račun banke trgovca dnecno. Obzirom da se ove usluge baziraju na BItkoin-u, mogu biti ponuđene za znatno manje novca nego PayPal provizije ili provizije koje imaju kreditne kartice.
+</li>
+          <li><em><b>Smanjeni rizik za trgovce</b></em>BItkoin transakcije su sigurne, bespovratne i ne sadže osetljive privatne informacije korisnika. Ovim se prodavci štite od gubitaka od prevare neosnovanih zahteva za povraćajem i nije potrebno biti usklađen sa PCI standardima koji su neophodni kod kreditnih kartica. Trgovci mogu lako da se prošire na tržišta na kojima kreditne kartice nisu prihvaćene zbog visokih stopa prevara. Konačan rezultat su smanjeni troškovi, veće tržište i smanjeni administranivni  troškovi.</li>
+          <li><em><b>Sigurnost i kontrola</b></em> - Bitkoin korisnici imaju potpunu kontrolu nad svojim transakcijama; ne postoji mogućnost da trgovci prinudno izvše neželje naplate ili skinu novac kao kod ostalih metoda plaćanja. Bitcoin uplate mogu da se vrše bez otkrivanja ličnih podataka koji se mogu vezati za transakciju. Upravo ovo svojstvo pruža jaku zaštitu protvi krađe identiteta. Bitcoin korisnici mogu da zaštite svoja sredstva pravljenjem rezervne kopije svojih privatnih ključeva i šifrovanjem putem enkripcije.</li>
+          <li><em><b>Transparentnost i neutralnost</b></em>- <a href="https://live.blockcypher.com/btc/">Sve informacije</a>o cirkulaciji i broju bitkoina u ponudi mogu se videti na blockchain-u, gde svako ima uvid o transakcijama u realnom vremenu. Ni jedan pojedinac ili organizacija ne mogu kontrolisati ili manipulisati Bitkoin protokolom jer je kriptografski siguran. Upravo je ovo razlog zbog kojeg se protokolu može verovati : neutralnost, transaprentnost i predvidljivost.</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3 id="disadvantages" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Koji su nedostaci Bitkoina?</h3>
+      <div>
+        <ul>
+          <li><em><b>Stepen prihvatanja</b></em> - Mnogi ljudi još uvek ne znaju za Bitkoin. Svakoga dana, sve više poslovnih subjekata prihvata bitkoin zbog prednosti koje nudi, ali lista i dalje ostaje mala i još uvek mora da raste kako bi imala korist od <a href="https://en.wikipedia.org/wiki/Network_effect">efekta mreže</a>.</li>
+          <li><em><b>Nestalnost</b></em>- Iznos <a href="https://bitcoincharts.com/bitcoin/">ukupne vrednosti</a>svih bitkoina u cirkulaciji i broja poslovnih subjekata koji koriste Bitkoin još je veoma mali u poređenju sa mogućnostima. Iz tog razloga, razni događaji malog obima, razmena ili aktivnost poslovnih subjekata mogu u znatnoj meri uticati na cenu. U teoriji, ova nestalnost smanjivaće se kako tržište i tehnologija sazrevaju. Nikada do sada svet nije imao ovakvu valutu i tehnologiju, tako da je zaista teško (i istovremeno uzbudljivo) razmišljati kako će se stvari odigrati u budućnosti.</li>
+          <li><em><b>Tekući razvoj</b></em> - Bitkoin sotver još uvek je u ranoj vazi razvoja sa velikim brojem svojstava u aktivnoj fazi razvoja. Novi alati, opcije i usluge razvijaju se kako bi se Bitkoin učinio još sigurnijim i dostupnijim širokom broju ljudi. Neke od opcija još uvek nisu spremne za svakodnevnu upotrebu niti za svakoga. Većina preduzeća koja svoje poslovanje zasnivaju na Bitkoin protokolu, još uvek su nova i ne nude osiguranje. Generalno, Bitkoin je još uvek u fazi sazrevanja.</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3 id="secure" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Da li je Bitkoin bezbedan?</h3>
+      <div>
+        <p>Bitkoin tehnologija - protokol i kriptografija ima veoma sigurnu podlogu, a Bitkoin mreža je verovatno najveći distribuirani kompjuterski projekat na svetu. Najčešća ranjivost Bitkoina je zapravo - greška samih korisnika. Bitkoin fajlovi i datoteke koje sadže privatni ključ mogu se greškom obrisati, izgubiti ili biti ukradeni. Situacija je potpuno ista kao i kod fizičkog keša koji se čuva u digitalnoj formi. Srećom, korisnici mogu da prate sigurnosne preporuke i prakse, kako bi zaštitili svoj novac ili koristiti service koji nudedobar nivo zaštite i osiguranje od krađe i gubitka.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="islegal" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Da li je Bitkoin legalan?</h3>
+      <div>
+        <p>Koliko je poznato Bitkoin se <a href="https://en.wikipedia.org/wiki/Legality_of_bitcoin_by_country">ne smatra nelegalnim u najvećem broju jurisdikcija</a>. Međitm, neke jurisdikcije (poput Argentine i Rusije) ozbiljno se trude da zabrane inostrane valute. Druge države (poput Tajlanda) mogu ograničiti licenciranje određenim entitetima poput Bitkoin menjačnica.</p>
+        <p>Regulatori iz različitih jurisdikcija čine korake kako bi pojedincima i poslovnim entitetima omogućili pravila integrisanja ove nove tehnologije sa formalnim, regulisanim finansijskim sistemom. Na primer, odeljenje za finansijski kriminal (FinCEN) uprave za trezor, izdalo je neobavezujući nis praila kako se pojedine aktivnosti u vezi kriptovaluta karakterišu.</p>
+        <ul>
+          <li>
+            <a href="https://www.ecb.europa.eu/pub/pdf/other/virtualcurrencyschemes201210en.pdf">Virtual Currency Schemes - European Central Bank</a>
+          </li>
+          <li>
+            <a href="https://www.fincen.gov/statutes_regs/guidance/pdf/FIN-2013-G001.pdf">Application of FinCEN’s Regulations to Persons Administering, Exchanging, or Using Virtual Currencies</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3 id="taxes" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Šta je sa Bitkoinom i porezima?</h3>
+      <div>
+        <p>BItkoin nije lokalna valuta niti zakonsko sredstvo plaćanja ni u jednioj jurisdikciji za sada. Međutim obaveze plaćanja različitih poreza i nameta se mogu propisati kao i kod drugih sredstava razmene. U pojedinim oblastima korišćenje Bitkoina može potpasti pod raznu vrstu aktivnosti koje se oporezuju poput poreza na promet, platni poreza, kapitalni dobitak i dr.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="illegalactivities" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Da li Bitkoin može da se koristi za nelegalne aktivnosti?</h3>
+      <div>
+        <p>Bitkoin je novac i novac je uvek bio korišćen za zakonite i nezakonite radnje. Keš, kreditne kartice i bankarski sistemi premašuju upotrebu u nelegalnim aktivnostima u poređenju sa korišćanjem Bitkoina za slične aktivnosti. Bitkoin donosi ogromne prednosti u odnosu na mane, kada ga uporedimo sa tradicionalnim načina plaćanja, da su osvrti na kriminalizaciju Bitkoina beznačajni.</p>
+        <p>Bitkoin je dizajniran kao ogroman korak napred u povećanju bezbednosti finansija i kao takav pruža značajnu zaštitu od finansijskih prevara. Na primer, BItkoin je nemoguće falsifikovati. Korisnici imaju potpunu kontrolu nad svojim sredstvima i imuni su na već poznate probleme koje imaju kreditne kartice, poput neosnovanog skidanja novca sa istih od strane treće partije. Bitkoin transakcije su nepovratne i imune na lažne povraćaje novca. Bitkoin je osiguran mehanizmima poput dodatnih kopija (backup), enkripcije i multi-sig potpisima koji zahtevaju odobrenje većeg broja lica kako bi novac bio potrošen iz zajedničkog novčanika.</p>
+        <p>Postoji zabrinutost da zbog svojih svojstava privatnosti i nepovratnosti uplata može biti privlačan kriminalcima. Međutim, što se često zaboravlja da ta svojstva već postoje kod plaćanja kešom ili doznakama koji su već ustaljeni metodi plaćanja. Korišćenje Bitkoina će najverovatnije biti predmet  neke vrste regulacije koja postoji kod tradicionalnih finansijskih  sistema. Upotreba Bitkoina će malo verovatno sprečiti sprovođenje istrage ukoliko se koristi na načine suprotne zakonu pojedinih jurisdikcija. Veoma je često da su revolucionarna otkrića poput Bitkoina predmet kontraverzi, nerazumevanja i raspravi, pre nego što se  prednosti takvog otkrića u potpunosti sagledaju. Sam internet je najbolji primer jednog takvog otkrića. U svom začetku i internet je bio predmet sličnih kontraverzi i zamerki.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="bubble" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Da li je Bitkoin balon koji će pući?</h3>
+      <div>
+        <p>Nagli skok u ceni ne karakteriše se kao mehur (balon). Veštačko pre-vrednovanje koje može dovesti do nagle korekcije i pada predstavlja balon. Izbori koje hiljade individualnih ljudi pravi na tržištu su razlog za fluktuacije u ceni bitkoina, jer tržište pokušava da otkrije cenu u ponudi i potražnji. Razlozi za takve fluktuacije mogu biti različiti poput gubitka poverenja u Bitkoin, disproporcije u ceni i vrednosti koja se ne bazira na Bitkoin ekonomiji, povećana zainteresovanost medija koja stimuliše špekulativni tražnju, strah od nesigurnosti, i tradicionalno neracionalna pohlepa.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="whyvalue" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Zašto bitkoini imaju vrednost?</h3>
+      <div>
+        <p>Bitkoin ima vredost jer ima korisnost kao oblik novca il vrednosti. Bitkoin ima karekteristike novca (trajnost, prenosivost, razmenljivost, retkost, deljivost, i prepoznatljivost) zasnovan na principima matematika a ne na fizičkim svojstvima (kao zlato i srebro) ili poverenja u centralnu vlast (kao novac). Ukratko, Bitkoin je podržan od strane matematike. Sa ovim osobinama, sve što je potrebno da bi ova forma novca imala vrednost je poverenje i usvajanje. U slučaju Bitkoina, ovo se meri ogromnom bazom korisnika, trgovaca i mladih kompanija (startup). Kao i kod svih ostalih valuta, vrednost bitkoina dolazi samo i isključivo od ljudi koji su spremni da je prihvate kao sredstvo plaćanja.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="ponzi" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Da li je Bitkoin Ponzijeva šema?</h3>
+      <div>
+        <p>Ponzi šema je lažna investiciona operacija koja isplaćuje dobit postojećih investitora iz njihovih sopstevnih ulaganja, ili novca nakdnadnih investitora umesto od profita od strane pojedinaca koji vode posao. Ponzi šeme se ruše kada nema dovoljno novih učesnika.</p>
+        <p>Bitkoin je projekat otvorenog i besplatnog softvera bez centralne vlasti. Shodno tome, niko nije u poziciji da napravi lažne naznake o povraćaju investicija. Kao i druge glavne valute poput zlata, američkog dolara, evra, jena itd, nema garantovane kupovne moći, a kurs slobodno pluta. To dovodi do nestabilnost gde vlasnici bitkoina mogu nepredvidivo da zarade ili gube novac. Osim špekulacije, Bitkoin je takođe sistem plaćanja sa korisnim i konkurentnim svojstvima koje koristi hiljade korisnika i preduzeća.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="creator" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Ko je stvorio Bitkoin?</h3>
+      <div>
+        <p>Bitkoin je prva implementacija koncepta zvanom kriptovaluta, koji je prvi put opisan 1998 godine od strane Wei Dai-a na kriptografskoj email listi, predlažući novi oblik novca koji koristi kriptografiju da kontroliše njegovo stvaranje i transakcije bez centralne vlasti. Prva Bitkoin specifikacija i dokaz koncepta objavljen je 2009 na kriptografskoj email listi od strane programera pod pseudonimom Satoshi Nakamoto. Satoshi je napustio projekat 2010 godine, bez otrkivanja previše detalja o sebi i odluci. Zajednica od tada raste eksponencijalnim rastom sa <a href="/sr/razvoj">velikim brojem programera</a> koji rade na Bitkoin protokolu.</p>
+        <p>Satošijeva anonimnost često je predmet neopravdanih briga i rasprava. Takvu rasprave uglavnom su povezane sa nepoznavanjem prirode koda otvorenog tipa. Bitkoin protokol i softver dostupni su otvoreno javnosti i svaki programer na svetu može da ispita kod ili da napravi sopstvenu izmenjenu verziju Bitkoin programa. Kao i kod sadašnjih programera koji rade na protokolu, Satošijev uticaj bio je ograničen promenama koje su drugi prihvatali, tako da on nikada nije imao kontrolu nad Bitkoinom. S tim u vezi, identitet tvorca Bitkoina relevantan je poput identiteta osobe koja je izumela papir.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="worthless" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Mogu li bitkoini postati bezvredni?</h3>
+      <div>
+        <p>Da. Istorijski gledano, velili broj valuta nije uspeo, poput <a href="https://en.wikipedia.org/wiki/German_gold_mark">Nemačke Marke</a> tokom Vajmarske republike, i još u skorije vreme <a href="https://en.wikipedia.org/wiki/Zimbabwean_dollar">Zimbabveski dolar</a>. Iako su prethodne valute bile neuspešne zbog hiperinflacije koja u Bitkoinu nije moguća, uvek postoji  opasnos od potencijalne tehničke greške, konkurentske valute, političkih problemai slično. Osnovno pravilo je da se niti jedna valuta ne smatra potpuno bezbednom od neuspeha ili tokom nedaća. Bitkoin se pokazao kao pouzdan od kada je stvoren i još uvek ima potencijal da raste. Međutim, niko nije u mogućnosti da predvidi šta budućnost donosi za Bitkoin.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="virtual" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Da li je Bitkoin u potpunosti virtualan i nematerijalan?</h3>
+      <div>
+        <p>Bitkoin je apstraktan i neopipljiv, kao i internet bankarstvo i kreditne kartice koje ljudi svakodnevno koriste. Bitkoin se moze koristiti za placanje u prodavnicama na interentu ili lokalno, kao i bilo koji drugi oblik novca. Bitkoin se moze razmeniti u fizickoj formi, poput <a href="https://denarium.com/">Denarium novčića-a</a> , ali plaćanje preko mobilnog telefona i dalje ostaje najlakša opcija. Bitkoin balans skladišti u distributivnoj mrezi koja je sigurna i ne moze se izmeniti od strane nikoga. Drugim rečima, Bitkoin korisnici isključivo imaju kontrolu nad svojim novcem.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="trust" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Zašto ljudi veruju u Bitkoin?</h3>
+      <div>
+        <p>Poverenje u Bitkoin dolazi iz činjenice da on ne zahteva poverenje uopšte. Bitkoin je potpuno decentralizovan i protokol otvorenog-tipa. Svako ima pristup izvornom kodu i može ga ukoliko poseduje stručno znanje i ispitati. Svaki programer na svetu može da verifikuje kako Bitkoin radi. Sve transakcije i bitkoini koji postoje u cirkulaciji mogu se transparentno videti u realnom vremu od strane bilo koga. Sve uplate mogu se vršiti bez oslanjanja na treće lice, a ceo sistem zaštićen je robustnim sistemom kriptografskih algoritama slični onim korišćenim u internet bankarstvu. Niti jedna organizacija ili pojedican ne mogu da kontrolišu Bitkoin, mreža ostaje sigurno čak i kada se korisnicima u njoj ne može verovati.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="anonymous" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Da li je Bitkoin anoniman?</h3>
+      <div>
+        <p>Bitkoin je dizajniran da omogući plaćanje i primanje uplata sa prihvatljivim nivoom privatnosti za korisnike. Međutim, Bitkoin nije potpuno anoniman i ne nudi isti nivo privatnosti kao keš. Korišćenje Bitkoina ostavlja vidljiv javni trag. <a href="/sr/zastitite-svoju-privatnost">Različiti mehanizm</a>i postoje da zaštite privatnost korisnika a postoje i oni koji su još uvek u razvoju. Ima još posla sa stanovišta poboljšanja ovih mehanizama kako bi se ona pravilno mogla koristiti od strane većine Bitkoin korisnika.</p>
+        <p>Postoji bojazan izvesnog broja ljudi da upotrebom Bitkoin-a privatne transakcije mogu da se koriste nedozvoljene svhe. Bitno je napomenuti da će Bitkoin sigurno biti predmet regulacija koje postoje u finansijskim sistemima. Bitkoin nije anonimniji od keš plaćanja tako da je vrlo malo verovatno da će omesti bilo kakvu kriminalnu istragu. Bitkoin je takodje dizajniran kako bi sprečio veliki broj finansijskih kriminalnih radnji.</p>
+      </div>
+    </div>
+    <p>Da saznate više o Bitkoinu molimo posetite <a href="/en/faq">često postavljena pitanja</a>, ili <a href="https://en.bitcoin.it/wiki/Help:FAQ">Bitkoin Wiki</a>.</p>
+  </div>
+</div>
+
+
+
+    </div>
+  </div>
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/sr/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Podržite Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Doniraj</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">Uvod:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/sr/bitkoin-za-lica">Fizička lica</a>
+        </li>
+        <li>
+          <a href="/sr/bitkoin-za-preduzeca">Preduzeća</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">Programeri</a>
+        </li>
+        <li>
+          <a href="/sr/prvi-koraci">Početni koraci</a>
+        </li>
+        <li>
+          <a href="/sr/kako-to-radi">Kako funkcioniše</a>
+        </li>
+        <li>
+          <a href="/sr/trebali-bi-da-znate">Trebali bi da znate</a>
+        </li>
+        
+        <li>
+          <a href="/sr/bitkoin-papir">Osnovni dokument - beli papir</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">Sredstva:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/sr/sredstva">Sredstva</a>
+        <li>
+          <a href="/sr/menjacnice">Menjačnice</a>
+        </li>
+        <li>
+          <a href="/sr/zajednica">Zajednica</a>
+        </li>
+        <li>
+          <a href="/sr/vokabular">Rečnik
+          </a>
+        </li>
+        <li>
+          <a href="/sr/dogadaji">Događaji</a>
+        </li>
+        
+          <li>
+            <a href="/sr/preuzimanje">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">Učestvujte:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/sr/podrzite-bitkoin">Podržite Bitkoin</a>
+        
+        
+        <li>
+          <a href="/sr/razvoj">Razvoj</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Drugo:</p>
+      
+      <a href="/sr/zakon">Zakon</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/sr/mediji">Mediji</a>
+      <a href="/sr/o-nama">O nama - bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>Web sjat zajednice sponzorisan od strane</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 Izbačeno pod <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT licencom</a></div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Status Mreže</a>
+        
+<ul class="lang is-expand">
+  <li><a>Srpski</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/pers">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/premsa">Català</a></li>
+        
+        
+          <li><a href="/da/presse">Dansk</a></li>
+        
+        
+          <li><a href="/de/presse">Deutsch</a></li>
+        
+        
+          <li><a href="/en/press">English</a></li>
+        
+        
+          <li><a href="/es/prensa">Español</a></li>
+        
+        
+          <li><a href="/fr/presse">Français</a></li>
+        
+        
+          <li><a href="/it/stampa">Italiano</a></li>
+        
+        
+          <li><a href="/hu/sajto">Magyar</a></li>
+        
+        
+          <li><a href="/nl/pers">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/prasa">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/imprensa">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/presa">Română</a></li>
+        
+        
+          <li><a href="/sl/mediji">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/mediji" class="active">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/press">Svenska</a></li>
+        
+        
+          <li><a href="/tr/basin">Türkçe</a></li>
+        
+        
+          <li><a href="/el/press">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/press">български</a></li>
+        
+        
+          <li><a href="/ru/press">Русский</a></li>
+        
+        
+          <li><a href="/uk/press">Українська</a></li>
+        
+        
+          <li><a href="/ar/press">العربية</a></li>
+        
+        
+          <li><a href="/fa/press">فارسی</a></li>
+        
+        
+          <li><a href="/he/press">עברית</a></li>
+        
+        
+          <li><a href="/hi/press">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/press">한국어</a></li>
+        
+        
+          <li><a href="/ja/press">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/press">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/press">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/pers" >Bahasa Indonesia</option>
+              
+              <option value="/ca/premsa" >Català</option>
+              
+              <option value="/da/presse" >Dansk</option>
+              
+              <option value="/de/presse" >Deutsch</option>
+              
+              <option value="/en/press" >English</option>
+              
+              <option value="/es/prensa" >Español</option>
+              
+              <option value="/fr/presse" >Français</option>
+              
+              <option value="/it/stampa" >Italiano</option>
+              
+              <option value="/hu/sajto" >Magyar</option>
+              
+              <option value="/nl/pers" >Nederlands</option>
+              
+              <option value="/pl/prasa" >Polski</option>
+              
+              <option value="/pt_BR/imprensa" >Português Brasil</option>
+              
+              <option value="/ro/presa" >Română</option>
+              
+              <option value="/sl/mediji" >Slovenščina</option>
+              
+              <option value="/sr/mediji"  selected="selected">Srpski</option>
+              
+              <option value="/sv/press" >Svenska</option>
+              
+              <option value="/tr/basin" >Türkçe</option>
+              
+              <option value="/el/press" >Ελληνικά</option>
+              
+              <option value="/bg/press" >български</option>
+              
+              <option value="/ru/press" >Русский</option>
+              
+              <option value="/uk/press" >Українська</option>
+              
+              <option value="/ar/press" >العربية</option>
+              
+              <option value="/fa/press" >فارسی</option>
+              
+              <option value="/he/press" >עברית</option>
+              
+              <option value="/hi/press" >हिन्दी</option>
+              
+              <option value="/ko/press" >한국어</option>
+              
+              <option value="/ja/press" >日本語</option>
+              
+              <option value="/zh_CN/press" >简体中文</option>
+              
+              <option value="/zh_TW/press" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">sr</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+  <script>updateToc();</script>
+<script>accordion();</script>
+<script>onScrollButton();</script>
+<script>boxShow();</script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,909 @@
+<!DOCTYPE HTML>
+<html lang="el">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>ΜΜΕ - Bitcoin</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+<link rel="stylesheet" href="/css/sans.css?1651746487">
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org is a community funded project, donations are appreciated and used to improve the website.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Make a donation
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org needs your support!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Donate to Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">Use this QR code or address below</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Or custom amount? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Or custom amount? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Optional description (for your wallet)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/el/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">Eισαγωγή</a>
+    <ul>
+      <li><a href="/el/bitcoin-for-individuals">Ιδιώτες</a></li>
+      <li><a href="/el/bitcoin-for-businesses">Επιχειρήσεις</a></li>
+      <li><a href="https://developer.bitcoin.org/">Προγραμματιστές</a></li>
+      <li><a href="/el/getting-started">Ξεκινώντας</a></li>
+      <li><a href="/el/how-it-works">Πώς λειτουργεί</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">Πόροι</a>
+    <ul>
+      <li><a href="/el/resources">Πόροι</a>
+      <li><a href="/el/exchanges">Exchanges</a></li>
+      <li><a href="/el/community">Κοινότητα</a></li>
+      
+      
+      <li><a href="/el/vocabulary">Λεξιλόγιο</a></li>
+      <li><a href="/el/events">Εκδηλώσεις</a></li>
+      
+        <li><a href="/el/download">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/el/innovation">Καινοτομία</a></li>
+  <li><a class="is-expand">Συμμετοχή</a>
+    <ul>
+      <li><a href="/el/support-bitcoin">Υποστηρίξτε το Bitcoin</a>
+      <li><a href="/el/buy">Buy Bitcoin</a></li>
+      
+      <li><a href="/el/development">Ανάπτυξη</a></li>
+    </ul>
+  </li>
+  <li><a href="/el/faq">Συχνές ερωτήσεις</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>Ελληνικά</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/pers">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/premsa">Català</a></li>
+        
+        
+          <li><a href="/da/presse">Dansk</a></li>
+        
+        
+          <li><a href="/de/presse">Deutsch</a></li>
+        
+        
+          <li><a href="/en/press">English</a></li>
+        
+        
+          <li><a href="/es/prensa">Español</a></li>
+        
+        
+          <li><a href="/fr/presse">Français</a></li>
+        
+        
+          <li><a href="/it/stampa">Italiano</a></li>
+        
+        
+          <li><a href="/hu/sajto">Magyar</a></li>
+        
+        
+          <li><a href="/nl/pers">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/prasa">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/imprensa">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/presa">Română</a></li>
+        
+        
+          <li><a href="/sl/mediji">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/mediji">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/press">Svenska</a></li>
+        
+        
+          <li><a href="/tr/basin">Türkçe</a></li>
+        
+        
+          <li><a href="/el/press" class="active">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/press">български</a></li>
+        
+        
+          <li><a href="/ru/press">Русский</a></li>
+        
+        
+          <li><a href="/uk/press">Українська</a></li>
+        
+        
+          <li><a href="/ar/press">العربية</a></li>
+        
+        
+          <li><a href="/fa/press">فارسی</a></li>
+        
+        
+          <li><a href="/he/press">עברית</a></li>
+        
+        
+          <li><a href="/hi/press">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/press">한국어</a></li>
+        
+        
+          <li><a href="/ja/press">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/press">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/press">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/pers" >Bahasa Indonesia</option>
+            
+            <option value="/ca/premsa" >Català</option>
+            
+            <option value="/da/presse" >Dansk</option>
+            
+            <option value="/de/presse" >Deutsch</option>
+            
+            <option value="/en/press" >English</option>
+            
+            <option value="/es/prensa" >Español</option>
+            
+            <option value="/fr/presse" >Français</option>
+            
+            <option value="/it/stampa" >Italiano</option>
+            
+            <option value="/hu/sajto" >Magyar</option>
+            
+            <option value="/nl/pers" >Nederlands</option>
+            
+            <option value="/pl/prasa" >Polski</option>
+            
+            <option value="/pt_BR/imprensa" >Português Brasil</option>
+            
+            <option value="/ro/presa" >Română</option>
+            
+            <option value="/sl/mediji" >Slovenščina</option>
+            
+            <option value="/sr/mediji" >Srpski</option>
+            
+            <option value="/sv/press" >Svenska</option>
+            
+            <option value="/tr/basin" >Türkçe</option>
+            
+            <option value="/el/press"  selected="selected">Ελληνικά</option>
+            
+            <option value="/bg/press" >български</option>
+            
+            <option value="/ru/press" >Русский</option>
+            
+            <option value="/uk/press" >Українська</option>
+            
+            <option value="/ar/press" >العربية</option>
+            
+            <option value="/fa/press" >فارسی</option>
+            
+            <option value="/he/press" >עברית</option>
+            
+            <option value="/hi/press" >हिन्दी</option>
+            
+            <option value="/ko/press" >한국어</option>
+            
+            <option value="/ja/press" >日本語</option>
+            
+            <option value="/zh_CN/press" >简体中文</option>
+            
+            <option value="/zh_TW/press" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">el</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>Κέντρο τύπου</h1>
+    
+      <p class="summarytxt">Βρείτε συνεντευξιαζόμενους, απαντήσεις και υλικό υψηλής ποιότητας από τα ΜΜΕ</p>
+    
+  </div>
+</div>
+
+<div class="toc-container">
+  <div class="row toc-row">
+
+    <div id="toc" class="toc">
+      <div>
+        <button class="mob-sidebar-open" hidden>View All</button>
+        <div class="sidebar">
+          <div class="sidebar-inner">
+            <button class="mob-sidebar-close" hidden></button>
+            
+
+<ul>
+  <li><a href="#volunteer">Ερωτηθέντες</a></li>
+  <li><a href="#layout">Συχνές ερωτήσεις</a>
+    <ul>
+      <li><a href="#whatisbitcoin">Τι είναι το Bitcoin;</a></li>
+      <li><a href="#howitworks">Πώς λειτουργεί το Bitcoin;</a></li>
+      <li><a href="#whatismining">Τι είναι η εξόρυξη του Bitcoin;</a></li>
+      <li><a href="#acquire">Πώς αποκτά κάποιος bitcoins;</a></li>
+      <li><a href="#used">Χρησιμοποιείται στ’αλήθεια το Bitcoin από τους ανθρώπους;</a></li>
+      <li><a href="#makepayment">Πόσο δύσκολο είναι να γίνει μια πληρωμή Bitcoin;</a></li>
+      <li><a href="#advantages">Ποια είναι τα πλεονεκτήματα του Bitcoin;</a></li>
+      <li><a href="#disadvantages">Ποια είναι τα μειονεκτήματα του Bitcoin;</a></li>
+      <li><a href="#secure">Είναι ασφαλές το Bitcoin;</a></li>
+      <li><a href="#islegal">Είναι το Bitcoin νόμιμο; </a></li>
+      <li><a href="#taxes">Τι γίνεται με τη φορολόγηση του Bitcoin;</a></li>
+      <li><a href="#illegalactivities">Είναι το Bitcoin χρήσιμο για παράνομες δραστηριότητες; </a></li>
+      <li><a href="#bubble">Είναι το Bitcoin μια φούσκα;</a></li>
+      <li><a href="#whyvalue">Γιατί έχουν τα bitcoins αξία;</a></li>
+      <li><a href="#ponzi">Είναι το Bitcoin σύστημα Ponzi;</a></li>
+      <li><a href="#creator">Ποιος δημιούργησε το Bitcoin;</a></li>
+      <li><a href="#worthless">Μπορoύν τα bitcoins να ευτελιστούν;</a></li>
+      <li><a href="#virtual">Είναι το Bitcoin πλήρως εικονικό και άυλο;</a></li>
+      <li><a href="#trust">Γιατί οι άνθρωποι εμπιστεύονται το Bitcoin;</a></li>
+      <li><a href="#anonymous">Είναι το Bitcoin ανώνυμο; </a></li>
+    </ul>
+  </li>
+</ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toccontent">
+      <div class="toccontent-intro">
+  <h2 id="volunteer">Ερωτηθέντες</h2>
+  <p>Επικοινωνήστε με το <a href="https://bitcoinfoundation.org/contact/">Ίδρυμα Bitcoin</a> ή τοπικούς <a href="/el/community#non-profit">μη κερδοσκοπικούς οργανισμούς</a>.</p>
+</div>
+
+<div class="toccontent-block boxexpand expanded">
+  <h2 id="layout">Συχνές ερωτήσεις</h2>
+  <div class="press-faq">
+    <div>
+      <h3 id="whatisbitcoin" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Τι είναι το Bitcoin;</h3>
+      <div>
+        <p>Το Bitcoin είναι ένα συναινετικό δίκτυο που παρέχει τη δυνατότητα ενός νέου συστήματος πληρωμών και μιας εντελώς ψηφιακής μορφής χρημάτων. Είναι το πρώτο αποκεντρωμένο  δίκτυο πληρωμής μεταξύ ομότιμων (peer-to-peer) που λειτουργεί από τους χρήστες του χωρίς κεντρική αρχή ή μεσάζοντες. Από τη σκοπιά του χρήστη, το Bitcoin είναι λίγο πολύ σαν τα μετρητά χρήματα του Διαδικτύου. Το Bitcoin μπορεί επίσης να θεωρηθεί ως το πιο περίφημο <a href="http://financialcryptography.com/mt/archives/001325.html">λογιστικό σύστημα τριπλής καταχώρησης</a> που υπάρχει.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="howitworks" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Πώς λειτουργεί το Bitcoin;</h3>
+      <div>
+        <p>Από τη μεριά του χρήστη, το Bitcoin δεν είναι τίποτα περισσότερο από μια εφαρμογή κινητού τηλεφώνου ή υπολογιστή η οποία παρέχει ένα προσωπικό πορτοφόλι Bitcoin και επιτρέπει στο χρήστη να στέλνει και να λαμβάνει bitcoins μέσω αυτού . Έτσι λειτουργεί το Bitcoin για τους περισσότερους χρήστες.</p>
+        <p>Στο παρασκήνιο, το δίκτυο Bitcoin μοιράζεται ένα δημόσιο λογιστικό βιβλίο (ledger) που ονομάζεται "block chain" (αλυσίδα των μπλοκ). Αυτό το βιβλίο περιέχει κάθε συναλλαγή που έχει ποτέ επεξεργαστεί από το δίκτυο, επιτρέποντας στον υπολογιστή του χρήστη να εξακριβώνει την εγκυρότητα της κάθε συναλλαγής. Η αυθεντικότητα της κάθε συναλλαγής προστατεύεται από ψηφιακές υπογραφές που αντιστοιχούν στις διευθύνσεις αποστολής, επιτρέποντας σε όλους τους χρήστες να έχουν πλήρη έλεγχο κατά την αποστολή bitcoins από τις δικές τους διευθύνσεις Bitcoin. Επιπλέον, ο καθένας μπορεί να επεξεργαστεί συναλλαγές που χρησιμοποιούν την υπολογιστική ισχύ εξειδικευμένου υλισμικού (hardware) και να κερδίσει μια ανταμοιβή σε bitcoins για την υπηρεσία αυτή. Αυτό συχνά ονομάζεται εξόρυξη (mining). Για να μάθετε περισσότερα για το Bitcoin, μπορείτε να συμβουλευτείτε την <a href="/el/how-it-works">ειδική ιστοσελίδα</a> και το <a href="/bitcoin.pdf">πρωτότυπο έγγραφο</a>.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="whatismining" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Τι είναι η εξόρυξη του Bitcoin;</h3>
+      <div>
+        <p>Εξόρυξη (mining) είναι η διαδικασία δαπάνης υπολογιστικής ισχύος για να επεξεργαστούν οι συναλλαγές, να ασφαλιστεί το δίκτυο και για να παραμείνουν όλοι στο σύστημα συγχρονισμένοι μαζί. Μπορεί να εκληφθεί ως το κέντρο δεδομένων του Bitcoin με την εξαίρεση ότι έχει σχεδιαστεί για να είναι πλήρως αποκεντρωμένο με εξορύκτες που λειτουργούν σε όλες τις χώρες και κανένα άτομο δεν ασκεί έλεγχο πάνω στο δίκτυο. Αυτή η μέθοδος αναφέρεται ως εξόρυξη (mining) αναλογικά όπως η εξόρυξη χρυσού διότι είναι επίσης ένας προσωρινός μηχανισμός που χρησιμοποιείται στην έκδοση νέων bitcoins. Ωστόσο, σε αντίθεση με την εξόρυξη χρυσού, η εξόρυξη Bitcoin παρέχει μια ανταμοιβή σε αντάλλαγμα των χρήσιμων υπηρεσιών που απαιτούνται για να λειτουργήσει ένα ασφαλές δίκτυο πληρωμών. Η εξόρυξη θα απαιτείται ακόμα και μετά την έκδοση του τελευταίου bitcoin. </p>
+      </div>
+    </div>
+    <div>
+      <h3 id="acquire" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Πώς αποκτά κάποιος bitcoins;</h3>
+      <div>
+        <ul>
+          <li>Ως πληρωμή για αγαθά ή υπηρεσίες. </li>
+          <li>Αγοράστε bitcoins στα <a href="https://www.buybitcoinworldwide.com">Bitcoin ανταλλακτήρια</a>.</li>
+          <li>Ανταλλάξτε bitcoins με <a href="https://localbitcoins.com/">κάποιον που βρίσκεται κοντά σας</a>.</li>
+          <li>Κερδίστε bitcoins μέσω ανταγωνιστικής <a href="http://www.bitcoinmining.com/">εξόρυξης</a>.</li>
+        </ul>
+        <p>Ενώ είναι δυνατό να βρεθούν ιδιώτες που επιθυμούν να πωλήσουν bitcoins με αντάλλαγμα πληρωμή σε πιστωτική κάρτα ή PayPal, οι περισσότερες ανταλλαγές όμως δεν επιτρέπουν χρηματοδότηση μέσω αυτών των μεθόδων πληρωμής. Αυτό οφείλεται σε περιπτώσεις όπου κάποιος αγοράζει bitcoins με PayPal και στη συνέχεια αντιστρέφει το μισό της συναλλαγής. Αυτό συνήθως αναφέρεται ως αντιλογισμός χρέωσης (chargeback).</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="used" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Χρησιμοποιείται στ'αλήθεια το Bitcoin από τους ανθρώπους;</h3>
+      <div>
+        <p>Ναι. Υπάρει ένας  αυξανόμενος αριθμός επιχειρήσεων και ιδιωτών που χρησιμοποιούν το Bitcoin. Περιλαμβάνονται επιχειρήσεις όπως εστιατόρια, ξενοδοχεία, δικηγορικά γραφεία, καθώς και δημοφιλείς online υπηρεσίες όπως οι Namecheap, WordPress, Reddit και Flattr. Ενώ το Bitcoin παραμένει ένα σχετικά νέο φαινόμενο, αναπτύσσεται γρήγορα. Στο τέλος Αυγούστου του 2013, <a href="https://bitcoincharts.com/bitcoin/">η αξία όλων των bitcoins σε κυκλοφορία</a> ξεπέρασε το 1.5 δις δολάρια με bitcoins αξίας εκατομμύριων δολαριών να ανταλλάζονται  καθημερινά.</p>
+        <p>
+          <img style="height:165px;width:380px;" src="/img/faq/merchants_map.png?1651746487" alt="Screenshot">
+        </p>
+      </div>
+    </div>
+    <div>
+      <h3 id="makepayment" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Πόσο δύσκολο είναι να γίνει μια πληρωμή Bitcoin;</h3>
+      <div>
+        <p>Οι πληρωμές με Bitcoin  είναι ευκολότερο να γίνουν από ότι με χρεωστική ή πιστωτική κάρτα και μπορούν να ληφθούν χωρίς κάποιον εμπορικό λογαριασμό. Οι πληρωμές γίνονται μέσω εφαρμογής πορτοφολιού, είτε στον υπολογιστή ή στο κινητό σας τηλέφωνο, εισάγοντας τη διεύθυνση του παραλήπτη, το ποσό πληρωμής, και πατώντας αποστολή. Για να γίνει ευκολότερη η εισαγωγή της διεύθυνσης του παραλήπτη, πολλά πορτοφόλια μπορούν να αποκτήσουν τη διεύθυνση σαρώνοντας ένα κώδικα QR ή φέρνοντας σε επαφή δύο κινητά τηλέφωνα, με χρήση της τεχνολογίας NFC.</p>
+        <p>
+          <img src="/img/faq/mobile_send.png?1651746487" style="height:325px;width:190px;" alt="Screenshot">
+          <img src="/img/faq/mobile_receive.png?1651746487" style="height:325px;width:190px;" alt="Screenshot">
+        </p>
+      </div>
+    </div>
+    <div>
+      <h3 id="advantages" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Ποια είναι τα πλεονεκτήματα του Bitcoin;</h3>
+      <div>
+        <ul>
+          <li><em><b>Ελευθερία πληρωμών</b></em> - Είναι δυνατό να στείλετε και να λάβετε οποιοδήποτε χρηματικό ποσό αμέσως, οπουδήποτε στον κόσμο, οποιαδήποτε στιγμή. Χωρίς αργίες. Χωρίς σύνορα. Χωρίς επιβαλλόμενα όρια. Το Bitcoin επιτρέπει στους χρήστες του να έχουν τον πλήρη έλεγχο των χρημάτων τους.</li>
+          <li><em><b>Πολύ χαμηλά τέλη</b></em> - Προς το παρόν, οι πληρωμές με Bitcoin γίνονται είτε με μηδενικά είτε με εξαιρετικά χαμηλά τέλη. Οι χρήστες μπορεί να συμπεριλάβουν τέλη στις συναλλαγές τους προκειμένου να έχουν προτεραιότητα στην διεκπεραίωση, κάτι που έχει ως αποτελέσματα την γρηγορότερη επικύρωση των συναλλαγών από το δίκτυο. Επιπροσθέτως, οι επεξεργαστές για εμπόρους υπάρχουν για να τους βοηθήσουν στην επεξεργασία πληρωμών, μετατρέποντας τα bitcoins σε πιστωτικό χρήμα και καταθέτοντας τα κεφάλαια απευθείας στον τραπεζικό λογαριασμό των εμπόρων καθημερινά. Καθώς αυτές οι υπηρεσίες βασίζονται στο Bitcoin, μπορούν να προσφέρονται με πολύ χαμηλότερα τέλη σε σχέση με την PayPal ή δίκτυα πιστωτικών καρτών.</li>
+          <li><em><b>Λιγότεροι κίνδυνοι για τους εμπόρους</b></em> - Οι συναλλαγές με Bitcoin είναι ασφαλείς, μη αναστρέψιμες και δεν περιέχουν προσωπικές πληροφορίες ή ευαίσθητα προσωπικά δεδομένα των πελατών. Αυτό προστατεύει τους εμπόρους από ζημίες που προκαλούνται από απάτες ή δόλιους αντιλογισμούς χρέωσης (chargebacks) και δεν υπάρχει ανάγκη για συμβατότητα με PCI. Οι έμποροι μπορούν εύκολα να επεκταθούν σε νέες αγορές όπου είτε οι πιστωτικές κάρτες δεν είναι διαθέσιμες, είτε τα ποσοστά απάτης είναι απαράδεκτα υψηλά. Το αποτελέσματα σε καθαρό κέρδος είναι χαμηλότερα τέλη, μεγαλύτερες αγορές και λιγότερα διοικητικά κόστη. </li>
+          <li><em><b>Ασφάλεια και έλεγχος</b></em> - Οι χρήστες του Bitcoin έχουν πλήρη έλεγχο των συναλλαγών τους. Είναι ανέφικτο για τους εμπόρους να επιβάλλουν ανεπιθύμητες ή απαρατήρητες χρεώσεις όπως μπορεί να συμβεί με άλλες μεθόδους πληρωμής. Οι πληρωμές με Bitcoin μπορούν να διεξαχθούν χωρίς να συνδέονται προσωπικές πληροφορίες με την συναλλαγή. Αυτό προσφέρει ισχυρή προστασία κατά της κλοπής ταυτότητας. Οι χρήστες του Bitcoin μπορούν επίσης να προστατέψουν τα χρήματά τους με αντίγραφα ασφαλείας και κρυπτογράφηση.</li>
+          <li><em><b>Διαφανής και ουδέτερος</b></em> - <a href="https://live.blockcypher.com/btc/">Όλες οι πληροφορίες</a> που αφορούν τον εφοδιασμό του Bitcoin με χρήματα είναι άμεσα διαθέσιμες στην αλυσίδα των μπλοκ (block chain) για τον οποιονδήποτε να τις επιβεβαιώσει και να τις χρησιμοποιήσει σε πραγματικό χρόνο. Κανένα άτομο ή οργανισμός δεν μπορεί να ελέγξει ή να πλαστογραφήσει το πρωτόκολλο του Bitcoin διότι είναι κρυπτογραφικά ασφαλές. Αυτό επιτρέπει στον πυρήνα του Bitcoin να είναι αξιόπιστος αφού είναι απόλυτα ουδέτερος, διαφανής και προβλέψιμος.</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3 id="disadvantages" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Ποια είναι τα μειονεκτήματα του Bitcoin;</h3>
+      <div>
+        <ul>
+          <li><em><b>Βαθμός αποδοχής</b></em> - Πολλοί άνθρωποι δεν είναι ακόμα ενήμεροι για το Bitcoin. Καθημερινά, περισσότερες επιχειρήσεις δέχονται τα bitcoins γιατί θέλουν τα πλεονεκτήματα κάνοντας χρήση του αλλά η λίστα παραμένει μικρή και ακόμα χρειάζεται να μεγαλώσει έτσι ώστε να επωφεληθούμε από τα <a href="https://en.wikipedia.org/wiki/Network_effect">αποτελέσματα δικτύου</a>.</li>
+          <li><em><b>Αστάθεια</b></em> - Η <a href="https://bitcoincharts.com/bitcoin/">συνολική αξία</a> των bitcoins σε κυκλοφορία και ο αριθμός των επιχειρήσεων που χρησιμοποιούν το Bitcoin είναι ακόμα πολύ μικρός σε σύγκριση με αυτό που θα μπορούσε να είναι. Συνεπώς, σχετικά μικρά γεγονότα, συναλλαγές, ή επιχειρηματικές δραστηριότητες μπορούν να επηρεάσουν σημαντικά την τιμή. Θεωρητικά, η αστάθεια αυτή θα μειωθεί καθώς οι αγορές Bitcoin και η τεχνολογία ωριμάζoυν. Ποτέ στο παρελθόν δεν έχει δει ο κόσμος ένα νεοσύστατο νόμισμα, οπότε είναι πραγματικά δύσκολο (και συναρπαστικό να φανταστούμε το πώς θα εξελιχθεί.</li>
+          <li><em><b>Συνεχής εξέλιξη</b></em> - Το λογισμικό του Bitcoin είναι ακόμα σε έκδοση beta με πολλά ημιτελή χαρακτηριστικά σε ενεργή εξέλιξη. Καινούρια εργαλεία, λειτουργίες και υπηρεσίες εξελίσσονται για να κάνουν το Bitcoin πιο ασφαλές και προσβάσιμο στις μάζες. Μερικές από αυτές δεν είναι ακόμα έτοιμες για όλους. Οι περισσότερες επιχειρήσεις Bitcoin είναι νέες και δεν προσφέρουν ασφάλεια ακόμα. Γενικότερα, το Bitcoin είναι ακόμα σε διαδικασία ωρίμανσης. </li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3 id="secure" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Είναι ασφαλές το Bitcoin;</h3>
+      <div>
+        <p>H τεχνολογία Bitcoin - το πρωτόκολλο και η κρυπτογραφία - διαθέτει μια ισχυρή προϊστορία σε θέματα ασφαλείας και το δίκτυο Bitcoin είναι πιθανότατα το μεγαλύτερο διαμοιρασμένο πρότζεκτ πληροφορικής σε όλο τον κόσμο. Η μόνη κοινή αδυναμία του Bitcoin έγκειται στο λάθος του χρήστη. Το αρχεία πορτοφολιού του Bitcoin τα οποία αποθηκεύουν τα απαραίτητα ιδιωτικά κλειδιά μπορεί κατά λάθος να διαγραφούν, χαθούν ή κλαπούν. Αυτό είναι αρκετά παρόμοιο με τα κανονικά μετρητά χρήματα που αποθηκεύονται σε ψηφιακή μορφή. Ευτυχώς, οι χρήστες μπορούν να χρησιμοποιήσουν ασφαλείς <a href="/el/secure-your-wallet">πρακτικές προστασίας</a> για να προστατέψουν τα χρήματά τους ή να χρησιμοποιήσουν παρόχους υπηρεσίας οι οποίοι προσφέρουν καλά επίπεδα προστασίας και ασφάλειας έναντι σε κλοπή και απώλεια. </p>
+      </div>
+    </div>
+    <div>
+      <h3 id="islegal" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Είναι το Bitcoin νόμιμο; </h3>
+      <div>
+        <p>Βάσει όσων γνωρίζουμε, <a href="https://en.wikipedia.org/wiki/Legality_of_bitcoin_by_country">το Bitcoin δεν έχει καταστεί παράνομο</a> από την νομοθέσια στις περισσότερες δικαιοδοσίες. Ωστόσο, μερικές δικαιοδοσίες (όπως η Αργεντινή και η Ρωσία) περιορίζουν αυστηρά ή απαγορεύουν ξένα νομίσματα. Άλλες δικαιοδοσίες (όπως η Ταϊλάνδη) μπορεί να περιορίζουν την αδειοδότηση σε συγκεκριμένους φορείς όπως τα ανταλλακτήρια Bitcoin.</p>
+        <p>Οι ρυθμιστικές αρχές από διάφορες δικαιοδοσίες λαμβάνουν μέτρα για να παρέχουν σε ιδιώτες και επιχειρήσεις κανόνες για το πώς θα ενσωματώσουν αυτή τη νέα τεχνολογία με το επίσημο, ρυθμιζόμενο χρηματοοικονομικό σύστημα. Για παράδειγμα, το Δίκτυο Δίωξης Οικονομικών Εγκλημάτων (FinCEN), μια υπηρεσία του Υπουργείου Οικονομικών των ΗΠΑ, εξέδωσε κατευθυντήριες γραμμές μη δεσμευτικού χαρακτήρα για το πώς χαρακτηρίζει ορισμένες δραστηριότητες που σχετίζονται με εικονικά συναλλάγματα.</p>
+        <ul>
+          <li>
+            <a href="https://www.ecb.europa.eu/pub/pdf/other/virtualcurrencyschemes201210en.pdf">Virtual Currency Schemes - European Central Bank</a>
+          </li>
+          <li>
+            <a href="https://www.fincen.gov/statutes_regs/guidance/pdf/FIN-2013-G001.pdf">Application of FinCEN’s Regulations to Persons Administering, Exchanging, or Using Virtual Currencies</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3 id="taxes" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Τι γίνεται με τη φορολόγηση του Bitcoin;</h3>
+      <div>
+        <p>Το Bitcoin δεν είναι πιστωτικό χρήμα με την ιδιότητα του νόμιμου χρήματος σε οποιαδήποτε δικαιοδοσία, αλλά συχνά προκύπτει φορολογική υποχρέωση άσχετα από το μέσο που χρησιμοποιείται. Υπάρχει μεγάλο νομοθετικό φάσμα σε πολλές διαφορετικές δικαιοδοσίες το οποίο θα μπορούσε να προκαλέσει εισόδημα, πωλήσεις, μισθοδοσία, υπεραξίες ή κάποια άλλη μορφή φορολογικής υποχρέωσης που προκύπτει με το Bitcoin.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="illegalactivities" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Είναι το Bitcoin χρήσιμο για παράνομες δραστηριότητες; </h3>
+      <div>
+        <p>Το Bitcoin είναι χρήματα και τα χρήματα έχουν πάντοτε χρησιμοποιηθεί τόσο για νόμιμους όσο και για παράνομους σκοπούς. Τα μετρητά, οι πιστωτικές κάρτες και τα τρέχοντα τραπεζικά συστηματα ξεπερνάνε ευρέως το Bitcoin από άποψη της χρήσης τους για χρηματοδότηση του εγκλήματος. Το Bitcoin μπορεί να φέρει αξιόλογη καινοτομία στα συστήματα πληρωμών και τα οφέλη της καινοτομία αυτής συχνά θεωρούνται ότι φτάνουν πέρα από τα δυνητικά μειονεκτήματά τους.</p>
+        <p>Το Bitcoin είναι σχεδιασμένο ώστε να αποτελεί ένα τεράστιο βημά προς τη δημιουργία πιο ασφαλών χρημάτων και θα μπορούσε επίσης να λειτουργεί ως σημαντική προστασία έναντι πολλών μορφών οικονομικού εγκλήματος. Για παράδειγμα, τα bitcoins είναι εντελώς ανέφικτο να πλαστογραφηθούν. Οι χρήστες έχουν πλήρη έλεγχο των πληρωμών τους και δεν μπορούν να λάβουν μη εγκεκριμένες πληρωμές όπως γίνεται στις απάτες με πιστωτικές κάρτες. Οι συναλλαγές με Bitcoin είναι μη αναστρέψιμες και άτρωτες σε δόλιους αντιλογισμούς χρεώσεων (chargebacks). Το Bitcoin επιτρέπει τα χρήματα να είναι ασφαλισμένα έναντι κλοπής και απώλειας χρησιμοποιώντας πολύ ισχυρούς και χρήσιμους μηχανισμούς όπως αντίγραφα ασφαλείας (backups), κρυπτογράφηση και πολλαπλές υπογραφές.</p>
+        <p>Έχουν διατυπωθεί ορισμένες ανυσηχίες ότι το Bitcoin θα μπορούσε να είναι πιο ελκυστικό στους εγκληματίες διότι μπορεί να χρησιμοποιηθεί για να γίνουν ιδιωτικές και μη αναστρέψιμες πληρωμές. Ωστόσο, αυτές οι δυνατοτητες υπάρχουν ήδη με τα μετρητά και τα ηλεκρτονικά εμβάσματα τα οποία χρησιμοποιούνται ευρέως και είναι καθιερωμένα για τα καλά. Η χρήση του Bitcoin θα υπόκειται αναμφίβολα σε παρόμοιους κανονισμούς με αυτούς που ήδη εφαρμόζονται στα υπάρχοντα χρηματοοικονομικά συστήματα και το Bitcoin δεν είναι πιθανό να εμποδίζει τις εγκληματολογικές έρευνες από το να διεξάγονται. Γενικά, είναι σύνηθες για τις σημαντικές ανακαλύψεις να γίνονται αντιληπτές ως αμφιλεγόμενες πριν τα οφέλη τους γίνουν καλά κατανοητά. Το Διαδίκτυο είναι μεταξύ άλλων ένα καλό παράδειγμα για να επεξηγήσουμε αυτό.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="bubble" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Είναι το Bitcoin μια φούσκα;</h3>
+      <div>
+        <p>Μια γρήγορη άνοδος στις τιμές δεν συνιστά φούσκα. Μια τεχνητή υπερτίμηση η οποία θα οδηγήσει σε μια ξαφνική καθοδική διόρθωση συνιστά φούσκα. Οι επιλογές που βασίζονται στην ατομική ανθρώπινη πράξη από εκατοντάδες χιλιάδες συμμετέχοντες στην αγορά είναι η αιτία που η τιμή του bitcoin κυμαίνεται καθώς η αγορά ψάχνει για εξεύρεση τιμής. Οι λόγοι των αλλαγών στα αισθήματα μπορεί να περιλαμβάνει απώλεια εμπιστοσύνης στο Bitcoin, μια μεγάλη διαφορά μεταξύ αξίας και τιμής που δεν βασίζεται στις θεμελιώδεις αρχές της οικονομίας του Bitcoin, αυξημένη κάλυψη από τον τύπο που εγείρει κερδοσκοπική ζήτηση, φόβος της αβεβαιότητας, και παλιομοδίτικος αλόγιστος ενθουσιασμός και πλεονεξία.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="whyvalue" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Γιατί έχουν τα bitcoins αξία;</h3>
+      <div>
+        <p>Τα bitcoins έχουν αξία διότι είναι χρήσιμα ως μια μορφή χρημάτων. Το Bitcoin φέρει τα χαρακτηριστικά του χρήματος (ανθεκτικότητα, φορητότητα, ανταλλαξιμότητα, σπανιότητα, διαιρεσιμότητα και αναγνωρισιμότητα) που βασίζονται σε μαθηματικές αρχές παρά σε φυσικές περιουσίες (όπως ο χρυσός και το ασήμι) ή στην εμπιστοσύνη σε κεντρικές εξουσίες (όπως τα πιστωτικά χρήματα). Εν συντομία, το Bitcoin υποστηρίζεται από τα μαθηματικά. Με αυτά τα χαρακτηριστικά, όλα αυτά που απαιτούνται από μια μορφή χρημάτων για να διατηρήσουν αξία είναι η εμπιστοσύνη και η υιοθέτηση. Στην περίπτωση του Bitcoin, αυτό μπορεί να μετρηθεί από την αυξανόμενη βάση των χρηστών, εμπόρων και νεοσύστατων επιχειρήσεων. Όπως συμβαίνει και με όλα τα νομίσματα, η αξία του bitcoin πηγάζει μόνο και άμεσα από ανθρώπους που είναι διατεθειμένοι να τα αποδεχτούν ως πληρωμή.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="ponzi" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Είναι το Bitcoin σύστημα Ponzi;</h3>
+      <div>
+        <p>Ένα σύστημα Ponzi είναι μια άνεντιμη επιχείρηση επενδύσων που πληρώνει επιστροφές στους επενδυτές από τα δικά τους χρήματα, ή τα χρήματα που δόθηκαν από επακόλουθους επενδυτές, αντί από το κέρδος που έβγαλαν τα άτομα που λειτουργούν την επιχείρηση. Τα συστήματα Ponzi είναι σχεδιασμένα να καταρρέουν εις βάρος των τελευταίων επενδυτών όταν δεν υπάρχουν αρκετοί νέοι συμμετέχοντες.</p>
+        <p>To Bitcoin είναι ένα πρότζεκτ δωρεάν λογισμικού χωρίς κεντρική αρχή. Συνεπώς, κανείς δεν είναι σε θέση να κάνει ανέντιμες παρουσιάσεις για αποδόσεις από επενδύσεις. Όπως και τα άλλα κύρια νομίσματα όπως ο χρυσός, το δολάριο ΗΠΑ, το ευρώ, το γιεν κτλ. δεν υπάρχει εγγυημένη αγοραστική δύναμη και η συναλλαγματική ισοτιμία κυμαίνεται ελεύθερα. Αυτό οδηγεί σε αστάθεια όπου οι ιδιοκτήτες των bitcoins μπορούν απρόβλεπτα να κερδίσουν ή να χάσουν χρήματα. Πέρα από τις εικασίες, το Bitcoin είναι επίσης ένα σύστημα πληρωμών με χρήσιμα και ανταγωνιστικά χαρακτηριστικά που χρησιμοποιείται από χιλιάδες χρήστες και επιχειρήσεις.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="creator" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Ποιος δημιούργησε το Bitcoin;</h3>
+      <div>
+        <p>Το Bitcoin είναι η πρώτη εφαρμογή μιας έννοιας που ονομάζεται «κρυπτονόμισμα», η οποία περιγράφηκε για πρώτη φορά το 1998 από τον Wei Dai στην λίστα αλληλογραφίας cypherpunks, υποστηρίζοντας την ιδέα μιας νέας μορφής χρήματος η οποία κάνει χρήση  κρυπτογραφίας για να ελέγξει τη δημιουργία και τις συναλλαγές του, παρά μια κεντρική αρχή. Οι πρώτες προδιαγραφές του Bitcoin και η απόδειξη της έννοιας του δημοσιεύθηκαν το 2009 από τον Satoshi Nakamoto. Ο Satoshi αποσύρθηκε από το έργο αυτό στα τέλη του 2010 χωρίς να αποκαλύψει πολλά για τον εαυτό του. Από τότε, η κοινότητα του Bitcoin μεγάλωσε εκθετικά με <a href="/el/development"> πολλούς προγραμματιστές </a> που ασχολούνται με το Bitcoin.</p>
+        <p>Η "ανωνυμία" του Satoshi συχνά έθετε αδικαιολόγητες ανησυχίες, πολλές από τις οποίες συνδέονται με παρανοήσεις γύρω από την ανοιχτού κώδικα φύση του Bitcoin. Το λογισμικό και το πρωτόκολλο του Bitcoin εκδίδονται ανοιχτά προς όλους και οποιοσδήποτε προγραμματιστής μπορεί να επιθεωρήσει τον κώδικα ή να φτιάξει τις δικές του τροποποιημένες εκδόσεις του λογισμικού Bitcoin. Ακριβώς όπως και με τους τωρινούς προγραμματιστές, η επιρροή του Satoshi περιορίστηκε στις αλλαγές που έκανε και υιοθετήθηκαν από άλλους και συνεπώς δεν είχε τον έλεγχο του Bitcoin. Έτσι, η ταυτότητα του εφευρέτη του Bitcoin είναι πιθανόν τόσο σχετική σήμερα όσο και η ταυτότητα του προσώπου που εφηύρε το χαρτί.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="worthless" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Μπορoύν τα bitcoins να ευτελιστούν;</h3>
+      <div>
+        <p>Ναι. Η ιστορία είναι γεμάτη από νομίσματα που απέτυχαν και πλέον δεν χρησιμοποιούνται, όπως το <a href="https://en.wikipedia.org/wiki/German_gold_mark">Γερμανικό Μάρκο</a> κατά τη διάρκεια της Δημοκρατίας της Βαϊμάρης και, πιο πρόσφατα, το <a href="https://en.wikipedia.org/wiki/Zimbabwean_dollar">Δολάριο Ζιμπάμπουε</a>. Παρόλο που οι προηγούμενες χρεοκοπίες νομισμάτων οφείλονταν τυπικά στον υπερπληθωρισμό ενός είδους που το Bitcoin το καθιστά αδύνατο, υπάρχει πάντοτε η πιθανότητα για τεχνικές αποτυχίες, ανταγωνιστικά νομίσματα, πολιτικά ζητήματα κοκ. Ως εμπειρικός κανόνας, κανένα νόμισμα δεν θα πρέπει να θεωρείται απόλυτα ασφαλές απέναντι σε χρεοκοπίες και δύσκολους καιρούς. Το Bitcoin έχει αποδειχτεί αξιόπιστο για χρόνια από το ξεκίνημά του και υπάρχει μεγάλη προοπτική για το Bitcoin να συνεχίσει να αναπτύσσεται. Ωστόσο, κανείς δεν είναι σε θέση να προβλέψει ποιο θα είναι το μέλλον για το Bitcoin.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="virtual" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Είναι το Bitcoin πλήρως εικονικό και άυλο;</h3>
+      <div>
+        <p>Το Bitcoin είναι εξίσου εικονικό με τις πιστωτικές κάρτες και τα online δίκτυα τραπεζικών συναλλαγών τα οποία χρησιμοποιούν οι άνθρωποι καθημερινά. Το Bitcoin μπορεί να χρησιμοποιηθεί για να πληρώσουμε online και σε φυσικά καταστήματα όπως και με κάθε άλλη μορφή χρημάτων. Τα Bitcoins μπορούν επίσης να ανταλλαγούν σε φυσική μορφή όπως είναι τα <a href="https://www.casascius.com/">νομίσματα Casascius </a>,  αλλά η πληρωμή μέσω κινητού τηλεφώνου παραμένει πιο βολικός τρόπος. Τα υπόλοιπα λογαριασμού Bitcoin αποθηκεύονται σε ένα κυρίως κατανεμημένο δίκτυο και δεν μπορούν να τροποποιηθούν δόλια από κανέναν. Με άλλα λόγια, οι χρήστες Bitcoin έχουν αποκλειστικό έλεγχο στα κεφάλαιά τους και τα bitcoins δεν μπορούν να εξαφανιστούν απλώς επειδή είναι εικονικά.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="trust" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Γιατί οι άνθρωποι εμπιστεύονται το Bitcoin;</h3>
+      <div>
+        <p>Μεγάλο μέρος της εμπιστοσύνης στο Bitcoin προέρχεται από το γεγονός ότι δεν απαιτεί καμιά απολύτως εμπιστοσύνη. To Bitcoin είναι πλήρως ανοιχτού κώδικα και αποκεντρωμένο. Αυτό σημαίνει ότι οποισδήποτε έχει πρόσβαση σε ολόκληρο τον κώδικα ανά πάσα στιγμή. Συνεπώς, ο κάθε προγραμματιστής στον κόσμο μπορεί να επαληθεύσει πώς ακριβώς λειτουργεί το Bitcoin. Όλες οι συναλλαγές και τα bitcoins που δημιουργούνται μπορεί να τα ανατρέξει ο καθένας με διαφάνεια σε πραγματικό χρόνο. Όλες οι πληρωμές μπορούν να γίνουν χωρίς εξάρτηση από τρίτους και ολόκληρο το σύστημα προστατεύεται από έντονα επιθεωρημένους από ομότιμους κρυπτογραφικούς αλγόριθμους όπως εκείνους που χρησιμοποιούνται στις online τραπεζικές συναλλαγές. Κανένας οργανισμός ή άτομο δεν μπορεί να ελέγξει το Bitcoin και το δίκτυο παραμένει ασφαλές παρόλο που όλοι οι χρήστες του δεν είναι έμπιστοι.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="anonymous" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Είναι το Bitcoin ανώνυμο; </h3>
+      <div>
+        <p>To Bitcoin είναι σχεδιασμένο ώστε να επιτρέπει στους χρήστες του να στέλνουν και να λαμβάνουν πληρωμές με ένα αποδεκτό επίπεδο προστασίας προσωπικών δεδομένων όπως επίσης και σε οποιαδήποτε άλλη μορφή χρημάτων. Ωστόσο, το Bitcoin δεν είναι ανώνυμο και δεν μπορεί να προσφέρει το ίδιο επίπεδο προστασίας προσωπικών δεδομένων όπως με τα μετρητά. Η χρήση του Bitcoin αφήνει εκτεταμένα δημόσια αρχεία. <a href="/el/protect-your-privacy">Διάφοροι μηχανισμοί</a> υπάρχουν για να προστατέψουν τα προσωπικά δεδομένα των χρηστών και ακόμα περισσότεροι είναι υπό εξέλιξη. Ωστόσο, υπάρχει ακόμα δουλειά που πρέπει να γίνει πριν οι λειτουργίες αυτές χρησιμοποιούνται σωστά από τους περισσότερους χρήστες του Bitcoin.</p>
+        <p>Έχουν διατυπωθεί κάποιες ανησυχίες ότι οι ιδιωτικές συναλλαγές με Bitcoin θα μπορούσαν να χρησιμοποιηθούν για παράνομους σκοπούς. Ωστόσο, αξίζει να σημειωθεί ότι το Bitcoin θα υπόκειται αναμφίβολα σε παρόμοιους κανονισμούς με αυτούς που ήδη εφαρμόζονται στα υπάρχοντα χρηματοοικονομικά συστήματα. Το Bitcoin δεν μπορεί να είναι πιο ανώνυμο από τα μετρητά και δεν είναι πιθανό να εμποδίζει τις εγκληματολογικές έρευνες από το να διεξάγονται. Επιπροσθέτως, το Bitcoin είναι σχεδιασμένο επίσης για να αποτρέπει ένα μεγάλο φάσμα οικονομικών εγκλημάτων.</p>
+      </div>
+    </div>
+    <p>Για να μάθετε περισσότερα για το Bitcoin, παρακαλούμε επισκεφθείτε το ολοκληρωμένο  <a href="/en/faq">Συχνές Ερωτήσεις (FAQ)</a> ή το <a href="https://en.bitcoin.it/wiki/Help:FAQ">Bitcoin Wiki</a>.</p>
+  </div>
+</div>
+
+
+
+    </div>
+  </div>
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/el/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Support Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Donate</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">Eισαγωγή:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/el/bitcoin-for-individuals">Ιδιώτες</a>
+        </li>
+        <li>
+          <a href="/el/bitcoin-for-businesses">Επιχειρήσεις</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">Προγραμματιστές</a>
+        </li>
+        <li>
+          <a href="/el/getting-started">Ξεκινώντας</a>
+        </li>
+        <li>
+          <a href="/el/how-it-works">Πώς λειτουργεί</a>
+        </li>
+        <li>
+          <a href="/el/you-need-to-know">Πρέπει να γνωρίζετε</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">Πόροι:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/el/resources">Πόροι</a>
+        <li>
+          <a href="/el/exchanges">Exchanges</a>
+        </li>
+        <li>
+          <a href="/el/community">Κοινότητα</a>
+        </li>
+        <li>
+          <a href="/el/vocabulary">Λεξιλόγιο
+          </a>
+        </li>
+        <li>
+          <a href="/el/events">Εκδηλώσεις</a>
+        </li>
+        
+          <li>
+            <a href="/el/download">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">Συμμετοχή:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/el/support-bitcoin">Υποστηρίξτε το Bitcoin</a>
+        
+        
+        <li>
+          <a href="/el/development">Ανάπτυξη</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Other:</p>
+      
+      <a href="/el/legal">Νομικά</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/el/press">Τύπος (ΜΜΕ)</a>
+      <a href="/el/about-us">Σχετικά με το bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>Μια κοινοτική ιστοσελίδα χρηματοδοτούμενη από</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 Κυκλοφόρησε υπό την <a href="http://opensource.org/licenses/mit-license.php" target="_blank">άδεια MIT</a></div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Network Status</a>
+        
+<ul class="lang is-expand">
+  <li><a>Ελληνικά</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/pers">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/premsa">Català</a></li>
+        
+        
+          <li><a href="/da/presse">Dansk</a></li>
+        
+        
+          <li><a href="/de/presse">Deutsch</a></li>
+        
+        
+          <li><a href="/en/press">English</a></li>
+        
+        
+          <li><a href="/es/prensa">Español</a></li>
+        
+        
+          <li><a href="/fr/presse">Français</a></li>
+        
+        
+          <li><a href="/it/stampa">Italiano</a></li>
+        
+        
+          <li><a href="/hu/sajto">Magyar</a></li>
+        
+        
+          <li><a href="/nl/pers">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/prasa">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/imprensa">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/presa">Română</a></li>
+        
+        
+          <li><a href="/sl/mediji">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/mediji">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/press">Svenska</a></li>
+        
+        
+          <li><a href="/tr/basin">Türkçe</a></li>
+        
+        
+          <li><a href="/el/press" class="active">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/press">български</a></li>
+        
+        
+          <li><a href="/ru/press">Русский</a></li>
+        
+        
+          <li><a href="/uk/press">Українська</a></li>
+        
+        
+          <li><a href="/ar/press">العربية</a></li>
+        
+        
+          <li><a href="/fa/press">فارسی</a></li>
+        
+        
+          <li><a href="/he/press">עברית</a></li>
+        
+        
+          <li><a href="/hi/press">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/press">한국어</a></li>
+        
+        
+          <li><a href="/ja/press">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/press">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/press">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/pers" >Bahasa Indonesia</option>
+              
+              <option value="/ca/premsa" >Català</option>
+              
+              <option value="/da/presse" >Dansk</option>
+              
+              <option value="/de/presse" >Deutsch</option>
+              
+              <option value="/en/press" >English</option>
+              
+              <option value="/es/prensa" >Español</option>
+              
+              <option value="/fr/presse" >Français</option>
+              
+              <option value="/it/stampa" >Italiano</option>
+              
+              <option value="/hu/sajto" >Magyar</option>
+              
+              <option value="/nl/pers" >Nederlands</option>
+              
+              <option value="/pl/prasa" >Polski</option>
+              
+              <option value="/pt_BR/imprensa" >Português Brasil</option>
+              
+              <option value="/ro/presa" >Română</option>
+              
+              <option value="/sl/mediji" >Slovenščina</option>
+              
+              <option value="/sr/mediji" >Srpski</option>
+              
+              <option value="/sv/press" >Svenska</option>
+              
+              <option value="/tr/basin" >Türkçe</option>
+              
+              <option value="/el/press"  selected="selected">Ελληνικά</option>
+              
+              <option value="/bg/press" >български</option>
+              
+              <option value="/ru/press" >Русский</option>
+              
+              <option value="/uk/press" >Українська</option>
+              
+              <option value="/ar/press" >العربية</option>
+              
+              <option value="/fa/press" >فارسی</option>
+              
+              <option value="/he/press" >עברית</option>
+              
+              <option value="/hi/press" >हिन्दी</option>
+              
+              <option value="/ko/press" >한국어</option>
+              
+              <option value="/ja/press" >日本語</option>
+              
+              <option value="/zh_CN/press" >简体中文</option>
+              
+              <option value="/zh_TW/press" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">el</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+  <script>updateToc();</script>
+<script>accordion();</script>
+<script>onScrollButton();</script>
+<script>boxShow();</script>
+
+
+
+</body>
+
+</html>

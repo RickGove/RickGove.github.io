@@ -1,0 +1,815 @@
+<!DOCTYPE HTML>
+<html lang="da">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Sikring af din tegnebog – Bitcoin</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org is a community funded project, donations are appreciated and used to improve the website.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Make a donation
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org needs your support!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Donate to Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">Use this QR code or address below</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Or custom amount? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Or custom amount? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Optional description (for your wallet)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/da/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">Introduktion</a>
+    <ul>
+      <li><a href="/da/bitcoin-for-enkeltpersoner">Enkeltpersoner</a></li>
+      <li><a href="/da/bitcoin-for-virksomheder">Virksomheder</a></li>
+      <li><a href="https://developer.bitcoin.org/">Udviklere</a></li>
+      <li><a href="/da/kom-i-gang">Kom i gang</a></li>
+      <li><a href="/da/hvordan-det-fungerer">Hvordan det fungerer</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">Ressourcer</a>
+    <ul>
+      <li><a href="/da/ressourcer">Ressourcer</a>
+      <li><a href="/da/udvekslinger">Exchanges</a></li>
+      <li><a href="/da/faellesskab">Fællesskab</a></li>
+      
+      
+      <li><a href="/da/ordliste">Ordliste</a></li>
+      <li><a href="/da/begivenheder">Begivenheder</a></li>
+      
+        <li><a href="/da/hent">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/da/innovation">Innovation</a></li>
+  <li><a class="is-expand">Deltag</a>
+    <ul>
+      <li><a href="/da/stoet-bitcoin">Støt Bitcoin</a>
+      <li><a href="/da/kobe">Buy Bitcoin</a></li>
+      
+      <li><a href="/da/udvikling">Udvikling</a></li>
+    </ul>
+  </li>
+  <li><a href="/da/faq">FAQ</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>Dansk</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/amankan-wallet-anda">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/assegura-el-teu-moneder">Català</a></li>
+        
+        
+          <li><a href="/da/sikr-din-tegnebog" class="active">Dansk</a></li>
+        
+        
+          <li><a href="/de/sichern-sie-ihre-wallet">Deutsch</a></li>
+        
+        
+          <li><a href="/en/secure-your-wallet">English</a></li>
+        
+        
+          <li><a href="/es/asegure-su-monedero">Español</a></li>
+        
+        
+          <li><a href="/fr/securiser-porte-monnaie">Français</a></li>
+        
+        
+          <li><a href="/it/proteggi-il-portafoglio">Italiano</a></li>
+        
+        
+          <li><a href="/hu/vedje-meg-penztarcajat">Magyar</a></li>
+        
+        
+          <li><a href="/nl/beveilig-uw-portemonnee">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/zabezpiecz-swoj-portfel">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/proteja-sua-carteira">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/securizeaza-portofelul">Română</a></li>
+        
+        
+          <li><a href="/sl/zavarujte-svojo-denarnico">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/sigurnost-vaseg-novcanik">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/sakra-din-planbok">Svenska</a></li>
+        
+        
+          <li><a href="/tr/cuzdaninizi-guvenceye-almak">Türkçe</a></li>
+        
+        
+          <li><a href="/el/secure-your-wallet">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/secure-your-wallet">български</a></li>
+        
+        
+          <li><a href="/ru/secure-your-wallet">Русский</a></li>
+        
+        
+          <li><a href="/uk/secure-your-wallet">Українська</a></li>
+        
+        
+          <li><a href="/ar/secure-your-wallet">العربية</a></li>
+        
+        
+          <li><a href="/fa/secure-your-wallet">فارسی</a></li>
+        
+        
+          <li><a href="/he/secure-your-wallet">עברית</a></li>
+        
+        
+          <li><a href="/hi/secure-your-wallet">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/secure-your-wallet">한국어</a></li>
+        
+        
+          <li><a href="/ja/secure-your-wallet">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/secure-your-wallet">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/secure-your-wallet">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/amankan-wallet-anda" >Bahasa Indonesia</option>
+            
+            <option value="/ca/assegura-el-teu-moneder" >Català</option>
+            
+            <option value="/da/sikr-din-tegnebog"  selected="selected">Dansk</option>
+            
+            <option value="/de/sichern-sie-ihre-wallet" >Deutsch</option>
+            
+            <option value="/en/secure-your-wallet" >English</option>
+            
+            <option value="/es/asegure-su-monedero" >Español</option>
+            
+            <option value="/fr/securiser-porte-monnaie" >Français</option>
+            
+            <option value="/it/proteggi-il-portafoglio" >Italiano</option>
+            
+            <option value="/hu/vedje-meg-penztarcajat" >Magyar</option>
+            
+            <option value="/nl/beveilig-uw-portemonnee" >Nederlands</option>
+            
+            <option value="/pl/zabezpiecz-swoj-portfel" >Polski</option>
+            
+            <option value="/pt_BR/proteja-sua-carteira" >Português Brasil</option>
+            
+            <option value="/ro/securizeaza-portofelul" >Română</option>
+            
+            <option value="/sl/zavarujte-svojo-denarnico" >Slovenščina</option>
+            
+            <option value="/sr/sigurnost-vaseg-novcanik" >Srpski</option>
+            
+            <option value="/sv/sakra-din-planbok" >Svenska</option>
+            
+            <option value="/tr/cuzdaninizi-guvenceye-almak" >Türkçe</option>
+            
+            <option value="/el/secure-your-wallet" >Ελληνικά</option>
+            
+            <option value="/bg/secure-your-wallet" >български</option>
+            
+            <option value="/ru/secure-your-wallet" >Русский</option>
+            
+            <option value="/uk/secure-your-wallet" >Українська</option>
+            
+            <option value="/ar/secure-your-wallet" >العربية</option>
+            
+            <option value="/fa/secure-your-wallet" >فارسی</option>
+            
+            <option value="/he/secure-your-wallet" >עברית</option>
+            
+            <option value="/hi/secure-your-wallet" >हिन्दी</option>
+            
+            <option value="/ko/secure-your-wallet" >한국어</option>
+            
+            <option value="/ja/secure-your-wallet" >日本語</option>
+            
+            <option value="/zh_CN/secure-your-wallet" >简体中文</option>
+            
+            <option value="/zh_TW/secure-your-wallet" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">da</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>Sikring af din tegnebog</h1>
+    
+      <p class="summarytxt">Ligesom i virkeligheden skal din tegnebog sikres. Bitcoin gør det muligt at overføre værdier til ethvert sted på en meget nem måde, og det tillader dig at have kontrol over dine penge. Sådanne fantastiske funktionaliteter kommer også med afgørende sikkerhedsovervejelser. Hvis det bruges korrekt, kan Bitcoin sikre et meget højt niveau af sikkerhed. <b>Husk altid, at det er dit ansvar at lære dig selv gode vaner for at sikre dine penge</b>.</p>
+    
+  </div>
+</div>
+
+<div class="toc-container">
+  <div class="row toc-row">
+
+    <div id="toc" class="toc">
+      <div>
+        <button class="mob-sidebar-open" hidden>View All</button>
+        <div class="sidebar">
+          <div class="sidebar-inner">
+            <button class="mob-sidebar-close" hidden></button>
+            
+
+<ul>
+  <li><a href="#online">Vær forsigtig med onlinetjenester</a></li>
+  <li><a href="#everyday">Små beløb til hverdagsbrug</a></li>
+  <li><a href="#backup">Tag sikkerhedskopi af din tegnebog</a>
+    <ul>
+      <li><a href="#backupwhole">Tag sikkerhedskopi af hele din tegnebog</a></li>
+      <li><a href="#backuponline">Kryptér online-sikkerhedskopier</a></li>
+      <li><a href="#backupmany">Benyt mange sikre steder</a></li>
+      <li><a href="#backupregular">Foretag regelmæssige sikkerhedskopier</a></li>
+    </ul>
+  </li>
+  <li><a href="#encrypt">Kryptér din tegnebog</a>
+    <ul>
+      <li><a href="#encryptforget">Glem aldrig dit kodeord</a></li>
+      <li><a href="#encryptstrong">Benyt et stærkt kodeord</a></li>
+    </ul>
+  </li>
+  <li><a href="#offline">Offline-tegnebog til opsparing</a>
+    <ul>
+      <li><a href="#offlinetx">Signering af offline-transaktioner</a></li>
+      <li><a href="#hardwarewallet">Hardware-tegnebøger</a></li>
+    </ul>
+  </li>
+  <li><a href="#update">Hold din software opdateret</a></li>
+  <li><a href="#offlinemulti">Multi-signatur for at beskytte imod tyveri</a></li>
+  <li><a href="#offlinetestament">Tænk over dit testamente</a></li>
+</ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toccontent">
+      <div class="toccontent-intro">
+    <h2 id="online">Vær forsigtig med onlinetjenester</h2>
+    <p>Du bør være varsom med enhver tjeneste, der er designet til at opbevare dine penge online. Mange børser og online-tegnebøger har lidt under sikkerhedsbrister i fortiden, og sådanne tjenester tilbyder stadig ikke nok forsikring og sikkerhed til at blive brugt til at opbevare dine penge som en bank. Dermed bør du sandsynligvis bruge andre typer <a href="/da/vaelg-din-tegnebog">Bitcoin-tegnebøger</a>. Ellers skal du vælge sådanne tjenester med stor forsigtighed. Der ud over anbefales to-faktor-autentificering.</p>
+</div>
+
+<div class="toccontent-block secure-content-block boxexpand expanded">
+  <h2 id="everyday">Små beløb til hverdagsbrug</h2>
+  <p>En Bitcoin-tegnebog er som en tegnebog med kontanter. Hvis du ikke ville føle dig sikker ved at have ti tusinde kroner i din lomme, bør du have samme overvejelser for din Bitcoin-tegnebog. Generelt er det god praksis kun at opbevare små bitcoin-beløb på din computer, mobile enhed eller server til hverdagsbrug og at opbevare det resterende af dine penge i mere sikre omgivelser.</p>
+</div>
+
+<div class="toccontent-block secure-content-block boxexpand expanded">
+  <h2 id="backup">Tag sikkerhedskopi af din tegnebog</h2>
+  <p>Hvis din sikkerhedskopi opbevares et sikkert sted, kan den beskytte dig mod computernedbrud og mange menneskelige fejl. Den kan også tillade dig at genskabe din tegnebog, hvis din mobile enhed eller din computer bliver stjålet, hvis du krypterer din tegnebog.</p>
+  <div class="box">
+    <h3 id="backupwhole">Tag sikkerhedskopi af hele din tegnebog</h3>
+    <p>Nogle tegnebøger bruger mange skjulte private nøgler internt. Hvis du kun har en sikkerhedskopi af de private nøgler for dine synlige Bitcoin-adresser, er du måske ikke i stand til at genskabe en stor del af dine penge med din sikkerhedskopi.</p>
+  
+    <h3 id="backuponline">Kryptér online-sikkerhedskopier</h3>
+    <p>Enhver sikkerhedskopi, der opbevares online, er yderst sårbar overfor tyveri. Selv en computer, der er forbundet til Internet, er sårbar overfor ondsindet software. Som sådan er det god sikkerhedspraksis at kryptere enhver sikkerhedskopi, som udsættes for netværket.</p>
+  
+    <h3 id="backupmany">Benyt mange sikre steder</h3>
+    <p>"Single point of failure" har negativ virkning på sikkerheden. Hvis din sikkerhedskopi ikke afhænger af et enkelt fysisk opbevaringssted, er det mindre sandsynligt, at en hændelse vil forhindre dig i at genskabe din tegnebog. Du bør også overveje at bruge forskellige medier, så som USB-nøgler, papir og CDer.</p>
+  
+    <h3 id="backupregular">Foretag regelmæssige sikkerhedskopier</h3>
+    <p>Du skal sikkerhedskopiere din tegnebog regelmæssigt for at være sikker på, at alle nylige Bitcoin-adresser med byttepenge og alle nye Bitcoin-adresser, som du har oprettet, er inkluderet i din sikkerhedskopi. Alle programmer vil dog snart bruge tegnebøger, som kun behøver at blive sikkerhedskopieret én gang.</p>
+  </div>
+</div>
+
+<div class="toccontent-block secure-content-block boxexpand expanded">
+  <h2 id="encrypt">Kryptér din tegnebog</h2>
+  <p>Hvis du krypterer din tegnebog eller din smartphone, kan du sætte et kodeord for enhver, der forsøger at trække penge ud. Dette hjælper med at beskytte imod tyve, selvom det ikke kan beskytte imod hardware eller software, der optager dine tastetryk.</p>
+  
+  <div class="box">
+  
+    <h3 id="encryptforget">Glem aldrig dit kodeord</h3>
+    <p>Du bør være sikker på, at du aldrig glemmer dit kodeord, eller dine penge vil gå tabt for evigt. Til forskel fra din bank, er der meget begrænsede muligheder for genskabelse af kodeord med Bitcoin. Faktisk bør du være i stand til at huske dit kodeord, selv efter mange år uden at du har brugt det. Hvis du er i tvivl, kan du overveje at opbevare en papirudgave af dit kodeord et sikkert sted, så som et pengeskab.</p>
+  
+    <h3 id="encryptstrong">Benyt et stærkt kodeord</h3>
+    <p>Ethvert kodeord, der kun indeholder bogstaver eller genkendelige ord, kan opfattes som meget svage og lette at bryde. Et stærkt kodeord skal indeholde bogstaver, tal, tegn og skal være mindst 16 tegn langt. De mest sikre kodeord er dem, der bliver genereret af programmer, som er designet til netop dette formål. Stærke kodeord er normalt sværere at huske, så du skal være omhyggelig med at lære det udenad.</p>
+  
+  </div>
+</div>
+
+<div class="toccontent-block secure-content-block boxexpand expanded">
+  <h2 id="offline">Offline-tegnebog til opsparing</h2>
+  <p>En offline-tegnebog, også kendt som kold opbevaring eller "cold storage", giver det højeste niveau for sikkerhed ved opsparinger. Det involverer opbevaring af en tegnebog på et sikkert sted, som ikke er forbundet til netværket. Når det gøres rigtigt, kan det give en rigtig god beskyttelse imod computersårbarheder. Det er også god praksis at benytte en offline-tegnebog sammen med sikkerhedskopier og kryptering. Her er et overblik over nogle fremgangsmåder.</p>
+  
+  <div class="box">
+    <h3 id="offlinetx">Signering af offline-transaktioner</h3>
+    <p>Denne fremgangsmåde involverer to computere, som deler nogle dele af den samme tegnebog. Den første computer skal være frakoblet ethvert netværk. Dette er det eneste sted, hvor hele tegnebogen opbevares, og den er i stand til at signere transaktioner. Den anden computer er forbundet til netværket og har kun en kigge-tegnebog, som kun kan oprette usignerede transaktioner. På denne måde kan du på sikker vis oprette nye transaktioner med de følgende trin.</p>
+    <ol>
+      <li>Opret en ny transaktion på den computer, der er online, og gem den på en USB-nøgle.</li>
+      <li>Signér transaktionen med den computer, der er offline.</li>
+      <li>Send den signerede transaktion med den computer, der er online.</li>
+    </ol>
+    <p>Da den computer, som er forbundet til netværket, ikke kan signere transaktioner, kan den ikke bruges til at hæve penge fra din tegnebog, hvis den kompromitteres. <a href="https://bitcoinarmory.com/tutorials/armory-advanced-features/offline-wallets/">Armory</a> kan bruges til at lave signering af offline-transaktioner.</p>
+  </div>
+
+  <div class="box">
+    <h3 id="hardwarewallet">Hardware-tegnebøger</h3>
+    <p>Hardware-tegnebøger tilbyder den bedste balance mellem meget høj sikkerhed og brugervenlighed. Disse er små enheder, som er designet fra bunden til at være en tegnebog og intet andet. Intet software kan installeres på dem, hvilket gør dem meget sikre imod computersårbarheder og online tyve. Da de giver mulighed for sikkerhedskopier, kan du genanskaffe dine penge, hvis du mister enheden.</p>
+  </div>
+</div>
+
+<div class="toccontent-block secure-content-block boxexpand expanded">
+  <h2 id="update">Hold din software opdateret</h2>
+  <p>Hvis du bruger den seneste version af din Bitcoin-software, har du de seneste vigtige stabilitets- og sikkerhedsrettelser. Opdateringer kan forhindre problemer af varierende alvorlighed, bringe dig nye funktionaliteter og hjælpe med at holde din tegnebog sikker. Det er også vigtigt at installere opdateringer for al anden software på din computer eller mobile enhed for at holde din tegnebogs omgivelser mere sikre.</p>
+</div>
+
+<div class="toccontent-block secure-content-block boxexpand expanded">
+  <h2 id="offlinemulti">Multi-signatur for at beskytte imod tyveri</h2>
+  <p>Bitcoin har en funktion for multisignaturer, som tillader en transaktion at kræve flere uafhængige godkendelser, før den kan bruges. Dette kan bruges af en organisation for at give dens medlemmer adgang til organisationens midler, men på en sådan måde at en hævning kun tillades, hvis 3 ud af 5 medlemmer signerer transaktionen. Nogle nettegnebøger giver også mulighed for multisignatur-tegnebøger, der tillader brugeren selv at styre sine penge, mens en tyv forhindres i at stjæle penge ved at komprommitere en enkelt enhed eller server.</p>
+</div>
+
+<div class="toccontent-block secure-content-block boxexpand expanded">
+  <h2 id="offlinetestament">Tænk over dit testamente</h2>
+  <p>Dine bitcoin kan mistes for evigt, hvis du ikke har en plan for en sikkerhedskopi til din familie eller venner. Hvis dine tegnebøgers eller kodeords opbevaringssted ikke kendes af nogen, når du er væk, er der intet håb for, at dine penge nogensinde kan fremskaffes igen. Det kan gøre en kollosal forskel at bruge noget tid til at tænke over dette.</p>
+</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/da/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Support Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Donate</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">Introduktion:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/da/bitcoin-for-enkeltpersoner">Enkeltpersoner</a>
+        </li>
+        <li>
+          <a href="/da/bitcoin-for-virksomheder">Virksomheder</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">Udviklere</a>
+        </li>
+        <li>
+          <a href="/da/kom-i-gang">Kom i gang</a>
+        </li>
+        <li>
+          <a href="/da/hvordan-det-fungerer">Hvordan det fungerer</a>
+        </li>
+        <li>
+          <a href="/da/du-boer-vide">Du bør vide</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">Ressourcer:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/da/ressourcer">Ressourcer</a>
+        <li>
+          <a href="/da/udvekslinger">Exchanges</a>
+        </li>
+        <li>
+          <a href="/da/faellesskab">Fællesskab</a>
+        </li>
+        <li>
+          <a href="/da/ordliste">Ordliste
+          </a>
+        </li>
+        <li>
+          <a href="/da/begivenheder">Begivenheder</a>
+        </li>
+        
+          <li>
+            <a href="/da/hent">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">Deltag:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/da/stoet-bitcoin">Støt Bitcoin</a>
+        
+        
+        <li>
+          <a href="/da/udvikling">Udvikling</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Other:</p>
+      
+      <a href="/da/juridisk">Juridisk</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/da/presse">Presse</a>
+      <a href="/da/om-os">Om bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>En fællesskabswebside sponsoreret af</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 Udgivet under <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT-licensen</a></div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Network Status</a>
+        
+<ul class="lang is-expand">
+  <li><a>Dansk</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/amankan-wallet-anda">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/assegura-el-teu-moneder">Català</a></li>
+        
+        
+          <li><a href="/da/sikr-din-tegnebog" class="active">Dansk</a></li>
+        
+        
+          <li><a href="/de/sichern-sie-ihre-wallet">Deutsch</a></li>
+        
+        
+          <li><a href="/en/secure-your-wallet">English</a></li>
+        
+        
+          <li><a href="/es/asegure-su-monedero">Español</a></li>
+        
+        
+          <li><a href="/fr/securiser-porte-monnaie">Français</a></li>
+        
+        
+          <li><a href="/it/proteggi-il-portafoglio">Italiano</a></li>
+        
+        
+          <li><a href="/hu/vedje-meg-penztarcajat">Magyar</a></li>
+        
+        
+          <li><a href="/nl/beveilig-uw-portemonnee">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/zabezpiecz-swoj-portfel">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/proteja-sua-carteira">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/securizeaza-portofelul">Română</a></li>
+        
+        
+          <li><a href="/sl/zavarujte-svojo-denarnico">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/sigurnost-vaseg-novcanik">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/sakra-din-planbok">Svenska</a></li>
+        
+        
+          <li><a href="/tr/cuzdaninizi-guvenceye-almak">Türkçe</a></li>
+        
+        
+          <li><a href="/el/secure-your-wallet">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/secure-your-wallet">български</a></li>
+        
+        
+          <li><a href="/ru/secure-your-wallet">Русский</a></li>
+        
+        
+          <li><a href="/uk/secure-your-wallet">Українська</a></li>
+        
+        
+          <li><a href="/ar/secure-your-wallet">العربية</a></li>
+        
+        
+          <li><a href="/fa/secure-your-wallet">فارسی</a></li>
+        
+        
+          <li><a href="/he/secure-your-wallet">עברית</a></li>
+        
+        
+          <li><a href="/hi/secure-your-wallet">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/secure-your-wallet">한국어</a></li>
+        
+        
+          <li><a href="/ja/secure-your-wallet">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/secure-your-wallet">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/secure-your-wallet">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/amankan-wallet-anda" >Bahasa Indonesia</option>
+              
+              <option value="/ca/assegura-el-teu-moneder" >Català</option>
+              
+              <option value="/da/sikr-din-tegnebog"  selected="selected">Dansk</option>
+              
+              <option value="/de/sichern-sie-ihre-wallet" >Deutsch</option>
+              
+              <option value="/en/secure-your-wallet" >English</option>
+              
+              <option value="/es/asegure-su-monedero" >Español</option>
+              
+              <option value="/fr/securiser-porte-monnaie" >Français</option>
+              
+              <option value="/it/proteggi-il-portafoglio" >Italiano</option>
+              
+              <option value="/hu/vedje-meg-penztarcajat" >Magyar</option>
+              
+              <option value="/nl/beveilig-uw-portemonnee" >Nederlands</option>
+              
+              <option value="/pl/zabezpiecz-swoj-portfel" >Polski</option>
+              
+              <option value="/pt_BR/proteja-sua-carteira" >Português Brasil</option>
+              
+              <option value="/ro/securizeaza-portofelul" >Română</option>
+              
+              <option value="/sl/zavarujte-svojo-denarnico" >Slovenščina</option>
+              
+              <option value="/sr/sigurnost-vaseg-novcanik" >Srpski</option>
+              
+              <option value="/sv/sakra-din-planbok" >Svenska</option>
+              
+              <option value="/tr/cuzdaninizi-guvenceye-almak" >Türkçe</option>
+              
+              <option value="/el/secure-your-wallet" >Ελληνικά</option>
+              
+              <option value="/bg/secure-your-wallet" >български</option>
+              
+              <option value="/ru/secure-your-wallet" >Русский</option>
+              
+              <option value="/uk/secure-your-wallet" >Українська</option>
+              
+              <option value="/ar/secure-your-wallet" >العربية</option>
+              
+              <option value="/fa/secure-your-wallet" >فارسی</option>
+              
+              <option value="/he/secure-your-wallet" >עברית</option>
+              
+              <option value="/hi/secure-your-wallet" >हिन्दी</option>
+              
+              <option value="/ko/secure-your-wallet" >한국어</option>
+              
+              <option value="/ja/secure-your-wallet" >日本語</option>
+              
+              <option value="/zh_CN/secure-your-wallet" >简体中文</option>
+              
+              <option value="/zh_TW/secure-your-wallet" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">da</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+  <script>updateToc();</script>
+<script>accordion();</script>
+<script>onScrollButton();</script>
+<script>boxShow();</script>
+
+
+
+</body>
+
+</html>

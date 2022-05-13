@@ -1,0 +1,1011 @@
+<!DOCTYPE HTML>
+<html lang="sr">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>ČPP - Bitkoin</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org je projekat koji se finansira od strane zajednice. Veoma cenimo vaše donacije i koristimo ih kako bi poboljšali sajt.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Doniraj
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org treba tvoju pomoć!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Doniraj Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">Koristi QR kod ili adresu ispod</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Ili drugi iznos? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Ili drugi iznos? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Opcioni opis (za vaš novčanik)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/sr/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">Uvod</a>
+    <ul>
+      <li><a href="/sr/bitkoin-za-lica">Fizička lica</a></li>
+      <li><a href="/sr/bitkoin-za-preduzeca">Preduzeća</a></li>
+      <li><a href="https://developer.bitcoin.org/">Programeri</a></li>
+      <li><a href="/sr/prvi-koraci">Početni koraci</a></li>
+      <li><a href="/sr/kako-to-radi">Kako funkcioniše</a></li>
+      
+      <li><a href="/sr/bitkoin-papir">Osnovni dokument - beli papir</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">Sredstva</a>
+    <ul>
+      <li><a href="/sr/sredstva">Sredstva</a>
+      <li><a href="/sr/menjacnice">Menjačnice</a></li>
+      <li><a href="/sr/zajednica">Zajednica</a></li>
+      
+      
+      <li><a href="/sr/vokabular">Rečnik</a></li>
+      <li><a href="/sr/dogadaji">Događaji</a></li>
+      
+        <li><a href="/sr/preuzimanje">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/sr/inovacija">Inovacija</a></li>
+  <li><a class="is-expand">Učestvujte</a>
+    <ul>
+      <li><a href="/sr/podrzite-bitkoin">Podržite Bitkoin</a>
+      <li><a href="/sr/kupi">Kupi Bitkoin</a></li>
+      
+      <li><a href="/sr/razvoj">Razvoj</a></li>
+    </ul>
+  </li>
+  <li class="active"><a href="/sr/cesto-postavljanja-pitanja">ČPP</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>Srpski</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/faq">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/faq">Català</a></li>
+        
+        
+          <li><a href="/da/faq">Dansk</a></li>
+        
+        
+          <li><a href="/de/faq">Deutsch</a></li>
+        
+        
+          <li><a href="/en/faq">English</a></li>
+        
+        
+          <li><a href="/es/faq">Español</a></li>
+        
+        
+          <li><a href="/fr/faq">Français</a></li>
+        
+        
+          <li><a href="/it/faq">Italiano</a></li>
+        
+        
+          <li><a href="/hu/gyik">Magyar</a></li>
+        
+        
+          <li><a href="/nl/faq">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/faq">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/faq">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/intrebari-frecvente">Română</a></li>
+        
+        
+          <li><a href="/sl/vprasanja-in-odgovori">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/cesto-postavljanja-pitanja" class="active">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/faq">Svenska</a></li>
+        
+        
+          <li><a href="/tr/sss">Türkçe</a></li>
+        
+        
+          <li><a href="/el/faq">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/faq">български</a></li>
+        
+        
+          <li><a href="/ru/faq">Русский</a></li>
+        
+        
+          <li><a href="/uk/faq">Українська</a></li>
+        
+        
+          <li><a href="/ar/faq">العربية</a></li>
+        
+        
+          <li><a href="/fa/faq">فارسی</a></li>
+        
+        
+          <li><a href="/he/faq">עברית</a></li>
+        
+        
+          <li><a href="/hi/faq">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/faq">한국어</a></li>
+        
+        
+          <li><a href="/ja/faq">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/faq">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/faq">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/faq" >Bahasa Indonesia</option>
+            
+            <option value="/ca/faq" >Català</option>
+            
+            <option value="/da/faq" >Dansk</option>
+            
+            <option value="/de/faq" >Deutsch</option>
+            
+            <option value="/en/faq" >English</option>
+            
+            <option value="/es/faq" >Español</option>
+            
+            <option value="/fr/faq" >Français</option>
+            
+            <option value="/it/faq" >Italiano</option>
+            
+            <option value="/hu/gyik" >Magyar</option>
+            
+            <option value="/nl/faq" >Nederlands</option>
+            
+            <option value="/pl/faq" >Polski</option>
+            
+            <option value="/pt_BR/faq" >Português Brasil</option>
+            
+            <option value="/ro/intrebari-frecvente" >Română</option>
+            
+            <option value="/sl/vprasanja-in-odgovori" >Slovenščina</option>
+            
+            <option value="/sr/cesto-postavljanja-pitanja"  selected="selected">Srpski</option>
+            
+            <option value="/sv/faq" >Svenska</option>
+            
+            <option value="/tr/sss" >Türkçe</option>
+            
+            <option value="/el/faq" >Ελληνικά</option>
+            
+            <option value="/bg/faq" >български</option>
+            
+            <option value="/ru/faq" >Русский</option>
+            
+            <option value="/uk/faq" >Українська</option>
+            
+            <option value="/ar/faq" >العربية</option>
+            
+            <option value="/fa/faq" >فارسی</option>
+            
+            <option value="/he/faq" >עברית</option>
+            
+            <option value="/hi/faq" >हिन्दी</option>
+            
+            <option value="/ko/faq" >한국어</option>
+            
+            <option value="/ja/faq" >日本語</option>
+            
+            <option value="/zh_CN/faq" >简体中文</option>
+            
+            <option value="/zh_TW/faq" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">sr</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>Često Postavljana Pitanja</h1>
+    
+      <p class="summarytxt">Pronađi odgovore na pitanja koja se ponavljaju i mitove o Bitkoinu.</p>
+    
+  </div>
+</div>
+
+<div class="toc-container">
+  <div class="row toc-row">
+
+    <div id="toc" class="toc">
+      <div>
+        <button class="mob-sidebar-open" hidden>View All</button>
+        <div class="sidebar">
+          <div class="sidebar-inner">
+            <button class="mob-sidebar-close" hidden></button>
+            
+
+<ul>
+  <li><a href="#generalno">Generalno</a>
+    <ul>
+      <li><a href="#sta-je-bitkoin">Šta je Bitkoin?</a></li>
+      <li><a href="#ko-je-napravio-bitkoine">Ko je stvorio Bitkoin?</a></li>
+      <li><a href="#ko-kontrolise-bitkoin-mrezu">Ko kontroliše Bitkoin mrežu?</a></li>
+      <li><a href="#kako-bitkoini-funkcionisu">Kako Bitkoin funkcioniše?</a></li>
+      <li><a href="#da-li-ljudi-stvarno-koriste-bitkoine">Da li ljudi stvarno koriste Bitkoin?</a></li>
+      <li><a href="#kako-doci-do-bitkoina">Kako se Bitkoin može steći?</a></li>
+      <li><a href="#koliko-je-tesko-izvrsiti-bitkoin-placanje">Koliko je teško izvršiti uplatu u Bitkoinu?</a></li>
+      <li><a href="#koje-su-prednosti-bitkoina">Koje su prednosti Bitkoina?</a></li>
+      <li><a href="#koji-su-nedostaci-bitkoina">Koji su nedostaci Bitkoina?</a></li>
+      <li><a href="#zasto-ljudi-imaju-poverenje-u-bitkoin">Zašto ljudi veruju u Bitkoin?</a></li>
+      <li><a href="#mogu-li-da-zaradim-sa-bitkoinima">Da li mogu da zaradim novac sa Bitkoinom?</a></li>
+      <li><a href="#da-li-su-bitkoini-u-potpunosti-virtuelni-i-nematerijalni">Da li je Bitkoin u potpunosti virtualan i nematerijalan?</a></li>
+      <li><a href="#da-li-su-bitkoini-anonimni">Da li je Bitkoin anoniman?</a></li>
+      <li><a href="#sta-se-desava-kad-se-bitkoini-izgube">Šta se dešava ako se bitkoini izgube?</a></li>
+      <li><a href="#bitkoin-kao-globalni-sistem-placanja">Da li Bitkoin može dostići skalibilnost velikih platežnih mreža?</a></li>
+    </ul>
+  </li>
+  <li><a href="#zakon">Zakonitost</a>
+    <ul>
+      <li><a href="#da-li-je-bitkoin-zakonit">Da li je Bitkoin legalan?</a></li>
+      <li><a href="#da-li-se-bitkoini-koriste-u-ilegalne-svrhe">Da li Bitkoin može da se koristi za nelegalne aktivnosti?</a></li>
+      <li><a href="#da-li-se-bitkoin-moze-regulisati">Da li se Bitkoin može regulisati?</a></li>
+      <li><a href="#sta-je-sa-bitkoin-taksama">Šta je sa Bitkoinom i porezima?</a></li>
+      <li><a href="#bitkoin-i-zastita-potrosaca">Šta je sa Bitkoinom i zaštitom potrošača?</a></li>
+    </ul>
+  </li>
+  <li><a href="#ekonomija">Ekonomija</a>
+    <ul>
+      <li><a href="#kako-nastaju-bitkoini">Kako nastaju bitkoini?</a></li>
+      <li><a href="#zasto-bitkoini-imaju-vrednost">Zašto bitkoini imaju vrednost?</a></li>
+      <li><a href="#sta-odredjuje-cenu-bitkoina">Šta određuje cenu bitkoina?</a></li>
+      <li><a href="#da-li-bitkoin-moze-postati-bezvredan">Mogu li bitkoini postati bezvredni?</a></li>
+      <li><a href="#da-li-isti-bitkoin-mozete-potrositi-dva-puta">Da li je Bitkoin balon koji će pući?</a></li>
+      <li><a href="#da-li-su-bitkoini-pozijeva-sema">Da li je Bitkoin Ponzijeva šema?</a></li>
+      <li><a href="#da-li-bitkoin-nepravedno-koristi-ranim-usvajacima">Da li Bitkoin nepravedno koristi ranim prihvatiocima?</a></li>
+      <li><a href="#da-li-je-limitirani-iznos-bitkoina-ogranicenje">Da li je ograničena  količina bitkoina organičenje?</a></li>
+      <li><a href="#da-li-ce-bitkoin-propasti-zbog-deflatorne-spirale">Da li će Bitkoin pasti u deflatornu spiralu?</a></li>
+      <li><a href="#da-li-je-spekulacija-i-nestabilnost-problem-za-bitkoin">Da li su špekulacija i nestabilnost problem za Bitkoin?</a></li>
+      <li><a href="#sta-ako-neko-kupi-sve-preostale-bitkoine">Šta ako neko kupi sve postojeće bitkoine?</a></li>
+      <li><a href="#sta-ako-neko-napravi-bolju-digitalnu-valutu">Šta ako neko napravi bolju digitalnu valutu?</a></li>
+    </ul>
+  </li>
+  <li><a href="#transakcije">Transakcije</a>
+    <ul>
+      <li><a href="#zasto-treba-da-cekam-10-minuta">Zašto moram da čekam 10 minuta?</a></li>
+      <li><a href="#kolika-je-provizija">Kolika će biti provizija prilikom transakcije?</a></li>
+      <li><a href="#sta-ako-primim-bitkoin-dok-je-racunar-iskljucen">Šta ako primim bitkoine kada mi je kompijuter isključen?</a></li>
+      <li><a href="#sta-je-sinhronizacija-i-zasto-traje-dugo">Šta znači “sinhornizacija” i zašto treba toliko vremena da bi se izvršila?</a></li>
+    </ul>
+  </li>
+  <li><a href="#rudarenje">Rudarenje</a>
+    <ul>
+      <li><a href="#sta-je-bikoin-rudarenje">Šta je Bitkoin rudarenje?</a></li>
+      <li><a href="#kako-bitkoin-rudarenje-fukncionise">Kako Bitkoin rudarenje funkcioniše?</a></li>
+      <li><a href="#da-li-je-bitkoin-tracenje-energije">Da li je Bitkoin rudarenje traćenje energije?</a></li>
+      <li><a href="#kako-rudarenje-pruza-bezbednost-bitkoinu">Kako rudarenje pomaže bezbednost Bitkoina?</a></li>
+      <li><a href="#kako-da-pocnem-sa-rudarenjem">Šta mi je potrebno da bih počeo sa rudarenjem?</a></li>
+    </ul>
+  </li>
+  <li><a href="#bezbednost">Bezbednost</a>
+    <ul>
+      <li><a href="#da-li-je-bitkoin-bezbedan">Da li je Bitkoin bezbedan?</a></li>
+      <li><a href="#da-li-je-bitkoin-hakovan-u-proslosti">Zar nije Bitkoin bio hakovan u prošlosti?</a></li>
+      <li><a href="#da-li-se-korisnici-mogu-da-se-udruze-protiv-bictoin">Mogu li korisnici da se udruže protiv Bitkoina?</a></li>
+      <li><a href="#da-li-je-bitkoin-ranjiv-na-kvantnum-racunare">Da li je Bitkoin ranjiv od strane kvantum računara?</a></li>
+    </ul>
+  </li>
+  <li><a href="#pomoc">Pomoć</a>
+    <ul>
+      <li><a href="#dodatna-pomoc">Voleo bih da naučim više. Gde mogu da dobijem pomoć?</a></li>
+    </ul>
+  </li>
+</ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toccontent">
+      <div class="toccontent-intro">
+  <h2 id="generalno">Generalno</h2>
+  
+  <h3 id="sta-je-bitkoin">Šta je Bitkoin?</h3>
+  <p>Bitkoin je mreža koncenzusa koja omogućuje novi sistem plaćanja i potpuno digitalan novac. To je prva decentralizovana, P2P mreža plaćanja koju pokreću korisnici, bez centralne vlasti ili posrednika. Iz korisničke perspektive, Bitcoin je poput keša za Internet. Bitcoin se takođe može gledati kao najbitniji sistem <a href="http://financialcryptography.com/mt/archives/001325.html">trostrukog knjigovodstva</a> koji postoji.</p>
+  
+  <h3 id="ko-je-napravio-bitkoine">Ko je stvorio Bitkoin?</h3>
+  <p>Bitkoin je prva implementacija koncepta zvanom kriptovaluta, koji je prvi put opisan 1998 godine od strane Wei Dai-a na kriptografskoj email listi, predlažući novi oblik novca koji koristi kriptografiju da kontroliše njegovo stvaranje i transakcije bez centralne vlasti. Prva Bitkoin specifikacija i dokaz koncepta objavljen je 2009 na kriptografskoj email listi od strane programera pod pseudonimom Satoshi Nakamoto. Satoshi je napustio projekat 2010 godine, bez otrkivanja previše detalja o sebi i odluci. Zajednica od tada raste eksponencijalnim rastom sa <a href="/sr/razvoj">velikim brojem programera</a> koji rade na Bitkoin protokolu.</p>
+  <p>Satošijeva anonimnost često je predmet neopravdanih briga i rasprava. Takvu rasprave uglavnom su povezane sa nepoznavanjem prirode koda otvorenog tipa. Bitkoin protokol i softver dostupni su otvoreno javnosti i svaki programer na svetu može da ispita kod ili da napravi sopstvenu izmenjenu verziju Bitkoin programa. Kao i kod sadašnjih programera koji rade na protokolu, Satošijev uticaj bio je ograničen promenama koje su drugi prihvatali, tako da on nikada nije imao kontrolu nad Bitkoinom. S tim u vezi, identitet tvorca Bitkoina relevantan je poput identiteta osobe koja je izumela papir.</p>
+  
+  <h3 id="ko-kontrolise-bitkoin-mrezu">Ko kontroliše Bitkoin mrežu?</h3>
+  <p>Niko ne kontroliše Bitcoin mrežu, kao što niko nije vlasnik email tehnologije. Bitcoin je kontrolisan od strane ljudi koji ga koriste širom sveta. I dok programeri vrše poboljšanja softvera, oni ne mogu silom primorati promenu u Bitcoin protokolu, zato što je svaki korisnik sloodan u izboru softvera i verzije koju želi da koristi. Kako bi bili kompatabilni jedni sa drugima, svi korisnici moraju koristiti softver koji poštuje ista pravila. Bitcoin može da radi jedino ukoliko postoji koncenzus među korisnicima. Tako da je u interesu korisnika i programera da štite koncenzus.</p>
+  
+  <h3 id="kako-bitkoini-funkcionisu">Kako Bitkoin funkcioniše?</h3>
+  <p>Sa korisničke perspektive, Bitoin nije ništa više od mobilne aplikacije ili računarskog programa koji pruža lični Bitkoin novčanik i dozvoljava korisniku da šalje i prima bitkoine preko njega. To je način na koji Bitkoin funkcioniše za većinu korisnika.</p>
+  <p>Iza kulisa, Bitkoin mreža sadrži javnu knjigu zvanu "block chain". Ova knjiga sardži svaku transakciju ikada obrađenu, omogućavajući računarima korisnika verifikaciju i validaciju svake transakcije. Autentičnost svake transakcije zaštićena je digitalnim potpisim vezanim za adresu pošiljaoca, što daje punu kontrolu korisnicima nad bitkoina sa svojih Bitkoin adresa. Svako može obrađivati transakcije koristeći svoju računarsku snagu specijalizovanim harverima i zaraditi nagradu u bitkoinima za svoju uslugu. Ova radnja se zove "rudarenje". Ukoliko želite da naučite još o Bitcoin-u, pogledajte <a href="/sr/kako-to-radi">stranicu posvećenu tome</a> kao i <a href="/sr/bitkoin-papir">originalni beli papir</a>.</p>
+  
+  <h3 id="da-li-ljudi-stvarno-koriste-bitkoine">Da li ljudi stvarno koriste Bitkoin?</h3>
+  <p>Da. Postoji <a href="/en/spend-bitcoin">sve veći broj poslovnihi pojedninačnih subjekata</a> koji koriste Bitkoin. Ovo uključuje prodavnice sa fizičkom lokacijom poput restorana, hotelijerstva, adokatskih kancelarija kao i popularnih onlajn servisa poput Namecheap, Overstock.com i Reddit-a. Iako relativno novi fenomen, Bitkoin raste brzo. Zaključno sa Majem 2018 <a href="https://bitcoincharts.com/bitcoin/">celokupna vrednost svih bitkoina u opticaju</a> premašuje je vrednost od stotinu milijardi američkih dolara, sa dnevnom vrednošću razmene koja se odvija svakog dana koja je višemilionska.</p>
+  <p>
+    <img src="/img/faq/merchants_map.png?1651746487" alt="Screenshot">
+  </p>
+  
+  <h3 id="kako-doci-do-bitkoina">Kako se Bitkoin može steći?</h3>
+  <ul>
+    <li>Kao platno sredstvo za robu i usluge.</li>
+    <li>Kupi bitkoin preko <a href="https://www.buybitcoinworldwide.com">Bitkoin menjačnica</a>.</li>
+    <li>Razmeni bitkoine sa <a href="https://localbitcoins.com/">nekim u blizini</a>.</li>
+    <li>Zaradi bitkoine preko konkurentnog <a href="http://www.bitcoinmining.com/">rudarenja</a>.</li>
+  </ul>
+  <p>Iako je moguće da pojedinci prodaju svoje bitkoine preko u zamenu za uplatu preko kreditne kartice ili PayPal-a, većina menjačnica neće dozvoliti kupovinu preko ovih metoda plaćanja. Razlog tome je veliki rizik od poništavanje transakcije i povraćaja novca od strane kupca, a samim tim i veća mogućnost prevare.</p>
+  
+  <h3 id="koliko-je-tesko-izvrsiti-bitkoin-placanje">Koliko je teško izvršiti uplatu u Bitkoinu?</h3>
+  <p>Bitkoin uplate su lakše plaćanja preko debitih ili kreditnih kartica i mogu se primati bez posebnog trgovinskog naloga. Uplate se šalju preko specijalnih novčanika, aplikacija koje se nalaze na vašem računaru ili telefonu, tako što ćete uneti adresu primaoca, iznos, i pritisnuti na dugme pošalji. Kako bi unos adrese primaoca bio ubrzan i olakšan, veliki broj novčanika koristi tehnologiju skeniranja QR koda sa uređaja ili samim dodirivanjem dva telefona uz pomoć NFC tehnologije.</p>
+  <p>
+    <img src="/img/faq/mobile_send.png?1651746487" alt="Screenshot">
+    <img src="/img/faq/mobile_receive.png?1651746487" alt="Screenshot">
+  </p>
+  
+  <h3 id="koje-su-prednosti-bitkoina">Koje su prednosti Bitkoina?</h3>
+  <ul>
+    <li><em><b>Sloboda plaćanja</b></em> - Moguće je slati i primati bitkoin bilo gde u svetu u bilo koje vreme. Nema praznika, nema granica, nema biroktratije. Bitkoin daje korisnicima potpunu vlas nad svojim sredstvima.
+</li>
+    <li><em><b>Sami birate proviziju</b></em> - Ne postoji naknada kada primate uplatu u bitkoinima, i veliki broj novčanika pruža mogućnost izbora visine provizije koju želite da platite kada šaljete uplatu. Viši iznos naknade znači da će transakcije biti brže <a href="/sr/trebali-bi-da-znate#instant">potvrđena</a>. Ovaj trošak ne zavisi od iznosa koji šaljete, tako da je svejedno da li ćete poslati 1 ili 100,000 bitkoina, nakdnada će biti ista. Takođe postoje sistemi koji trgovcima pomažu prilikom prihvatanja uplate u bitkoinima, vrše konverziju u lokalnu monetarnu valutu i automatski prebacuju novčana sredstva direktno na račun banke trgovca dnecno. Obzirom da se ove usluge baziraju na BItkoin-u, mogu biti ponuđene za znatno manje novca nego PayPal provizije ili provizije koje imaju kreditne kartice.
+</li>
+    <li><em><b>Smanjeni rizik za trgovce</b></em>BItkoin transakcije su sigurne, bespovratne i ne sadže osetljive privatne informacije korisnika. Ovim se prodavci štite od gubitaka od prevare neosnovanih zahteva za povraćajem i nije potrebno biti usklađen sa PCI standardima koji su neophodni kod kreditnih kartica. Trgovci mogu lako da se prošire na tržišta na kojima kreditne kartice nisu prihvaćene zbog visokih stopa prevara. Konačan rezultat su smanjeni troškovi, veće tržište i smanjeni administranivni  troškovi.</li>
+    <li><em><b>Sigurnost i kontrola</b></em> - Bitkoin korisnici imaju potpunu kontrolu nad svojim transakcijama; ne postoji mogućnost da trgovci prinudno izvše neželje naplate ili skinu novac kao kod ostalih metoda plaćanja. Bitcoin uplate mogu da se vrše bez otkrivanja ličnih podataka koji se mogu vezati za transakciju. Upravo ovo svojstvo pruža jaku zaštitu protvi krađe identiteta. Bitcoin korisnici mogu da zaštite svoja sredstva pravljenjem rezervne kopije svojih privatnih ključeva i šifrovanjem putem enkripcije.</li>
+    <li><em><b>Transparentnost i neutralnost</b></em>- <a href="https://live.blockcypher.com/btc/">Sve informacije</a>o cirkulaciji i broju bitkoina u ponudi mogu se videti na blockchain-u, gde svako ima uvid o transakcijama u realnom vremenu. Ni jedan pojedinac ili organizacija ne mogu kontrolisati ili manipulisati Bitkoin protokolom jer je kriptografski siguran. Upravo je ovo razlog zbog kojeg se protokolu može verovati : neutralnost, transaprentnost i predvidljivost.</li>
+  </ul>
+  
+  <h3 id="koji-su-nedostaci-bitkoina">Koji su nedostaci Bitkoina?</h3>
+  <ul>
+    <li><em><b>Stepen prihvatanja</b></em> - Mnogi ljudi još uvek ne znaju za Bitkoin. Svakoga dana, sve više poslovnih subjekata prihvata bitkoin zbog prednosti koje nudi, ali lista i dalje ostaje mala i još uvek mora da raste kako bi imala korist od <a href="https://en.wikipedia.org/wiki/Network_effect">efekta mreže</a>.</li>
+    <li><em><b>Nestalnost</b></em>- Iznos <a href="https://bitcoincharts.com/bitcoin/">ukupne vrednosti</a>svih bitkoina u cirkulaciji i broja poslovnih subjekata koji koriste Bitkoin još je veoma mali u poređenju sa mogućnostima. Iz tog razloga, razni događaji malog obima, razmena ili aktivnost poslovnih subjekata mogu u znatnoj meri uticati na cenu. U teoriji, ova nestalnost smanjivaće se kako tržište i tehnologija sazrevaju. Nikada do sada svet nije imao ovakvu valutu i tehnologiju, tako da je zaista teško (i istovremeno uzbudljivo) razmišljati kako će se stvari odigrati u budućnosti.</li>
+    <li><em><b>Tekući razvoj</b></em> - Bitkoin sotver još uvek je u ranoj vazi razvoja sa velikim brojem svojstava u aktivnoj fazi razvoja. Novi alati, opcije i usluge razvijaju se kako bi se Bitkoin učinio još sigurnijim i dostupnijim širokom broju ljudi. Neke od opcija još uvek nisu spremne za svakodnevnu upotrebu niti za svakoga. Većina preduzeća koja svoje poslovanje zasnivaju na Bitkoin protokolu, još uvek su nova i ne nude osiguranje. Generalno, Bitkoin je još uvek u fazi sazrevanja.</li>
+  </ul>
+  
+  <h3 id="zasto-ljudi-imaju-poverenje-u-bitkoin">Zašto ljudi veruju u Bitkoin?</h3>
+  <p>Poverenje u Bitkoin dolazi iz činjenice da on ne zahteva poverenje uopšte. Bitkoin je potpuno decentralizovan i protokol otvorenog-tipa. Svako ima pristup izvornom kodu i može ga ukoliko poseduje stručno znanje i ispitati. Svaki programer na svetu može da verifikuje kako Bitkoin radi. Sve transakcije i bitkoini koji postoje u cirkulaciji mogu se transparentno videti u realnom vremu od strane bilo koga. Sve uplate mogu se vršiti bez oslanjanja na treće lice, a ceo sistem zaštićen je robustnim sistemom kriptografskih algoritama slični onim korišćenim u internet bankarstvu. Niti jedna organizacija ili pojedican ne mogu da kontrolišu Bitkoin, mreža ostaje sigurno čak i kada se korisnicima u njoj ne može verovati.</p>
+  
+  <h3 id="mogu-li-da-zaradim-sa-bitkoinima">Da li mogu da zaradim novac sa Bitkoinom?</h3>
+  <p>Nikada ne treba očekivati da ćete se na Bitkoinu ili bilo kojoj novoj tehnologiji obogatiti brzo. Uvek treba biti obrezan bilo čeka što zvuči previđe dobro da bi bilo istina ili odudara od osnovnih pravila ekonomije.</p>
+  <p>Bitkoin je okruženje inovacija i postoje prilike za poslovanje koje istovremeno uključuju znatne rizike. Ne postoji garancija da će Bitkoin nastaviti da raste uprkos uzlaznoj stopi rasta do sada. Investiranje vremena i sredstava u bilo koju Bitkoin aktivnost zahteva preduzetničke veštine. Postoji veliki broj načina da se zaradi novac u Bitkoinu, kao rudarenje, špekulacija ili pokretanjem sopstvenog biznisa. U svim ovim načinima postoji konkurencija i uspeh i zarada nisu zagarantovani. Na pojedincu je da napravi dobru procenu troškova i rizika koje takav poduhvat zahteva.</p>
+  
+  <h3 id="da-li-su-bitkoini-u-potpunosti-virtuelni-i-nematerijalni">Da li je Bitkoin u potpunosti virtualan i nematerijalan?</h3>
+  <p>Bitkoin je apstraktan i neopipljiv, kao i internet bankarstvo i kreditne kartice koje ljudi svakodnevno koriste. Bitkoin se moze koristiti za placanje u prodavnicama na interentu ili lokalno, kao i bilo koji drugi oblik novca. Bitkoin se moze razmeniti u fizickoj formi, poput <a href="https://denarium.com/">Denarium novčića-a</a> , ali plaćanje preko mobilnog telefona i dalje ostaje najlakša opcija. Bitkoin balans skladišti u distributivnoj mrezi koja je sigurna i ne moze se izmeniti od strane nikoga. Drugim rečima, Bitkoin korisnici isključivo imaju kontrolu nad svojim novcem.</p>
+  
+  <h3 id="da-li-su-bitkoini-anonimni">Da li je Bitkoin anoniman?</h3>
+  <p>Bitkoin je dizajniran da omogući plaćanje i primanje uplata sa prihvatljivim nivoom privatnosti za korisnike. Međutim, Bitkoin nije potpuno anoniman i ne nudi isti nivo privatnosti kao keš. Korišćenje Bitkoina ostavlja vidljiv javni trag. <a href="/sr/zastitite-svoju-privatnost">Različiti mehanizm</a>i postoje da zaštite privatnost korisnika a postoje i oni koji su još uvek u razvoju. Ima još posla sa stanovišta poboljšanja ovih mehanizama kako bi se ona pravilno mogla koristiti od strane većine Bitkoin korisnika.</p>
+  <p>Postoji bojazan izvesnog broja ljudi da upotrebom Bitkoin-a privatne transakcije mogu da se koriste nedozvoljene svhe. Bitno je napomenuti da će Bitkoin sigurno biti predmet regulacija koje postoje u finansijskim sistemima. Bitkoin nije anonimniji od keš plaćanja tako da je vrlo malo verovatno da će omesti bilo kakvu kriminalnu istragu. Bitkoin je takodje dizajniran kako bi sprečio veliki broj finansijskih kriminalnih radnji.</p>
+  
+  <h3 id="sta-se-desava-kad-se-bitkoini-izgube">Šta se dešava ako se bitkoini izgube?</h3>
+  <p>Kada korisnik izgubi svoj nočanik ili privatni ključ, to znači da su bitkoini u njegovom vlasništvu trajno van cirkulacije. Izgubljeni bitcoini i dalje ostaju u blokčejn-u kao i bilo koji drugi. Međutim, izgubljeni bitkoini ostaju trajno zaključani i ne postoji mogućnost da ih bilo ko bez pristupa privatnom ključu pomeri i potroši. Izgubljeni bitkoini čine one na mreži vrednijima, jer što je manje bitkoina, oni koji su ostali imaće veću potražnju i samim tim i vrednost.</p>
+  
+  <h3 id="bitkoin-kao-globalni-sistem-placanja">Da li Bitkoin može dostići skalibilnost velikih platežnih mreža?</h3>
+  <p>Dok Bitkoin mreža može obraditi ogroman broj transakcija u sekundi, još uvek nije u potpunosti spremna da se meri sa nivoom skalibilnosti koje imaju kreditne kartice.  Radi se na podizanju postojećih limitacija i problemi u vezi sa tim su već poznati. Od svog nastanka, Bitkoin je predmet kontinuiranog procesa sazrevanja, optimizacije i specijalizacije i to treba očekivati i u narednim godinama. Kako upotreba i broj korisnika rastu, veći broj ljudi korstiće lakše verzije novčanika, i pokretanje full-node-a možda će postati specijalizovana usluga. Za više informacija pogledajte  <a href="https://en.bitcoin.it/wiki/Scalability">Skalibilnost</a> Wiki stranicu.</p>
+
+</div>
+
+<div class="toccontent-block boxexpand expanded">
+  <h2 id="zakon">Zakonitost</h2>
+  
+  <h3 id="da-li-je-bitkoin-zakonit">Da li je Bitkoin legalan?</h3>
+  <p>Koliko je poznato Bitkoin se <a href="https://en.wikipedia.org/wiki/Legality_of_bitcoin_by_country">ne smatra nelegalnim u najvećem broju jurisdikcija</a>. Međitm, neke jurisdikcije (poput Argentine i Rusije) ozbiljno se trude da zabrane inostrane valute. Druge države (poput Tajlanda) mogu ograničiti licenciranje određenim entitetima poput Bitkoin menjačnica.</p>
+  <p>Regulatori iz različitih jurisdikcija čine korake kako bi pojedincima i poslovnim entitetima omogućili pravila integrisanja ove nove tehnologije sa formalnim, regulisanim finansijskim sistemom. Na primer, odeljenje za finansijski kriminal (FinCEN) uprave za trezor, izdalo je neobavezujući nis praila kako se pojedine aktivnosti u vezi kriptovaluta karakterišu.</p>
+  
+  <h3 id="da-li-se-bitkoini-koriste-u-ilegalne-svrhe">Da li Bitkoin može da se koristi za nelegalne aktivnosti?</h3>
+  <p>Bitkoin je novac i novac je uvek bio korišćen za zakonite i nezakonite radnje. Keš, kreditne kartice i bankarski sistemi premašuju upotrebu u nelegalnim aktivnostima u poređenju sa korišćanjem Bitkoina za slične aktivnosti. Bitkoin donosi ogromne prednosti u odnosu na mane, kada ga uporedimo sa tradicionalnim načina plaćanja, da su osvrti na kriminalizaciju Bitkoina beznačajni.</p>
+  <p>Bitkoin je dizajniran kao ogroman korak napred u povećanju bezbednosti finansija i kao takav pruža značajnu zaštitu od finansijskih prevara. Na primer, BItkoin je nemoguće falsifikovati. Korisnici imaju potpunu kontrolu nad svojim sredstvima i imuni su na već poznate probleme koje imaju kreditne kartice, poput neosnovanog skidanja novca sa istih od strane treće partije. Bitkoin transakcije su nepovratne i imune na lažne povraćaje novca. Bitkoin je osiguran mehanizmima poput dodatnih kopija (backup), enkripcije i multi-sig potpisima koji zahtevaju odobrenje većeg broja lica kako bi novac bio potrošen iz zajedničkog novčanika.</p>
+  <p>Postoji zabrinutost da zbog svojih svojstava privatnosti i nepovratnosti uplata može biti privlačan kriminalcima. Međutim, što se često zaboravlja da ta svojstva već postoje kod plaćanja kešom ili doznakama koji su već ustaljeni metodi plaćanja. Korišćenje Bitkoina će najverovatnije biti predmet  neke vrste regulacije koja postoji kod tradicionalnih finansijskih  sistema. Upotreba Bitkoina će malo verovatno sprečiti sprovođenje istrage ukoliko se koristi na načine suprotne zakonu pojedinih jurisdikcija. Veoma je često da su revolucionarna otkrića poput Bitkoina predmet kontraverzi, nerazumevanja i raspravi, pre nego što se  prednosti takvog otkrića u potpunosti sagledaju. Sam internet je najbolji primer jednog takvog otkrića. U svom začetku i internet je bio predmet sličnih kontraverzi i zamerki.</p>
+  
+  <h3 id="da-li-se-bitkoin-moze-regulisati">Da li se Bitkoin može regulisati?</h3>
+  <p>Bitkoin protokol sam po sebi nemoguće je menjati bez saradnje gotovo svih korisnika, koji biraju koji će softver koristiti. Ne postoji centralni autoritet koji donosi odluke, potreban je koncenzus. Organizacija dovoljno imućna može da proba da investira u opremu za rudarenje kako kontrolisala polovninu kompjuterske snage na mreži i bila u poziciji da manipuliše transakcijama. Međutim ovaj scenario ima vrlo malu verovatnoću jer bi to značilo da jedna strana ima mora da investira onoliko koliko i svi rudari, odnosno kontrolri mreže na svetu.</p>
+  <p>Moguće je regulisati korišćenje Bitkoina na sličan način poput drugih instrumenata. Na primer, poput dolara, Bitkoin može da se koristi u različite svrhem neke od kojih se mogu smatrati protivzakonitim u pojedinim jurisdikcijama. S tim u pogledu, Bitkoin nije ništa drugačiji od bilo koje alatke koja može biti predmet regulacije u pojedinim zemljama. Lokalne vlasti mogu pokušati da otežaju upotrebu Bitkoina različitim propisima, ali je Bitkoin kao protokol imun na takve napade, jer ne postoji centralni autoritet. Međutim postoji bojazan da regulacija može dovesti do usporavanja razvoja tehnologije i može odvratiti pojedini broj korisnika. Država koja pokuša da na neki način zabrani neke delove Bitkoin sistema na taj način usporiće razvoj domaćih preduzeća i mladih tehnologija.</p>
+  
+  <h3 id="sta-je-sa-bitkoin-taksama">Šta je sa Bitkoinom i porezima?</h3>
+  <p>BItkoin nije lokalna valuta niti zakonsko sredstvo plaćanja ni u jednioj jurisdikciji za sada. Međutim obaveze plaćanja različitih poreza i nameta se mogu propisati kao i kod drugih sredstava razmene. U pojedinim oblastima korišćenje Bitkoina može potpasti pod raznu vrstu aktivnosti koje se oporezuju poput poreza na promet, platni poreza, kapitalni dobitak i dr.</p>
+  
+  <h3 id="bitkoin-i-zastita-potrosaca">Šta je sa Bitkoinom i zaštitom potrošača?</h3>
+  <p>Bitkoin oslobađa ljude i daje im moć da vrše razmenu po uslovima koje sami odrede. Svaki korisnik može da učestvuje u transakcijama, ne postoji autoritet koji mu može zabraniti ili mu ograničiti to pravo, kao i prilikom korišćenja keša. Transakcije poznate kao multi-sig zahtevaju digitalni potpis većeg broja korisnika kako bi transakcija mogla da se emituje na mreži, dakle nemoguće je potrošiti novac odobrenja grupe. Ovakve karakteristike pogodne su za razvoj različiith arbitražnih sistema i sistema medijacije. Takav vid usluge omogućio bi trećoj strani da odobri ili odbije transakcije u slučaju neslaganja između dva pojedinca oko toga ko kontroliše sredstva. Suprotno plaćanjem kešom ili drugim sredstvima, Bitkoin uvek ostavlja javni trag na mreži da se transakcija zaista odigrala, što može da bude sredstvo u borbi protiv poslovnih subjekata koji posluju na principu prevare.</p>
+  <p>Važno je pomenuti da iako trgovci zavise od reputacije koje imaju u javnosti da će svoju obavezu da posluje i izvršava obaveze prema drugom subjektu ili zaposlenima, oni nemaju isti nivo informacija o svojim potrošačima. Bitkoin omogućava kupcima  i poslovnim entitetima zaštitu od prevare i lažnih povraćaja novca, ali daje i mogućnost arbitraže i dodanog nivoa zaštite koje kupac može zahtevati kako bi povećao svoju bezbednost kada nemaju poverenja u trgovca.</p>
+
+</div>
+
+<div class="toccontent-block boxexpand expanded">
+  <h2 id="ekonomija">Ekonomija</h2>
+  
+  <h3 id="kako-nastaju-bitkoini">Kako nastaju bitkoini?</h3>
+  <p>Novi Bitkoini proizvode se u konkurentnom i decentralizovanom procesu koji se naziva "rudarenje". Ovim procesom pojedinci bivaju nagradjeni za pružanje usluge na mreži. BItkoin rudari obrađuju transakcije i održavaju mrežu bezbednom korišćenjem specijalizovane hardverske opreme, a za uzvrat bivaju nagrađeni.</p>
+  <p>U Bitkoin protoklu, novi Bitkoini stvaraju se po fiksnoj stopi. Ovo čini rudarenje ili kopanje Bitkoina visoko konkurentnom aktivnošću. Više rudara na mreži znači da je teže ostvariti profit i rudari moraju efikasnije razmišljati kako bi smanjili troškove. Ni jedna centralna vlast niti programer nema mogućnost da kontroliće ili manipuliše sistemom kako bi povećali svoj profit. Svaka Bitkoin računarska jedinica (node) odbiće svaku aktivnost koja nije u skladu sa pravilima mreže.</p>
+  <p>Bitkoini se stvaraju po opadajućoj i unapred utvrđenoj stopi. Broj stvorenih bitkoina prepoloviće se u određenom vremenskom periodu, sve dok se celokupna količina bitkoina ne stvori, a to je ukupno 21 milion bitkoina koji će postojati. Nakon stvaranja svih bitkoina, rudari će i dalje biti motivisani da štite mrežu jer obradom transakcija za koje korisnici plaćaju male naknade u vidu provizije.</p>
+  
+  <h3 id="zasto-bitkoini-imaju-vrednost">Zašto bitkoini imaju vrednost?</h3>
+  <p>Bitkoin ima vredost jer ima korisnost kao oblik novca il vrednosti. Bitkoin ima karekteristike novca (trajnost, prenosivost, razmenljivost, retkost, deljivost, i prepoznatljivost) zasnovan na principima matematika a ne na fizičkim svojstvima (kao zlato i srebro) ili poverenja u centralnu vlast (kao novac). Ukratko, Bitkoin je podržan od strane matematike. Sa ovim osobinama, sve što je potrebno da bi ova forma novca imala vrednost je poverenje i usvajanje. U slučaju Bitkoina, ovo se meri ogromnom bazom korisnika, trgovaca i mladih kompanija (startup). Kao i kod svih ostalih valuta, vrednost bitkoina dolazi samo i isključivo od ljudi koji su spremni da je prihvate kao sredstvo plaćanja.</p>
+  
+  <h3 id="sta-odredjuje-cenu-bitkoina">Šta određuje cenu bitkoina?</h3>
+  <p>Cenu bitkoina određuje ponuda i potražnja. Kada se tražnja za bitkoinima poveća, cena raste, kada potražnja pada, cena se smanjuje. Postoji limitiran broj bitkoina u cirkulaciji koji se stvaraju po opadajućoj i unapred određenoj stopi, što znači da potražnja mora da prati nivo inflacije da bi cena bila stabilna. Zbog još uvek relativno malog tržišta, nije potrebna velika količina novca na tržištu koja može uticati na rast i pad cene, pa ja upravo zvog toga i cena bitkoina nestabilna.</p>
+  <p>Cena Bitkoina tokom vremena
+    <br>
+    <img src="/img/faq/price_chart.png?1651746487" alt="chart">
+  </p>
+  
+  <h3 id="da-li-bitkoin-moze-postati-bezvredan">Mogu li bitkoini postati bezvredni?</h3>
+  <p>Da. Istorijski gledano, velili broj valuta nije uspeo, poput <a href="https://en.wikipedia.org/wiki/German_gold_mark">Nemačke Marke</a> tokom Vajmarske republike, i još u skorije vreme <a href="https://en.wikipedia.org/wiki/Zimbabwean_dollar">Zimbabveski dolar</a>. Iako su prethodne valute bile neuspešne zbog hiperinflacije koja u Bitkoinu nije moguća, uvek postoji  opasnos od potencijalne tehničke greške, konkurentske valute, političkih problemai slično. Osnovno pravilo je da se niti jedna valuta ne smatra potpuno bezbednom od neuspeha ili tokom nedaća. Bitkoin se pokazao kao pouzdan od kada je stvoren i još uvek ima potencijal da raste. Međutim, niko nije u mogućnosti da predvidi šta budućnost donosi za Bitkoin.</p>
+  
+  <h3 id="da-li-isti-bitkoin-mozete-potrositi-dva-puta">Da li je Bitkoin balon koji će pući?</h3>
+  <p>Nagli skok u ceni ne karakteriše se kao mehur (balon). Veštačko pre-vrednovanje koje može dovesti do nagle korekcije i pada predstavlja balon. Izbori koje hiljade individualnih ljudi pravi na tržištu su razlog za fluktuacije u ceni bitkoina, jer tržište pokušava da otkrije cenu u ponudi i potražnji. Razlozi za takve fluktuacije mogu biti različiti poput gubitka poverenja u Bitkoin, disproporcije u ceni i vrednosti koja se ne bazira na Bitkoin ekonomiji, povećana zainteresovanost medija koja stimuliše špekulativni tražnju, strah od nesigurnosti, i tradicionalno neracionalna pohlepa.</p>
+  
+  <h3 id="da-li-su-bitkoini-pozijeva-sema">Da li je Bitkoin Ponzijeva šema?</h3>
+  <p>Ponzi šema je lažna investiciona operacija koja isplaćuje dobit postojećih investitora iz njihovih sopstevnih ulaganja, ili novca nakdnadnih investitora umesto od profita od strane pojedinaca koji vode posao. Ponzi šeme se ruše kada nema dovoljno novih učesnika.</p>
+  <p>Bitkoin je projekat otvorenog i besplatnog softvera bez centralne vlasti. Shodno tome, niko nije u poziciji da napravi lažne naznake o povraćaju investicija. Kao i druge glavne valute poput zlata, američkog dolara, evra, jena itd, nema garantovane kupovne moći, a kurs slobodno pluta. To dovodi do nestabilnost gde vlasnici bitkoina mogu nepredvidivo da zarade ili gube novac. Osim špekulacije, Bitkoin je takođe sistem plaćanja sa korisnim i konkurentnim svojstvima koje koristi hiljade korisnika i preduzeća.</p>
+  
+  <h3 id="da-li-bitkoin-nepravedno-koristi-ranim-usvajacima">Da li Bitkoin nepravedno koristi ranim prihvatiocima?</h3>
+  <p>Neki rani prihvatioci imaju veliku količinu bitkoina zbog rizika koji su preuzeli i investirali u tehnologiju koju niko nije koristio niti verovao u to vreme i čija je sigurnost znatno bila komplikovanija. Veliki broj ranih investitora potrošili su veliko broj bitkoina na razne načine znatno pre nego što je bitkoin imao neku značajniju vrednost. Tako da veliki broj ljudi zapravo i nije napravio ogromne dobitke. Nema nikakvih garancija da će cena bitkoina rasti ili padati. Proces je sličan i kod investiranje u startup kompaniju koja vremenom dobije ili izgubi na korisnosti ili popularnosti ili se jednostavno nikada ne probije. Bitkoin je još uvek u začeću, i stvoren je sa dugoročnim pogledom. Veoma je teško predvideti bilo što pa i to da današnji korisnici mogu ali i ne moraju biti rani prihvatioci sutrašnjice.</p>
+  
+  <h3 id="da-li-je-limitirani-iznos-bitkoina-ogranicenje">Da li je ograničena  količina bitkoina organičenje?</h3>
+  <p>Bitkoin je jedinstven zbog činjenica da će samo 21 milion bitkoina ikada postojati. Međutim ovo neće biti ograničavajući faktor, zbog toga što jedan bitkoin može biti denominovam i podeljen na manje delove, gde je najmanja bit  1,000, 000 deo bitkoina. Jedan bitkoin može biti podeljen na 8 decimala (0.000 000 01) sa mogućnošću da se najmanja jedinica (Satoshi) u budućnosti podeli na još decimala ukoliko se prosečna veličina transakcije smanji.</p>
+  
+  <h3 id="da-li-ce-bitkoin-propasti-zbog-deflatorne-spirale">Da li će Bitkoin pasti u deflatornu spiralu?</h3>
+  <p>Teorija deflacije kaže da kada se očekuje pad cena, ljudi će svoje trošenje odložiti za budućnost kako bi ostvarili korist od nižih cena. Pad u tražnji će uzrokovati da trgovci svoje cene smanje kako bi stimulisali tražnju, što samo vodi pogoršanju problema i vodi u ekonomsku depresiju.</p>
+  <p>Iako je u teoriji lako opravdati inflaciju među centralnih banaka, dokazalo se da to nije uvek slučaj. Sama tema je predmet rasprava i kontraverzi među ekonomistima. Tržište bele tehnike je jedan primer gde cene stalno padaju, ali to nije depresija. Slično, vrednost Bitkoin ekonomije vremenom je drastično porasla, zbog toga što je vrednost valute i ekonomije u 2009 bila nula. Bitkoin je pravi kontra primer ovoj teoriji kojo pokazuje da nešto nije kako treba.</p>
+  <p>Bez obzira na to, Bitkoin je nije dizajniran da bude deflatorna valuta. Preciznije je reći da se će Bitkoin namenjen da bude inflatoran u ranoj fazi a kasnije postati stabilan. Jedini način da količina bitkoina u upotrebi naglo padne je ako ljudi neoprezno gube svoje novčanike i ne prave rezervne kopije. Sa stabilnom monetarnom osnovom i stabilnom ekonomijom, vrednost valute treba da ostane ista.</p>
+  
+  <h3 id="da-li-je-spekulacija-i-nestabilnost-problem-za-bitkoin">Da li su špekulacija i nestabilnost problem za Bitkoin?</h3>
+  <p>Ovo je situacija kokoške i jajeta. Kako bi cena bitkoina bila stabilna, veliko tržište mora da se razije sa više korisnika i preduzeća. Kako bi se veliko tržište razvijalo, preduzeća i korisnici tražiće stabilnost u ceni.</p>
+  <p>Srećom, nestabilnost u ceni ne utiče na glavne koristi od Bitkoina kao decentralizovanog sistema plaćanja iz tačke a u tačku B. Poslovni subjekti imaju mogućnost da konvertuku bitkoine u svoju lokalnu valutu u trenutku, što im dozvoljava da iskoriste prednosti Bitkoina a u isto vreme smanjiti rizike od fluktuacije u ceni. Zbog korisnosti i jedinstvenih odlika, mnogi ljudi koriste Bitkoin. Vrlo je moguće da će vremenom tržište sazreti i razviti se do te mere gde će nestabilnost cene postati ograničena.</p>
+  
+  <h3 id="sta-ako-neko-kupi-sve-preostale-bitkoine">Šta ako neko kupi sve postojeće bitkoine?</h3>
+  <p>Samo mali deo izdatih bitkoina može se naći na tržištu i menjačnicama koje ih poraju. Na Bitkoin tržištu vlada konkurencija, što znači da razlike u ponudi i potražnji određuju cenu. Bitkoini će se izdavati u narednim dekadama. Tako da čak ni najuporniji kupci nikada neće moći da kupe sve bitkoine koji postoje. Ovo ne sugeriše da tržište nije ranjivo na manipulacije cenama jer još uvek nije potrebna značajna suma novca kako bi se cena podigla ili oborila. Zbog toga BItkoin za sada ostaje vrlo nestabilno sredstvo za sada.</p>
+  
+  <h3 id="sta-ako-neko-napravi-bolju-digitalnu-valutu">Šta ako neko napravi bolju digitalnu valutu?</h3>
+  <p>Postoji mogućnost da se ovo desi. Za sada BItkoin je najpopularnija i najdecentralizovanija valuta, ali ne postoje garancije da će tu poziciju održati. Postji veliki broj alternativnih valuta inspirisanih BItkoinom. Međutim pretpostavka je da nova valuta mora imatu značajnije inovacije i prednosti kako bi preuzela vodeće mesto na tržištu. Bitkoin se može menjati i usvajati svojstva ostalih valuta sve dok to ne narušava fundamentalne delove protokola.</p>
+
+</div>
+
+
+<div class="toccontent-block boxexpand expanded">
+  <h2 id="transakcije">Transakcije</h2>
+  
+  <h3 id="zasto-treba-da-cekam-10-minuta">Zašto moram da čekam 10 minuta?</h3>
+  <p>Primanje izveštaja o uplati Bitkoina gotovo je trenutno. Međutim, postoji kašnjenje pre nego što mreža počne da validalizuje transakciju tako što će je uključiti u blok. Potvrda znači da postoji koncenzus na mreži da bitkoini koje ste primili nisu poslati drugom licu i da se smatraju vašim vlasištvom. Kada je transakcija uključena u blok, počeće da bude zakopana u svakom sledećem bloku nakon njega, što će učvrstiti koncenzus i smanjiti rizik od obrnute transakcije. Svaka potvrda traje između samo par sekundi do 90 minuta, ali oko 10minuta u proseku. Ukoliko odaberete previše nizak iznos provizije koji se plaća rudarima, onda validacija od može potrajati i duže. Svaki korisnik sam bira kada će transakciju smatrati u potpunosti potvrđenom, ali u globalu <a href="/sr/trebali-bi-da-znate#instant">6 potvrda</a> se smatra sigurnim.
+</p>
+  
+  <h3 id="kolika-je-provizija">Kolika će biti provizija prilikom transakcije?</h3>
+  <p>Transakcije mogu biti obrađene i bez plaćanja provizije rudarima, ali svaki pokušaj takve transakcije može značiti da će potvrda trajati danima, pa i nedeljama. Iako se provizije mogu vremenom povećati, trenutno su zanemarljivo niske. Svi <a href="/sr/izaberite-vas-novcanik">Bitkoin novčanici</a> navedeni na Bitcoin.org sajtu sami praocenjuju odgovarajuću proviziju za vašu transakciju, većina ovih novčanika takođe daje mogućnost da korisnik sam odredi proviziju.
+</p>
+  <p>Provizija na transakciju služi kao zaštita protiv korisnika koji bi pokušali da slanjem transakcija namerno preopterete mrežu. Precizan način upotrebe i funkcionisanja provizija još uvek se razvija i s vremenon se može menjati. Zbog toga što provizija nije vezana za količinu bitkoina koje trošite, ponekad može biti veoma niska ili veoma visoka. Zapravo, provizija je vezana za količinu bajtova u transakciji, tako da multisig ili slanje više outputa iz prethodnih transakcija može koštati više nego jednostavna, obična transakcija. Ako vaša aktivnost prati šablon konvencionalnih transakcija, nećete morati da plaćate nešto više provizije.
+</p>
+  
+  <h3 id="sta-ako-primim-bitkoin-dok-je-racunar-iskljucen">Šta ako primim bitkoine kada mi je kompijuter isključen?</h3>
+  <p>Ovo je uobičajeno. Bitkoini će se pojaviti narednog puta kada uključite novčanik aplikaciju. Bitkoin se ne nalazi u softveru vašeg računara, oni se čuvaju na javnoj mreži računara. Ukoliko primite uplatu kada vaš računar nije uključen, i kasnije ga uključite, softver koji koristite obradiće blokove i sinhronizovati transakcije, i vaša uplata biće vidljiva. Novčanik vam je potreban samo kada želite da potrošite bitkoine.</p>
+  
+  <h3 id="sta-je-sinhronizacija-i-zasto-traje-dugo">Šta znači "sinhornizacija" i zašto treba toliko vremena da bi se izvršila?</h3>
+  <p>Dugo vreme sinhronizacije dešava se samo kod potpunih sofverskih klijenata, poput Bitkoin Core. Tehnički gledano, sinhronizacija je proces preuzimanja i verifikovanja svih prethodnih transakcija na mreži. Neki softverski klijenti moraju obraditi sve prethodne transakcije kako bi sračunali balans koji možete potrošiti. Ovaj korak zahteva dosta resursa u vidu skladištnog prostora na računaru i protoka interneta kako bi smestio celokupan blokčejn. Kako bi Bitkoin ostao siguran, dovoljan broj ljudi koji su u mogućnosti, trebali bi da koriste potpune klijente, tj full node, zbog toga što oni validiraju transakcije.</p>
+
+</div>
+
+<div class="toccontent-block boxexpand expanded">
+  <h2 id="rudarenje">Rudarenje</h2>
+  <h3 id="sta-je-bikoin-rudarenje">Šta je Bitkoin rudarenje?</h3>
+  <p>Rudarenje je process pri kome se određena kompjuterska moć i resursi troše kako bi se transakcije obradile, mreža ostala sigurna a korisnici ostali sinhronizovani jedni sa drugima. Zamislite da je rudarenje ogromna Bitkoin baza podataka, s izuzetkom da je osmišljena da bude u potpunosti decentralizovana, sa rudarima širom sveta, bez mogućnosti da pojedinac kontroliše mrežu. Analogija Bitkoin kopanja ili rudarenja zapravo dolazi iz rudarenja zlatom, zbog toga što je to proces pri kojem se privremeno i ograničeno izdaju novi Bitkoini. Za razliku od kopanja zlata, Bitkoin kopanje se nagrađuje nagradom u zamenu za korisnu uslugu koji rudari izvršavaju kako bi mreža ostala sigurna. Kopanje tj rudarenje, biće neophodno čak i kada se svi bitkoini izdaju.</p>
+  <h3 id="kako-bitkoin-rudarenje-fukncionise">Kako Bitkoin rudarenje funkcioniše?</h3>
+  <p>Svako može da kopa bitkoin i postane rudar tako što će koristiti softver sa specijalizovanom hardverskom opremom. Softver za rudarenje zapravo osluškuje transakcije na P2P mreži i čini neophodne zadatke kako bi obradio i potvrdio te transakcije. Bitkoin rudari izvršavaju ove poslove, zbog toga što mogu zaraditi provizijukoju korisnici plaćaju na transakcije, kako bi baš njihova transakcije bila brže obrađena i potvrđena na mreži. Oni takođe mogu zaraditi novo izdate Bitkoine koji se izdaju po unapred otvrđenoj stopi i formuli.</p>
+  <p>Kako bi nova transakcija bila potvrđena, mora se uključiti u blok zajedno sa matematičkim dokazom rada (proof of work). Takav dokaz veoma se teško ostvaruje, zbog toga što ne postoji drugi način kako bi se ostvarili od  milijardu matematičkih pokušaja. Ovo zahteva od rudara da izvedu ove kalkulacije pre nego što se njihov blok prihvatina mreži i pre nego što dobiju nagradu. Što više ljud rudari, raste teškoća  za nalaženjem validnog bloka, jer se on automatski povećava na mreži kako bi prosečno vreme traženja tog bloka bilo 10 minuta. Kao rezultat ovoga, rudarenje je veoma konkurentan posao, gde ni jedan pojedinac ne može kontrolisati šta se to zapravo prihvata u blokčejn.</p>
+  <p>Dokaz rada osmišljen je da zavisi hronološkog redosleda svakog prethodnog bloka u blokčejnu. To znači da je vrlo teško izmeniti prethodnu transakciju, jer to zahteva ponovno proračunavanje dokaza rada svih blokova. Kada se dva bloka pronađu u isto vreme,  rudari rade na prvom koji prime i prebacuju se na najduži lanac blokova odmah čim se novi blok nađe. To dalje omogućava rudarima da osiguraju i održe globalni koncenzus koji se zasniva na moću obrade.</p>
+  <p>Bitkoin rudari nisu u mogućnosti da varaju tako što će povećati svoju nagradu za nalaženje bloka, niti mogu obraditi maliciozne transakcije koje mogu pokvariti Bitkoin mrežu, zbog toga što će računari Bitkoin korisnika koji rade na potpunom klijentu, Bitkoin full node, odbiti bilo koji blok koji sadrži nevažeće podatke, po pravilima Bitkoin protokola. Posledica ovoga je da je mreža sigurna čak iako jedan broj rudara ima loše namere.</p>
+  <h3 id="da-li-je-bitkoin-tracenje-energije">Da li je Bitkoin rudarenje traćenje energije?</h3>
+  <p>Potrošnja energije kako bi se osigurao i radio sistem za plaćanje teško da se može nazvati neracionalnim troškom. Kao i bilo koju servis za plaćanje, korišćene Bitkoina podrazumeva troškove obrade. Troškovi neophodni za široko rasprostranjene monetarne sisteme, poput banaka, kreditnih kartica, blindiranih vozilaza prenos novca, takođe konzumira značajnu količinu energije. Razlika u poređenju sa tradicionalnim sistemima, je da se kod Bitkoina, ukupna potrošnja enerigije može lako izračunati, jer je transparentna i može se izmeriti na jednostavan način.</p>
+  <p>Bitkoin kopanje osmišljeno tako da postaje sve optimiziranije vremenom, tako što će specijalizovani hardveri konzumrati sve manje i manje energije, te će troškovi rudarenja biti proporcijalni tražnji.  Kada rudarenje postane previše konkurentno i manje profitabilno, neki rudari odabaraće da prestanu sa svojim aktivnositma. Sva energija koja se stvara kopanjem Bitkoina, stvara grejanje. Vremenom će najprofitabilniji rudari biti oni koji tu toplotnu energiju iskoriste na pravi način. Optimalno efikasna mreža rudara je ona koja zapravo ne konzumira nikakvu dodatnu energiju. Dok je ovo teorijski idealna pretpostavka, smatra se da svi rudari individualno teže tome, zbog manjih troškova za njih.</p>
+  <h3 id="kako-rudarenje-pruza-bezbednost-bitkoinu">Kako rudarenje pomaže bezbednost Bitkoina?</h3>
+  <p>Rudarenje je ekvivalent konkurentnoj lutriji koja otežava bilo kome da uzastopno pronalazi blokove transakcija i dodaje ih u blokčejn. Ta nasumičnost zapravi i kreira neutralnost mreže tako što onemogućava pojedinca da blokira transakcije. Takođe ona isto onemogućuje individualnim rudarima da menjaju delove blokčejna kako bi vratili svoje već potršoene bitkoine, što znači da onemogućava da drugi korisnici budu prevareni. Kopanje otežava obrtanje prethodnih transakcija zbog toga što zahteva  da se nakon promene u transakciji svi blokovi izmene a računari širom sveta saglase sa transakcijom.</p>
+  <h3 id="kako-da-pocnem-sa-rudarenjem">Šta mi je potrebno da bih počeo sa rudarenjem?</h3>
+  <p>Na početku, svako je mogao da kopa Bitkoin i nađe novi blok, koristeći najobičnij procesor na računaru (CPU). Kako je konkurencija postala jača, pronalaženje bloka se povećalo do mere gde je jedina isplativa metoda korišćenje specijalizovanog hardvera. Možete posetiti <a href="http://www.bitcoinmining.com/">BitcoinMining.com</a> za više informacija.</p>
+</div>
+
+<div class="toccontent-block boxexpand expanded">
+  <h2 id="bezbednost">Bezbednost</h2>
+  
+  <h3 id="da-li-je-bitkoin-bezbedan">Da li je Bitkoin bezbedan?</h3>
+  <p>Bitkoin tehnologija - protokol i kriptografija ima veoma sigurnu podlogu, a Bitkoin mreža je verovatno najveći distribuirani kompjuterski projekat na svetu. Najčešća ranjivost Bitkoina je zapravo - greška samih korisnika. Bitkoin fajlovi i datoteke koje sadže privatni ključ mogu se greškom obrisati, izgubiti ili biti ukradeni. Situacija je potpuno ista kao i kod fizičkog keša koji se čuva u digitalnoj formi. Srećom, korisnici mogu da prate sigurnosne preporuke i prakse, kako bi zaštitili svoj novac ili koristiti service koji nudedobar nivo zaštite i osiguranje od krađe i gubitka.</p>
+  
+  <h3 id="da-li-je-bitkoin-hakovan-u-proslosti">Zar nije Bitkoin bio hakovan u prošlosti?</h3>
+  <p>Pravila protokola i kriptografije koji se koriste u Bitkoinu i dalje rade iako je prošlo već dosta godina od njihove primene, što je dobar pokazatelj da je koncept dobro osmišljen. Međutim, bilo je <a href="/en/alerts">sigurnosnih propusta</a> koji su pronađeni i popravljeni tokom vremena u različitim implementacijama softvera. Kao i bilo koji drugi obil softvera, sigurnost Bitkoin softvera, zavisi od brzine kojom se problemi nalaze i ispravljaju. Što se više problema nađe i ispravi, to Bitkoin postaje zreliji.</p>
+  <p>Često postoje zablude o krađi i sigurnosnim propustima koji su se desilina raznim menjačnicama i biznisima. Iako su ovi događaji nesrećni, niti jedan od ovih događaja nije značio da je Bitkoin hakovan ili da je bilo takvih takvih dešavanja u Bitkoin; kao i kod plačke banke, ne znači da je dolar kompromitovan. Međutim tvrdnja da je potreban kompletan set dobrih preporuka i intuitivnih sigurnosnih rešenja kako bi se smanjio rizik gubitka i krađe, u potpunosti je tačna. Tokom godina, takva sigurnosna svojstva su brzo razvijana, kao što su enkripcija novčanika, offlajn novčanici, hardverski novčanici i zajednički potpis.</p>
+  
+  <h3 id="da-li-se-korisnici-mogu-da-se-udruze-protiv-bictoin">Mogu li korisnici da se udruže protiv Bitkoina?</h3>
+  <p>Nije moguće promeniti Bitkoin protokol tako lako. Nijedan Bitkoin klijent koji nije u saglasnosti sa istim pravilima, ne može nametnuti promenu pravila ostalim korisnicima. Po trenutnim specifikacijama, ponovno trošenje već potrošenog Bitkoina (double-spend) nije moguće na istom blokčejnu, niti je moguće potrošiti bitkoine bez odgovarajućeg popisa. Zbog toga je nemoguće stvoriti nove bitkoine ni iz čega ili potrošiti imetak drugih korisnika tako što bi se korumpirala mreža.</p>
+  <p>Međutim, rudari koji imaju moć mogli bi proizvoljno da odaberu koje transakcje neće obraditi, ili da obrnu transakciju. Većina korisnika takođe može izvršiti pritisak kako bise određene promene usvojile. Zbog toga što Bitkoin jedino radi kada postoji potpuni koncenzus između korisnika, promena protokola zahteva nadmoćnu većinu korisika koja bi se adaptirala promenana na takav način da ostali korisnici ne bi imali izbora već samo da ih prihvate. Vrlo je teško zamisliti zašto bi većina Bitkoin korisnika izabrala da se prilagodi promenama koje  bi kompromitovale njihov novac.</p>
+  
+  <h3 id="da-li-je-bitkoin-ranjiv-na-kvantnum-racunare">Da li je Bitkoin ranjiv od strane kvantum računara?</h3>
+  <p>Da, grupa sistema koji se oslanja na kriptografiju, uključuje i tradicionalno bankarstvo. Međutim, kvantim računarstvo, i daljene postoji i najverovatnije i neće u bliskoj budućnosti. U slučaju da <a href="https://bitcoinmagazine.com/6021/bitcoin-is-not-quantum-safe-and-how-we-can-fix/">kvantum računarstvo</a> postane pretnja za Bitkoin, protokol se može ažurirati i početi da koristi kvantum algoritme. Obzirom na važnost ovakvog ažuriranja, može se slobodno reći da bi takva promena bila proverena veoma temeljnood strane programera i usvojena od strane svih Bitkoin korisnika.</p>
+</div>
+  
+<div class="toccontent-block boxexpand expanded">
+  <h2 id="pomoc">Pomoć</h2>
+  
+  <h3 id="dodatna-pomoc">Voleo bih da naučim više. Gde mogu da dobijem pomoć?</h3>
+  <p>Možete naći više informacije i pomoć na stranicama <a href="/sr/sredstva">resursa</a> i <a href="/sr/zajednica">zajednice</a> ili na <a href="https://en.bitcoin.it/wiki/Help:FAQ">Wiki često postavljenim pitanjima</a>.</p>
+</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/sr/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Podržite Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Doniraj</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">Uvod:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/sr/bitkoin-za-lica">Fizička lica</a>
+        </li>
+        <li>
+          <a href="/sr/bitkoin-za-preduzeca">Preduzeća</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">Programeri</a>
+        </li>
+        <li>
+          <a href="/sr/prvi-koraci">Početni koraci</a>
+        </li>
+        <li>
+          <a href="/sr/kako-to-radi">Kako funkcioniše</a>
+        </li>
+        <li>
+          <a href="/sr/trebali-bi-da-znate">Trebali bi da znate</a>
+        </li>
+        
+        <li>
+          <a href="/sr/bitkoin-papir">Osnovni dokument - beli papir</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">Sredstva:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/sr/sredstva">Sredstva</a>
+        <li>
+          <a href="/sr/menjacnice">Menjačnice</a>
+        </li>
+        <li>
+          <a href="/sr/zajednica">Zajednica</a>
+        </li>
+        <li>
+          <a href="/sr/vokabular">Rečnik
+          </a>
+        </li>
+        <li>
+          <a href="/sr/dogadaji">Događaji</a>
+        </li>
+        
+          <li>
+            <a href="/sr/preuzimanje">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">Učestvujte:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/sr/podrzite-bitkoin">Podržite Bitkoin</a>
+        
+        
+        <li>
+          <a href="/sr/razvoj">Razvoj</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Drugo:</p>
+      
+      <a href="/sr/zakon">Zakon</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/sr/mediji">Mediji</a>
+      <a href="/sr/o-nama">O nama - bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>Web sjat zajednice sponzorisan od strane</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 Izbačeno pod <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT licencom</a></div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Status Mreže</a>
+        
+<ul class="lang is-expand">
+  <li><a>Srpski</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/faq">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/faq">Català</a></li>
+        
+        
+          <li><a href="/da/faq">Dansk</a></li>
+        
+        
+          <li><a href="/de/faq">Deutsch</a></li>
+        
+        
+          <li><a href="/en/faq">English</a></li>
+        
+        
+          <li><a href="/es/faq">Español</a></li>
+        
+        
+          <li><a href="/fr/faq">Français</a></li>
+        
+        
+          <li><a href="/it/faq">Italiano</a></li>
+        
+        
+          <li><a href="/hu/gyik">Magyar</a></li>
+        
+        
+          <li><a href="/nl/faq">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/faq">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/faq">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/intrebari-frecvente">Română</a></li>
+        
+        
+          <li><a href="/sl/vprasanja-in-odgovori">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/cesto-postavljanja-pitanja" class="active">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/faq">Svenska</a></li>
+        
+        
+          <li><a href="/tr/sss">Türkçe</a></li>
+        
+        
+          <li><a href="/el/faq">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/faq">български</a></li>
+        
+        
+          <li><a href="/ru/faq">Русский</a></li>
+        
+        
+          <li><a href="/uk/faq">Українська</a></li>
+        
+        
+          <li><a href="/ar/faq">العربية</a></li>
+        
+        
+          <li><a href="/fa/faq">فارسی</a></li>
+        
+        
+          <li><a href="/he/faq">עברית</a></li>
+        
+        
+          <li><a href="/hi/faq">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/faq">한국어</a></li>
+        
+        
+          <li><a href="/ja/faq">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/faq">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/faq">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/faq" >Bahasa Indonesia</option>
+              
+              <option value="/ca/faq" >Català</option>
+              
+              <option value="/da/faq" >Dansk</option>
+              
+              <option value="/de/faq" >Deutsch</option>
+              
+              <option value="/en/faq" >English</option>
+              
+              <option value="/es/faq" >Español</option>
+              
+              <option value="/fr/faq" >Français</option>
+              
+              <option value="/it/faq" >Italiano</option>
+              
+              <option value="/hu/gyik" >Magyar</option>
+              
+              <option value="/nl/faq" >Nederlands</option>
+              
+              <option value="/pl/faq" >Polski</option>
+              
+              <option value="/pt_BR/faq" >Português Brasil</option>
+              
+              <option value="/ro/intrebari-frecvente" >Română</option>
+              
+              <option value="/sl/vprasanja-in-odgovori" >Slovenščina</option>
+              
+              <option value="/sr/cesto-postavljanja-pitanja"  selected="selected">Srpski</option>
+              
+              <option value="/sv/faq" >Svenska</option>
+              
+              <option value="/tr/sss" >Türkçe</option>
+              
+              <option value="/el/faq" >Ελληνικά</option>
+              
+              <option value="/bg/faq" >български</option>
+              
+              <option value="/ru/faq" >Русский</option>
+              
+              <option value="/uk/faq" >Українська</option>
+              
+              <option value="/ar/faq" >العربية</option>
+              
+              <option value="/fa/faq" >فارسی</option>
+              
+              <option value="/he/faq" >עברית</option>
+              
+              <option value="/hi/faq" >हिन्दी</option>
+              
+              <option value="/ko/faq" >한국어</option>
+              
+              <option value="/ja/faq" >日本語</option>
+              
+              <option value="/zh_CN/faq" >简体中文</option>
+              
+              <option value="/zh_TW/faq" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">sr</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+  <script>updateToc();</script>
+<script>accordion();</script>
+<script>onScrollButton();</script>
+<script>boxShow();</script>
+
+
+
+</body>
+
+</html>

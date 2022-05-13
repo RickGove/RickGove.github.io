@@ -1,0 +1,754 @@
+<!DOCTYPE HTML>
+<html lang="hi">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Bitcoin पर काम कैसे होता है? - Bitcoin</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+<link rel="stylesheet" href="/css/sans.css?1651746487">
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org is a community funded project, donations are appreciated and used to improve the website.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Make a donation
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org needs your support!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Donate to Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">Use this QR code or address below</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Or custom amount? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Or custom amount? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Optional description (for your wallet)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/hi/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">परिचय</a>
+    <ul>
+      <li><a href="/hi/bitcoin-for-individuals">व्यक्तिगत</a></li>
+      <li><a href="/hi/bitcoin-for-businesses">व्यवसाय</a></li>
+      <li><a href="https://developer.bitcoin.org/">डेवलपर्स</a></li>
+      <li><a href="/hi/getting-started"> प्रारंभ करें</a></li>
+      <li class="active"><a href="/hi/how-it-works">यह कैसे काम करता है</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">संसाधन</a>
+    <ul>
+      <li><a href="/hi/resources">संसाधन</a>
+      <li><a href="/hi/exchanges">Exchanges</a></li>
+      <li><a href="/hi/community">समुदाय</a></li>
+      
+      
+      <li><a href="/hi/vocabulary">शब्दावली</a></li>
+      <li><a href="/hi/events">कार्यक्रम</a></li>
+      
+        <li><a href="/hi/download">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/hi/innovation">अभिनव</a></li>
+  <li><a class="is-expand">भाग लें</a>
+    <ul>
+      <li><a href="/hi/support-bitcoin">Bitcoin समर्थन करें</a>
+      <li><a href="/hi/buy">Buy Bitcoin</a></li>
+      
+      <li><a href="/hi/development">विकास</a></li>
+    </ul>
+  </li>
+  <li><a href="/hi/faq">अक्सर पूछे जाने वाले प्रश्न</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>हिन्दी</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/cara-kerja">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/com-funciona">Català</a></li>
+        
+        
+          <li><a href="/da/hvordan-det-fungerer">Dansk</a></li>
+        
+        
+          <li><a href="/de/wie-es-funktioniert">Deutsch</a></li>
+        
+        
+          <li><a href="/en/how-it-works">English</a></li>
+        
+        
+          <li><a href="/es/como-funciona">Español</a></li>
+        
+        
+          <li><a href="/fr/comment-ca-marche">Français</a></li>
+        
+        
+          <li><a href="/it/come-funziona">Italiano</a></li>
+        
+        
+          <li><a href="/hu/hogyan-mukodik">Magyar</a></li>
+        
+        
+          <li><a href="/nl/hoe-het-werkt">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/jak-to-dziala">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/como-funciona">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/cum-functioneaza">Română</a></li>
+        
+        
+          <li><a href="/sl/kako-deluje">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/kako-to-radi">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/hur-det-fungerar">Svenska</a></li>
+        
+        
+          <li><a href="/tr/nasil-calisir">Türkçe</a></li>
+        
+        
+          <li><a href="/el/how-it-works">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/how-it-works">български</a></li>
+        
+        
+          <li><a href="/ru/how-it-works">Русский</a></li>
+        
+        
+          <li><a href="/uk/how-it-works">Українська</a></li>
+        
+        
+          <li><a href="/ar/how-it-works">العربية</a></li>
+        
+        
+          <li><a href="/fa/how-it-works">فارسی</a></li>
+        
+        
+          <li><a href="/he/how-it-works">עברית</a></li>
+        
+        
+          <li><a href="/hi/how-it-works" class="active">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/how-it-works">한국어</a></li>
+        
+        
+          <li><a href="/ja/how-it-works">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/how-it-works">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/how-it-works">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/cara-kerja" >Bahasa Indonesia</option>
+            
+            <option value="/ca/com-funciona" >Català</option>
+            
+            <option value="/da/hvordan-det-fungerer" >Dansk</option>
+            
+            <option value="/de/wie-es-funktioniert" >Deutsch</option>
+            
+            <option value="/en/how-it-works" >English</option>
+            
+            <option value="/es/como-funciona" >Español</option>
+            
+            <option value="/fr/comment-ca-marche" >Français</option>
+            
+            <option value="/it/come-funziona" >Italiano</option>
+            
+            <option value="/hu/hogyan-mukodik" >Magyar</option>
+            
+            <option value="/nl/hoe-het-werkt" >Nederlands</option>
+            
+            <option value="/pl/jak-to-dziala" >Polski</option>
+            
+            <option value="/pt_BR/como-funciona" >Português Brasil</option>
+            
+            <option value="/ro/cum-functioneaza" >Română</option>
+            
+            <option value="/sl/kako-deluje" >Slovenščina</option>
+            
+            <option value="/sr/kako-to-radi" >Srpski</option>
+            
+            <option value="/sv/hur-det-fungerar" >Svenska</option>
+            
+            <option value="/tr/nasil-calisir" >Türkçe</option>
+            
+            <option value="/el/how-it-works" >Ελληνικά</option>
+            
+            <option value="/bg/how-it-works" >български</option>
+            
+            <option value="/ru/how-it-works" >Русский</option>
+            
+            <option value="/uk/how-it-works" >Українська</option>
+            
+            <option value="/ar/how-it-works" >العربية</option>
+            
+            <option value="/fa/how-it-works" >فارسی</option>
+            
+            <option value="/he/how-it-works" >עברית</option>
+            
+            <option value="/hi/how-it-works"  selected="selected">हिन्दी</option>
+            
+            <option value="/ko/how-it-works" >한국어</option>
+            
+            <option value="/ja/how-it-works" >日本語</option>
+            
+            <option value="/zh_CN/how-it-works" >简体中文</option>
+            
+            <option value="/zh_TW/how-it-works" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">hi</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1> Bitcoin कैसे काम करता है?</h1>
+    <p class="summary">यह प्रश्न अक्सर भ्रम और हलचल मचाता है। यह रहा एक त्वरित विवरण!</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="two-column-layout">
+
+    <div class="row two-column-row">
+      <div>
+        <img class="column-img" src="/img/icons/new-user.svg?1651746487" alt="icon">
+      </div>
+      <div class="column-text">
+        <h2 class="section-title" id="basics">नए उपयोगकर्ताओं के लिए मूल बातें</h2>
+        <p>एक नए उपयोगकर्ता के रूप में, तकनीकी जानकारी को समझने के बिना आप <a href="/hi/getting-started">आरंभ कर सकते हैं</a>Bitcoin. अपने कंप्यूटर या मोबाइल फोन पर Bitcoin बटुए स्थापित करते हैं तो यह आपका पहला Bitcoin पता उत्पन्न करेगा और जरूरत पड़ने पर आप अधिक बना सकते हैं। आप अपने मित्रों को अपना पता बता सकते हैं ताकि आप उनको या वे आपको भुगतान कर सकते हैं। वास्तव में, यह ईमेल की तरह काम करता है फरक यह है कि पता केवल एक ही बार इस्तेमाल किया जा सकता है।</p>
+      </div>
+    </div>
+
+    <div class="row two-column-row">
+      <div>
+        <img class="column-img" src="/img/icons/blockchain.svg?1651746487" alt="icon">
+      </div>
+      <div class="column-text">
+        <h2 class="section-title" id="balances">शेष <span class="titlelight"> - ब्लॉक श्रृंखला </span></h2>
+        <p>ब्लॉक चेन <b>सार्वजनिक साझा बही खाता है</b> जिस पर पूरा Bitcoin नेटवर्क निर्भर करता है। सभी  पुष्टि लेनदेन ब्लॉक चेन में शामिल होते हैं। इस तरह, Bitcoin बटुआ खर्च हो सकने वाली शेष राशि की गणना कर सकता है और नए लेनदेन सत्यापित किए जा सकते हैं जानने के लिए कि कितने bitcoins है जो वास्तव में खर्चा करने वाले के स्वामित्व में हैं। ब्लॉक चेन की अखंडता और क्रमांक आदेश <a href="/hi/vocabulary#cryptography">गूढ़लेखन</a>. के साथ लागू होते हैं।</p>
+      </div>
+    </div>
+
+    <div class="row two-column-row">
+      <div>
+        <img class="column-img" src="/img/icons/private-keys.svg?1651746487" alt="icon">
+      </div>
+      <div class="column-text">
+        <h2 class="section-title" id="transactions">लेनदेन <span class="titlelight"> - निजी कुंजी </span></h2>
+        <p>लेन – देन <b>Bitcoin बटुओं के बीच मूल्य का हस्तांतरण</b> हैं, जो ब्लॉक चेन में शामिल हो जाते हैं। Bitcoin बटुआ गुप्त डेटा रखता है जो <a href="/hi/vocabulary#private-key"><i>निजी कुंजी</i></a>  या बीज कहलाता है जो लेनदेन पर हस्ताक्षर करने के लिए प्रयोग में लाया जाता है, इस बात का प्रमाण देते हुए कि यह मालिक के बटुए से आए हैं। <a href="/hi/vocabulary#signature"><i>हस्ताक्षर</i></a> एक बार जारी किए जाने के बाद लेन – देन, किसी के द्वारा परिवर्तित किए जाने से रोकता है। सभी लेनदेन उपयोगकर्ताओं के बीच प्रसारित किए जाते हैं और 10 मिनट में अंदर नेटवर्क द्वारा पुष्टि शुरू होती है, उस प्रक्रिया के माध्यम से जिसे <a href="/hi/vocabulary#mining"><i>मायनिंग</i></a> कहते हैं।</p>
+      </div>
+    </div>
+
+    <div class="row two-column-row">
+      <div>
+        <img class="column-img" src="/img/icons/mining.svg?1651746487" alt="icon">
+      </div>
+      <div class="column-text">
+        <h2 class="section-title" id="processing">प्रसंस्करण <span class="titlelight"> - खनन </span></h2>
+        <p>मायनिंग/खनन <b>वितरित अनुकूलता प्रणाली</b> को कहते हैं जो रुके हुए लेनदेन के<a href="/hi/vocabulary#confirmation"><i> पुष्टि </i></a> ब्लॉक चेन में उन्हें शामिल करके करता है। यह ब्लॉक चेन में क्रमिक आदेश लागू करता है, नेटवर्क की तटस्थता की रक्षा करता है, और विभिन्न कंप्यूटर को प्रणाली स्थीति पर सहमती देने की अनुमति देता है। पुष्टि करने के लिए लेनदेन पैक किए जाना चाहिए<a href="/hi/vocabulary#block"><i>ब्लॉक</i></a> में जो  बहुत कड़े क्रिप्टोग्राफिक नियमों में फिट बैठते हैं और उस नेटवर्क द्वारा सत्यापित किए जाएंगे। ये नियम पिछले ब्लॉकों को संशोधित किए जाने से रोकते हैं क्योंकि ऐसा करने से सभी निम्न ब्लॉक रद्द हो जाएंगे। मायनिंग से प्रतियोगी लॉटरी के बराबरी बनाती है जो किसी भी व्यक्ति को आसानी से नए ब्लॉक को ब्लॉक श्रृंखला में यथाक्रम से जोड़ने में रोकता है। इस तरह, कोई भी व्यक्ति ब्लॉक श्रृंखला में क्या शामिल है इस पर नियंत्रित नहीं कर सकता या अपने ही खर्च को वापस रोल करने के लिए ब्लॉक श्रृंखला के भागों की जगह को बदल सकता।</p>
+      </div>
+    </div>
+
+    <div class="row two-column-row">
+      <div>
+        <img class="column-img" src="/img/icons/paper.svg?1651746487" alt="icon">
+      </div>
+      <div class="column-text">
+        <h2 class="section-title" id="readmore">झलक देखें</h2>
+        <p>यह, इस प्रणाली का केवल एक बहुत ही छोटा और संक्षिप्त सारांश है। यदि आप विस्तृत में  जानकारी प्राप्त करना चाहते हैं तो <a href="/bitcoin.pdf">मूल पेपर पढ़ें</a> जो इस प्रणाली के डिजाइन का वर्णन करता है, और पढ़ें <a href="https://developer.bitcoin.org/">डेवलपर दस्तावेज़ीकरण</a>, और पता लगाएं <a href="https://en.bitcoin.it/wiki/Main_Page">Bitcoin wiki</a>.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- <div class="link-bar">
+    <h3 class="link-bar-title" id="readmore_2">झलक देखें</h3>
+    <p class="link-bar-description"></p>
+    <div class="row link-bar-row">
+      <div class="link-bar-item">
+        <a href="" class="link-bar-link"></a>
+        <p class="link-bar-text"></p>
+      </div>
+      <div class="link-bar-item">
+        <a href="" class="link-bar-link"></a>
+      </div>
+      <div class="link-bar-item">
+        <a href="" class="link-bar-link"></a>
+      </div>
+    </div>
+  </div> -->
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/hi/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Support Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Donate</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">परिचय:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/hi/bitcoin-for-individuals">व्यक्तिगत</a>
+        </li>
+        <li>
+          <a href="/hi/bitcoin-for-businesses">व्यवसाय</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">डेवलपर्स</a>
+        </li>
+        <li>
+          <a href="/hi/getting-started"> प्रारंभ करें</a>
+        </li>
+        <li class="active">
+          <a href="/hi/how-it-works">यह कैसे काम करता है</a>
+        </li>
+        <li>
+          <a href="/hi/you-need-to-know">आपको पता होना चाहिए </a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">संसाधन:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/hi/resources">संसाधन</a>
+        <li>
+          <a href="/hi/exchanges">Exchanges</a>
+        </li>
+        <li>
+          <a href="/hi/community">समुदाय</a>
+        </li>
+        <li>
+          <a href="/hi/vocabulary">शब्दावली
+          </a>
+        </li>
+        <li>
+          <a href="/hi/events">कार्यक्रम</a>
+        </li>
+        
+          <li>
+            <a href="/hi/download">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">भाग लें:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/hi/support-bitcoin">Bitcoin समर्थन करें</a>
+        
+        
+        <li>
+          <a href="/hi/development">विकास</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Other:</p>
+      
+      <a href="/hi/legal">कानूनी</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/hi/press">प्रेस</a>
+      <a href="/hi/about-us">bitcoin.org के बारे में</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span> समुदाय वेबसाइट प्रायोजित किया गया निम्न के द्वारा</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022  <a href="http://opensource.org/licenses/mit-license.php" target="_blank"> MIT लाइसेंस </a> के तहत जारी किया गया है </div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Network Status</a>
+        
+<ul class="lang is-expand">
+  <li><a>हिन्दी</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/cara-kerja">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/com-funciona">Català</a></li>
+        
+        
+          <li><a href="/da/hvordan-det-fungerer">Dansk</a></li>
+        
+        
+          <li><a href="/de/wie-es-funktioniert">Deutsch</a></li>
+        
+        
+          <li><a href="/en/how-it-works">English</a></li>
+        
+        
+          <li><a href="/es/como-funciona">Español</a></li>
+        
+        
+          <li><a href="/fr/comment-ca-marche">Français</a></li>
+        
+        
+          <li><a href="/it/come-funziona">Italiano</a></li>
+        
+        
+          <li><a href="/hu/hogyan-mukodik">Magyar</a></li>
+        
+        
+          <li><a href="/nl/hoe-het-werkt">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/jak-to-dziala">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/como-funciona">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/cum-functioneaza">Română</a></li>
+        
+        
+          <li><a href="/sl/kako-deluje">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/kako-to-radi">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/hur-det-fungerar">Svenska</a></li>
+        
+        
+          <li><a href="/tr/nasil-calisir">Türkçe</a></li>
+        
+        
+          <li><a href="/el/how-it-works">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/how-it-works">български</a></li>
+        
+        
+          <li><a href="/ru/how-it-works">Русский</a></li>
+        
+        
+          <li><a href="/uk/how-it-works">Українська</a></li>
+        
+        
+          <li><a href="/ar/how-it-works">العربية</a></li>
+        
+        
+          <li><a href="/fa/how-it-works">فارسی</a></li>
+        
+        
+          <li><a href="/he/how-it-works">עברית</a></li>
+        
+        
+          <li><a href="/hi/how-it-works" class="active">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/how-it-works">한국어</a></li>
+        
+        
+          <li><a href="/ja/how-it-works">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/how-it-works">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/how-it-works">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/cara-kerja" >Bahasa Indonesia</option>
+              
+              <option value="/ca/com-funciona" >Català</option>
+              
+              <option value="/da/hvordan-det-fungerer" >Dansk</option>
+              
+              <option value="/de/wie-es-funktioniert" >Deutsch</option>
+              
+              <option value="/en/how-it-works" >English</option>
+              
+              <option value="/es/como-funciona" >Español</option>
+              
+              <option value="/fr/comment-ca-marche" >Français</option>
+              
+              <option value="/it/come-funziona" >Italiano</option>
+              
+              <option value="/hu/hogyan-mukodik" >Magyar</option>
+              
+              <option value="/nl/hoe-het-werkt" >Nederlands</option>
+              
+              <option value="/pl/jak-to-dziala" >Polski</option>
+              
+              <option value="/pt_BR/como-funciona" >Português Brasil</option>
+              
+              <option value="/ro/cum-functioneaza" >Română</option>
+              
+              <option value="/sl/kako-deluje" >Slovenščina</option>
+              
+              <option value="/sr/kako-to-radi" >Srpski</option>
+              
+              <option value="/sv/hur-det-fungerar" >Svenska</option>
+              
+              <option value="/tr/nasil-calisir" >Türkçe</option>
+              
+              <option value="/el/how-it-works" >Ελληνικά</option>
+              
+              <option value="/bg/how-it-works" >български</option>
+              
+              <option value="/ru/how-it-works" >Русский</option>
+              
+              <option value="/uk/how-it-works" >Українська</option>
+              
+              <option value="/ar/how-it-works" >العربية</option>
+              
+              <option value="/fa/how-it-works" >فارسی</option>
+              
+              <option value="/he/how-it-works" >עברית</option>
+              
+              <option value="/hi/how-it-works"  selected="selected">हिन्दी</option>
+              
+              <option value="/ko/how-it-works" >한국어</option>
+              
+              <option value="/ja/how-it-works" >日本語</option>
+              
+              <option value="/zh_CN/how-it-works" >简体中文</option>
+              
+              <option value="/zh_TW/how-it-works" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">hi</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+
+</body>
+
+</html>

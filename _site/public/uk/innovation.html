@@ -1,0 +1,765 @@
+<!DOCTYPE HTML>
+<html lang="uk">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Iнновації - Біткойн</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+<link rel="stylesheet" href="/css/sans.css?1651746487">
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org фінансується спільнотою. Пожертвування дуже цінуються та використовуються для покращення роботи сайту.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Пожертвувати
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org потрібна Ваша підтримка!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Пожертвування для Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">Скористайтеся QR-кодом або адресою знизу</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Інша сума? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Інша сума? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Необов'язковий опис транзакції (для Вашого гаманця)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/uk/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">Презентація</a>
+    <ul>
+      <li><a href="/uk/bitcoin-for-individuals">Приватним особам</a></li>
+      <li><a href="/uk/bitcoin-for-businesses">Бізнесу</a></li>
+      <li><a href="https://developer.bitcoin.org/">Розробникам</a></li>
+      <li><a href="/uk/getting-started">Початок роботи</a></li>
+      <li><a href="/uk/how-it-works">Як це працює</a></li>
+      
+      <li><a href="/uk/bitcoin-paper">White paper</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">Ресурси</a>
+    <ul>
+      <li><a href="/uk/resources">Ресурси</a>
+      <li><a href="/uk/exchanges">Обмінники</a></li>
+      <li><a href="/uk/community">Спільнота</a></li>
+      
+      
+      <li><a href="/uk/vocabulary">Словник</a></li>
+      <li><a href="/uk/events">Події</a></li>
+      
+        <li><a href="/uk/download">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li class="active"><a href="/uk/innovation">Інновації</a></li>
+  <li><a class="is-expand">Взяти участь</a>
+    <ul>
+      <li><a href="/uk/support-bitcoin">Підтримка Біткойн</a>
+      <li><a href="/uk/buy">Buy Bitcoin</a></li>
+      
+      <li><a href="/uk/development">Розробка</a></li>
+    </ul>
+  </li>
+  <li><a href="/uk/faq">ЧаПи</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>Українська</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/inovasi">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/innovacio">Català</a></li>
+        
+        
+          <li><a href="/da/innovation">Dansk</a></li>
+        
+        
+          <li><a href="/de/innovation">Deutsch</a></li>
+        
+        
+          <li><a href="/en/innovation">English</a></li>
+        
+        
+          <li><a href="/es/innovacion">Español</a></li>
+        
+        
+          <li><a href="/fr/innovation">Français</a></li>
+        
+        
+          <li><a href="/it/innovazione">Italiano</a></li>
+        
+        
+          <li><a href="/hu/innovacio">Magyar</a></li>
+        
+        
+          <li><a href="/nl/innovatie">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/innowacje">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/inovacao">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/inovatie">Română</a></li>
+        
+        
+          <li><a href="/sl/inovacije">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/inovacija">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/innovation">Svenska</a></li>
+        
+        
+          <li><a href="/tr/yenilik">Türkçe</a></li>
+        
+        
+          <li><a href="/el/innovation">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/innovation">български</a></li>
+        
+        
+          <li><a href="/ru/innovation">Русский</a></li>
+        
+        
+          <li><a href="/uk/innovation" class="active">Українська</a></li>
+        
+        
+          <li><a href="/ar/innovation">العربية</a></li>
+        
+        
+          <li><a href="/fa/innovation">فارسی</a></li>
+        
+        
+          <li><a href="/he/innovation">עברית</a></li>
+        
+        
+          <li><a href="/hi/innovation">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/innovation">한국어</a></li>
+        
+        
+          <li><a href="/ja/innovation">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/innovation">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/innovation">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/inovasi" >Bahasa Indonesia</option>
+            
+            <option value="/ca/innovacio" >Català</option>
+            
+            <option value="/da/innovation" >Dansk</option>
+            
+            <option value="/de/innovation" >Deutsch</option>
+            
+            <option value="/en/innovation" >English</option>
+            
+            <option value="/es/innovacion" >Español</option>
+            
+            <option value="/fr/innovation" >Français</option>
+            
+            <option value="/it/innovazione" >Italiano</option>
+            
+            <option value="/hu/innovacio" >Magyar</option>
+            
+            <option value="/nl/innovatie" >Nederlands</option>
+            
+            <option value="/pl/innowacje" >Polski</option>
+            
+            <option value="/pt_BR/inovacao" >Português Brasil</option>
+            
+            <option value="/ro/inovatie" >Română</option>
+            
+            <option value="/sl/inovacije" >Slovenščina</option>
+            
+            <option value="/sr/inovacija" >Srpski</option>
+            
+            <option value="/sv/innovation" >Svenska</option>
+            
+            <option value="/tr/yenilik" >Türkçe</option>
+            
+            <option value="/el/innovation" >Ελληνικά</option>
+            
+            <option value="/bg/innovation" >български</option>
+            
+            <option value="/ru/innovation" >Русский</option>
+            
+            <option value="/uk/innovation"  selected="selected">Українська</option>
+            
+            <option value="/ar/innovation" >العربية</option>
+            
+            <option value="/fa/innovation" >فارسی</option>
+            
+            <option value="/he/innovation" >עברית</option>
+            
+            <option value="/hi/innovation" >हिन्दी</option>
+            
+            <option value="/ko/innovation" >한국어</option>
+            
+            <option value="/ja/innovation" >日本語</option>
+            
+            <option value="/zh_CN/innovation" >简体中文</option>
+            
+            <option value="/zh_TW/innovation" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">uk</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>Інновації у платіжних системах</h1>
+    <p class="summarytxt">Біткойн-протокол дозволяє не тільки переказувати гроші з пункту А в пункт Б. Він багатофункціональний і відкриває різноманітні можливості, які спільнота все ще досліджує. Тут представлені деякі технології, що на даний час досліджуються та у деяких випадках вже втілені в реальних продуктах та послугах. Найцікавіші способи використання Біткойн ще належить відкрити.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row card-row">
+
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/ico_control.svg?1651746487" alt="Icon" />
+      <h2 id="control">Захист від шахрайства</h2>
+      <p>Біткойн дозволяє досягнути безпрецедентного рівня безпеки. Мережа надає користувачам захист від найпоширеніших видів шахрайства, таких як повернення платежів чи несанкціоноване списання коштів, а біткоїни неможливо підробити. Користувачі можуть шифрувати чи робити резервну копію свого гаманця, а пристрої для зберігання біткоїнів можуть у майбутньому набагато ускладнити крадіжку чи втрату грошей. Біткойн розроблений таким чином, щоб користувачі мали повний контроль над своїми грошима.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/accessibility.svg?1651746487" alt="Icon" />
+      <h2 id="global">Глобальна доступність</h2>
+      <p>Усі платежі у світі можуть бути повністю сумісні. Біткойн дозволяє будь-якому банку, компанії чи приватній особі безпечно надсилати та отримувати платежі будь-де та будь-коли, незалежно від наявності чи відсутності банківського рахунку. Біткойн доступний у багатьох країнах, які все ще знаходяться поза досяжністю більшості платіжних систем, внаслідок їх обмежень. Біткойн збільшує глобальну доступність торгівлі та може допомогти процвітанню міжнародної торгівлі.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/efficiency.svg?1651746487" alt="Icon" />
+      <h2 id="cost">Ефективність витрат</h2>
+      <p>Завдяки використанню криптографії, здійснення безпечних платежів можливе без використання послуг повільних та дорогих посередників. Біткойн-транзакції можуть бути набагато дешевшими ніж його альтернативи і можуть бути здійснені протягом коротшого часу. Це означає, що у Біткойн закладений потенціал стати у майбутньому загальноприйнятим способом переказу будь-якої валюти. Біткойн також може відігравати свою роль у <a href="https://www.youtube.com/watch?v=BrRXP1tp6Kw">подоланні бідності</a> у багатьох країнах, шляхом зменшення високих комісій на переказ зарплатні робітникам.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/donation.svg?1651746487" alt="Icon" />
+      <h2 id="donation">Чайові та пожертви</h2>
+      <p>Біткойн продемонстрував особливу ефективність у випадку з чайовими та пожертвами. Надсилання платежу вимагає лише одного кліку, а отримання пожертв може бути настільки простим, як показ QR-коду. Пожертви можуть бути публічно доступні, що забезпечує більшу прозорість для неприбуткових організацій. У випадку надзвичайних ситуацій, наприклад стихійних лих, пожертви у біткоїнах можуть сприяти оперативнішій реакції міжнародної спільноти.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/crowdfunding.svg?1651746487" alt="Icon" />
+      <h2 id="crowdfunding">Спільнокошт</h2>
+      <p>Біткойн можна реалізовувати колективне фінансування проектів (краудфандинг) у стилі Kickstarter. На фінансування цих проектів люди обіцяють гроші, які списуються тільки у випадку, якщо сума досягає запланованої позначки. Такі гарантійні контракти передбачені протоколом Біткойн, який запобігає проведенню транзакції доти, доки усі умови не виконані.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/micro-payments.svg?1651746487" alt="Icon" />
+      <h2 id="micro">Мікроплатежі</h2>
+      <p>Уявіть собі, що ви слухаєте інтернет радіо з оплатою за кожну секунду, переглядаєте веб-сторінки з невеликими чайовими за кожну не показану вам рекламу, чи купляєте пропускну здатність WiFi-точки по кілобайту. Біткойн достатньо ефективний, щоб усе це стало реальністю. <a href="https://bitcoinj.github.io/working-with-micropayments">Дізнайтесь більше</a> про технологію, що стоїть за мікроплатежами в біткоїнах або про <a href="http://lightning.network/">майбутні модернізації</a>, які в даний час розробляються та впроваджуються, щоб зробити мікроплатежі більш доступними.
+</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/mediation.svg?1651746487" alt="Icon" />
+      <h2 id="mediation">Вирішення спорів</h2>
+      <p>Біткойн можна використовувати для розвитку інноваційних послуг з посередництва у вирішенні спорів з використанням мультипідпису. Такі послуги дозволять сторонній організації підтвердити чи відкликати платіж, у випадку непорозумінь, що виникли між іншими сторонами, без отримання контролю над їх грошима. Оскільки ці послуги будуть доступні будь-яким користувачам чи компаніям, що використовують Біткойн, це, напевне, призведе до конкуренції та вищим стандартам якості.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/multi-signature.svg?1651746487" alt="Icon" />
+      <h2 id="multisig">Рахунки з мультипідписом</h2>
+      <p>Декілька підписів дозволяють транзакції бути прийнятою мережею тільки якщо конкретна кількість з визначеної групи людей дасть свою згоду на підписання транзакції. Це може використовувати рада директорів з метою попередження витрачання спільних коштів будь-яким із її членів, без відома інших членів. Це також може використовуватись банками з метою запобігання крадіжкам, шляхом блокування платежів вище граничної величини у випадку ненадання користувачем додаткового мандату на це.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/trust.svg?1651746487" alt="Icon" />
+      <h2 id="trust">Довіра і чесність</h2>
+      <p>Біткойн пропонує рішення для більшості проблем із довірою, пов'язаних здебільшого з банками. З вибірковою прозорістю обліку, цифровими контрактами та незворотністю транзакцій, Біткойн може використовуватись як фундамент для відновлення довіри та згоди. Нечесні банки не можуть ошукати систему і заробити у ній за рахунок інших банків чи людей. Майбутнє, де більшість банків буде підтримувати біткойн, може допомогти відновити цілісність та довіру до фінансових інституцій.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/decentralization.svg?1651746487" alt="Icon" />
+      <h2 id="resiliency">Життєздатність</h2>
+      <p>Завдяки своєму високому рівню децентралізації Біткойн створив відмінну форму платіжної системи з підвищеним рівнем життєздатності та надлишковості. Біткойн може забезпечувати торгівлю на мільйони доларів, без необхідності військового захисту. У нього не існує вразливого центру, такого як центр опрацювання даних, а атакування усієї мережі є набагато складнішим проектом. Біткойн може стати важливим кроком вперед у забезпеченні безпеки місцевих та глобальних фінансових систем.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/transparency.svg?1651746487" alt="Icon" />
+      <h2 id="transparency">Гнучка прозорість</h2>
+      <p>Усі біткойн-транзакції загальнодоступні та прозорі, а особа людей, що стоять за цими платежами, невідома за умовчанням. Це дозволяє людям та організаціям працювати за гнучкими правилами прозорості. Наприклад, компанія може за власним бажанням відкрити деякі транзакції і баланси для конкретних співробітників, так само як і неприбуткові організації вільно можуть дозволити людям бачити скільки пожертвувань вони отримують протягом дня чи місяця.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/automatization.svg?1651746487" alt="Icon" />
+      <h2 id="automation">Автоматизовані рішення</h2>
+      <p>Автоматизованим послугам зазвичай доводиться мати справу з вартістю та обмеженнями платежів готівкою чи кредитними картками. Це включає усі види торгових автоматів, від автоматів з продажу білетів на автобус, до кавових апаратів. Біткойн може використовуватися в автоматизованих послугах нового покоління, що також дозволить зменшити експлуатаційні витрати. Уявіть таксі без водія, чи крамницю, де ваш кошик дозволяє вам сплачувати за покупки без очікування у черзі. Можливим представляється безліч варіантів.</p>
+    </div>
+
+  </div>
+</div>
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/uk/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Support Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Donate</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">Презентація:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/uk/bitcoin-for-individuals">Приватним особам</a>
+        </li>
+        <li>
+          <a href="/uk/bitcoin-for-businesses">Бізнесу</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">Розробникам</a>
+        </li>
+        <li>
+          <a href="/uk/getting-started">Початок роботи</a>
+        </li>
+        <li>
+          <a href="/uk/how-it-works">Як це працює</a>
+        </li>
+        <li>
+          <a href="/uk/you-need-to-know">Ви повинні це знати</a>
+        </li>
+        
+        <li>
+          <a href="/uk/bitcoin-paper">White paper</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">Ресурси:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/uk/resources">Ресурси</a>
+        <li>
+          <a href="/uk/exchanges">Обмінники</a>
+        </li>
+        <li>
+          <a href="/uk/community">Спільнота</a>
+        </li>
+        <li>
+          <a href="/uk/vocabulary">Словник
+          </a>
+        </li>
+        <li>
+          <a href="/uk/events">Події</a>
+        </li>
+        
+          <li>
+            <a href="/uk/download">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">Взяти участь:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/uk/support-bitcoin">Підтримка Біткойн</a>
+        
+        
+        <li>
+          <a href="/uk/development">Розробка</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Other:</p>
+      
+      <a href="/uk/legal">Правові питання</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/uk/press">Преса</a>
+      <a href="/uk/about-us">Про bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>Спонсор веб-сайту спільноти </span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 ПЗ розповсюджується за <a href="http://opensource.org/licenses/mit-license.php" target="_blank">ліцензією MIT</a></div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Network Status</a>
+        
+<ul class="lang is-expand">
+  <li><a>Українська</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/inovasi">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/innovacio">Català</a></li>
+        
+        
+          <li><a href="/da/innovation">Dansk</a></li>
+        
+        
+          <li><a href="/de/innovation">Deutsch</a></li>
+        
+        
+          <li><a href="/en/innovation">English</a></li>
+        
+        
+          <li><a href="/es/innovacion">Español</a></li>
+        
+        
+          <li><a href="/fr/innovation">Français</a></li>
+        
+        
+          <li><a href="/it/innovazione">Italiano</a></li>
+        
+        
+          <li><a href="/hu/innovacio">Magyar</a></li>
+        
+        
+          <li><a href="/nl/innovatie">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/innowacje">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/inovacao">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/inovatie">Română</a></li>
+        
+        
+          <li><a href="/sl/inovacije">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/inovacija">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/innovation">Svenska</a></li>
+        
+        
+          <li><a href="/tr/yenilik">Türkçe</a></li>
+        
+        
+          <li><a href="/el/innovation">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/innovation">български</a></li>
+        
+        
+          <li><a href="/ru/innovation">Русский</a></li>
+        
+        
+          <li><a href="/uk/innovation" class="active">Українська</a></li>
+        
+        
+          <li><a href="/ar/innovation">العربية</a></li>
+        
+        
+          <li><a href="/fa/innovation">فارسی</a></li>
+        
+        
+          <li><a href="/he/innovation">עברית</a></li>
+        
+        
+          <li><a href="/hi/innovation">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/innovation">한국어</a></li>
+        
+        
+          <li><a href="/ja/innovation">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/innovation">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/innovation">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/inovasi" >Bahasa Indonesia</option>
+              
+              <option value="/ca/innovacio" >Català</option>
+              
+              <option value="/da/innovation" >Dansk</option>
+              
+              <option value="/de/innovation" >Deutsch</option>
+              
+              <option value="/en/innovation" >English</option>
+              
+              <option value="/es/innovacion" >Español</option>
+              
+              <option value="/fr/innovation" >Français</option>
+              
+              <option value="/it/innovazione" >Italiano</option>
+              
+              <option value="/hu/innovacio" >Magyar</option>
+              
+              <option value="/nl/innovatie" >Nederlands</option>
+              
+              <option value="/pl/innowacje" >Polski</option>
+              
+              <option value="/pt_BR/inovacao" >Português Brasil</option>
+              
+              <option value="/ro/inovatie" >Română</option>
+              
+              <option value="/sl/inovacije" >Slovenščina</option>
+              
+              <option value="/sr/inovacija" >Srpski</option>
+              
+              <option value="/sv/innovation" >Svenska</option>
+              
+              <option value="/tr/yenilik" >Türkçe</option>
+              
+              <option value="/el/innovation" >Ελληνικά</option>
+              
+              <option value="/bg/innovation" >български</option>
+              
+              <option value="/ru/innovation" >Русский</option>
+              
+              <option value="/uk/innovation"  selected="selected">Українська</option>
+              
+              <option value="/ar/innovation" >العربية</option>
+              
+              <option value="/fa/innovation" >فارسی</option>
+              
+              <option value="/he/innovation" >עברית</option>
+              
+              <option value="/hi/innovation" >हिन्दी</option>
+              
+              <option value="/ko/innovation" >한국어</option>
+              
+              <option value="/ja/innovation" >日本語</option>
+              
+              <option value="/zh_CN/innovation" >简体中文</option>
+              
+              <option value="/zh_TW/innovation" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">uk</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+
+</body>
+
+</html>
