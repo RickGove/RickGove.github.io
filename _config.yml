@@ -573,7 +573,9 @@ baseurl: "/"
 url: "https://rickgove.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 source:      .
-destination: ./_site
+# destination: ./_site
+destination: ./docs
+
 plugins_dir: ./_plugins
 exclude:
     - Gemfile
