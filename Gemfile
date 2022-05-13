@@ -28,6 +28,7 @@ group :development do
   gem 'json-schema'
 end
 
+gem 'jekyll-multiple-languages-plugin'
 ## Not used on build server. Only used by developers and Travis CI, so
 ## you can put whatever you want here and bundler will tell us humans to
 ## install the new Gems.
