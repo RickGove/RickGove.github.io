@@ -1,0 +1,1010 @@
+<!DOCTYPE HTML>
+<html lang="ca">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>FAQ - Bitcoin</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org és un projecte finançat per la comunitat, les donacions s'agraeixen i s'utilitzen per millorar el lloc web.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Fes una donació
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org necessita el teu suport!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Feu una donació a Bitcoin.org </p>
+    </div>
+    <p class="modal-subheader">Utilitzeu aquest codi QR o adreça a continuació</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="O quantitat personalitzada? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="O quantitat personalitzada? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Descripció opcional (per a la teva cartera)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/ca/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">Introducció</a>
+    <ul>
+      <li><a href="/ca/bitcoin-per-persones">Persones</a></li>
+      <li><a href="/ca/bitcoin-per-empreses">Empreses</a></li>
+      <li><a href="https://developer.bitcoin.org/">Desenvolupadors</a></li>
+      <li><a href="/ca/iniciat">Inicia't</a></li>
+      <li><a href="/ca/com-funciona">Com funciona</a></li>
+      
+      <li><a href="/ca/paper-bitcoin">Paper blanc</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">Recursos</a>
+    <ul>
+      <li><a href="/ca/recursos">Recursos</a>
+      <li><a href="/ca/cases-de-canvi">Intercanvis</a></li>
+      <li><a href="/ca/comunitat">Comunitat</a></li>
+      
+      
+      <li><a href="/ca/vocabulari">Vocabulari</a></li>
+      <li><a href="/ca/events">Esdeveniments</a></li>
+      
+        <li><a href="/ca/descarrega">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/ca/innovacio">Innovació</a></li>
+  <li><a class="is-expand">Participa</a>
+    <ul>
+      <li><a href="/ca/dona-suport-a-bitcoin">Dóna suport a Bitcoin</a>
+      <li><a href="/ca/comprar">Comprar Bitcoin</a></li>
+      
+      <li><a href="/ca/desenvolupament">Desenvolupament</a></li>
+    </ul>
+  </li>
+  <li class="active"><a href="/ca/faq">FAQ</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>Català</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/faq">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/faq" class="active">Català</a></li>
+        
+        
+          <li><a href="/da/faq">Dansk</a></li>
+        
+        
+          <li><a href="/de/faq">Deutsch</a></li>
+        
+        
+          <li><a href="/en/faq">English</a></li>
+        
+        
+          <li><a href="/es/faq">Español</a></li>
+        
+        
+          <li><a href="/fr/faq">Français</a></li>
+        
+        
+          <li><a href="/it/faq">Italiano</a></li>
+        
+        
+          <li><a href="/hu/gyik">Magyar</a></li>
+        
+        
+          <li><a href="/nl/faq">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/faq">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/faq">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/intrebari-frecvente">Română</a></li>
+        
+        
+          <li><a href="/sl/vprasanja-in-odgovori">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/cesto-postavljanja-pitanja">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/faq">Svenska</a></li>
+        
+        
+          <li><a href="/tr/sss">Türkçe</a></li>
+        
+        
+          <li><a href="/el/faq">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/faq">български</a></li>
+        
+        
+          <li><a href="/ru/faq">Русский</a></li>
+        
+        
+          <li><a href="/uk/faq">Українська</a></li>
+        
+        
+          <li><a href="/ar/faq">العربية</a></li>
+        
+        
+          <li><a href="/fa/faq">فارسی</a></li>
+        
+        
+          <li><a href="/he/faq">עברית</a></li>
+        
+        
+          <li><a href="/hi/faq">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/faq">한국어</a></li>
+        
+        
+          <li><a href="/ja/faq">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/faq">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/faq">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/faq" >Bahasa Indonesia</option>
+            
+            <option value="/ca/faq"  selected="selected">Català</option>
+            
+            <option value="/da/faq" >Dansk</option>
+            
+            <option value="/de/faq" >Deutsch</option>
+            
+            <option value="/en/faq" >English</option>
+            
+            <option value="/es/faq" >Español</option>
+            
+            <option value="/fr/faq" >Français</option>
+            
+            <option value="/it/faq" >Italiano</option>
+            
+            <option value="/hu/gyik" >Magyar</option>
+            
+            <option value="/nl/faq" >Nederlands</option>
+            
+            <option value="/pl/faq" >Polski</option>
+            
+            <option value="/pt_BR/faq" >Português Brasil</option>
+            
+            <option value="/ro/intrebari-frecvente" >Română</option>
+            
+            <option value="/sl/vprasanja-in-odgovori" >Slovenščina</option>
+            
+            <option value="/sr/cesto-postavljanja-pitanja" >Srpski</option>
+            
+            <option value="/sv/faq" >Svenska</option>
+            
+            <option value="/tr/sss" >Türkçe</option>
+            
+            <option value="/el/faq" >Ελληνικά</option>
+            
+            <option value="/bg/faq" >български</option>
+            
+            <option value="/ru/faq" >Русский</option>
+            
+            <option value="/uk/faq" >Українська</option>
+            
+            <option value="/ar/faq" >العربية</option>
+            
+            <option value="/fa/faq" >فارسی</option>
+            
+            <option value="/he/faq" >עברית</option>
+            
+            <option value="/hi/faq" >हिन्दी</option>
+            
+            <option value="/ko/faq" >한국어</option>
+            
+            <option value="/ja/faq" >日本語</option>
+            
+            <option value="/zh_CN/faq" >简体中文</option>
+            
+            <option value="/zh_TW/faq" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">ca</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>Preguntes més freqüents</h1>
+    
+      <p class="summarytxt">Troba les respostes als mites més recurrents sobre Bitcoin.</p>
+    
+  </div>
+</div>
+
+<div class="toc-container">
+  <div class="row toc-row">
+
+    <div id="toc" class="toc">
+      <div>
+        <button class="mob-sidebar-open" hidden>View All</button>
+        <div class="sidebar">
+          <div class="sidebar-inner">
+            <button class="mob-sidebar-close" hidden></button>
+            
+
+<ul>
+  <li><a href="#general">General</a>
+    <ul>
+      <li><a href="#que-es-bitcoin">Què és Bitcoin?</a></li>
+      <li><a href="#qui-ha-creat-bitcoin">Qui va crear Bitcoin?</a></li>
+      <li><a href="#qui-controla-la-xarxa-bitcoin">Qui controla la xarxa Bitcoin?</a></li>
+      <li><a href="#com-funciona-bitcoin">Com funciona Bitcoin?</a></li>
+      <li><a href="#realment-es-fa-servir-bitcoin">És Bitcoin realment utilitzat per les persones?</a></li>
+      <li><a href="#com-puc-obtenir-bitcoins">Com es poden aconseguir bitcoins?</a></li>
+      <li><a href="#com-es-de-dificil-fer-un-pagament-amb-bitcoin">Quina dificultat té fer un pagament amb Bitcoin?</a></li>
+      <li><a href="#quins-son-els-advantatges-de-bitcoin">Quins són els avantatges de Bitcoin?</a></li>
+      <li><a href="#quins-son-els-desavantatges-de-bitcoin">Quins són els desavantatges de Bitcoin?</a></li>
+      <li><a href="#perque-la-gent-confia-amb-bitcoin">Perquè la gent confia amb Bitcoin?</a></li>
+      <li><a href="#puc-fer-diners-amb-bitcoin">Puc fer diners amb Bitcoin?</a></li>
+      <li><a href="#es-bitcoin-totalment-virtual-i-immaterial">Bitcoin és completament virtual i immaterial?</a></li>
+      <li><a href="#es-bitcoin-anonim">Bitcoin és anònim?</a></li>
+      <li><a href="#que-passa-quan-els-bitcoins-es-perden">Què passa quan es perden bitcoins?</a></li>
+      <li><a href="#pot-bitcoin-creixer-fins-arribar-a-ser-una-xarxa-de-pagaments-principal">Pot Bitcoin créixer fins a ser una xarxa de pagament principal? </a></li>
+    </ul>
+  </li>
+  <li><a href="#legal">Legal</a>
+    <ul>
+      <li><a href="#es-legal-bitcoin">Bitcoin és legal?</a></li>
+      <li><a href="#es-bitcoin-util-per-activitats-illegals">Bitcoin és útil per activitats il·legals?</a></li>
+      <li><a href="#es-pot-regular-bitcoin">Pot ser regulat el Bitcoin?</a></li>
+      <li><a href="#que-passa-amb-el-bitcoin-i-els-impostos">Què hi ha sobre Bitcoin i els impostos?</a></li>
+      <li><a href="#que-passa-amb-bitcoin-i-la-proteccio-del-consumidor">Què hi ha sobre el Bitcoin i la protecció al consumidor?</a></li>
+    </ul>
+  </li>
+  <li><a href="#economia">Economia</a>
+    <ul>
+      <li><a href="#com-es-creen-els-bitcoins">Com es creen els bitcoins?</a></li>
+      <li><a href="#perque-tenen-valor-els-bitcoins">Perquè els bitcoins tenen valor?</a></li>
+      <li><a href="#que-determina-el-preu-dels-bitcoins">Què determina el preu dels bitcoins?</a></li>
+      <li><a href="#els-bitcoins-podrien-perdre-el-valor">Poden els bitcoins arribar a no tenir valor?</a></li>
+      <li><a href="#es-bitcoin-una-bombolla">És Bitcoin una bombolla?</a></li>
+      <li><a href="#bitcoin-es-un-esquema-ponzi">Bitcoin és un esquema Ponzi?</a></li>
+      <li><a href="#no-premia-bitcoin-injustament-als-primers-en-adoptar">Bitcoin beneficia injustament als primers que el van adoptar?</a></li>
+      <li><a href="#no-sera-el-numero-finit-de-bitcoins-una-limitacio">El número finit de bitcoin no és una limitació?</a></li>
+      <li><a href="#no-caura-bitcoin-en-una-espiral-de-deflacio">Bitcoin no caurà a una espiral de deflació?</a></li>
+      <li><a href="#no-sera-la-especulacio-i-la-volatilitat-un-problema-per-a-bitcoin">L’especulació i la volatilitat no és un problema per a Bitcoin?</a></li>
+      <li><a href="#que-passaria-si-algu-compra-tots-els-bitcoins-existents">Què passaria si algú comprés tots els bitcoins existents?</a></li>
+      <li><a href="#que-passaria-si-algu-crea-una-moneda-digital-millor">Què passa si algú crea una moneda digital millor?</a></li>
+    </ul>
+  </li>
+  <li><a href="#transaccions">Transaccions</a>
+    <ul>
+      <li><a href="#per-que-he-d-esperar-10-minuts">Per què he d’esperar 10 minuts?</a></li>
+      <li><a href="#quan-valdran-les-comisions-de-transaccio">Quan costarà la comissió de transacció?</a></li>
+      <li><a href="#que-passa-si-rebo-un-bitcoin-quan-el-meu-ordinador-esta-apagat">Què passa si rebo un bitcoin quan el meu ordinador està apagat?</a></li>
+      <li><a href="#que-vol-dir-sincronitzar-i-perque-triga-tant">Què vol dir “sincronitzant” i per què tarda tant? </a></li>
+    </ul>
+  </li>
+  <li><a href="#mineria">Mineria</a>
+    <ul>
+      <li><a href="#que-es-la-mineria-bitcoin">Què és la mineria de Bitcoin?</a></li>
+      <li><a href="#com-funciona-la-mineria-bitcoin">Com funciona la mineria de Bitcoin?</a></li>
+      <li><a href="#no-es-la-mineria-bitcoin-malgastar-energia">La mineria no és malgastar energia?</a></li>
+      <li><a href="#com-ajuda-la-mineria-a-protegir-bitcoin">Com ajuda la mineria a assegurar Bitcoin?</a></li>
+      <li><a href="#que-necessito-per-comencar-a-minar">Què necessito per començar a minar?</a></li>
+    </ul>
+  </li>
+  <li><a href="#seguretat">Seguretat</a>
+    <ul>
+      <li><a href="#es-bitcoin-segur">Bitcoin és segur?</a></li>
+      <li><a href="#no-ha-estat-piratejat-bitcoin-en-el-passat">En el passat, ha estat piratejat Bitcoin?</a></li>
+      <li><a href="#podrien-els-usuaris-conspirar-contra-bitcoin">Podrien els usuaris conspirar contra Bitcoin?</a></li>
+      <li><a href="#es-el-bitcoin-vulnerable-a-la-computacio-quantica">És Bitcoin vulnerable a la computació quàntica?</a></li>
+    </ul>
+  </li>
+  <li><a href="#ajuda">Ajuda</a>
+    <ul>
+      <li><a href="#mes-ajuda">M’agradaria aprendre més coses. A on puc trobar ajuda?</a></li>
+    </ul>
+  </li>
+</ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toccontent">
+      <div class="toccontent-intro">
+  <h2 id="general">General</h2>
+  
+  <h3 id="que-es-bitcoin">Què és Bitcoin?</h3>
+  <p>Bitcoin és una xarxa consensuada que proporciona un nou sistema de pagament i una moneda completament digital. És la primera xarxa de pagament descentralitzada P2P que és portada a terme pels seus usuaris sense la gestió d'una autoritat central o intermediaris. Des de la perspectiva de l'usuari, Bitcoin és molt similar als diners en efectiu per a Internet. Bitcoin també pot ser vist com el  <a href="http://financialcryptography.com/mt/archives/001325.html">sistema de comptabilitat triple per partida</a> més prominent en existència.</p>
+  
+  <h3 id="qui-ha-creat-bitcoin">Qui va crear Bitcoin?</h3>
+  <p>Bitcoin és la primera implementació d'un concepte anomenat "criptomoneda", el qual va ser descrit per primera vegada l'any 1998 per Wei Dai a la llista de correu cypherpunks. Suggeria la idea d'una nou tipus de moneda que en comptes d'una autoritat central utilitzés criptografia per tal de controlar la seva creació i les seves transaccions. La primera especificació Bitcoin i la prova de concepte va ser publicada l'any 2009 per Satoshi Nakamoto en una llista de correu de criptografia. Satoshi va deixar el projecte a finals del 2010 sense revelar gaire res sobre ell mateix. La comunitat des de llavors ha crescut exponencialment amb molts <a href="/ca/desenvolupament">desenvolupadors</a> treballant-hi.</p>
+  <p>L'anonimat de Satoshi ha plantejat preocupacions injustificades moltes de les quals van lligades a no entendre la naturalesa "open-source" de Bitcoin. El protocol Bitcoin i el seu programari es publica obertament i qualsevol desenvolupador del món el pot revisar o fer-ne la seva pròpia versió modificada. Tal com passa amb els desenvolupadors actuals, la influència de Satoshi es limitava als canvis que feia i que posteriorment eren adoptats per altres. Ell no controlava Bitcoin. Vist així, la identitat de l'inventor de Bitcoin podria considerar-se avui tan rellevant com la identitat de la persona que va inventar el paper.</p>
+  
+  <h3 id="qui-controla-la-xarxa-bitcoin">Qui controla la xarxa Bitcoin?</h3>
+  <p>La xarxa Bitcoin no pertany a ningú així com la tecnologia del correu electrònic tampoc pertany a ningú. Bitcoin és controlat per tots els usuaris Bitcoin del món. Mentre els desenvolupadors milloren el programari no poden forçar cap canvi al protocol, ja que cada usuari és lliure de triar el programa i la versió a utilitzar. Per tal de ser compatibles els uns amb els altres, tots els usuaris necessiten utilitzar programari que compleixi amb les mateixes regles. Bitcoin només pot funcionar correctament amb un consens total entre usuaris. Així doncs, tant els usuaris com els desenvolupadors estan interessats en protegir aquest consens.</p>
+  
+  <h3 id="com-funciona-bitcoin">Com funciona Bitcoin?</h3>
+  <p>Des de la perspectiva de l'usuari, Bitcoin no és res més que una aplicació mòbil o un programa informàtic que li proporciona un moneder personal i li permet enviar i rebre bitcoins. Per a la majoria d'usuaris així és com funciona Bitcoin.</p>
+  <p>Entre bastidors, la xarxa Bitcoin comparteix un registre públic anomenat la "cadena de blocs". Aquest registre conté cada transacció processada permetent que es pugui verificar la validesa de cada una d'elles. L'autenticitat de cada transacció es protegeix amb la signatura digital corresponent a l'adreça emissora, permetent als usuaris el ple control sobre l'enviament de bitcoins des de les seves adreces Bitcoin. Addicionalment tothom pot processar transaccions utilitzant maquinari especialitzat i guanyar una recompensa en bitcoins pel seu servei. Això s'anomena "minat". Per aprendre més coses sobre Bitcoin, pots consultar la <a href="/ca/com-funciona">pàgina dedicada</a> i <a href="/ca/paper-bitcoin">l'article original</a>.</p>
+  
+  <h3 id="realment-es-fa-servir-bitcoin">És Bitcoin realment utilitzat per les persones?</h3>
+  <p>Sí. Hi ha un <a href="/en/spend-bitcoin">nombre creixent d’empreses</a> i particulars que utilitzen Bitcoin. Això inclou empreses físiques com restaurants, apartaments i despatxos d'advocats, així com serveis en línia populars com Namecheap i Overstock.com. Tot i que Bitcoin continua sent un fenomen relativament nou, creix ràpidament. A maig de 2018, el <a href="https://bitcoincharts.com/bitcoin/">valor total de tots els bitcoins</a> existents superava els 100.000 milions de dòlars nord-americans, amb un intercanvi diari de milions de dòlars en bitcoins.</p>
+  <p>
+    <img src="/img/faq/merchants_map.png?1651746487" alt="Screenshot">
+  </p>
+  
+  <h3 id="com-puc-obtenir-bitcoins">Com es poden aconseguir bitcoins?</h3>
+  <ul>
+    <li>Com a pagament per a béns o serveis.</li>
+    <li>Compra bitcoins a una <a href="https://www.buybitcoinworldwide.com">casa de canvi</a>.</li>
+    <li>Canvia bitcoins amb <a href="https://localbitcoins.com/">algú a prop teu</a>.</li>
+    <li>Guanya bitcoins a trabés de <a href="http://www.bitcoinmining.com/">mineria</a> competitiva.</li>
+  </ul>
+  <p>Tot i que encara és possible trobar persones que desitgin vendre bitcoins amb pagaments PayPal o amb targeta de crèdit, la majoria de cases de canvi no accepten aquests tipus de pagament. Això es deu a casos en què algú ha comprat bitcoins amb PayPal i després ha revertit el pagament. Aquesta acció es coneix com a "chargeback".</p>
+  
+  <h3 id="com-es-de-dificil-fer-un-pagament-amb-bitcoin">Quina dificultat té fer un pagament amb Bitcoin?</h3>
+  <p>Els pagaments Bitcoin són més fàcils de fer que les compres amb targeta de crèdit o dèbit i es poden rebre sense un compte d'empresa. Els pagaments es fan des de l'aplicació moneder, sigui al teu ordinador o telèfon intel·ligent, entrant l'adreça del beneficiari. Molts moneders poden obtenir l'adreça escanejant un codi QR o tocant els dos telèfons amb tecnologia NFC.</p>
+  <p>
+    <img src="/img/faq/mobile_send.png?1651746487" alt="Screenshot">
+    <img src="/img/faq/mobile_receive.png?1651746487" alt="Screenshot">
+  </p>
+  
+  <h3 id="quins-son-els-advantatges-de-bitcoin">Quins són els avantatges de Bitcoin?</h3>
+  <ul>
+    <li><em><b>Llibertat de pagament</b></em> - Es pot enviar i rebre qualsevol quantitat de diners instantàniament a qualsevol lloc del món en qualsevol moment. No hi ha bancs que facin vacances, no hi ha fronteres, no hi ha límits imposats. Bitcoin permet als seus usuaris el ple control sobre els seus diners.</li>
+    <li><em><b>Trieu les vostres pròpies tarifes</b></em> - No hi ha cap comissió per rebre bitcoins, i moltes carteres us permeten controlar l'import de la tarifa a pagar en gastar. Les tarifes més altes poden afavorir una <a href="/ca/necessites-saber#instant">confirmació</a> més ràpida de les vostres transaccions. Les tarifes no estan relacionades amb l'import transferit, de manera que és possible enviar 100.000 bitcoins per la mateixa tarifa que costa enviar 1 bitcoin. A més, existeixen processadors de comerciants per ajudar els comerciants a processar transaccions, convertir bitcoins en moneda fiduciària i dipositar fons directament als comptes bancaris dels comerciants diàriament. Com que aquests serveis es basen en Bitcoin, es poden oferir per tarifes molt més baixes que amb PayPal o xarxes de targetes de crèdit.
+</li>
+    <li><em><b>Menys riscos per als negocis</b></em> - Les transaccions Bitcoin són segures, irreversibles i no contenen informació personal o sensible del client. Això protegeix a les empreses de pèrdues causades pel frau o per devolucions de pagament fraudulentes, i no hi ha cap necessitat de complir amb l'estàndard PCI. Els negocis poden expandir-se cap a nous mercats on no es permeten targetes de crèdit o on els nivells de frau són massa alts. Els resultats nets són comissions més baixes, mercats més grans i menys costos administratius.</li>
+    <li><em><b>Control i seguretat</b></em> - Els usuaris Bitcoin tenen ple control de les seves transaccions; No és possible per als negocis forçar càrrecs inesperats o no volguts tal com pot passar amb altres mètodes de pagament. Els pagaments Bitcoin poden ser fets sense informació personal lligada a la transacció, oferint millor protecció contra els robatoris d'identitat. Els usuaris Bitcoin també poden protegir els seus diners amb una còpia de seguretat i encriptació.</li>
+    <li><em><b>Transparent i neutral</b></em> - <a href="https://live.blockcypher.com/btc/">Tota la informació</a> concernent al subministrament de Bitcoin està disponible a la cadena de blocs a temps real. Cap individu ni organització pot controlar o manipular el protocol Bitcoin, ja que és criptogràficament segur. Això permet que es pugui confiar amb el nucli de Bitcoin per ser completament neutral, transparent i predictible.</li>
+  </ul>
+  
+  <h3 id="quins-son-els-desavantatges-de-bitcoin">Quins són els desavantatges de Bitcoin?</h3>
+  <ul>
+    <li><em><b>Grau d'acceptació</b></em> - Molta gent desconeix Bitcoin. Cada dia, més negocis accepten bitcoins perquè volen els avantatges que ofereix. Així i tot, la llista encara és petita i necessita créixer per tal de beneficiar-se de <a href="https://en.wikipedia.org/wiki/Network_effect">l'efecte de xarxa</a>.</li>
+    <li><em><b>Volatilitat</b></em> - El <a href="https://bitcoincharts.com/bitcoin/">valor total</a> dels bitcoins en circulació i el nombre de negocis utilitzant-los encara és massa petit comparat amb el qual podria ser. Esdeveniments relativament petits, especulació o activitats empresarials poden afectar-ne significativament el preu. En teoria aquesta volatilitat decreixerà a mesura que els mercats i la tecnologia madurin. El món no havia vist mai una posada en marxa així d'una moneda així que és realment difícil (i excitant) d'imaginar com anirà.</li>
+    <li><em><b>Desenvolupament en marxa</b></em> - El programari Bitcoin encara es troba en fase beta amb moltes funcionalitats en desenvolupament. S'estan desenvolupant noves eines, característiques i serveis per fer a Bitcoin més segur i accessible per a les masses. Molts negocis Bitcoin encara són nous i no ofereixen cap assegurança. En general, Bitcoin encara es troba en procés de maduració.</li>
+  </ul>
+  
+  <h3 id="perque-la-gent-confia-amb-bitcoin">Perquè la gent confia amb Bitcoin?</h3>
+  <p>Gran part de la confiança en Bitcoin prové del fet que no requereix cap confiança. Bitcoin és de codi obert i descentralitzat. Això vol dir que qualsevol persona té accés a tot el seu codi font en qualsevol moment. Qualsevol desenvolupador del món pot verificar com funciona Bitcoin. Tots els bitcoins creats i les seves transaccions poden ser consultats de manera transparent en temps real per a qualsevol individu. Tots els pagaments poden ser fets sense dependre d'una tercera part i tot el sistema és protegit per algoritmes criptogràfics intensament revisats i utilitzats en altres àmbits com per exemple la banca en línia. Cap persona ni organització pot controlar Bitcoin, i la xarxa es manté segura encara que no tots els usuaris siguin de confiança.</p>
+  
+  <h3 id="puc-fer-diners-amb-bitcoin">Puc fer diners amb Bitcoin?</h3>
+  <p>No has d'esperar mai fer-te ric amb Bitcoin o qualsevol altra tecnologia emergent. Sempre és important ser prudent amb qualsevol cosa que soni massa bé per ser real o que desobeeixi les regles bàsiques de l'economia. </p>
+  <p>Bitcoin és un espai creixent d'innovació i existeixen oportunitats de negoci que també inclouen riscos. No hi ha garantia que Bitcoin continuï creixent encara que s'hagi desenvolupat a un ritme tan ràpid. Invertir temps i recursos a qualsevol cosa relacionada amb Bitcoin requereix emprenedoria. Hi ha diferents maneres de fer-hi diners com per exemple la mineria, especulació o començant un nou negoci. Tots aquests mètodes són competitius i no hi ha cap garantia de benefici. Dependrà de cada individu fer una avaluació pertinent dels costos i els riscos implicats en cada projecte.</p>
+  
+  <h3 id="es-bitcoin-totalment-virtual-i-immaterial">Bitcoin és completament virtual i immaterial?</h3>
+  <p>Bitcoin és tan virtual com ho és una targeta de crèdit i la banca en línia que la gent utilitza diàriament. Bitcoin es pot usar per a pagar en línia i a les botigues físiques tal com amb qualsevol altre tipus de moneda. Els bitcoins es poden canviar en forma física com la <a href="https://denarium.com/">moneda Denarium</a>, però pagar amb el telèfon mòbil acostuma a ser més convenient. Els saldos Bitcoin es guarden a una gran xarxa distribuïda i no poden ser alterats fraudulentament per a ningú. En altres paraules, els usuaris Bitcoin tenen control exclusiu sobre els seus fons i els bitcoins no poden desaparèixer, ja que són virtuals.</p>
+  
+  <h3 id="es-bitcoin-anonim">Bitcoin és anònim?</h3>
+  <p>El disseny de Bitcoin permet als seus usuaris enviar i rebre pagaments amb un nivell de privacitat acceptable així com es fa amb qualsevol altre tipus de moneda. Així i tot, Bitcoin no és anònim i no pot oferir el mateix nivell de privacitat que l'efectiu. L'ús de Bitcoin deixa un registre públic. Existeixen <a href="/ca/protegeix-la-teva-privacitat">varis mecanismes</a> per a protegir la privacitat dels usuaris, i n'hi ha més en desenvolupament. En qualsevol cas encara queda feina per fer abans que aquestes característiques s'utilitzin correctament per la majoria d'usuaris Bitcoin.</p>
+  <p>S'han plantejat certes preocupacions, ja que les transaccions privades amb Bitcoin podrien ser utilitzades per a propòsits il·legals. Tanmateix val la pena assenyalar que Bitcoin estarà subjecte a regulacions similars a les que actualment hi ha instaurades als sistemes financers. Bitcoin no pot ser més anònim que el metàl·lic i no impedirà cap investigació criminal que es porti a terme. A més a més, el mateix disseny de Bitcoin preveu i evita un bon nombre de crims financers.</p>
+  
+  <h3 id="que-passa-quan-els-bitcoins-es-perden">Què passa quan es perden bitcoins?</h3>
+  <p>Quan un usuari perd el seu moneder aquests diners desapareixen de circulació. Els bitcoins perduts encara es mantenen a la cadena de blocs com qualsevol altre bitcoin, ara bé, els bitcoins perduts romandran latents per sempre, ja que no hi ha cap mecanisme amb el qual es pugui recuperar la clau privada(es) que permetria gastar-los de nou. Per la llei de l'oferta i la demanda, quan hi hagi pocs bitcoins disponibles, els que quedin tindran més demanda i s'incrementarà el valor per tal de compensar-ho.</p>
+  
+  <h3 id="pot-bitcoin-creixer-fins-arribar-a-ser-una-xarxa-de-pagaments-principal">Pot Bitcoin créixer fins a ser una xarxa de pagament principal? </h3>
+  <p>La xarxa Bitcoin encara podria processar un nombre molt més alt de transaccions per segon del qual fa avui dia. Així i tot encara no està llesta per ser escalada al nivell de les xarxes de les principals targetes de crèdit. S'està treballant per polir les limitacions actuals i els requeriments futurs són ben coneguts. Des de l'inici cada aspecte de la xarxa Bitcoin ha estat en un procés continu de maduració, optimització i especificació i es mantindrà així encara uns quants anys. Quan el trànsit creix més usuaris comencen a fer servir un client lleuger i els nodes complets esdevenen serveis especialitzats. Per a més detalls, mira la pàgina d'<a href="https://en.bitcoin.it/wiki/Scalability">escalabilitat</a> a la Wiki.</p>
+
+</div>
+
+<div class="toccontent-block boxexpand expanded">
+  <h2 id="legal">Legal</h2>
+  
+  <h3 id="es-legal-bitcoin">Bitcoin és legal?</h3>
+  <p>El que sabem ara mateix és que  <a href="https://en.wikipedia.org/wiki/Legality_of_bitcoin_by_country">Bitcoin no ha estat il·legalitzat</a> a la majoria de jurisdiccions. N'hi ha però (com la d'Argentina o la de Rússia) que restringeixen o bloquegen les monedes estrangeres. Altres jurisdiccions (com la de Tailàndia) podria limitar les llicències per a certes entitats com podria ser una casa de canvi de Bitcoin.</p>
+  <p>Hi ha legisladors de diverses jurisdiccions treballant per oferir a empreses i a individus regles sobre com integrar aquesta nova tecnologia amb el sistema financer tradicional. Per exemple, la "Financial Crimes Enforcement Network" (FinCEN), que forma part del departament del tresor d'Estats Units d'Amèrica, ha publicat una guia no vinculant sobre com caracteritzar certes activitats que involucren monedes virtuals.</p>
+  
+  <h3 id="es-bitcoin-util-per-activitats-illegals">Bitcoin és útil per activitats il·legals?</h3>
+  <p>Bitcoin és moneda i la moneda s'ha utilitzat sempre tant per coses legals com per coses il·legals. Metàl·lic, targetes de crèdit i sistemes bancaris sobrepassen sobradament a Bitcoin en termes d'ús en finançar crims. Bitcoin pot aportar innovació en els sistemes de pagament i els beneficis d'aquesta innovació sovint són considerats superiors a les seves mancances potencials.</p>
+  <p>Bitcoin està dissenyat per ser un gran pas endavant en fer que els diners siguin més segurs i pot actuar com a protecció enfront de diverses formes de crims financers. Per exemple, els bitcoins són totalment impossibles de falsificar. Els usuaris tenen ple control sobre els seus pagaments i no poden rebre càrrecs no autoritzats com podria passar amb les targetes de crèdit. Les transaccions Bitcoin són irreversibles i immunes a recàrrecs fraudulents. Bitcoin permet protegir els diners contra robatoris i pèrdues fent servir mecanismes com còpies de seguretat, encriptació i signatures múltiples.</p>
+  <p>S'han plantejat certes preocupacions en què Bitcoin pot ser més atractiu per als criminals, ja que pot ser utilitzat per fer pagaments privats i irreversibles. Aquestes característiques ja existeixen amb els diners en metàl·lic i les transferències bancàries les quals es fan servir àmpliament i i estan ben establertes. L'ús de Bitcoin sense cap mena de dubte estarà subjecte a regulacions similars a les que existeixen en els sistemes financers actuals i Bitcoin no evitarà que cap investigació criminal es dugui a terme. És comú que avenços importants es percebin com a controvertits abans que els seus beneficis siguin entesos completament. Internet és un bon exemple per il·lustrar-ho.</p>
+  
+  <h3 id="es-pot-regular-bitcoin">Pot ser regulat el Bitcoin?</h3>
+  <p>El protocol Bitcoin no es pot modificar sense la cooperació de pràcticament tots els seus usuaris, els quals trien el programari que utilitzen. Intentar assignar drets especials a una autoritat local a les normes de la xarxa global Bitcoin no és una possibilitat pràctica. Qualsevol organització amb molts diners podria invertir en maquinari de mineria per tal de controlar la meitat del poder de computació de la xarxa i poder bloquejar o revertir transaccions recents. Ara bé, res no els garantiria la capacitat de retenir aquest poder, ja que requeriria que invertissin tants diners com la resta de miners del món junts.</p>
+  <p>És possible regular l'ús de Bitcoin d'una forma similar a qualsevol altre instrument. Com el dòlar, Bitcoin es pot utilitzar per a una gran varietat de propòsits, alguns dels quals poden ser considerats legítims o no segons les lleis de cada lloc. En aquest sentit, Bitcoin no és diferent que cap altra eina o recurs i pot ser subjecte a diferents regulacions depenent del país. Es pot dificultar l'ús de Bitcoin per part de regulacions restrictives, en cas en el qual és difícil de determinar quin percentatge d'usuaris seguirien usant aquesta tecnologia. Un govern que decidís prohibir Bitcoin limitaria el desenvolupament d'empreses i mercats mentre enviaria la innovació cap a altres països. El repte per als legisladors és, com sempre, desenvolupar solucions eficients que a la vegada no obstaculitzin el creixement de mercats emergents ni d'empreses.</p>
+  
+  <h3 id="que-passa-amb-el-bitcoin-i-els-impostos">Què hi ha sobre Bitcoin i els impostos?</h3>
+  <p>Bitcoin no és un una moneda fiduciària de curs legal a cap territori, però sovint els impostos fiscals s'apliquen independentment del mitjà utilitzat. Hi ha una gran varietat de legislacions a diferents territoris que podrien generar ingressos, vendes, nòmines, plusvàlues o qualsevol altre tipus d'acció que comporti càrrega d'impostos amb Bitcoin.</p>
+  
+  <h3 id="que-passa-amb-bitcoin-i-la-proteccio-del-consumidor">Què hi ha sobre el Bitcoin i la protecció al consumidor?</h3>
+  <p>Bitcoin està alliberant la gent per fer transaccions segons els seus propis termes. Cada usuari pot enviar i rebre pagaments de manera similar a l'efectiu, però també pot participar en contractes més complexos. Les signatures múltiples permeten que la xarxa accepti una transacció només si un nombre determinat d'un grup definit de persones accepta signar la transacció. Això permet desenvolupar serveis innovadors de mediació de conflictes en el futur. Aquests serveis poden permetre a un tercer aprovar o rebutjar una transacció en cas de desacord entre les altres parts sense tenir control sobre els seus diners. A diferència de l'efectiu i altres mètodes de pagament, Bitcoin sempre deixa una prova pública que es va produir una transacció, que pot ser utilitzada en un recurs contra empreses amb pràctiques fraudulentes.</p>
+  <p>També val la pena assenyalar que, si bé els comerciants solen dependre de la seva reputació pública per mantenir-se en el negoci i pagar als seus empleats, no tenen accés al mateix nivell d’informació quan tracten amb nous consumidors. La forma de funcionar de Bitcoin permet protegir tant a particulars com a empreses contra retrocessions fraudulentes, alhora que dóna la possibilitat al consumidor de sol·licitar més protecció quan no estigui disposat a confiar en un comerciant en particular.</p>
+
+</div>
+
+<div class="toccontent-block boxexpand expanded">
+  <h2 id="economia">Economia</h2>
+  
+  <h3 id="com-es-creen-els-bitcoins">Com es creen els bitcoins?</h3>
+  <p>Els bitcoins es generen per un sistema competitiu i descentralitzat anomenat mineria. Aquest procés implica que la xarxa recompensi individus pels serveis prestats. Els miners Bitcoin processen les transaccions i protegeixen la xarxa utilitzant maquinari especialitzat i recol·lectant a canvi nous bitcoins.</p>
+  <p>El protocol Bitcoin està dissenyat de manera que es creen bitcoins nous a un ritme fix. Això fa que la mineria de Bitcoin sigui un negoci molt competitiu. Com més miners s’uneixen a la xarxa, cada vegada és més difícil obtenir beneficis i els miners han de buscar eficiència per reduir els seus costos operatius. Cap autoritat central o desenvolupador té cap poder per controlar o manipular el sistema per augmentar els seus beneficis. Tots els nodes Bitcoin del món rebutjaran tot allò que no compleixi les regles que esperen que segueixi el sistema.</p>
+  <p>Bitcoin es crea a un ritme previst i decreixent. El nombre de nous bitcoins creats cada any automàticament es divideix passat cert temps fins que la creació es pari completament arribats als 21 milions de bitcoins en existència. A aquest punt, els miners de Bitcoin es pagaran a partir de les comissions de transacció.</p>
+  
+  <h3 id="perque-tenen-valor-els-bitcoins">Perquè els bitcoins tenen valor?</h3>
+  <p>Els bitcoins tenen valor perquè són útils com a forma de diners. Bitcoin té les característiques dels diners (durabilitat, portabilitat, fungibilitat, escassetat, divisibilitat i reconeixement) basades en les propietats de les matemàtiques en lloc de confiar en propietats físiques (com l'or i la plata) o la confiança en les autoritats centrals (com les monedes fiduciàries). En resum, Bitcoin està avalat per les matemàtiques. Amb aquests atributs, tot el que es necessita perquè una forma de diners tingui valor és la confiança i l'adopció. En el cas de Bitcoin, això es pot mesurar per la seva base creixent d'usuaris, comerciants i startups. Com passa amb totes les monedes, el valor de Bitcoin prové només i directament de les persones disposades a acceptar-les com a pagament.</p>
+  
+  <h3 id="que-determina-el-preu-dels-bitcoins">Què determina el preu dels bitcoins?</h3>
+  <p>El preu d'un bitcoin varia en funció de l'oferta i la demanda. Quan la demanda de bitcoins augmenta, el seu preu augmenta; i quan la demanda decreix, el seu preu també. Només hi ha un nombre determinat de bitcoins en circulació i els nou bitcoins es creen a un ritme lent i predictible. Això significa que la demanda segueix el nivell de la inflació per mantenir-se estable. Com que Bitcoin segueix sent un mercat relativament petit en comparació amb el que podria ser, no es necessita una quantitat significativa de diners per moure el preu del mercat cap amunt o cap avall i, per això, el preu d'un bitcoin és tan volàtil.</p>
+  <p>Preu de Bitcoin al llarg del temps:
+    <br>
+    <img src="/img/faq/price_chart.png?1651746487" alt="chart">
+  </p>
+  
+  <h3 id="els-bitcoins-podrien-perdre-el-valor">Poden els bitcoins arribar a no tenir valor?</h3>
+  <p>Sí. La història està plena de monedes que han fallat i que ja no s’utilitzen, com la <a href="https://en.wikipedia.org/wiki/German_gold_mark">marca alemanya</a> durant la República de Weimar i, més recentment, el <a href="https://en.wikipedia.org/wiki/Zimbabwean_dollar">dòlar Zimbabuès</a>. Tot i que els fracassos monetaris anteriors solien ser deguts a una hiperinflació (això és impossible per Bitcoin) sempre hi ha possibles fallades tècniques, monedes competidores, qüestions polítiques, etc. Com a regla bàsica general, cap moneda no s’ha de considerar absolutament segura davant de fallades o moments difícils. Bitcoin ha demostrat ser fiable durant anys des dels seus inicis i hi ha molt potencial perquè Bitcoin continuï creixent. Tot i això, ningú no està en condicions de predir quin serà el futur de Bitcoin.</p>
+  
+  <h3 id="es-bitcoin-una-bombolla">És Bitcoin una bombolla?</h3>
+  <p>Un ràpid augment del preu no constitueix una bombolla. Una sobrevaloració artificial que conduirà a una correcció sobtada a la baixa constitueix una bombolla. Les opcions basades en l'acció humana individual per part de centenars de milers de participants en el mercat són la causa que el preu de Bitcoin fluctuï a mesura que el mercat busca el descobriment de preus. Els motius dels canvis de sentiment poden incloure una pèrdua de confiança en Bitcoin, una gran diferència entre el valor i el preu que no es basa en els fonaments de l’economia de Bitcoin, una major cobertura de premsa que estimula la demanda especulativa, la por a la incertesa i l’exuberància irracional i l’avarícia a l’antiga.</p>
+  
+  <h3 id="bitcoin-es-un-esquema-ponzi">Bitcoin és un esquema Ponzi?</h3>
+  <p>Un esquema Ponzi és una operació d'inversió fraudulenta que dóna beneficis als seus inversors dels seus propis diners, o dels diners pagats amb els següents inversors, en lloc dels beneficis guanyats per les persones que porten el negoci. Els esquemes Ponzi estan dissenyats per col·lapsar en expenses dels últims inversors quan no hi ha prou participants.</p>
+  <p>Bitcoin és un projecte de programari lliure sense autoritat central. En conseqüència, ningú no està en condicions de fer declaracions fraudulentes sobre els rendiments de la inversió. Igual que altres monedes importants com l’or, el dòlar nord-americà, l’euro, el ien, etc., no hi ha cap poder adquisitiu garantit i el tipus de canvi flota lliurement. Això condueix a la volatilitat en què els propietaris de bitcoins poden guanyar o perdre diners de forma imprevisible. Més enllà de l’especulació, Bitcoin també és un sistema de pagament amb atributs útils i competitius que estan utilitzant milers d’usuaris i empreses.</p>
+  
+  <h3 id="no-premia-bitcoin-injustament-als-primers-en-adoptar">Bitcoin beneficia injustament als primers que el van adoptar?</h3>
+  <p>Alguns primers adoptants tenen un gran nombre de bitcoins perquè van arriscar i van invertir temps i recursos en una tecnologia no demostrada que gairebé no feia servir ningú i que era molt més difícil de garantir correctament. Molts primers adoptants van gastar un gran nombre de bitcoins força vegades abans que fossin valuosos o compressin només petites quantitats i no obtinguessin grans guanys. No hi ha cap garantia que el preu d’un bitcoin augmenti o baixi. Això és molt similar a invertir en una posada en marxa primerenca que pot guanyar valor gràcies a la seva utilitat i popularitat, o simplement no obrir-se mai. Bitcoin encara està en la seva infantesa i s’ha dissenyat amb una visió a llarg termini; és difícil imaginar com podria ser menys esbiaixat cap als primers adoptants, i els usuaris actuals poden ser o no els primers adoptants del demà.</p>
+  
+  <h3 id="no-sera-el-numero-finit-de-bitcoins-una-limitacio">El número finit de bitcoin no és una limitació?</h3>
+  <p>Bitcoin és únic perquè només es crearan 21 milions de bitcoins. Tanmateix, això mai no serà una limitació perquè les transaccions es poden denominar en subunitats més petites d’un bitcoin, com ara bits: hi ha 1.000.000 de bits en 1 bitcoin. Els bitcoins es poden dividir fins a vuit xifres decimals (0,000 000 01) i unitats potencialment fins i tot més petites si això és necessari en el futur a mesura que disminueixi la mida mitjana de la transacció.</p>
+  
+  <h3 id="no-caura-bitcoin-en-una-espiral-de-deflacio">Bitcoin no caurà a una espiral de deflació?</h3>
+  <p>La teoria de l’espiral deflacionista diu que si s’espera que caiguin els preus, la gent traslladarà les compres al futur per tal de beneficiar-se dels preus més baixos. Aquesta caiguda de la demanda al seu torn farà que els comerciants abaixin els seus preus per intentar estimular la demanda, cosa que empitjora el problema i provoca una depressió econòmica.</p>
+  <p>Tot i que aquesta teoria és una manera popular de justificar la inflació entre els banquers centrals, no sembla que sempre sigui certa i es considera controvertida entre els economistes. L’electrònica de consum és un exemple d’un mercat on els preus baixen constantment, però que no es troba en depressió. De la mateixa manera, el valor dels bitcoins ha augmentat amb el pas del temps i, tot i això, la mida de l’economia de Bitcoin també ha crescut de forma espectacular. Com que tant el valor de la moneda com la mida de la seva economia van començar de zero el 2009, Bitcoin és un contraexemple de la teoria que demostra que a vegades s'equivoca.</p>
+  <p>Malgrat això, Bitcoin no està dissenyat per ser una moneda deflacionista. És més precís dir que Bitcoin pretén inflar-se en els seus primers anys i esdevenir estable en els darrers anys. L'única vegada que disminuirà la quantitat de bitcoins en circulació és si les persones perden la seva cartera sense tenir cura de fer còpies de seguretat. Amb una base monetària estable i una economia estable, el valor de la moneda hauria de continuar sent el mateix.</p>
+  
+  <h3 id="no-sera-la-especulacio-i-la-volatilitat-un-problema-per-a-bitcoin">L'especulació i la volatilitat no és un problema per a Bitcoin?</h3>
+  <p>Aquesta és una situació com la de l'ou i la gallina. Perquè s'estabilitzi el preu de bitcoin, cal que es desenvolupi una economia a gran escala amb més negocis i usuaris. Per tal que aquesta economia a gran escala es desenvolupi, les empreses i els usuaris buscaran l'estabilitat del preu.</p>
+  <p>Afortunadament, la volatilitat no afecta els principals beneficis de Bitcoin com a sistema de pagament per transferir diners del punt A al punt B. És possible que les empreses converteixin els pagaments de bitcoins a la seva moneda local a l’instant, cosa que els permet beneficiar-se dels avantatges de Bitcoin sense estar sotmesos a fluctuacions de preus. Atès que Bitcoin ofereix moltes funcions i propietats úniques i útils, molts usuaris opten per utilitzar Bitcoin. Amb aquestes solucions i incentius, és possible que Bitcoin maduri i es desenvolupi fins a un grau en què la volatilitat dels preus es torni limitada.</p>
+  
+  <h3 id="que-passaria-si-algu-compra-tots-els-bitcoins-existents">Què passaria si algú comprés tots els bitcoins existents?</h3>
+  <p>Només una fracció dels bitcoins emesos fins ara es troba als mercats per vendre. Els mercats de Bitcoin són competitius, és a dir, el preu d'un bitcoin augmentarà o baixarà en funció de l'oferta i la demanda. A més, es continuaran emetent nous bitcoins durant les dècades vinents. Per tant, fins i tot el comprador més decidit no podria comprar tots els bitcoins existents. Aquesta situació no suggereix, però, que els mercats no siguin vulnerables a la manipulació de preus; encara no es necessiten quantitats significatives de diners per apujar o abaixar el preu de mercat i, per tant, Bitcoin continua sent un actiu volàtil.</p>
+  
+  <h3 id="que-passaria-si-algu-crea-una-moneda-digital-millor">Què passa si algú crea una moneda digital millor?</h3>
+  <p>Això pot passar. De moment, Bitcoin continua sent, amb diferència, la moneda virtual descentralitzada més popular, però no hi ha cap garantia que mantingui aquesta posició. Ja hi ha un conjunt de monedes alternatives inspirades en Bitcoin. Tanmateix, seria correcte suposar que es necessitarien millores significatives perquè una nova moneda superés Bitcoin en termes de mercat establert, tot i això és impredictible. Bitcoin també podria adoptar, possiblement, millores d’una moneda competidora sempre que no canviés les parts fonamentals del protocol.</p>
+
+</div>
+
+
+<div class="toccontent-block boxexpand expanded">
+  <h2 id="transaccions">Transaccions</h2>
+  
+  <h3 id="per-que-he-d-esperar-10-minuts">Per què he d'esperar 10 minuts?</h3>
+  <p>Rebre la notificació d’un pagament és gairebé instantani amb Bitcoin. Tanmateix, hi ha un retard abans que la xarxa comenci a confirmar la vostra transacció, incloent-hi en un bloc. Una confirmació significa que hi ha un consens a la xarxa que els bitcoins que heu rebut no han estat enviats a ningú més i que es consideren propietat vostra. Una vegada que la vostra transacció s'hagi inclòs en un bloc, es continuarà enterrant a cada bloc posterior, cosa que consolidarà exponencialment aquest consens i disminuirà el risc d'una transacció invertida. Cada confirmació triga entre uns quants segons i 90 minuts, essent la mitjana 10 minuts. Si la transacció paga una comissió massa baixa o és atípica, obtenir la primera confirmació pot trigar molt més. Tots els usuaris poden determinar en quin moment consideren una transacció prou confirmada, però sovint es considera que <a href="/ca/necessites-saber#instant">sis confirmacions</a> són tan segures com esperar 6 mesos en una transacció amb targeta de crèdit.
+</p>
+  
+  <h3 id="quan-valdran-les-comisions-de-transaccio">Quan costarà la comissió de transacció?</h3>
+  <p>Les transaccions es poden processar sense comissions, però intentar enviar transaccions gratuïtes pot requerir dies o setmanes d’espera. Tot i que les taxes poden augmentar amb el pas del temps, les tarifes normals actualment només costen una petita quantitat. Per defecte, totes les <a href="/ca/tria-el-teu-moneder">carteres de Bitcoin</a> que figuren a Bitcoin.org afegeixen el que creuen que és una tarifa adequada a les vostres transaccions; la majoria d'aquestes carteres també us donaran l'oportunitat de revisar la tarifa abans d'enviar la transacció.
+</p>
+  <p>Les tarifes de transaccions s’utilitzen com a protecció contra l’enviament d’usuaris per sobrecarregar la xarxa i com a forma de pagar als miners el seu treball ajudant a protegir la xarxa. La forma exacta en què es treballa la tarifa encara s'està desenvolupant i canviarà amb el pas del temps. Com que la tarifa no està relacionada amb la quantitat d'enviament de bitcoins, pot semblar extremadament baixa o injustament alta. En canvi, la tarifa és relativa al nombre de bytes de la transacció, de manera que fer servir multisig o gastar diversos imports rebuts anteriorment pot costar més que les transaccions més senzilles. Si la vostra activitat segueix el patró de les transaccions convencionals, no caldrà comissions inusualment altes.
+</p>
+  
+  <h3 id="que-passa-si-rebo-un-bitcoin-quan-el-meu-ordinador-esta-apagat">Què passa si rebo un bitcoin quan el meu ordinador està apagat?</h3>
+  <p>Això funciona bé. Els bitcoins apareixeran la propera vegada que inicieu l'aplicació de cartera. El programari del vostre ordinador no rep realment bitcoins, sinó que s'afegeixen a un llibre major públic compartit entre tots els dispositius de la xarxa. Si se us envien bitcoins quan el programa de cartera no s'està executant i l'executeu més tard, descarregarà blocs i es posarà al dia amb les transaccions que encara no coneixia, i els bitcoins apareixeran com si acabessin de rebre's en temps real. La vostra cartera només és necessària quan vulgueu gastar bitcoins.</p>
+  
+  <h3 id="que-vol-dir-sincronitzar-i-perque-triga-tant">Què vol dir "sincronitzant" i per què tarda tant? </h3>
+  <p>El temps llarg de sincronització només es requereix amb clients de node complet com Bitcoin Core. Tècnicament, la sincronització és el procés de descàrrega i verificació de totes les transaccions anteriors de Bitcoin a la xarxa. Perquè alguns clients de Bitcoin calculin el saldo invertible de la vostra cartera de Bitcoin i facin noves transaccions, han de ser conscients de totes les transaccions anteriors. Aquest pas pot consumir molts recursos i requereix una amplada de banda i emmagatzematge suficients per adaptar-se a la mida completa de la cadena de blocs. Perquè Bitcoin es mantingui segur, hi ha d'haver prou gent que continuï utilitzant clients de node complet perquè són els que realitzen la tasca de validar i transmetre transaccions.</p>
+
+</div>
+
+<div class="toccontent-block boxexpand expanded">
+  <h2 id="mineria">Mineria</h2>
+  <h3 id="que-es-la-mineria-bitcoin">Què és la mineria de Bitcoin?</h3>
+  <p>La mineria és el procés a través del qual es realitzen les transaccions, s'assegura la xarxa, i es manté el sistema i a les persones sincronitzats. Podria ser interpretat com el centre de dades de Bitcoin, però aquesta ha estat dissenyada per ser totalment descentralitzada, amb miners que operen a tots els països, i que ningú tingui control sobre la xarxa. Aquest procés es coneix com a "mineria", com a analogia a la mineria de l'or, ja que també és un mecanisme temporal que s'utilitza per emetre nous bitcoins. A diferència de la mineria de l'or, la mineria Bitcoin ofereix una recompensa a canvi de serveis útils i necessaris per al funcionament d'una xarxa de pagament segur. La mineria seguirà sent necessària després de l'emissió de l'últim bitcoin.</p>
+  <h3 id="com-funciona-la-mineria-bitcoin">Com funciona la mineria de Bitcoin?</h3>
+  <p>Qualsevol persona pot convertir-se en miner de Bitcoin executant programari amb maquinari especialitzat. El programari de mineria escolta les transaccions transmeses a través de la xarxa peer-to-peer i acompleix les tasques adequades per processar i confirmar aquestes transaccions. Els miners de Bitcoin fan aquest treball perquè poden guanyar comissions de transaccions pagades pels usuaris per processar més ràpidament les transaccions i crear bitcoins de nous segons una fórmula fixa.</p>
+  <p>Per confirmar les noves transaccions, cal incloure-les en un bloc juntament amb una prova matemàtica del treball. Aquestes proves són molt difícils de generar perquè no hi ha cap altra manera de crear-les que provant milers de milions de càlculs per segon. Això requereix que els miners realitzin aquests càlculs abans que els seus blocs siguin acceptats per la xarxa i abans que siguin recompensats. A mesura que més gent comença a minar, la xarxa augmenta automàticament la dificultat de trobar blocs vàlids per garantir que el temps mitjà per trobar un bloc es mantingui igual a 10 minuts. Com a resultat, la mineria és un negoci molt competitiu on cap miner no pot controlar el que s’inclou a la cadena de blocs.</p>
+  <p>El concepte de "prova de treball" també està dissenyada per dependre del bloc anterior per forçar un ordre cronològic a la cadena de blocs. Això fa que sigui exponencialment difícil invertir les transaccions anteriors, ja que requereix un recàlcul de les proves de treball de tots els blocs posteriors. Quan es troben dos blocs al mateix temps, els miners treballen al primer bloc que reben i canvien a la cadena de blocs més llarga tan aviat com es troba el bloc següent. Això permet a la mineria assegurar i mantenir un consens global basat en el poder de processament.</p>
+  <p>Els miners de Bitcoin no poden enganyar augmentant la seva pròpia recompensa ni processar transaccions fraudulentes que puguin corrompre la xarxa Bitcoin perquè tots els nodes Bitcoin rebutjarien qualsevol bloc que contingui dades no vàlides segons les regles del protocol Bitcoin. En conseqüència, la xarxa segueix sent segura encara que no es pugui confiar en tots els miners de Bitcoin. </p>
+  <h3 id="no-es-la-mineria-bitcoin-malgastar-energia">La mineria no és malgastar energia?</h3>
+  <p>Gastar energia per assegurar i fer funcionar un sistema de pagament difícilment és una pèrdua. Com qualsevol altre servei de pagament, l’ús de Bitcoin comporta costos de processament. Els serveis necessaris per al funcionament de sistemes monetaris actualment generalitzats, com ara bancs, targetes de crèdit i vehicles blindats, també consumeixen molta energia. Tot i que a diferència de Bitcoin, el seu consum total d’energia no és transparent i no es pot mesurar tan fàcilment.</p>
+  <p>La mineria de Bitcoin s'ha dissenyat per optimitzar-se amb el pas del temps amb un maquinari especialitzat que consumeix menys energia, fent que els costos operatius de la mineria segueixin sent proporcionals a la demanda. Quan la mineria de Bitcoin es torna massa competitiva i és menys rendible, alguns miners opten per aturar les seves activitats. A més a més, tota la mineria gastada en energia es transforma amb el temps en calor i els miners més rendibles seran els que aprofitin aquesta calor. Una xarxa minera òptimament eficient és aquella que en realitat no consumeix energia addicional. Tot i que aquest és un ideal, l'economia de la mineria és tal que els miners s'esforcen individualment per aconseguir-ho.</p>
+  <h3 id="com-ajuda-la-mineria-a-protegir-bitcoin">Com ajuda la mineria a assegurar Bitcoin?</h3>
+  <p>La mineria crea l’equivalent a una loteria competitiva que fa que sigui molt difícil afegir nous blocs de transaccions a la cadena de blocs de manera consecutiva. Això protegeix la neutralitat de la xarxa evitant que qualsevol individu pugui obtenir el poder de bloquejar determinades transaccions. Això també evita que qualsevol individu substitueixi parts de la cadena de blocs per revertir les seves pròpies despeses, que es podrien utilitzar per estafar altres usuaris. La mineria fa que sigui exponencialment més difícil revertir una transacció passada en requerir la reescriptura de tots els blocs posteriors a aquesta transacció.</p>
+  <h3 id="que-necessito-per-comencar-a-minar">Què necessito per començar a minar?</h3>
+  <p>En els primers dies de Bitcoin, qualsevol podia trobar un bloc nou utilitzant la CPU del seu ordinador. A mesura que cada cop més gent va començar a explotar la mineria, la dificultat de trobar nous blocs va augmentar molt fins al punt que l'únic mètode rendible d'explotació actual és utilitzar maquinari especialitzat. Podeu visitar <a href="http://www.bitcoinmining.com/">BitcoinMining.com</a> per obtenir més informació.</p>
+</div>
+
+<div class="toccontent-block boxexpand expanded">
+  <h2 id="seguretat">Seguretat</h2>
+  
+  <h3 id="es-bitcoin-segur">Bitcoin és segur?</h3>
+  <p>La tecnologia Bitcoin - el protocol i la criptografia - té un fort historial de seguretat i la xarxa Bitcoin és probablement el projecte d’informàtica distribuïda més gran del món. La vulnerabilitat més comuna de Bitcoin és l’error de l’usuari. Els fitxers de la cartera Bitcoin que emmagatzemen les claus privades necessàries es poden esborrar accidentalment, perdre o robar. Això és força similar a l’efectiu físic emmagatzemat en forma digital. Afortunadament, els usuaris poden emprar bones <a href="/ca/assegura-el-teu-moneder">pràctiques de seguretat</a> per protegir els seus diners o utilitzar proveïdors de serveis que ofereixen bons nivells de seguretat i assegurança contra robatoris o pèrdues.</p>
+  
+  <h3 id="no-ha-estat-piratejat-bitcoin-en-el-passat">En el passat, ha estat piratejat Bitcoin?</h3>
+  <p>Les regles del protocol i la criptografia utilitzades per a Bitcoin segueixen funcionant anys després del seu inici, cosa que és una bona indicació que el concepte està ben dissenyat. No obstant això, s’han detectat i solucionat <a href="/en/alerts">falles de seguretat</a> al llarg del temps en diverses implementacions de programari. Com qualsevol altra forma de programari, la seguretat del programari Bitcoin depèn de la velocitat amb què es troben i se solucionen els problemes. Com més problemes es descobreixen, Bitcoin guanya més maduresa.</p>
+  <p>Sovint hi ha idees errònies sobre robatoris i incompliments de seguretat ocorreguts en diverses cases de canvi i empreses. Tot i que aquests esdeveniments són desafortunats, cap d'ells implica que el mateix Bitcoin sigui piratejat, ni implica defectes inherents a Bitcoin; igual que un robatori de bancs no vol dir que el dòlar estigui compromès. Així i tot, és necessari dir que es necessita un conjunt complet de bones pràctiques i solucions de seguretat intuïtives per proporcionar als usuaris una millor protecció dels seus diners i reduir el risc general de robatori i pèrdua. Al llarg dels darrers anys, aquestes funcions de seguretat s'han desenvolupat ràpidament, com ara el xifratge de carteres, carteres fora de línia, carteres de maquinari i transaccions amb signatures múltiples.</p>
+  
+  <h3 id="podrien-els-usuaris-conspirar-contra-bitcoin">Podrien els usuaris conspirar contra Bitcoin?</h3>
+  <p>No és possible canviar el protocol Bitcoin tan fàcilment. Qualsevol client de Bitcoin que no compleixi les mateixes regles no pot aplicar les seves pròpies regles a altres usuaris. Segons l’especificació actual, la despesa doble no és possible a la mateixa cadena de blocs, ni tampoc la despesa de bitcoins sense una signatura vàlida. Per tant, no és possible generar quantitats descontrolades de bitcoins del no-res, gastar fons d'altres usuaris, corrompre la xarxa o qualsevol cosa similar.</p>
+  <p>No obstant això, els miners de gran abast podrien optar arbitràriament per bloquejar o revertir les transaccions recents. La majoria d’usuaris també poden pressionar perquè s’adoptin alguns canvis. Com que Bitcoin només funciona correctament amb un consens complet entre tots els usuaris, canviar el protocol pot ser molt difícil i requereix una aclaparadora majoria d’usuaris que adoptin els canvis de manera que els usuaris restants no tinguin gaire més remei que seguir. Com a regla general, és difícil imaginar per què qualsevol usuari de Bitcoin optaria per adoptar qualsevol canvi que pogués comprometre els seus propis diners.</p>
+  
+  <h3 id="es-el-bitcoin-vulnerable-a-la-computacio-quantica">És Bitcoin vulnerable a la computació quàntica?</h3>
+  <p>Sí, la majoria de sistemes que depenen de la criptografia en general ho són, inclosos els sistemes bancaris tradicionals. Tot i això, els ordinadors quàntics encara no existeixen i probablement no existiran durant un temps. En el cas que la <a href="https://bitcoinmagazine.com/6021/bitcoin-is-not-quantum-safe-and-how-we-can-fix/">informàtica quàntica</a> pogués ser una amenaça imminent per a Bitcoin, es podria actualitzar el protocol per utilitzar algoritmes postquàntics. Donada la importància que tindria aquesta actualització, es pot esperar amb seguretat que seria altament revisada pels desenvolupadors i adoptada per tots els usuaris de Bitcoin.</p>
+</div>
+  
+<div class="toccontent-block boxexpand expanded">
+  <h2 id="ajuda">Ajuda</h2>
+  
+  <h3 id="mes-ajuda">M'agradaria aprendre més coses. A on puc trobar ajuda?</h3>
+  <p>Podeu trobar més informació i ajuda a les pàgines de <a href="/ca/recursos">recursos</a> i a la<a href="/ca/comunitat">comunitat</a> o a la <a href="https://en.bitcoin.it/wiki/Help:FAQ">Wiki FAQ</a>.</p>
+</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/ca/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Suporta Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Dóna</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">Introducció:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/ca/bitcoin-per-persones">Persones</a>
+        </li>
+        <li>
+          <a href="/ca/bitcoin-per-empreses">Empreses</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">Desenvolupadors</a>
+        </li>
+        <li>
+          <a href="/ca/iniciat">Inicia't</a>
+        </li>
+        <li>
+          <a href="/ca/com-funciona">Com funciona</a>
+        </li>
+        <li>
+          <a href="/ca/necessites-saber">Necessites saber</a>
+        </li>
+        
+        <li>
+          <a href="/ca/paper-bitcoin">Paper blanc</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">Recursos:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/ca/recursos">Recursos</a>
+        <li>
+          <a href="/ca/cases-de-canvi">Intercanvis</a>
+        </li>
+        <li>
+          <a href="/ca/comunitat">Comunitat</a>
+        </li>
+        <li>
+          <a href="/ca/vocabulari">Vocabulari
+          </a>
+        </li>
+        <li>
+          <a href="/ca/events">Esdeveniments</a>
+        </li>
+        
+          <li>
+            <a href="/ca/descarrega">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">Participa:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/ca/dona-suport-a-bitcoin">Dóna suport a Bitcoin</a>
+        
+        
+        <li>
+          <a href="/ca/desenvolupament">Desenvolupament</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Altres:</p>
+      
+      <a href="/ca/legal">Legal</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/ca/premsa">Premsa</a>
+      <a href="/ca/sobre-nosaltres">Sobre bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>Una comunitat web esponsoritzada per</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 publicat sota la <a href="http://opensource.org/licenses/mit-license.php" target="_blank">llicència MIT</a></div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Estat de la xarxa</a>
+        
+<ul class="lang is-expand">
+  <li><a>Català</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/faq">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/faq" class="active">Català</a></li>
+        
+        
+          <li><a href="/da/faq">Dansk</a></li>
+        
+        
+          <li><a href="/de/faq">Deutsch</a></li>
+        
+        
+          <li><a href="/en/faq">English</a></li>
+        
+        
+          <li><a href="/es/faq">Español</a></li>
+        
+        
+          <li><a href="/fr/faq">Français</a></li>
+        
+        
+          <li><a href="/it/faq">Italiano</a></li>
+        
+        
+          <li><a href="/hu/gyik">Magyar</a></li>
+        
+        
+          <li><a href="/nl/faq">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/faq">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/faq">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/intrebari-frecvente">Română</a></li>
+        
+        
+          <li><a href="/sl/vprasanja-in-odgovori">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/cesto-postavljanja-pitanja">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/faq">Svenska</a></li>
+        
+        
+          <li><a href="/tr/sss">Türkçe</a></li>
+        
+        
+          <li><a href="/el/faq">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/faq">български</a></li>
+        
+        
+          <li><a href="/ru/faq">Русский</a></li>
+        
+        
+          <li><a href="/uk/faq">Українська</a></li>
+        
+        
+          <li><a href="/ar/faq">العربية</a></li>
+        
+        
+          <li><a href="/fa/faq">فارسی</a></li>
+        
+        
+          <li><a href="/he/faq">עברית</a></li>
+        
+        
+          <li><a href="/hi/faq">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/faq">한국어</a></li>
+        
+        
+          <li><a href="/ja/faq">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/faq">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/faq">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/faq" >Bahasa Indonesia</option>
+              
+              <option value="/ca/faq"  selected="selected">Català</option>
+              
+              <option value="/da/faq" >Dansk</option>
+              
+              <option value="/de/faq" >Deutsch</option>
+              
+              <option value="/en/faq" >English</option>
+              
+              <option value="/es/faq" >Español</option>
+              
+              <option value="/fr/faq" >Français</option>
+              
+              <option value="/it/faq" >Italiano</option>
+              
+              <option value="/hu/gyik" >Magyar</option>
+              
+              <option value="/nl/faq" >Nederlands</option>
+              
+              <option value="/pl/faq" >Polski</option>
+              
+              <option value="/pt_BR/faq" >Português Brasil</option>
+              
+              <option value="/ro/intrebari-frecvente" >Română</option>
+              
+              <option value="/sl/vprasanja-in-odgovori" >Slovenščina</option>
+              
+              <option value="/sr/cesto-postavljanja-pitanja" >Srpski</option>
+              
+              <option value="/sv/faq" >Svenska</option>
+              
+              <option value="/tr/sss" >Türkçe</option>
+              
+              <option value="/el/faq" >Ελληνικά</option>
+              
+              <option value="/bg/faq" >български</option>
+              
+              <option value="/ru/faq" >Русский</option>
+              
+              <option value="/uk/faq" >Українська</option>
+              
+              <option value="/ar/faq" >العربية</option>
+              
+              <option value="/fa/faq" >فارسی</option>
+              
+              <option value="/he/faq" >עברית</option>
+              
+              <option value="/hi/faq" >हिन्दी</option>
+              
+              <option value="/ko/faq" >한국어</option>
+              
+              <option value="/ja/faq" >日本語</option>
+              
+              <option value="/zh_CN/faq" >简体中文</option>
+              
+              <option value="/zh_TW/faq" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">ca</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+  <script>updateToc();</script>
+<script>accordion();</script>
+<script>onScrollButton();</script>
+<script>boxShow();</script>
+
+
+
+</body>
+
+</html>

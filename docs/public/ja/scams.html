@@ -1,0 +1,821 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>詐欺防止 - ビットコイン</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.orgはコミュニティの支援金によって成り立つプロジェクトであり、頂いた寄付は、本ウェブサイトの改善に使用します。
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        寄付する
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.orgにはサポートが必要です！
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Bitcoin.orgに寄付する</p>
+    </div>
+    <p class="modal-subheader">このQRコードまたは以下のアドレスを使用する</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="または自分で金額を設定しますか？ (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="または自分で金額を設定しますか？ (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="（各ユーザーのウォレットのための）追加の記述"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/ja/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">紹介</a>
+    <ul>
+      <li><a href="/ja/bitcoin-for-individuals">個人</a></li>
+      <li><a href="/ja/bitcoin-for-businesses">ビジネス</a></li>
+      <li><a href="https://developer.bitcoin.org/">開発者</a></li>
+      <li><a href="/ja/getting-started">開始する</a></li>
+      <li><a href="/ja/how-it-works">ビットコインの仕組み</a></li>
+      
+      <li><a href="/ja/bitcoin-paper">ホワイトペーパー</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">リソース</a>
+    <ul>
+      <li><a href="/ja/resources">リソース</a>
+      <li><a href="/ja/exchanges">取引所</a></li>
+      <li><a href="/ja/community">コミュニティ</a></li>
+      
+      
+      <li><a href="/ja/vocabulary">用語</a></li>
+      <li><a href="/ja/events">イベント</a></li>
+      
+        <li><a href="/ja/download">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/ja/innovation">革新</a></li>
+  <li><a class="is-expand">参加</a>
+    <ul>
+      <li><a href="/ja/support-bitcoin">ビットコインを支援</a>
+      <li><a href="/ja/buy">ビットコインを購入</a></li>
+      
+      <li><a href="/ja/development">開発</a></li>
+    </ul>
+  </li>
+  <li><a href="/ja/faq">よくある質問</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>日本語</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/scam">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/estafes">Català</a></li>
+        
+        
+          <li><a href="/da/">Dansk</a></li>
+        
+        
+          <li><a href="/de/scams">Deutsch</a></li>
+        
+        
+          <li><a href="/en/scams">English</a></li>
+        
+        
+          <li><a href="/es/">Español</a></li>
+        
+        
+          <li><a href="/fr/">Français</a></li>
+        
+        
+          <li><a href="/it/truffe">Italiano</a></li>
+        
+        
+          <li><a href="/hu/atveresek">Magyar</a></li>
+        
+        
+          <li><a href="/nl/oplichtingspraktijken">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/fraudes">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/">Română</a></li>
+        
+        
+          <li><a href="/sl/">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/prevare">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/bedragerier">Svenska</a></li>
+        
+        
+          <li><a href="/tr/">Türkçe</a></li>
+        
+        
+          <li><a href="/el/">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/">български</a></li>
+        
+        
+          <li><a href="/ru/">Русский</a></li>
+        
+        
+          <li><a href="/uk/">Українська</a></li>
+        
+        
+          <li><a href="/ar/">العربية</a></li>
+        
+        
+          <li><a href="/fa/">فارسی</a></li>
+        
+        
+          <li><a href="/he/">עברית</a></li>
+        
+        
+          <li><a href="/hi/">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/">한국어</a></li>
+        
+        
+          <li><a href="/ja/scams" class="active">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/scam" >Bahasa Indonesia</option>
+            
+            <option value="/ca/estafes" >Català</option>
+            
+            <option value="/da/" >Dansk</option>
+            
+            <option value="/de/scams" >Deutsch</option>
+            
+            <option value="/en/scams" >English</option>
+            
+            <option value="/es/" >Español</option>
+            
+            <option value="/fr/" >Français</option>
+            
+            <option value="/it/truffe" >Italiano</option>
+            
+            <option value="/hu/atveresek" >Magyar</option>
+            
+            <option value="/nl/oplichtingspraktijken" >Nederlands</option>
+            
+            <option value="/pl/" >Polski</option>
+            
+            <option value="/pt_BR/fraudes" >Português Brasil</option>
+            
+            <option value="/ro/" >Română</option>
+            
+            <option value="/sl/" >Slovenščina</option>
+            
+            <option value="/sr/prevare" >Srpski</option>
+            
+            <option value="/sv/bedragerier" >Svenska</option>
+            
+            <option value="/tr/" >Türkçe</option>
+            
+            <option value="/el/" >Ελληνικά</option>
+            
+            <option value="/bg/" >български</option>
+            
+            <option value="/ru/" >Русский</option>
+            
+            <option value="/uk/" >Українська</option>
+            
+            <option value="/ar/" >العربية</option>
+            
+            <option value="/fa/" >فارسی</option>
+            
+            <option value="/he/" >עברית</option>
+            
+            <option value="/hi/" >हिन्दी</option>
+            
+            <option value="/ko/" >한국어</option>
+            
+            <option value="/ja/scams"  selected="selected">日本語</option>
+            
+            <option value="/zh_CN/" >简体中文</option>
+            
+            <option value="/zh_TW/" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">ja</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>詐欺防止</h1>
+    <p class="summarytxt">典型的なビットコイン詐欺を把握し、あなた自身とあなたの財産を守りましょう。</p>
+  </div>
+</div>
+
+<div class="toc-container">
+  <div class="row toc-row">
+    <div id="toc" class="toc">
+      <div>
+        <button class="mob-sidebar-open" hidden>詐欺の種類</button>
+        <div class="sidebar">
+          <div class="sidebar-inner vocabulary-list">
+            <button class="mob-sidebar-close" hidden></button>
+            <ul>
+            
+              <li><a href="#blackmail">脅迫</a></li>
+            
+              <li><a href="#fake-exchanges">偽の取引所</a></li>
+            
+              <li><a href="#free-giveaways">無料プレゼント</a></li>
+            
+              <li><a href="#impersonation">なりすまし</a></li>
+            
+              <li><a href="#malware">マルウェア</a></li>
+            
+              <li><a href="#meet-in-person">直接会う</a></li>
+            
+              <li><a href="#money-transfer-fraud">送金詐欺</a></li>
+            
+              <li><a href="#phishing-emails">フィッシングメール</a></li>
+            
+              <li><a href="#phishing-websites">フィッシングウェブサイト</a></li>
+            
+              <li><a href="#ponzi-schemes">ポンジ・スキーム（出資金詐欺）</a></li>
+            
+              <li><a href="#pyramid-schemes">ねずみ講</a></li>
+            
+              <li><a href="#prize-giveaways">懸賞プレゼント</a></li>
+            
+              <li><a href="#pump-and-dumps">風説の流布</a></li>
+            
+              <li><a href="#ransomware">ランサムウェア</a></li>
+            
+              <li><a href="#scam-coins">詐欺コイン</a></li>
+            
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toccontent">
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="blackmail">脅迫</h2>
+        <p>ビットコインと引き換えの脅迫には注意してください。例えば、送信者がユーザーのコンピュータをハッキングし、リモートデスクトッププロトコル（RDP）経由で操作しているという電子メールメッセージによるものが挙げられます。送信者は、キーロガーがインストールされている事や、ユーザーのウェブカメラを使用して他人に知らせたくない様な事を記録している事を連絡してきます。送信者は2つのオプションを用意しています。つまり、ビットコインを送信してこの脅迫から逃れるか、何も送信せず、電子メールの連絡先に送信される内容やそれがユーザーのネットワーク全体に広がる事を黙認するかです。詐欺師達は、盗まれた電子メールリストやその他漏洩したユーザー情報を使用し、何千人もの人にこのスキームを一括して実行します。</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="fake-exchanges">偽の取引所</h2>
+        <p>ビットコインが普及するにつれて、より多くの人々がその入手を考えています。残念な事に、悪意のある人々はこれを利用して、偽のビットコイン取引を試みる事が知られています。これらの偽の取引所は、非常に魅力的な価格を提示するため、ユーザーは安価なビットコインに素早く簡単にアクセスして入手できると錯覚してしまうかもしれません。ビットコインを購入または販売する際は、必ず<a href="/en/exchanges">評判の良い取引所</a>を使用してください。</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="free-giveaways">無料プレゼント</h2>
+        <p>インターネットは情報が瞬く間に広がるウィルス的な性質があります。そのため、詐欺師達は人々を騙して、ビットコインやその他のデジタル通貨を無料で提供しようとし、これと引き換えに登録のために少額を送付する事や個人情報を提供する事を画策します。ウェブサイトやソーシャルネットワークでこの様な例があった場合、他の人が犠牲にならないよう、不正なコンテンツとしてすぐに報告しましょう。</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="impersonation">なりすまし</h2>
+        <p>残念な事に、詐欺師達がソーシャルメディアのアカウントを作成し、誰かを偽装する事は非常に簡単です。詐欺師達は、偽装しようとする人物がコンテンツを公開するまで暫く待ち、オリジナルの人物とほぼ同様に見えるアカウントを使用して、フォローアップや無料のプレゼントの様な、何かしらの行動を促すメッセージを返信します。これを行う事で、オリジナルの人物がそれを発信している様に見えるのです。あるいは、詐欺師達は、偽のアカウントを使用してプライベートメッセージやダイレクトメッセージを送付し、他人を欺いたり不正アクセスをする目的で、何かしらの行動を取る様に促す事もできます。そのため、無料プレゼントには絶対に参加しないでください。ネットワーク内の誰かから、おかしなリクエストを受け取った場合は、複数のメディア等を利用してその信憑性を再確認する事をお勧めします。</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="malware">マルウェア</h2>
+        <p>盗難方法を見つける事に関し、ハッカーは非常にクリエイティブになりました。ビットコインを送る際には送信先のアドレスを2度、3度チェックする事を心がけてください。マルウェアが一旦インストールされると、ユーザーのクリップボードからペーストされたアドレスは、書き換えられてしまいます。そうして、全てのビットコインはハッカーのアドレスに、知らぬ間に送られてしまうのです。一度ネットワークに承認されたビットコインのトランザクションが覆される可能性は非常に低いため、後になって気付いても遅すぎます。そして、資産が戻ってくる事はないでしょう。この点、端末上のどのアプリケーションに対し管理者アクセスを許可しているか配慮する事は、良い考えです。最新版の権威あるウイルススキャナーも一助にはなりますが、人的ミスを防ぐ事はできません。</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="meet-in-person">直接会う</h2>
+        <p>各ユーザーが住む地域でビットコインの売買をする際、実際に会って取引を行う事を相手から求められるかもしれません。各ユーザーが既に知っていて信頼できる相手ではない場合、この誘いは盗難や傷害に繋がる恐れのある非常にリスクの高いものです。詐欺師達はビットコイン取引で偽造通貨を使用する事も知られています。実際に会う代わりに、P2Pプラットフォームを利用し、第三者への資金預託をご検討ください。</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="money-transfer-fraud">送金詐欺</h2>
+        <p>資産の移動を助ける代わりに、資産の一部を受け取る事ができるという様な内容の、知らない人からのEメールや着信には返信しない様にしてください。</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="phishing-emails">フィッシングメール</h2>
+        <p>パスワードのリセットや、アカウントに関して何かしらの作用を及ぼすためのクリック等、各ユーザーの行動を促す電子メールにはご注意ください。各ユーザーのアカウントを侵害しようとしている偽の電子メールと、各ユーザーが使用している製品やサービスから送信された正当な電子メールの違いを判断するのは、非常に困難です。確信が持てない場合、会社にそのメールを転送する事、ウェブサイト上にある連絡先電子メールアドレスを使用する事、電話する事、公式のソーシャルメディアアカウントを通じて連絡を取る事により、真正性を3回は確認しましょう。</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="phishing-websites">フィッシングウェブサイト</h2>
+        <p>フィッシングウェブサイトはフィッシングメールと連携している場合がよくあります。フィッシングメールは、ログイン情報を盗んだりマルウェアをインストールさせる事を目的とした、複製されたウェブサイトにリンクしている可能性があります。そのウェブサイトが偽物でないと100%の確信が無い限り、ソフトウェアのインストールやウェブサイトへのログインをしないでください。フィッシングウェブサイトは、検索エンジンの検索結果にスポンサーとして、またはモバイル端末のアプリのマーケットプレイスに表示される事があるかもしれません。フェイクアプリをダウンロードしてしまったり、フェイクウェブサイトに繋がるスポンサーリンクをクリックしたりしない様に、十分警戒してください。</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="ponzi-schemes">ポンジ・スキーム（出資金詐欺）</h2>
+        <p>前金を預ける事で保証されたリターンを提示する様なオファーには、参加しないでください。これはポンジ・スキームとして知られ、将来の預金者の元金は先行投資者に支払うために使用されます。最終的には通常、多くの人々が多くのお金を失う結果となります。</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="pyramid-schemes">ねずみ講</h2>
+        <p>ねずみ講は参加者に対し、招待した人数に基づくリターンを約束します。これによりこのスキームは急速に成長しますが、大抵の場合はメンバーや招待された人々にとって、意味のあるリターンを得る結果にはなりません。単に報酬を蓄積するため、または製品やサービスからのリターンのために、各ユーザーの個人的なネットワークを決して招待しないでください。そして、このプロセスを加速させる事を目的とした他者からの指示によって、ご自身の資産を提供する事もしないでください。</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="prize-giveaways">懸賞プレゼント</h2>
+        <p>無料プレゼントに似たものとして、懸賞プレゼント詐欺は、人々が何か行動を起こしたり、個人情報を提供する様に仕掛けます。例えば、賞品を手に入れるために名前や住所、E-mailアドレス、電話番号を提供させたりします。これらの情報を使用する事で、ハッカーは各ユーザーになりすまし、アカウントへのアクセスを試みる事が可能になります。</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="pump-and-dumps">風説の流布</h2>
+        <p>ビットコインの今後の価格動向を知っていると主張し、投資を促してくる人達を信用しないでください。風説の流布では、ある人（または人々）が人工的に価格を上昇させたり下降させたりする事を試みます。これにより、彼らは保有している分を投げ売りし、利益を得る事ができるのです。</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="ransomware">ランサムウェア</h2>
+        <p>ランサムウェアは、ビットコインで身代金を支払わない限り端末へのアクセスを部分的または完全にブロックする、マルウェアの一種です。これに対する最適な解決策としては、信頼できるコンピュータプロフェッショナルのアドバイスを参考に、ランサムウェアを除去する事です。端末にインストールするプログラム、特に管理者アクセスを要求するプログラムについては注意が必要です。また、ダウンロードしているアプリが、過去に使用した正当なものの偽装ではない事を、再度確認してください。</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="scam-coins">詐欺コイン</h2>
+        <p>アルトコインに投資する際は十分注意してください。アルトコインの中には、詐欺コインはもちろん、プライベートセールやプレセールディスカウントでユーザーの投資を誘い込むものがあるかもしれません。詐欺コインは、派手なウェブサイトを特徴とし、またはそれを発見した人々が好機を逃してしまうのではないかという恐れを生み出すため、大きなコミュニティを誇示しているかもしれません。これは早期保有者の利益のための価格引上げや、ポジションの終了のために行われます。また、大規模コミュニティを持たない詐欺コインはエアドロップを行う可能性があります。つまり、コミュニティに参加する代わりに、人々に無料のコイン（またはトークン）を提供するのです。これにより詐欺コインは、投資家が仕入れたいか決定する機会が来た時に、彼らが好機を逃している気分にさせるため、大規模なコミュニティが既に存在するというイニシアチブを提示する事ができます。詐欺コインはビットコインという言葉を使用し、ビットコインと正当な関係性があるものだとして、人々を騙したり誤解させたりする可能性もあります。</p>
+      </div>
+      
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/ja/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Bitcoin.orgを支援する:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">寄付する</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">紹介:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/ja/bitcoin-for-individuals">個人</a>
+        </li>
+        <li>
+          <a href="/ja/bitcoin-for-businesses">ビジネス</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">開発者</a>
+        </li>
+        <li>
+          <a href="/ja/getting-started">開始する</a>
+        </li>
+        <li>
+          <a href="/ja/how-it-works">ビットコインの仕組み</a>
+        </li>
+        <li>
+          <a href="/ja/you-need-to-know">知っておくべき事</a>
+        </li>
+        
+        <li>
+          <a href="/ja/bitcoin-paper">ホワイトペーパー</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">リソース:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/ja/resources">リソース</a>
+        <li>
+          <a href="/ja/exchanges">取引所</a>
+        </li>
+        <li>
+          <a href="/ja/community">コミュニティ</a>
+        </li>
+        <li>
+          <a href="/ja/vocabulary">用語
+          </a>
+        </li>
+        <li>
+          <a href="/ja/events">イベント</a>
+        </li>
+        
+          <li>
+            <a href="/ja/download">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">参加:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/ja/support-bitcoin">ビットコインを支援</a>
+        
+        
+        <li>
+          <a href="/ja/development">開発</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">その他:</p>
+      
+      <a href="/ja/legal">法律</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/ja/press">プレス</a>
+      <a href="/ja/about-us">bitcoin.org について</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>コミュニティ・ウェブサイト　主催：</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MITライセンス</a>の下でのリリース</div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">ネットワークステータス</a>
+        
+<ul class="lang is-expand">
+  <li><a>日本語</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/scam">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/estafes">Català</a></li>
+        
+        
+          <li><a href="/da/">Dansk</a></li>
+        
+        
+          <li><a href="/de/scams">Deutsch</a></li>
+        
+        
+          <li><a href="/en/scams">English</a></li>
+        
+        
+          <li><a href="/es/">Español</a></li>
+        
+        
+          <li><a href="/fr/">Français</a></li>
+        
+        
+          <li><a href="/it/truffe">Italiano</a></li>
+        
+        
+          <li><a href="/hu/atveresek">Magyar</a></li>
+        
+        
+          <li><a href="/nl/oplichtingspraktijken">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/fraudes">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/">Română</a></li>
+        
+        
+          <li><a href="/sl/">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/prevare">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/bedragerier">Svenska</a></li>
+        
+        
+          <li><a href="/tr/">Türkçe</a></li>
+        
+        
+          <li><a href="/el/">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/">български</a></li>
+        
+        
+          <li><a href="/ru/">Русский</a></li>
+        
+        
+          <li><a href="/uk/">Українська</a></li>
+        
+        
+          <li><a href="/ar/">العربية</a></li>
+        
+        
+          <li><a href="/fa/">فارسی</a></li>
+        
+        
+          <li><a href="/he/">עברית</a></li>
+        
+        
+          <li><a href="/hi/">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/">한국어</a></li>
+        
+        
+          <li><a href="/ja/scams" class="active">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/scam" >Bahasa Indonesia</option>
+              
+              <option value="/ca/estafes" >Català</option>
+              
+              <option value="/da/" >Dansk</option>
+              
+              <option value="/de/scams" >Deutsch</option>
+              
+              <option value="/en/scams" >English</option>
+              
+              <option value="/es/" >Español</option>
+              
+              <option value="/fr/" >Français</option>
+              
+              <option value="/it/truffe" >Italiano</option>
+              
+              <option value="/hu/atveresek" >Magyar</option>
+              
+              <option value="/nl/oplichtingspraktijken" >Nederlands</option>
+              
+              <option value="/pl/" >Polski</option>
+              
+              <option value="/pt_BR/fraudes" >Português Brasil</option>
+              
+              <option value="/ro/" >Română</option>
+              
+              <option value="/sl/" >Slovenščina</option>
+              
+              <option value="/sr/prevare" >Srpski</option>
+              
+              <option value="/sv/bedragerier" >Svenska</option>
+              
+              <option value="/tr/" >Türkçe</option>
+              
+              <option value="/el/" >Ελληνικά</option>
+              
+              <option value="/bg/" >български</option>
+              
+              <option value="/ru/" >Русский</option>
+              
+              <option value="/uk/" >Українська</option>
+              
+              <option value="/ar/" >العربية</option>
+              
+              <option value="/fa/" >فارسی</option>
+              
+              <option value="/he/" >עברית</option>
+              
+              <option value="/hi/" >हिन्दी</option>
+              
+              <option value="/ko/" >한국어</option>
+              
+              <option value="/ja/scams"  selected="selected">日本語</option>
+              
+              <option value="/zh_CN/" >简体中文</option>
+              
+              <option value="/zh_TW/" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">ja</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+  <script>updateToc();</script>
+<script>accordion();</script>
+<script>onScrollButton();</script>
+<script>boxShow();</script>
+
+
+
+
+
+</body>
+
+</html>

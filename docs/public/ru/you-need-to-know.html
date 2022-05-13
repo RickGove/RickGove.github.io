@@ -1,0 +1,763 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Это вам нужно знать - Биткойн</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+<link rel="stylesheet" href="/css/sans.css?1651746487">
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org спонсируется сообществом. Пожертвования приветствуются и используются для улучшения работы сайта.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Сделать пожертвование
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org нужна Ваша поддержка!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Пожертвование для Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">Используйте QR-код или адрес внизу</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Другая сумма? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Другая сумма? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Необязательное описание транзакции (для Вашего кошелька)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/ru/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">Введение</a>
+    <ul>
+      <li><a href="/ru/bitcoin-for-individuals">Частным лицам</a></li>
+      <li><a href="/ru/bitcoin-for-businesses">Бизнесу</a></li>
+      <li><a href="https://developer.bitcoin.org/">Разработчикам</a></li>
+      <li><a href="/ru/getting-started">Начало работы</a></li>
+      <li><a href="/ru/how-it-works">Как это работает</a></li>
+      
+      <li><a href="/ru/bitcoin-paper">White paper</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">Ресурсы</a>
+    <ul>
+      <li><a href="/ru/resources">Ресурсы</a>
+      <li><a href="/ru/exchanges">Обменники (Биржи)</a></li>
+      <li><a href="/ru/community">Сообщество</a></li>
+      
+      
+      <li><a href="/ru/vocabulary">Термины</a></li>
+      <li><a href="/ru/events">События</a></li>
+      
+        <li><a href="/ru/download">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/ru/innovation">Инновация</a></li>
+  <li><a class="is-expand">Участвовать</a>
+    <ul>
+      <li><a href="/ru/support-bitcoin">Поддержать Биткойн</a>
+      <li><a href="/ru/buy">Buy Bitcoin</a></li>
+      
+      <li><a href="/ru/development">Разработка</a></li>
+    </ul>
+  </li>
+  <li><a href="/ru/faq">FAQ</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>Русский</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/yang-perlu-anda-ketahui">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/necessites-saber">Català</a></li>
+        
+        
+          <li><a href="/da/du-boer-vide">Dansk</a></li>
+        
+        
+          <li><a href="/de/das-sollten-sie-wissen">Deutsch</a></li>
+        
+        
+          <li><a href="/en/you-need-to-know">English</a></li>
+        
+        
+          <li><a href="/es/debes-saber">Español</a></li>
+        
+        
+          <li><a href="/fr/vous-devez-savoir">Français</a></li>
+        
+        
+          <li><a href="/it/da-sapere">Italiano</a></li>
+        
+        
+          <li><a href="/hu/amit-tudnia-erdemes">Magyar</a></li>
+        
+        
+          <li><a href="/nl/wat-u-moet-weten">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/co-potrzebujesz-wiedziec">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/voce-precisa-saber">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/ce-trebuie-sa-stii">Română</a></li>
+        
+        
+          <li><a href="/sl/kaj-moram-vedeti">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/trebali-bi-da-znate">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/du-behover-kanna-till">Svenska</a></li>
+        
+        
+          <li><a href="/tr/bilmeniz-gerekenler">Türkçe</a></li>
+        
+        
+          <li><a href="/el/you-need-to-know">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/you-need-to-know">български</a></li>
+        
+        
+          <li><a href="/ru/you-need-to-know" class="active">Русский</a></li>
+        
+        
+          <li><a href="/uk/you-need-to-know">Українська</a></li>
+        
+        
+          <li><a href="/ar/you-need-to-know">العربية</a></li>
+        
+        
+          <li><a href="/fa/you-need-to-know">فارسی</a></li>
+        
+        
+          <li><a href="/he/you-need-to-know">עברית</a></li>
+        
+        
+          <li><a href="/hi/you-need-to-know">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/you-need-to-know">한국어</a></li>
+        
+        
+          <li><a href="/ja/you-need-to-know">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/you-need-to-know">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/you-need-to-know">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/yang-perlu-anda-ketahui" >Bahasa Indonesia</option>
+            
+            <option value="/ca/necessites-saber" >Català</option>
+            
+            <option value="/da/du-boer-vide" >Dansk</option>
+            
+            <option value="/de/das-sollten-sie-wissen" >Deutsch</option>
+            
+            <option value="/en/you-need-to-know" >English</option>
+            
+            <option value="/es/debes-saber" >Español</option>
+            
+            <option value="/fr/vous-devez-savoir" >Français</option>
+            
+            <option value="/it/da-sapere" >Italiano</option>
+            
+            <option value="/hu/amit-tudnia-erdemes" >Magyar</option>
+            
+            <option value="/nl/wat-u-moet-weten" >Nederlands</option>
+            
+            <option value="/pl/co-potrzebujesz-wiedziec" >Polski</option>
+            
+            <option value="/pt_BR/voce-precisa-saber" >Português Brasil</option>
+            
+            <option value="/ro/ce-trebuie-sa-stii" >Română</option>
+            
+            <option value="/sl/kaj-moram-vedeti" >Slovenščina</option>
+            
+            <option value="/sr/trebali-bi-da-znate" >Srpski</option>
+            
+            <option value="/sv/du-behover-kanna-till" >Svenska</option>
+            
+            <option value="/tr/bilmeniz-gerekenler" >Türkçe</option>
+            
+            <option value="/el/you-need-to-know" >Ελληνικά</option>
+            
+            <option value="/bg/you-need-to-know" >български</option>
+            
+            <option value="/ru/you-need-to-know"  selected="selected">Русский</option>
+            
+            <option value="/uk/you-need-to-know" >Українська</option>
+            
+            <option value="/ar/you-need-to-know" >العربية</option>
+            
+            <option value="/fa/you-need-to-know" >فارسی</option>
+            
+            <option value="/he/you-need-to-know" >עברית</option>
+            
+            <option value="/hi/you-need-to-know" >हिन्दी</option>
+            
+            <option value="/ko/you-need-to-know" >한국어</option>
+            
+            <option value="/ja/you-need-to-know" >日本語</option>
+            
+            <option value="/zh_CN/you-need-to-know" >简体中文</option>
+            
+            <option value="/zh_TW/you-need-to-know" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">ru</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>Кое-что, что Вам нужно знать</h1>
+    <p class="summarytxt">Если вы собрались изучить Биткойн, есть пара вещей, которые вам следует знать. Биткойн позволяет вам обменивать деньги иным способом, нежели с обычными банками. Вам нужно выделить время, чтобы разобраться, прежде чем использовать Биткойн для каких-либо серьезных транзакций. К Биткойну следует относиться с таким же вниманием, как и к обычному кошельку, или даже еще более внимательно в некоторых случаях!</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="two-column-layout">
+    <div class="row two-column-row">
+      <div>
+        <img class="column-img" src="/img/icons/securing.svg?1651746487" alt="icon">
+      </div>
+      <div class="column-text">
+        <h2 class="section-title" id="secure">Безопасность вашего кошелька</h2>
+        <p>Как и в реальной жизни, ваш кошелек должен быть защищен. Биткойн позволяет просто переводить суммы куда угодно и позволяет вам полностью контролировать свои деньги. Такие огромные возможности, также сопровождаются большими проблемами безопасности. В то же время, Биткойн способен обеспечить очень высокий уровень безопасности, если пользоваться им правильно. Всегда помните, что это ваша ответственность, использовать лучшие практики для защиты своих денег. <a href="/ru/secure-your-wallet"><b>Узнать больше о защите своего кошелька</b></a>.</p>
+      </div>
+    </div>
+    
+    <div class="row two-column-row">
+      <div>
+        <img class="column-img" src="/img/icons/bitcoin-price.svg?1651746487" alt="icon">
+      </div>
+      <div class="column-text">
+        <h2 class="section-title" id="volatile">Цена биткойна подвержена колебаниям</h2>
+        <p>Цена на биткойны может непредсказуемо увеличиваться или уменьшаться в течение короткого периода времени в связи с молодостью экономики Биткойн, новизной ее природы и неликвидностью рынков. Вследствие этого мы не рекомендуем хранить ваши сбережения в биткойнах. Напротив, биткойны следует рассматривать как активы с высокой степенью риска. Никогда не храните в биткойнах деньги, которые вы не можете позволить себе потерять. Если вы получаете платежи в биткойнах, Вы можете пользоваться сервисами, позволяющими конвертировать их в местную валюту.</p>
+      </div>
+    </div>
+    
+    <div class="row two-column-row">
+      <div>
+        <img class="column-img" src="/img/icons/bitcoin-payments.svg?1651746487" alt="icon">
+      </div>
+      <div class="column-text">
+        <h2 class="section-title" id="irreversible">Биткойн-платежи невозможно отменить</h2>
+        <p>Никакая биткойн-транзакция не может быть отменена. Только в том случае, если сам получатель вернет вам средства, вы сможете получить их назад. Это означает, что вам следует вести бизнес только с теми людьми и организациями, которых вы знаете и которым можете доверять, или у которых уже хорошая репутация. Со стороны организаций, они должны контролировать свои платежные запросы, направленные клиентам. Биткойн обнаруживает опечатку и, как правило, не позволяет отправить деньги на несуществующий адрес по ошибке. Дополнительные услуги могут появиться в будущем, для обеспечения большего выбора и защиты для клиентов.</p>
+      </div>
+    </div>
+    
+    <div class="row two-column-row">
+      <div>
+        <img class="column-img" src="/img/icons/not-anonymous.svg?1651746487" alt="icon">
+      </div>
+      <div class="column-text">
+        <h2 class="section-title" id="anonymous">Для полной анонимности Биткойна требуются усилия</h2>
+        <p>Для защиты вашей конфиденциальности, при использовании Биткойна требуются некоторые усилия. Ведь все биткойн-транзакции публичны и мгновенно распространяются в сети, что означает - все могут видеть баланс и транзакции любого биткойн-адреса. Однако, личность пользователя за адресами остается неизвестной до тех пор, пока информация не откроется благодаря платежу, или в других обстоятельствах. Это одна из причин почему биткойн-адреса следует использовать лишь однажды. Всегда помните, что использование лучших практик для защиты своей конфиденциальности - это ваша ответственность. <a href="/ru/protect-your-privacy"><b>Читать еще, о защите свой конфиденциальности</b></a>.</p>
+      </div>
+    </div>
+    
+    <div class="row two-column-row">
+      <div class="column-table">
+         
+      </div>
+      <div class="column-text column-text-s">
+        <h2 class="section-title" id="instant">Неподтвержденные транзакции небезопасны</h2>
+        <p>Транзакции не создаются необратимыми. Вместо этого они получают <i>подтверждения</i>, которые указывают, насколько легко обратить транзакцию. Каждая транзакция занимает между несколькими секундами и 90 минутами, со средней длительностью в 10 минут.  Если комиссия была чересчур низкой или в ином смысле атипичной, первое подтверждение займет намного больше времени.</p>
+      </div>
+    </div>
+    
+    <div class="row two-column-row">
+      <div>
+        <img class="column-img" src="/img/icons/experimental.svg?1651746487" alt="icon">
+      </div>
+      <div class="column-text">
+        <h2 class="section-title" id="experimental">Биткойн все еще является экспериментальной валютой</h2>
+        <p>Биткойн является экспериментальной новой валютой, которая находится в активной разработке. И, хотя она становится все менее и менее экспериментальной по мере того, как растет ее популярность, следует все же иметь в виду, что Биткойн - новое изобретение, использующее ранее не применявшиеся принципы. Соответственно, будущее этой валюты непредсказуемо.</p>
+      </div>
+    </div>
+    
+    <div class="row two-column-row">
+      <div>
+        <img class="column-img" src="/img/icons/taxes.svg?1651746487" alt="icon">
+      </div>
+      <div class="column-text">
+        <h2 class="section-title" id="tax">Налоги и госрегулирование</h2>
+        <p>Биткойн не является официальной валютой. Тем не менее, большинство юрисдикций требуют, чтобы вы платили подоходный налог, что может относиться и к Биткойну. Это ваша ответственность, убедитесь, что вы будете придерживаться <a href="https://en.wikipedia.org/wiki/Legality_of_bitcoin_by_country">налоговых и других юридических или нормативных требований</a> вашего правительства и/или местных властей.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/ru/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Support Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Donate</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">Введение:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/ru/bitcoin-for-individuals">Частным лицам</a>
+        </li>
+        <li>
+          <a href="/ru/bitcoin-for-businesses">Бизнесу</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">Разработчикам</a>
+        </li>
+        <li>
+          <a href="/ru/getting-started">Начало работы</a>
+        </li>
+        <li>
+          <a href="/ru/how-it-works">Как это работает</a>
+        </li>
+        <li class="active">
+          <a href="/ru/you-need-to-know">Вам нужно знать</a>
+        </li>
+        
+        <li>
+          <a href="/ru/bitcoin-paper">White paper</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">Ресурсы:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/ru/resources">Ресурсы</a>
+        <li>
+          <a href="/ru/exchanges">Обменники (Биржи)</a>
+        </li>
+        <li>
+          <a href="/ru/community">Сообщество</a>
+        </li>
+        <li>
+          <a href="/ru/vocabulary">Термины
+          </a>
+        </li>
+        <li>
+          <a href="/ru/events">События</a>
+        </li>
+        
+          <li>
+            <a href="/ru/download">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">Участвовать:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/ru/support-bitcoin">Поддержать Биткойн</a>
+        
+        
+        <li>
+          <a href="/ru/development">Разработка</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Other:</p>
+      
+      <a href="/ru/legal">Юридическое</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/ru/press">Пресса</a>
+      <a href="/ru/about-us">О bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>Веб-сайт сообщества спонсируется</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 ПО распространяется под лицензией <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT</a></div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Network Status</a>
+        
+<ul class="lang is-expand">
+  <li><a>Русский</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/yang-perlu-anda-ketahui">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/necessites-saber">Català</a></li>
+        
+        
+          <li><a href="/da/du-boer-vide">Dansk</a></li>
+        
+        
+          <li><a href="/de/das-sollten-sie-wissen">Deutsch</a></li>
+        
+        
+          <li><a href="/en/you-need-to-know">English</a></li>
+        
+        
+          <li><a href="/es/debes-saber">Español</a></li>
+        
+        
+          <li><a href="/fr/vous-devez-savoir">Français</a></li>
+        
+        
+          <li><a href="/it/da-sapere">Italiano</a></li>
+        
+        
+          <li><a href="/hu/amit-tudnia-erdemes">Magyar</a></li>
+        
+        
+          <li><a href="/nl/wat-u-moet-weten">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/co-potrzebujesz-wiedziec">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/voce-precisa-saber">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/ce-trebuie-sa-stii">Română</a></li>
+        
+        
+          <li><a href="/sl/kaj-moram-vedeti">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/trebali-bi-da-znate">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/du-behover-kanna-till">Svenska</a></li>
+        
+        
+          <li><a href="/tr/bilmeniz-gerekenler">Türkçe</a></li>
+        
+        
+          <li><a href="/el/you-need-to-know">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/you-need-to-know">български</a></li>
+        
+        
+          <li><a href="/ru/you-need-to-know" class="active">Русский</a></li>
+        
+        
+          <li><a href="/uk/you-need-to-know">Українська</a></li>
+        
+        
+          <li><a href="/ar/you-need-to-know">العربية</a></li>
+        
+        
+          <li><a href="/fa/you-need-to-know">فارسی</a></li>
+        
+        
+          <li><a href="/he/you-need-to-know">עברית</a></li>
+        
+        
+          <li><a href="/hi/you-need-to-know">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/you-need-to-know">한국어</a></li>
+        
+        
+          <li><a href="/ja/you-need-to-know">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/you-need-to-know">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/you-need-to-know">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/yang-perlu-anda-ketahui" >Bahasa Indonesia</option>
+              
+              <option value="/ca/necessites-saber" >Català</option>
+              
+              <option value="/da/du-boer-vide" >Dansk</option>
+              
+              <option value="/de/das-sollten-sie-wissen" >Deutsch</option>
+              
+              <option value="/en/you-need-to-know" >English</option>
+              
+              <option value="/es/debes-saber" >Español</option>
+              
+              <option value="/fr/vous-devez-savoir" >Français</option>
+              
+              <option value="/it/da-sapere" >Italiano</option>
+              
+              <option value="/hu/amit-tudnia-erdemes" >Magyar</option>
+              
+              <option value="/nl/wat-u-moet-weten" >Nederlands</option>
+              
+              <option value="/pl/co-potrzebujesz-wiedziec" >Polski</option>
+              
+              <option value="/pt_BR/voce-precisa-saber" >Português Brasil</option>
+              
+              <option value="/ro/ce-trebuie-sa-stii" >Română</option>
+              
+              <option value="/sl/kaj-moram-vedeti" >Slovenščina</option>
+              
+              <option value="/sr/trebali-bi-da-znate" >Srpski</option>
+              
+              <option value="/sv/du-behover-kanna-till" >Svenska</option>
+              
+              <option value="/tr/bilmeniz-gerekenler" >Türkçe</option>
+              
+              <option value="/el/you-need-to-know" >Ελληνικά</option>
+              
+              <option value="/bg/you-need-to-know" >български</option>
+              
+              <option value="/ru/you-need-to-know"  selected="selected">Русский</option>
+              
+              <option value="/uk/you-need-to-know" >Українська</option>
+              
+              <option value="/ar/you-need-to-know" >العربية</option>
+              
+              <option value="/fa/you-need-to-know" >فارسی</option>
+              
+              <option value="/he/you-need-to-know" >עברית</option>
+              
+              <option value="/hi/you-need-to-know" >हिन्दी</option>
+              
+              <option value="/ko/you-need-to-know" >한국어</option>
+              
+              <option value="/ja/you-need-to-know" >日本語</option>
+              
+              <option value="/zh_CN/you-need-to-know" >简体中文</option>
+              
+              <option value="/zh_TW/you-need-to-know" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">ru</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,909 @@
+<!DOCTYPE HTML>
+<html lang="bg">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Преса - Биткойн</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+<link rel="stylesheet" href="/css/sans.css?1651746487">
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org is a community funded project, donations are appreciated and used to improve the website.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Make a donation
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org needs your support!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Donate to Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">Use this QR code or address below</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Or custom amount? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Or custom amount? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Optional description (for your wallet)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/bg/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">Въведение</a>
+    <ul>
+      <li><a href="/bg/bitcoin-for-individuals">Частни лица</a></li>
+      <li><a href="/bg/bitcoin-for-businesses">Фирми</a></li>
+      <li><a href="https://developer.bitcoin.org/">Разработчици</a></li>
+      <li><a href="/bg/getting-started">Първи стъпки</a></li>
+      <li><a href="/bg/how-it-works">Как работи</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">Ресурси</a>
+    <ul>
+      <li><a href="/bg/resources">Ресурси</a>
+      <li><a href="/bg/exchanges">Exchanges</a></li>
+      <li><a href="/bg/community">Общност</a></li>
+      
+      
+      <li><a href="/bg/vocabulary">Речник</a></li>
+      <li><a href="/bg/events">Събития</a></li>
+      
+        <li><a href="/bg/download">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/bg/innovation">Иновация</a></li>
+  <li><a class="is-expand">Участвайте</a>
+    <ul>
+      <li><a href="/bg/support-bitcoin">Допринесете към Биткойн</a>
+      <li><a href="/bg/buy">Buy Bitcoin</a></li>
+      
+      <li><a href="/bg/development">Развитие</a></li>
+    </ul>
+  </li>
+  <li><a href="/bg/faq">ЧЗВ</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>български</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/pers">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/premsa">Català</a></li>
+        
+        
+          <li><a href="/da/presse">Dansk</a></li>
+        
+        
+          <li><a href="/de/presse">Deutsch</a></li>
+        
+        
+          <li><a href="/en/press">English</a></li>
+        
+        
+          <li><a href="/es/prensa">Español</a></li>
+        
+        
+          <li><a href="/fr/presse">Français</a></li>
+        
+        
+          <li><a href="/it/stampa">Italiano</a></li>
+        
+        
+          <li><a href="/hu/sajto">Magyar</a></li>
+        
+        
+          <li><a href="/nl/pers">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/prasa">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/imprensa">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/presa">Română</a></li>
+        
+        
+          <li><a href="/sl/mediji">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/mediji">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/press">Svenska</a></li>
+        
+        
+          <li><a href="/tr/basin">Türkçe</a></li>
+        
+        
+          <li><a href="/el/press">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/press" class="active">български</a></li>
+        
+        
+          <li><a href="/ru/press">Русский</a></li>
+        
+        
+          <li><a href="/uk/press">Українська</a></li>
+        
+        
+          <li><a href="/ar/press">العربية</a></li>
+        
+        
+          <li><a href="/fa/press">فارسی</a></li>
+        
+        
+          <li><a href="/he/press">עברית</a></li>
+        
+        
+          <li><a href="/hi/press">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/press">한국어</a></li>
+        
+        
+          <li><a href="/ja/press">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/press">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/press">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/pers" >Bahasa Indonesia</option>
+            
+            <option value="/ca/premsa" >Català</option>
+            
+            <option value="/da/presse" >Dansk</option>
+            
+            <option value="/de/presse" >Deutsch</option>
+            
+            <option value="/en/press" >English</option>
+            
+            <option value="/es/prensa" >Español</option>
+            
+            <option value="/fr/presse" >Français</option>
+            
+            <option value="/it/stampa" >Italiano</option>
+            
+            <option value="/hu/sajto" >Magyar</option>
+            
+            <option value="/nl/pers" >Nederlands</option>
+            
+            <option value="/pl/prasa" >Polski</option>
+            
+            <option value="/pt_BR/imprensa" >Português Brasil</option>
+            
+            <option value="/ro/presa" >Română</option>
+            
+            <option value="/sl/mediji" >Slovenščina</option>
+            
+            <option value="/sr/mediji" >Srpski</option>
+            
+            <option value="/sv/press" >Svenska</option>
+            
+            <option value="/tr/basin" >Türkçe</option>
+            
+            <option value="/el/press" >Ελληνικά</option>
+            
+            <option value="/bg/press"  selected="selected">български</option>
+            
+            <option value="/ru/press" >Русский</option>
+            
+            <option value="/uk/press" >Українська</option>
+            
+            <option value="/ar/press" >العربية</option>
+            
+            <option value="/fa/press" >فارسی</option>
+            
+            <option value="/he/press" >עברית</option>
+            
+            <option value="/hi/press" >हिन्दी</option>
+            
+            <option value="/ko/press" >한국어</option>
+            
+            <option value="/ja/press" >日本語</option>
+            
+            <option value="/zh_CN/press" >简体中文</option>
+            
+            <option value="/zh_TW/press" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">bg</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>Пресцентър</h1>
+    
+      <p class="summarytxt">Намерете интервюирани лица, отговори и висококачествени печатни материали.</p>
+    
+  </div>
+</div>
+
+<div class="toc-container">
+  <div class="row toc-row">
+
+    <div id="toc" class="toc">
+      <div>
+        <button class="mob-sidebar-open" hidden>View All</button>
+        <div class="sidebar">
+          <div class="sidebar-inner">
+            <button class="mob-sidebar-close" hidden></button>
+            
+
+<ul>
+  <li><a href="#volunteer">Интервюирани лица</a></li>
+  <li><a href="#layout">ЧЗВ</a>
+    <ul>
+      <li><a href="#whatisbitcoin">Какво е Биткойн?</a></li>
+      <li><a href="#howitworks">Как работи Биткойн?</a></li>
+      <li><a href="#whatismining">Какво представлява Биткойн добива?</a></li>
+      <li><a href="#acquire">Как мога да се сдобия с биткойни?</a></li>
+      <li><a href="#used">Използва ли се наистина Биткойн от хората?</a></li>
+      <li><a href="#makepayment">Трудно ли е да се осъществи плащане чрез Биткойн?</a></li>
+      <li><a href="#advantages">Какви са предимствата на Биткойн?</a></li>
+      <li><a href="#disadvantages">Какви са недостатъците на Биткойн?</a></li>
+      <li><a href="#secure">Сигурен ли е Биткойн?</a></li>
+      <li><a href="#islegal">Законен ли е Биткойн?</a></li>
+      <li><a href="#taxes">Има ли такси в Биткойн?</a></li>
+      <li><a href="#illegalactivities">Може ли Биткойн да бъде използван за извършване на нелегални дейности?</a></li>
+      <li><a href="#bubble">“Балон” ли е Биткойн?</a></li>
+      <li><a href="#whyvalue">Защо биткойните имат стойност?</a></li>
+      <li><a href="#ponzi">Биткойн “Понци” схема ли е?</a></li>
+      <li><a href="#creator">Кой е създал Биткойн?</a></li>
+      <li><a href="#worthless">Възможно ли е биткойните да загубят своята стойност?</a></li>
+      <li><a href="#virtual">Изцяло виртуален и нематериален ли е Биткойн?</a></li>
+      <li><a href="#trust">Защо хората се доверяват на Биткойн?</a></li>
+      <li><a href="#anonymous">Анонимен ли е Биткойн?</a></li>
+    </ul>
+  </li>
+</ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toccontent">
+      <div class="toccontent-intro">
+  <h2 id="volunteer">Интервюирани лица</h2>
+  <p>Свържете се с <a href="https://bitcoinfoundation.org/contact/">Биткойн фондацията</a> или местни <a href="/bg/community#non-profit">неправителствени организации</a>.</p>
+</div>
+
+<div class="toccontent-block boxexpand expanded">
+  <h2 id="layout">ЧЗВ</h2>
+  <div class="press-faq">
+    <div>
+      <h3 id="whatisbitcoin" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Какво е Биткойн?</h3>
+      <div>
+        <p>Биткойн е консенсусна мрежа, която дава възможност за въвеждане на нова разплащателна система и напълно нов вид дигитални пари. Това е първата децентрализирана мрежа за разплащания, базирана на Р2Р технологията, която се поддържа от нейните потребители и няма централна власт или посредници. От гледна точка на потребителя, Биткойн е нещо като "пари за интернет". Биткойн може да се разглежда и като най-успешната <a href="http://financialcryptography.com/mt/archives/001325.html">тройна система за счетоводни записи</a>, която е позната.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="howitworks" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Как работи Биткойн?</h3>
+      <div>
+        <p>От гледна точка на потребителя, Биткойн не е нищо повече от мобилна апликация или компютърна програма, която ви осигурява Биткойн портфейл и ви позволява да получавате и изпращате биткойни. Ето така работи Биткойн за повечето потребители.</p>
+        <p>Зад кулисите мрежата Биткойн споделя публично книга, наречена "блок-верига". Тази книга съдържа всяка транзакция, която някога е обработвана, което позволява компютърът на потребителя да провери нейната валидност. Автентичността на всяка транзакция е защитена с цифров подпис, кореспондиращ с адресите на изпращане, което позволява на всички потребители да имат пълен контрол върху биткойните, които напускат сметката им. В допълнение, всеки, който може да обработва транзакции с използване на изчислителната мощ на специализиран хардуер печели биткойни за тази услуга. Това често се нарича добив. За да научите повече за Биткойн, може да прегледате <a href="/bg/how-it-works">определените за целта страници</a> и <a href="/bitcoin.pdf">оргиниалните документи</a>.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="whatismining" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Какво представлява Биткойн добива?</h3>
+      <div>
+        <p>Добивът е процес на изразходване на изчислителна мощ за обработка на транзакции, защита на мрежата и синхронизиране на всички участници в системата. То може да се възприема като център за данни на Биткойн, изключвайки това, че системата е проектирана да бъде напълно децентрализирана, използвайки копачи, работещи във всички страни, като няма лице, което да има пълен контрол. Този процес се нарича "добив" от аналогията за добив на злато, тъй като това също е временен механизъм, използван за издаване на нови биткойни. За разлика от добива на злато, добивът на биткойни осигурява възнаграждение в замяна на полезни услуги, необходими за работата и сигурността на плащанията в мрежата. Добивът ще бъде необходимо и след издаването на последния биткойн.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="acquire" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Как мога да се сдобия с биткойни?</h3>
+      <div>
+        <ul>
+          <li>При заплащане на стоки или услуги.</li>
+          <li>Покупка на биткойни от <a href="https://www.buybitcoinworldwide.com">Биткойн борса</a>.</li>
+          <li>Обмяна на биткойни с <a href="https://localbitcoins.com/">някого около вас</a>.</li>
+          <li>Печелене на биткойни чрез конкурентен <a href="http://www.bitcoinmining.com/">добив</a>.</li>
+        </ul>
+        <p>Докато по принцип е възможно да намерите потребители, които желаят да продадат биткойни в замяна на пари от кредитни карти или PayPal, повечето борси не позволяват финансиране чрез тези платежни методи. Това се дължи на факта, че е възможно някои да купи биткойни с PayPal и след това да откаже своята част от плащането. Това обикновено се нарича сторнирано плащане.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="used" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Използва ли се наистина Биткойн от хората?</h3>
+      <div>
+        <p>Да. Има нарастващ брой фирми и частни лица, които използват Биткойн. Това включва фирми от "физическия" бизнес като заведения, магазини, адвокатски кантори, както и популярни онлайн услуги като Namecheap, WordPress, Reddit и Flattr. Въпреки че Биткойн остава сравнително ново явление, той се разраства много бързо. В края на август 2013 г., <a href="https://bitcoincharts.com/bitcoin/">стойността на всички биткойни в обръщение</a> е по-малка с милиони долари от ежедневния оборот на тази валута.</p>
+        <p>
+          <img style="height:165px;width:380px;" src="/img/faq/merchants_map.png?1651746487" alt="Screenshot">
+        </p>
+      </div>
+    </div>
+    <div>
+      <h3 id="makepayment" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Трудно ли е да се осъществи плащане чрез Биткойн?</h3>
+      <div>
+        <p>Биткойн плащанията са по-лесни за осъществяване, отколкото покупки с дебитни или кредитни карти и могат да бъдат получени без сметката на търговеца. Плащанията се извършват от приложението на портфейла ви на вашия компютър или смартфон, като въведете адреса на получателя, сумата на плащането и натиснете бутона за изпращане. За да е по-лесно да въведете адреса на получателя, много портфейли могат да го получат чрез сканиране на QR кода или докосване на два телефона, посредством NFC технология.</p>
+        <p>
+          <img src="/img/faq/mobile_send.png?1651746487" style="height:325px;width:190px;" alt="Screenshot">
+          <img src="/img/faq/mobile_receive.png?1651746487" style="height:325px;width:190px;" alt="Screenshot">
+        </p>
+      </div>
+    </div>
+    <div>
+      <h3 id="advantages" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Какви са предимствата на Биткойн?</h3>
+      <div>
+        <ul>
+          <li><em><b>Парична свобода</b></em> - Възможно е да изпращате и получавате различни суми пари незабавно, навсякъде по света и по всяко време. Няма почивни банкови дни. Няма граници. Няма ограничения. Биткойн позволява на своите потребители да упражняват пълен контрол на парите си.</li>
+          <li><em><b>Изключително ниски такси</b></em> - плащанията в Биткойн в момента се извършват без такси или с минимални такива. Потребителите могат да изберат да добавят такса към тяхната транзакция, за да бъде разгледана с приоритет и да получат по-бързо одобрението от мрежата. Освен това, в мрежата на Биткойн съществуват търговски процесори, които обръщат биткойните в фиатна валута и ежедневно депозират средствата в банковите сметки на потребителите, улеснявайки ги в обработката на транзакциите. Тъй като тези услуги се извършват в мрежата на Биткойн, те се предлагат с много по-ниски такси от тези на PayPal или на мрежите за кредитни карти.</li>
+          <li><em><b>Малки рискове за търговци</b></em> - Биткойн транзакциите са сигурни, необратими и не съдържат конфиденциална клиентска информация или лични данни. Това защитава търговците от загубите, причинени от измами или неплащане, като не е необходимо спазването на "PCI". Търговците могат лесно да разширяват бизнеса си до нови пазари, където или кредитните карти не са налични или таксите са неприемливо високи. Нетните резултати са по-ниски такси, по-големи пазари и по-малко административни разходи.</li>
+          <li><em><b>Сигурност и контрол</b></em> - Биткойн потребителите са в пълен контрол на техните транзакции, като е невъзможно търговците да налагат нежелани или скрити такси, както може да се случи с другите начини на плащане. Биткойн плащанията могат да бъдат направени без лична информация да бъде свързана с транзакцията. Това предлага добра защита срещу кражба на самоличности. Биткойн потребителите също могат да защитават парите си с архивиране и криптиране.</li>
+          <li><em><b>Прозрачен и неутрален</b></em> - <a href="https://live.blockcypher.com/btc/">Цялата информация</a>, относно Биткойн парите, се предоставя и е на разположение в блок-веригата, като може да се използва и проверява в реално време. Никое лице или организация не могат да контролират или манипулират Биткойн протокола, защото е кодиран криптографски. Това налага да приемем, че ядрото на Биткойн е напълно неутрално, прозрачно и предсказуемо.</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3 id="disadvantages" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Какви са недостатъците на Биткойн?</h3>
+      <div>
+        <ul>
+          <li><em><b>Степен на популяризиране и приемане</b></em> - Много хора все още не са запознати с Биткойн. Всеки ден все повече компании приемат биткойни, защото искат да се възползват от всички предимства, но все още списъкът с такива фирми е малък, като той трябва да нарастне, за да може да се извлече ползата от <a href="https://en.wikipedia.org/wiki/Network_effect">мрежовия ефект.</a></li>
+          <li><em><b>Волатилност</b></em> - <a href="https://bitcoincharts.com/bitcoin/">Общата стойност</a> на биткойните в обращение и броят на фирмите, използващи Биткойн все още са много малко в сравнение с това, което те биха могли да бъдат. Следователно, сравнително малки събития, сделки или бизнес дейности могат да оказват съществено влияние върху цената. На теория, волатилността ще намалее с развитието на Биткойн пазарите и на технологията. Никога преди светът не виждал такава валута, така че е наистина трудно (и вълнуващо) да си представим как ще се развият нещата.</li>
+          <li><em><b>Непрекъснато развитие</b></em> - Биткойн софтуерът е все още в бета версия и много функции не са напълно завършени, но са в активно развитие. Нови инструменти, функции и услуги се разработват, за да направят Биткойн по-сигурен и достъпен за мнозинството. Повечето от биткойн услугите са нови и засега не предлагат застраховка от грешки. Като цяло, Биткойн е в процес на развитие.</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3 id="secure" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Сигурен ли е Биткойн?</h3>
+      <div>
+        <p>Технологията Биткойн - протоколът и криптографията - имат високо ниво на сигурност и мрежата Биткойн е може би най-големият разпределено-изчислителен проект в света. Най-често срещаната уязвимост в Биткойн идва от грешки на потребителите. Файловете на биткойн портфейлите, които съхраняват необходимите частните ключове могат да бъдат случайно изтрити, изгубени или откраднати. Това е доста сходно с физическото  съхранение на пари, но в цифров вид. За щастие, потребителите могат да използват <a href="/bg/secure-your-wallet">добрите практики за сигурност</a>, за да защитят парите си или да използват доставчици на услуги, които предлагат добри нива на сигурност и застраховка срещу кражба или загуба.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="islegal" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Законен ли е Биткойн?</h3>
+      <div>
+        <p>Доколкото ни е известно, <a href="https://en.wikipedia.org/wiki/Legality_of_bitcoin_by_country">Биткойн не е забранен</a> от законодателството на някоя страна. Въпреки това, някои законови системи (като например тази на Аржентина и Русия) строго ограничават или забраняват използването на всички чуждестранни валути. Други законодателства (като Тайланд) могат да ограничат лицензирането на някои организации, като например борсите на Биткойн.</p>
+        <p>Регулатори от различни юрисдикции предприемат стъпки, за да осигурят физическите лица и фирмите с правилата за това как да се интегрира тази нова технология с официалната регулирана финансова система. Например, Службата за борба с финансовите престъпления към Министерството на финансите на САЩ (FinCEN) издава незадължителни насоки за това как да се характеризират някои дейности, включващи виртуални валути.</p>
+        <ul>
+          <li>
+            <a href="https://www.ecb.europa.eu/pub/pdf/other/virtualcurrencyschemes201210en.pdf">Virtual Currency Schemes - European Central Bank</a>
+          </li>
+          <li>
+            <a href="https://www.fincen.gov/statutes_regs/guidance/pdf/FIN-2013-G001.pdf">Application of FinCEN’s Regulations to Persons Administering, Exchanging, or Using Virtual Currencies</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3 id="taxes" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Има ли такси в Биткойн?</h3>
+      <div>
+        <p>Биткойн не е фиатна валута със статут на законно платежно средство във всяка юрисдикция, но често данъчното задължение се начислява, независимо от използвания носител. Има голямо разнообразие от законодателства в много различни юрисдикции, които позволяват доходи, продажби, работни заплати, прираст на капитала или някаква друга форма на данъчно задължение да се покриват с Биткойн.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="illegalactivities" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Може ли Биткойн да бъде използван за извършване на нелегални дейности?</h3>
+      <div>
+        <p>Биткойните са пари, а парите винаги са били използвани за законни и незаконни цели. Парите в кеш, кредитните карти и сегашните банкови системи задминават несравнимо Биткойн, по отношение на тяхната употреба за финансиране на престъпността. Биткойн може да доведе значителна иновация в системите за плащане, като ползите от нея са несравними с потенциалните недостатъци.</p>
+        <p>Биткойн е създаден, за да бъде голяма крачка напред в повишаване сигурността на парите и освен това може да се превърне в защита за много форми на финансови измами. Например, напълно невъзможно е да се фалшифицират биткойни. Потребителите изцяло контролират своите плащания и не може да получават неодобрени такси, както се случва с измамите с кредитни карти. Биткойн транзакциите са необратими и са защитени от отмяна на плащанията. Биткойн ви позволява да защитите парите си срещу кражба или загуба, използвайки доказани механизми като архиви, криптиране и множествено подписване. </p>
+        <p>Бяха изразени някои опасения, че Биткойн може да бъде по-привлекателен за престъпниците, защото може да се използва за осъществяването на частни и необратими плащания. Все пак, си струва да се отбележи, че Биткойн несъмнено ще бъде подложен на регулации, подобни на тези в съществуващите финансови системи. Биткойн не може да бъде по-анонимен от плащания в кеш и не е в състояние да предотврати извършване на наказателно разследване. Като цяло е обичайно такива пробиви да се възприемат като противоречиви, преди предимствата им да бъдат добре разбрани. Интернет е един добър пример, сред много други, който може да демонстрира това.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="bubble" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">"Балон" ли е Биткойн?</h3>
+      <div>
+        <p>Бързото покачване на цените не може да се определи като "балон". Изкуственото надценяване, което ще доведе до внезапен спад представлява ефекта на балона. Изборът въз основа на индивидуалното човешко действие от стотици хиляди участници на пазара е причината цената на Биткойн да се колебае, тъй като пазарът се стреми да открие нейната реална стойност. Причините за промени в настроенията могат да включват загуба на доверие в Биткойн, голяма разлика между стойността и цената, която не се базира на основите на Биткойн икономиката, увеличен натиск за стимулиране на спекулативно търсене, страх от несигурност и старомодното ирационално изобилие и алчност .</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="whyvalue" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Защо биткойните имат стойност?</h3>
+      <div>
+        <p>Биткойните имат стойност, защото са използваеми като форма на пари. Те притежават характеристиките на пари (трайност, преносимост, заменяемост, оскъдност, делимост и разпознаваемост), основавайки се на свойствата на математиката повече, отколкото разчитайки на физически свойства (като сребро и злато) или пък на доверие в централизираните институции (като валута). Накратко казано Биткойн е подкрепен от математиката. С тези качества всичко, което се изисква от една опитваща да задържи стойността си форма на пари е доверие и приемане. При Биткойн стойността може да бъде измерена чрез увеличаване на броя потребители, търговци и нововъзникващи компании. Както при всички валути, стойността на биткойните идва само и директно от хората, готови да ги приемат като платежно средство.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="ponzi" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Биткойн "Понци" схема ли е?</h3>
+      <div>
+        <p>Понци схема е мошеническа инвестиционна операция, която изплаща инвестициите на хората от техните собствени пари или от средствата на нови инвеститори, вместо от печалбата на лицата, управляващи бизнеса. Такива схеми се сриват, когато няма достатъчно нови участници и потърпевши са последните, включили се като инвеститори.</p>
+        <p>Биткойн е безплатен софтуерен проект без централна власт. Следователно, никой не е в състояние да направи измамни действия, относно възвръщаемостта на инвестициите. Подобно на останалите основни валути, като например злато, долар, евро, йена и т.н., няма гаранции за покупателната му способност и валутният курс се движи свободно. Това води до волатилност, от която собствениците на биткойни могат непредсказуемо да печелят или губят пари. Въпреки спекулациите, Биткойн е платежна система с полезни и конкурентни качества, които се използват от хиляди потребители и предприятия.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="creator" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Кой е създал Биткойн?</h3>
+      <div>
+        <p>Биткойн за първи път употребява концепцията, наречена "крипто-валута", която е описана през 1998 г. от Wei Dai. Това предполага идеята за една нова форма на пари, която използва криптографията, за да контролира създаването и транзакциите, вместо това да прави централната власт. Първата спецификация и концепцията на Биткойн е публикувана през 2009 г. в криптографски пощенски списък от Satoshi Nakamoto. Satoshi напуска проекта в края на 2010 г., без да разкрива много за себе си. Общността претърпява сериозно развитие след този момент,  благодарение на <a href="/bg/development">многото разработчици</a>, работещи за Биткойн.</p>
+        <p>Анонимността на Satoshi често повдига необосновани опасения, много от които свързани с неразбирането същността на отворения код, който Биткойн използва. Протоколът и софтуерът на Биткойн се публикуват открито и всеки разработчик по целия свят може да го разгледа или да направи своя собствена модифицирана версия. Точно като при текущите разработчици, влиянието на Satoshi е било ограничено до промените, които прави и които са приети от останалите потребители, без да контролира Биткойн. Така разкриването на самоличността на изобретателя на Биткойн днес, е като установяването на самоличността на лицето, което е изобретило хартията.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="worthless" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Възможно ли е биткойните да загубят своята стойност?</h3>
+      <div>
+        <p>Да. Историята е пълна със случаи, при които валути се сриват и вече не се употребяват като например <a href="https://en.wikipedia.org/wiki/German_gold_mark">Германската марка</a> по време на Ваймарската република и <a href="https://en.wikipedia.org/wiki/Zimbabwean_dollar">Зимбабвийския долар</a>. Въпреки че сривовете на валутите се дължат на свръхинфлация, която няма как да се случи при Биткойн, винаги съществува потенциална опасност от технически срив, поява на по-добри конкурентни валути, политически проблеми и т.н. Като основно правило, никоя валута не е застрахована от срив или колебания. Биткойн е доказал своята стабилност през годините още от своето създаване и има огромен потенциал за развитие. Въпреки това, никой не е в състояние да предскаже какво е бъдещето на Биткойн.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="virtual" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Изцяло виртуален и нематериален ли е Биткойн?</h3>
+      <div>
+        <p>Биткойн е виртуален също като кредитните карти и онлайн банкирането, които се използват всеки ден. Биткойн може да се използва за онлайн плащания, както и в магазините, в които пазарувате, като всяка друга парична форма. Биткойните също могат да бъдат обменени в материална форма като <a href="https://www.casascius.com/">Касаскиус монети</a>, но плащането с мобилен телефон остава по-удобно. Биткойните се съхраняват в голяма мрежа и те не могат да бъдат променени с цел измама от никого. С други думи, Биткойн потребителите имат изключителен контрол върху своите средства и биткойните не могат да изчезнат, защото са виртуални.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="trust" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Защо хората се доверяват на Биткойн?</h3>
+      <div>
+        <p>Голяма част от доверието в Биткойн идва от факта, че той не се нуждае от доверие като цяло. Биткойн е с напълно отворен код и е децентрализиран. Това означава, че всеки има достъп до целия изходен код по всяко време. Всеки разработчик в света може да провери как точно работи Биткойн. Всички транзакции и емитирането на биткойни са прозрачни и всеки може да ги проследява в реално време. Всички плащания могат да бъдат направени без да разчитат на трета страна, като цялата система е защитена от силно рецензирани криптографски алгоритми, подобни на тези, използвани за онлайн банкиране. Никоя организация или лице не може да контролира Биткойн, а мрежата продължава да е сигурна, дори ако не може да се вярва на всички потребители.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="anonymous" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Анонимен ли е Биткойн?</h3>
+      <div>
+        <p>Биткойн е предназначен да позволи на потребителите да изпращат и получават плащания с приемливо равнище на неприкосновеността на личния живот, както е и при всяка друга парична форма. Въпреки това, Биткойн не е анонимна и не може да предлага същото ниво на поверителност, както е при парите в брой. Използването на Биткойн оставя обширни публични регистри. Съществуват <a href="/bg/protect-your-privacy">различни механизми</a> , с които да се защити неприкосновеността на личния живот на потребителите, а други са в процес на разработване. Въпреки това, все още има работа за вършене, преди тези функции да започнат да се използват правилно от повечето потребители на Биткойн.</p>
+        <p>Бяха изразени някои опасения, че частните транзакции могат да бъдат използвани за незаконни цели посредством Биткойн. Все пак си струва да се отбележи, че Биткойн несъмнено ще бъде подложен на регулации, подобни на тези в съществуващите финансови системи. Биткойн не може да бъде по-анонимен от плащания в кеш и не е в състояние да предотврати извършване на наказателно разследване. Освен това, Биткойн е предназначен и да предотвратява голям набор от финансови престъпления.</p>
+      </div>
+    </div>
+    <p>За да научите повече за Биткойн, моля посетете <a href="/en/faq">ЧЗВ</a> или <a href="https://en.bitcoin.it/wiki/Help:FAQ">Биткойн уики</a>.</p>
+  </div>
+</div>
+
+
+
+    </div>
+  </div>
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/bg/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Support Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Donate</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">Въведение:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/bg/bitcoin-for-individuals">Частни лица</a>
+        </li>
+        <li>
+          <a href="/bg/bitcoin-for-businesses">Фирми</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">Разработчици</a>
+        </li>
+        <li>
+          <a href="/bg/getting-started">Първи стъпки</a>
+        </li>
+        <li>
+          <a href="/bg/how-it-works">Как работи</a>
+        </li>
+        <li>
+          <a href="/bg/you-need-to-know">Трябва да знаете</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">Ресурси:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/bg/resources">Ресурси</a>
+        <li>
+          <a href="/bg/exchanges">Exchanges</a>
+        </li>
+        <li>
+          <a href="/bg/community">Общност</a>
+        </li>
+        <li>
+          <a href="/bg/vocabulary">Речник
+          </a>
+        </li>
+        <li>
+          <a href="/bg/events">Събития</a>
+        </li>
+        
+          <li>
+            <a href="/bg/download">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">Участвайте:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/bg/support-bitcoin">Допринесете към Биткойн</a>
+        
+        
+        <li>
+          <a href="/bg/development">Развитие</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Other:</p>
+      
+      <a href="/bg/legal">Правни</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/bg/press">Преса</a>
+      <a href="/bg/about-us">Относно bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>Сайтът на общността е спонсориран от</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 разпространен под <a href="http://opensource.org/licenses/mit-license.php" target="_blank">лиценза на Масачузетския технологичен институт</a></div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Network Status</a>
+        
+<ul class="lang is-expand">
+  <li><a>български</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/pers">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/premsa">Català</a></li>
+        
+        
+          <li><a href="/da/presse">Dansk</a></li>
+        
+        
+          <li><a href="/de/presse">Deutsch</a></li>
+        
+        
+          <li><a href="/en/press">English</a></li>
+        
+        
+          <li><a href="/es/prensa">Español</a></li>
+        
+        
+          <li><a href="/fr/presse">Français</a></li>
+        
+        
+          <li><a href="/it/stampa">Italiano</a></li>
+        
+        
+          <li><a href="/hu/sajto">Magyar</a></li>
+        
+        
+          <li><a href="/nl/pers">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/prasa">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/imprensa">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/presa">Română</a></li>
+        
+        
+          <li><a href="/sl/mediji">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/mediji">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/press">Svenska</a></li>
+        
+        
+          <li><a href="/tr/basin">Türkçe</a></li>
+        
+        
+          <li><a href="/el/press">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/press" class="active">български</a></li>
+        
+        
+          <li><a href="/ru/press">Русский</a></li>
+        
+        
+          <li><a href="/uk/press">Українська</a></li>
+        
+        
+          <li><a href="/ar/press">العربية</a></li>
+        
+        
+          <li><a href="/fa/press">فارسی</a></li>
+        
+        
+          <li><a href="/he/press">עברית</a></li>
+        
+        
+          <li><a href="/hi/press">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/press">한국어</a></li>
+        
+        
+          <li><a href="/ja/press">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/press">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/press">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/pers" >Bahasa Indonesia</option>
+              
+              <option value="/ca/premsa" >Català</option>
+              
+              <option value="/da/presse" >Dansk</option>
+              
+              <option value="/de/presse" >Deutsch</option>
+              
+              <option value="/en/press" >English</option>
+              
+              <option value="/es/prensa" >Español</option>
+              
+              <option value="/fr/presse" >Français</option>
+              
+              <option value="/it/stampa" >Italiano</option>
+              
+              <option value="/hu/sajto" >Magyar</option>
+              
+              <option value="/nl/pers" >Nederlands</option>
+              
+              <option value="/pl/prasa" >Polski</option>
+              
+              <option value="/pt_BR/imprensa" >Português Brasil</option>
+              
+              <option value="/ro/presa" >Română</option>
+              
+              <option value="/sl/mediji" >Slovenščina</option>
+              
+              <option value="/sr/mediji" >Srpski</option>
+              
+              <option value="/sv/press" >Svenska</option>
+              
+              <option value="/tr/basin" >Türkçe</option>
+              
+              <option value="/el/press" >Ελληνικά</option>
+              
+              <option value="/bg/press"  selected="selected">български</option>
+              
+              <option value="/ru/press" >Русский</option>
+              
+              <option value="/uk/press" >Українська</option>
+              
+              <option value="/ar/press" >العربية</option>
+              
+              <option value="/fa/press" >فارسی</option>
+              
+              <option value="/he/press" >עברית</option>
+              
+              <option value="/hi/press" >हिन्दी</option>
+              
+              <option value="/ko/press" >한국어</option>
+              
+              <option value="/ja/press" >日本語</option>
+              
+              <option value="/zh_CN/press" >简体中文</option>
+              
+              <option value="/zh_TW/press" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">bg</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+  <script>updateToc();</script>
+<script>accordion();</script>
+<script>onScrollButton();</script>
+<script>boxShow();</script>
+
+
+
+</body>
+
+</html>

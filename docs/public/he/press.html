@@ -1,0 +1,911 @@
+<!DOCTYPE HTML>
+<html lang="he">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>הקש/י - ביטקוין</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+<link rel="stylesheet" href="/css/rtl.css?1651746487">
+
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org הנו פרויקט הממומן ע"י הקהילה, תרומות מתקבלות בהערכה ומסייעות לשיפור האתר.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        תרמו
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org נזקק לעזרתך!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">תרמו ל Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">השתמשו בקוד QR זה או בכתובת שמתחת</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="או כל סכום אחר? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="או כל סכום אחר? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="תאור אופציונלי (לארנקך)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/he/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">מבוא</a>
+    <ul>
+      <li><a href="/he/bitcoin-for-individuals">פרטים</a></li>
+      <li><a href="/he/bitcoin-for-businesses">עסקים</a></li>
+      <li><a href="https://developer.bitcoin.org/">מפתחים</a></li>
+      <li><a href="/he/getting-started">מתחילים</a></li>
+      <li><a href="/he/how-it-works">איך זה עובד</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">משאבים</a>
+    <ul>
+      <li><a href="/he/resources">משאבים</a>
+      <li><a href="/he/exchanges">בורסות</a></li>
+      <li><a href="/he/community">קהילה</a></li>
+      
+      
+      <li><a href="/he/vocabulary">אוצר מילים</a></li>
+      <li><a href="/he/events">אירועים</a></li>
+      
+        <li><a href="/he/download">ליבת ביטקוין</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/he/innovation">חדשנות</a></li>
+  <li><a class="is-expand">השתתפות</a>
+    <ul>
+      <li><a href="/he/support-bitcoin">תמיכת ביטקוין</a>
+      <li><a href="/he/buy">רכישת ביטקוין</a></li>
+      
+      <li><a href="/he/development">פיתוח</a></li>
+    </ul>
+  </li>
+  <li><a href="/he/faq">שאלות נפוצות</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>עברית</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/pers">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/premsa">Català</a></li>
+        
+        
+          <li><a href="/da/presse">Dansk</a></li>
+        
+        
+          <li><a href="/de/presse">Deutsch</a></li>
+        
+        
+          <li><a href="/en/press">English</a></li>
+        
+        
+          <li><a href="/es/prensa">Español</a></li>
+        
+        
+          <li><a href="/fr/presse">Français</a></li>
+        
+        
+          <li><a href="/it/stampa">Italiano</a></li>
+        
+        
+          <li><a href="/hu/sajto">Magyar</a></li>
+        
+        
+          <li><a href="/nl/pers">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/prasa">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/imprensa">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/presa">Română</a></li>
+        
+        
+          <li><a href="/sl/mediji">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/mediji">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/press">Svenska</a></li>
+        
+        
+          <li><a href="/tr/basin">Türkçe</a></li>
+        
+        
+          <li><a href="/el/press">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/press">български</a></li>
+        
+        
+          <li><a href="/ru/press">Русский</a></li>
+        
+        
+          <li><a href="/uk/press">Українська</a></li>
+        
+        
+          <li><a href="/ar/press">العربية</a></li>
+        
+        
+          <li><a href="/fa/press">فارسی</a></li>
+        
+        
+          <li><a href="/he/press" class="active">עברית</a></li>
+        
+        
+          <li><a href="/hi/press">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/press">한국어</a></li>
+        
+        
+          <li><a href="/ja/press">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/press">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/press">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/pers" >Bahasa Indonesia</option>
+            
+            <option value="/ca/premsa" >Català</option>
+            
+            <option value="/da/presse" >Dansk</option>
+            
+            <option value="/de/presse" >Deutsch</option>
+            
+            <option value="/en/press" >English</option>
+            
+            <option value="/es/prensa" >Español</option>
+            
+            <option value="/fr/presse" >Français</option>
+            
+            <option value="/it/stampa" >Italiano</option>
+            
+            <option value="/hu/sajto" >Magyar</option>
+            
+            <option value="/nl/pers" >Nederlands</option>
+            
+            <option value="/pl/prasa" >Polski</option>
+            
+            <option value="/pt_BR/imprensa" >Português Brasil</option>
+            
+            <option value="/ro/presa" >Română</option>
+            
+            <option value="/sl/mediji" >Slovenščina</option>
+            
+            <option value="/sr/mediji" >Srpski</option>
+            
+            <option value="/sv/press" >Svenska</option>
+            
+            <option value="/tr/basin" >Türkçe</option>
+            
+            <option value="/el/press" >Ελληνικά</option>
+            
+            <option value="/bg/press" >български</option>
+            
+            <option value="/ru/press" >Русский</option>
+            
+            <option value="/uk/press" >Українська</option>
+            
+            <option value="/ar/press" >العربية</option>
+            
+            <option value="/fa/press" >فارسی</option>
+            
+            <option value="/he/press"  selected="selected">עברית</option>
+            
+            <option value="/hi/press" >हिन्दी</option>
+            
+            <option value="/ko/press" >한국어</option>
+            
+            <option value="/ja/press" >日本語</option>
+            
+            <option value="/zh_CN/press" >简体中文</option>
+            
+            <option value="/zh_TW/press" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">he</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>הקש/י מירכוז</h1>
+    
+      <p class="summarytxt">חפשו מרואיינים, תשובות, וחומר עיתונאי ברמה גבוהה</p>
+    
+  </div>
+</div>
+
+<div class="toc-container">
+  <div class="row toc-row">
+
+    <div id="toc" class="toc">
+      <div>
+        <button class="mob-sidebar-open" hidden>View All</button>
+        <div class="sidebar">
+          <div class="sidebar-inner">
+            <button class="mob-sidebar-close" hidden></button>
+            
+
+<ul>
+  <li><a href="#volunteer">מרואיינים</a></li>
+  <li><a href="#layout">שאלות נפוצות</a>
+    <ul>
+      <li><a href="#whatisbitcoin">מהו ביטקוין?</a></li>
+      <li><a href="#howitworks">כיצד פועל ביטקוין?</a></li>
+      <li><a href="#whatismining">מהי כריית ביטקוין?</a></li>
+      <li><a href="#acquire">איך אפשר לרכוש ביטקוין?</a></li>
+      <li><a href="#used">האם ביטקוין באמת נמצא בשימוש אנשים?</a></li>
+      <li><a href="#makepayment">עד כמה קשה לבצע תשלום בביטקוין?</a></li>
+      <li><a href="#advantages">מהם היתרונות של ביטקוין?</a></li>
+      <li><a href="#disadvantages">מהם החסרונות של ביטקוין?</a></li>
+      <li><a href="#secure">האם ביטקוין מאובטח?</a></li>
+      <li><a href="#islegal">אם ביטקוין חוקי?</a></li>
+      <li><a href="#taxes">מה בדבר ביטקוין ומיסוי?</a></li>
+      <li><a href="#illegalactivities">האם ביטקוין שימושי לפעילות בלתי חוקית?</a></li>
+      <li><a href="#bubble">האם ביטקוין הנו בועה?</a></li>
+      <li><a href="#whyvalue">מדוע לביטקוין יש ערך?</a></li>
+      <li><a href="#ponzi">האם ביטקוין הנה הונאת פונזי?</a></li>
+      <li><a href="#creator">מי יצר את ביטקוין?</a></li>
+      <li><a href="#worthless">האם יתכן שהביטקוינים יהפכו לחסרי ערך?</a></li>
+      <li><a href="#virtual">האם ביטקוין הנו וירטואלי לגמרי ולא חומרי?</a></li>
+      <li><a href="#trust">מדוע אנשים סומכים על ביטקוין?</a></li>
+      <li><a href="#anonymous">האם ביטקוין אנונימי?</a></li>
+    </ul>
+  </li>
+</ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toccontent">
+      <div class="toccontent-intro">
+  <h2 id="volunteer">מרואיינים</h2>
+  <p>תיקשור עם  <a href="https://www.bitgivefoundation.org">BitGive</a>, <a href="https://bitcoincore.org/en/contact">פרויקט ליבת ביטקוין </a> או מקומית עם <a href="/he/community#non-profit">גופים שאינם למטרות רווח </a>.</p>
+</div>
+
+<div class="toccontent-block boxexpand expanded">
+  <h2 id="layout">שאלות נפוצות</h2>
+  <div class="press-faq">
+    <div>
+      <h3 id="whatisbitcoin" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">מהו ביטקוין?</h3>
+      <div>
+        <p>ביטקוין הנה רשת קונצנזוס המאפשרת מערכת תשלומים חדשנית וכסף דיגיטלי לגמרי. זוהי רשת התשלומים הראשונה המבוזרת ותומכת בתקשורת ישירה ואשר מתבבסת על משתמשיה ללא הנהלה מרכזית או תיווך צד שלישי. ממבטו של המשתמש, ביטקוין הנו די דומה לכסף מזומן אינטרנטי. ביטקוין יכול להחשב גם כ<a href="http://financialcryptography.com/mt/archives/001325.html">מערכת ניהול ספרים משולשת </a> הבולטת ביותר שבנמצא.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="howitworks" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">כיצד פועל ביטקוין?</h3>
+      <div>
+        <p>מזווית הראיה של המשתמש, ביטקוין הנו לא יותר מאפליקצית סלולרי או תוכנית מחשב שמספקים ארנק אישי ומאפשרים למשתמש לשלוח ולקבל ביטקוינים בעזרתו. כך זה עובד עבור מרבית המשתמשים.</p>
+        <p>מאחורי הקלעים, רשת ביטקוין משתפת ספר הנהלת חשבונות בשם שרשרת הבלוקים. שרשרת בלוקים זו כוללת כל עסקה שהתבצעה אי פעם, דבר המאפשר לתוכנה על מחשב המשתמש לוודא את הנכונות של כל עסקה. האותנטיות של כל עסקה מוגנת ע"י חתימות דיגיטליות, הקשורות לכתובות השולחות, והמאפשרות לכל המשתמשים שליטה מלאה על שליחת ביטקוינים מהכתובות שלהם עצמם. בנוסף, כל אחד יכול לעבד עסקות ע"י שימוש בעוצמת המיחשוב של חומרה ייעודית לשירות זה. הדבר נקרא לעתים "כרייה", ולקבל תמורה עבור שירות זה בביטקוינים. כדי ללמוד יותר על ביטקוין, ניתן לגשת ל <a href="/he/how-it-works">דף הייעודי</a> ול <a href="/bitcoin.pdf">מאמר המקורי</a>.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="whatismining" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">מהי כריית ביטקוין?</h3>
+      <div>
+        <p>כרייה הנה תהליך של שימוש בכוח חישובי כדי לעבד עסקות, לאבטח הרשת, ולשמור שכל מי שבמערכת יהיה מסונכרן. ניתן לחשוב על כך כאילו זה מרכז מידע של ביטקוין מלבד זאת שהוא תוכנן להיות מבוזר באופן מלא בעזרת כורים מכל המדינות כאשר אין פרט אחד עם יכולת שליטה על הרשת. תהליך זה נקרא "כרייה" כאנלוגיה לכרייה של זהב כיון שזהו גם המנגנון הזמני המשמש ליצירת ביטקוינים חדשים. שלא כבכריית זהב,  כריית ביטקוין מספקת גמול עבור שירותים מועילים הנדרשים להפעלה מאובטחת של התשלומים ברשת. כרייה תדרש גם אחרי שאחרון הביטקוינים יופק.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="acquire" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">איך אפשר לרכוש ביטקוין?</h3>
+      <div>
+        <ul>
+          <li>כאמצעי תשלום לסחורות ושירותים.</li>
+          <li>רכישת ביטקוינים ב <a href="https://www.buybitcoinworldwide.com">בורסת ביטקוין</a>.</li>
+          <li>החלפת ביטקוינים עם <a href="https://localbitcoins.com/">מישהו בסביבתך</a>.</li>
+          <li>זכייה בביטקוינים דרך תחרותיות <a href="http://www.bitcoinmining.com/">הכרייה</a>.</li>
+        </ul>
+        <p>בעוד שיתכן שניתן למצוא כאלו שרוצים למכור ביטקוינים בתמורה לתשלום בכרטיס אשראי או פיי פאל, מרבית הבורסות אינן מרשות מימון בשיטות תשלום אלה. הדבר נובע ממקרים בהם מישהו קונה ביטקוינים עם פאיי פאל, ואז מבטל את חלקו בעסקה. הכינוי המקובל לפעולה שכזו הנה ביטול הוראת חיוב (chargenack).</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="used" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">האם ביטקוין באמת נמצא בשימוש אנשים?</h3>
+      <div>
+        <p>כן, יש <a href="/en/spend-bitcoin">מספר גדל והולך של עסקים</a> ופרטים המשתמשים בביטקוין. זה כולל עסקים פיזיים כמו מסעדות, דירות ומשרדי עריכת דין, כמו גם שירותים מקוונים פופולריים כמו Namecheap, Overstock.com, ו Reddit.  בעוד שביטקוין הנו תופעה חדשה, הוא גדל בקצב מהיר. במאי 2018, <a href="https://bitcoincharts.com/bitcoin/">הערך הכולל של הביטקוינים הקיימים</a> עבר את ה 100 ביליון דולר אמריקאי, עם ערך של מיליוני דולר של ביטקוינים הנסחרים מדי יום.</p>
+        <p>
+          <img style="height:165px;width:380px;" src="/img/faq/merchants_map.png?1651746487" alt="Screenshot">
+        </p>
+      </div>
+    </div>
+    <div>
+      <h3 id="makepayment" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">עד כמה קשה לבצע תשלום בביטקוין?</h3>
+      <div>
+        <p>יותר קל לבצע תשלומי ביטקוין מאשר רכישות בכרטיסי אשראי או כרטיסי דביט, וניתן לקבלם ללא מספר חשבון הסוחר. תשלומים מתבצעים מאפליקצית ארנק, בין אם ממחשבך או מהטלפון הסלולרי שלך, ע"י הכנסת כתובת הנמען, הסכום לתשלום, ולחיצת "שלח". כדי להקל על הכנסת כתובת הנמען, ארנקים רבים יכולים לקלוט את הכתובת ע"י סריקת קוד QR או ע"י מגע של שני הסלולרים בשימוש בטכנולוגית NFC. </p>
+        <p>
+          <img src="/img/faq/mobile_send.png?1651746487" style="height:325px;width:190px;" alt="Screenshot">
+          <img src="/img/faq/mobile_receive.png?1651746487" style="height:325px;width:190px;" alt="Screenshot">
+        </p>
+      </div>
+    </div>
+    <div>
+      <h3 id="advantages" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">מהם היתרונות של ביטקוין?</h3>
+      <div>
+        <ul>
+          <li><em><b>חופש התשלום</b></em> - אפשרי לשלוח ולקבל ביטקוינים בכל מקום בעולם ובכל זמן שהוא. אין חופשת בנקים, אין גבולות, אין ביורוקרטיה. ביטקוין מאפשר למשתמשים שליטה מלאה בכספם.
+</li>
+          <li><em><b>בחרו את העמלה בעצמכם</b></em> - אין עמלה למקבל הביטקוינים, וארנקים רבים מאפשרים לך לשלוט על גובה העמלה כאשר מוציאים ביטקוינים. עמלות גבוהות יותר מזרזות את ה <a href="/he/you-need-to-know#instant">אישור</a> של עסקותיך. עמלות אינן קשורות לגובה ההוצאה, כך אפשר לשלוח 100,000 ביטקוינים באותה העלות של ביטקוין 1. בנוסף, מעבדי מסחר קיימים כדי לסייע לסוחרים לעבד עסקות, ולהמיר ביטקוינים לכסף רגיל ולהפקיד אותו ישירות בחשבון הבנק של הסוחרים מדי יום. כיון ששירותים אלו מבוססים על ביטקוין, הם יכולים להיות מוצעים בעלות עמלה הנמוכה בהרבה מרשתות כרטיסי האשראי או פייפאל.
+</li>
+          <li><em><b>פחות סיכונים לסוחרים</b></em> - עסקות ביטקוין מאובטחות, בלתי ניתנות להחזרה ואינן כוללות מידע רגיש של לקוחות. הדבר מגן על סוחרים מהפסדים עקב הונאה או החזרות ברמייה, ואין צורך לתאימות PCI. סחורים יכולים בקלות להתרחב לשווקים חדשים שם כרטיסי אשראי אינם זמינים או ששיעור ההונאות גבוה במיוחד. התוצאה נטו הנה עמלות נמוכות, שווקים גדולים יותר, ופחות עלויות מנהליות.</li>
+          <li><em><b>אבטחה ושליטה</b></em> - משתמשי ביטקוין הנם בשליטה מלאה על עסקותיהם. סוחרים אינם יכולים לגרום לשינויים לא רצויים או שלא שמו לב אליהם מה שיכול לקרות בצורות אחרות של תשלומים. תשלומי ביטקוין יכולים להתבצע מבלי לחשוף מידע אישי הנקשר לעסקה. הדבר מאפשר הגנה חזקה על כספם כולל גיבוי והצפנה.</li>
+          <li><em><b>שקיפות ונייטרליות</b></em> - <a href="https://live.blockcypher.com/btc/">כל המידע</a> הנוגע להצע הכסף של ביטקוין עצמו הנו זמין מיידית בשרשרת הבלוקים עבור כל מי שמעונין לוודא ולהשתמש בזמן אמת. אין ארגון או אדם יחיד שיכול לשלוט או לבצע מניפולציות על פרוטוקול ביטקוין כיון שהוא מוגן קריפטוגרפית. הדבר מאפשר לבטוח בליבת ביטקוין שתהיה נייטרלית לחלוטין, שקופה וניתנת לחיזוי.</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3 id="disadvantages" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">מהם החסרונות של ביטקוין?</h3>
+      <div>
+        <ul>
+          <li><em><b>רמת הנפוצות</b></em> - אנשים רבים עדין אינם מודעים לביטקוין. כל יום יותר עסקים מקבלים ביטקוין כיון שהם מעונינים ביתרונות הטמונים בכך, אך הרשימה נותרת קטנה ועדין צריכה לגדול כדי להנות   <a href="https://en.wikipedia.org/wiki/Network_effect">מהשפעות הרשת</a>.</li>
+          <li><em><b>תנודתיות</b></em> -  <a href="https://bitcoincharts.com/bitcoin/">הערך הכולל</a> של הביטקוינים שבמחזור וכמות העסקים המשתמשים בביטקוין עדין מאד קטנה ביחס למה שהיא יכולה להיות. לכן, אירועים קטנים יחסית, מסחר, או פעילות עסקית יכולים להשפיע מאד על המחיר. באופן תיאורטי, פגיעות זו יכולה לקטון ככל ששווקי ביטקוין והטכנולוגיה יתבגרו. העולם לא חווה קודם לכן סטארטאפ שהוא מטבע, לכן באמת קשה (ומרגש) לדמיין כיצד הדברים יתפתחו.</li>
+          <li><em><b>פיתוח שוטף</b></em> - תוכנת ביטקוין עדין בגירסת ביתא עם תכונות רבות שטרם הושלמו ונמצאות בתהליך פיתוח. כלים חדשים, תכונות, ושירותים מפותחים כדי לשכלל את אבטחת ביטקוין ולאפשר גישה לציבור הרחב. כמה מאלה עדין אינם פתוחים לכל. מרבית עסקי ביטקוין הנם חדשים ועדין לא מציעים ביטוח. באופן כללי, ביטקוין עדין בתהליך של התבגרות.</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3 id="secure" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">האם ביטקוין מאובטח?</h3>
+      <div>
+        <p> טכנולוגית ביטקוין - הפרוטוקול וההצפנה - בעלי רקורד חזק של אבטחה, ורשת ביטקוין קרוב לודאי הנה פרויקט התוכנה המבוזרת הגדול בעולם. הפגיעות הגדולה ביותר של ביטקוין הנה בשגיאות משתמש. קבצי ארנק ביטקוין אשר שומרים את המפתחות הפרטיים הנחוצים, יכולים להמחק בטעות, או להגנב או ללכת לאיבוד. הדבר דומה לכסף מזומן הנשמר דיגיטלית. למרבה המזל, משתמשים יכולים ליישם <a href="/he/secure-your-wallet">הרגלי אבטחה סבירים</a> כדי להגן על כספם או להשתמש בנותני שירות אשר מציעים רמת אבטחה טובה וביטוח כנגד אבדן. </p>
+      </div>
+    </div>
+    <div>
+      <h3 id="islegal" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">אם ביטקוין חוקי?</h3>
+      <div>
+        <p>למיטב ידיעתנו, <a href="https://en.wikipedia.org/wiki/Legality_of_bitcoin_by_country">ביטקוין לא הוצא מחוץ לחוק</a> ע"י חקיקה, במרבית המדינות. אבל, במקומות מסויימים (כגון ארגנטינה ורוסיה) מגבילים מאד שימוש במטבעות זרים. במקומות אחרים  (תאילנד) יתכן שיוגבלו רשיונות לגופים מסוימים כגון בורסות ביטקוין.</p>
+        <p>מחוקקים ממקומות שונים צועדים לקראת חקיקת חוקים עבור עסקים ופרטים אשר ישלבו טכנולוגיה חדשה זו עם המערכת הפיננסית המפוקחת הקיימת. למשל, ה (FinCEN) שהוא מערכת אכיפת עבירות מטבע, ועדה של האוצר האמריקאי, הפיצה הנחיות לא מחייבות כיצד לאפיין פעילויות מסוימות הקשורות למטבעות וירטואליים.</p>
+        <ul>
+          <li>
+            <a href="https://www.ecb.europa.eu/pub/pdf/other/virtualcurrencyschemes201210en.pdf">Virtual Currency Schemes - European Central Bank</a>
+          </li>
+          <li>
+            <a href="https://www.fincen.gov/statutes_regs/guidance/pdf/FIN-2013-G001.pdf">Application of FinCEN’s Regulations to Persons Administering, Exchanging, or Using Virtual Currencies</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3 id="taxes" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">מה בדבר ביטקוין ומיסוי?</h3>
+      <div>
+        <p>ביטקוין אינו מטבע פיאט שהינו בעל הילך חוקי, בשום מדינה, אך לעתים חובת המיסוי חלה למרות אופי השימוש. יש שונות רבה של חקיקה במדינות שונות אשר יכולה להחיל מיסוי על הכנסה, מכירות, משכורות, רווחי הון, או כל סוג אחר של חובת מיסוי של ביטקוין.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="illegalactivities" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">האם ביטקוין שימושי לפעילות בלתי חוקית?</h3>
+      <div>
+        <p>ביטקוין הנו כסף, וכסף תמיד שומש למטרות חוקיות ובלתי חוקיות. מזומן, כרטיסי אשראי, והמערכת הבנקאית הנוכחית מאפילה בגדול על ביטקוין בכל מה שקשור לפשעים פיננסיים. ביטקוין יכול להביא חדשנות משמעותית למערכת התשלומים והיתרונות של חדשנות זו נחשבים לעתים בעלי פוטנציאל העולה על החסרונות. </p>
+        <p>ביטקוין תוכנן להוות צעד ענק קדימה באבטחת הכסף ויכול לשמש כהגנה משמעותית כנגד הרבה אופנים של פשעים פיננסיים. למשל, אין שום אפשרות לזייף ביטקוין. משתמשים נמצאים בשליטה מלאה על תשלומיהם ואינם יכולים לקבל חיובים שלא אושרו כגון הונאת כרטיס אשראי. עסקות ביטקוין אינן ניתנון להחזרה ומחוסנות מפני החזרי ביטול עסקה. ביטקוין מאפשר לכסף להיות בטוח מגניבות ואובדן בעזרת השימוש בשיטות חזקות ושימושיות כגון גיבוי, הצפנה, וריבוי חתימות. </p>
+        <p>עלתה הסברה שביטקוין יכול להיות יותר אטרקטיבי לפושעים כיון שמדובר בפרטיות וללא אפשרות להחזיר עסקות לאחור. אבל אפשרויות אלו קיימות כבר בכסף מזומן והעברות אלקטרוניות שנמצאות בשימוש נרחב ומנוצלות. השימוש בביטקוין יוכפף ללא ספק לחוקים דומים שכבר קיימים במערכת הפיננסית , ואין לצפות שביטקוין ימנע חקירות פשיעה. באופן כללי, אך טבעי הוא לפריצת דרך משמעותית להתפרש כבעייתית טרם הבנת היתרונות שלה.  דוגמה טובה שממחישה זאת הנה האינטרנט, אחת מני רבות. </p>
+      </div>
+    </div>
+    <div>
+      <h3 id="bubble" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">האם ביטקוין הנו בועה?</h3>
+      <div>
+        <p>עלית מחיר מהירה אין משמעה בועה. הערכת יתר מלאכותית אשר תביא לנפילה פתאומית מתקנת מתארת בועה. בחירה של מאות אלפי פרטים המשתתפים בשוק הנה הסיבה לתנודות של  ביטקוין כאשר השוק מחפש את האיזון. גורמים שיכולים לשנות את המצב הם איבוד האמונה בביטקוין, פער גדול בין הערך והמחיר, ומחיר אשר אינו משקף את יסודות כלכלת ביטקוין. סיקור מורחב של העיתונות והמדיה מתניע ביקוש ספקולטיבי, וכן החשש מאי ודאות ומסורת השפע והחמדנות</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="whyvalue" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">מדוע לביטקוין יש ערך?</h3>
+      <div>
+        <p>לביטקוינים יש ערך כיון שהם שימושיים כסוג של כסף. יש להם מאפיינים של כסף (הישמרות, ניידות, סחירות, נדירות, התחלקות והכרה) על בסיס תכונות מתמטיות במקום להשען על תכונות פיזיות (כמו זהב וכסף) או בטחון בגוף מרכזי (כמו כסף ממשלתי - פיאט). בקיצור, ביטקוין מגובה במתמטיקה. עם תכונות אלה, כל שנדרש מסוג של כסף לשמור ערך הוא אמונה ואימוץ. במקרה של ביטקוין, ניתן למדוד זאת ע"י הבסיס הגדל והולך של משתמשים, סוחרים, וחברות הזנק. כמו בכל מטבע, הערך של הביטקוינים מגיע רק המשימוש הישיר של אנשים אשר רוצים לקבל אותו כאמצעי תשלום.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="ponzi" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">האם ביטקוין הנה הונאת פונזי?</h3>
+      <div>
+        <p>הונאת פונזי הנה פעולת השקעה מזוייפת אשר מביאה רווחים למשקיעים מתוך כספם הם, או הכסף ששולם ממשקיעים שנוספו במקום מרווח שנוצר מהפרטים המפעילים את העסק. הונאות פונזי מכוונת לקרוס על חשבון המשקיעים שנכנסו אחרונים כאשר אין מספיק משקיעים נוספים שמתווספים. </p>
+        <p>ביטקוין הנו פרויקט תוכנה חופשי ללא הנהלה מרכזית. כתוצאה מכך, אין מי שיהיה בעמדה של יכולת של מצג שהוא הונאה לגבי החזרי השקעה. כמו מטבעות אחרים מרכזיים כגון זהב, הדולר האמריקאי, היורו, היין וכדומה, אין ערובה לכוח הקנייה ושער החליפין משתנה באופן חופשי. הדבר מוביל לרגישות שיכולה להביא רווחים או הפסדים של בעלי ביטקוינים. מעבר לספקולציות, ביטקוין הנה גם מערכת תשלומים שימושית ותחרותית אשר אלפי משתמשים ועסקים משתמשים בה.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="creator" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">מי יצר את ביטקוין?</h3>
+      <div>
+        <p>ביטקוין הנו היישום הראשון של המונח הנקרא "מטבע מוצפן דיגיטלי". אשר לראשונה תואר ב 1998 ע"י Wei Dai  ברשימת המייל סייברפאנק, בהציעו את הרעיון של צורת כסף חדשה הנשענת על קריפטוגרפיה כדי לשלוט ביצירת הכסף ובעסקות, במקום שליטה של גורם מרכזי. המפרט הראשון של ביטקוין והוכחת הישימות פורסם ב 2009 בקבוצת המייל של הקריפטוגרפים ע"י סאטושי נאקאמוטו. סאטושי עזב את הפרויקט בשלהי 2010 מבלי שיגלה יותר מדי על עצמו. הקהילה גדלה מאז בקצב אקספוננציאלי עם  <a href="/he/development"> מפתחים רבים</a> שעובדים על ביטקוין.</p>
+        <p>האנונימיות של סאטושי גררה לעתים חששות לא מוצדקים, שרבים מהם קשורים לאי הבנת מהות הקוד הפתוח של ביטקוין. הפרוטוקול של ביטקוין והתוכנה מפורסמים בגלוי וכל מפתח ברחבי העולם יכול לבחון את הקוד או ליצור גירסה מעודכנת של תוכנת ביטקוין משל עצמו בדיוק כמו מפתחי ביטקוין הנוכחיים. השפעתו של סאטושי היתה מוגבלת לשינויים שביצע ואשר אומצו ע"י אחרים ולכן הוא לא שלט בביטקוין. וכך, הזהות של ממציא ביטקוין חשובה היום בודאי באותה המידה שחשובה הזהות של ממציא הנייר.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="worthless" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">האם יתכן שהביטקוינים יהפכו לחסרי ערך?</h3>
+      <div>
+        <p>כן. ההיסטוריה מלאה במטבעות אשר כשלו ואינם בשימוש יותר, כגון  <a href="https://en.wikipedia.org/wiki/German_gold_mark">המרק הגרמני </a> בזמן הרפובליקה של ווימר וקרוב יותר לתקופתנו ,  <a href="https://en.wikipedia.org/wiki/Zimbabwean_dollar">הדולר הזימבבווי</a>. אמנם כשלונות המטבע בעבר היו בדרך כלל עקב היפר אינפלציה אשר לא אפשרית בביטקוין, אך ישנה תמיד האפשרות לכשל טכנולוגי, מטבעות מתחרים, בעיות פוליטיות, וכן הלאה. ככלל אצבע, אין שום מטבע שיכול להחשב כבטוח לחלוטין מכשלונות או מתקופות קשות. ביטקוין הוכיח את אמינותו כבר שנים מאז היווצרו, ויש לו פוטנציאל רב להמשך גידול. אף על פי כן, אין מישהו שיכול לחזות מה צופן העתיד לביטקוין. </p>
+      </div>
+    </div>
+    <div>
+      <h3 id="virtual" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">האם ביטקוין הנו וירטואלי לגמרי ולא חומרי?</h3>
+      <div>
+        <p>ביטקוין הנו וירטואלי בדומה לכרטיסי אשראי ורשתות בנקאות מקוונת שאנשים משתמשים באופן יומיומי. ניתן להשתמש בביטקוין בתשלומים מקוונים ובחנויות פיזיות בדיוק כמו כל צורה אחרת של כסף. ביטקוינים ניתן גם להחליף באופן פיזי בדומה<a href="https://denarium.com/">למטבעות "דנריום" </a>, אך התשלום באמצעות טלפון סלולרי בדרך כלל נותרת הדרך הנוחה יותר. יתרות ביטקוין נשמרות ברשת מבוזרת ענקית, שלא ניתנת לשינוי בדרך של הונאה ע"י אף אחד. במלים אחרות, משתמשי ביטקוין בעלי שליטה בלעדית על כספם והביטקוינים לא יכולים להעלם רק בגלל שהם וירטואליים.  </p>
+      </div>
+    </div>
+    <div>
+      <h3 id="trust" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">מדוע אנשים סומכים על ביטקוין?</h3>
+      <div>
+        <p>רוב האמון בביטקוין נובע מהעובדה שאינו מחייב אמון כלל. ביטקוין הנו תוכנת קוד פתוח מבוזרת לחלוטין. משמעו שכל אחד יכול לקרוא את הקוד כולו בכל זמן שהוא. כל מפתח בעולם יכול לכן לוודא בדיוק כיצד התוכנה עובדת. כל הטרנזקציות והביטקוינים שנוצרים יכולים להבחן בשקיפות ובזמן אמת ע"י כל אחד. כל התשלומים יכולים להתבצע ללא תלות בצד שלישי וכל המערכת מוגנת בעזרת אלגוריתמים קריפטוגרפיים שנבחנו בביקורת עמיתים כפי שנבחנו אלו של הבנקים המקוונים. אין אירגון או פרט שיכול לשלוט בביטקוין, והרשת נותרת מאובטחת גם אם לא כל המשתמשים ראויים לאמון. </p>
+      </div>
+    </div>
+    <div>
+      <h3 id="anonymous" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">האם ביטקוין אנונימי?</h3>
+      <div>
+        <p>ביטקוין תוכנן לאפשר למשתמשיו לשלוח ולקבל תשלומים ברמה סבירה של פרטיות כמו בכל צורת מטבע אחרת. אף על פי כן, ביטקוין אינו אנונימי ולא יכול להציע את אותה רמת האנונימיות שיש לכסף מזומן. השימוש בביטקוין משאיר שובל ארוך של תיעוד גלוי לציבור. <a href="/he/protect-your-privacy">מנגנונים מסוימים </a> קיימים כדי להגן על פרטיות המשתמשים ומנגנונים נוספים נמצאים כעת בפיתוח. אף על פי כן, יש עוד הרבה לעשות עד שתכונות אלו ישומשו נכונה ע"י מרבית משתמשי ביטקוין. </p>
+        <p>עלו חששות שעסקות פרטיות יכולות לשמש למטרות לא חוקיות עם ביטקוין. אבל ראוי לציין שביטקוין יהיה ללא ספק כפוף לרגולציות דומות שכרגע נמצאות בשימוש מערכות פיננסיות קיימות. ביטקוין אינו יכול להיות יותר אנונימי מאשר מזומן, ולא סביר שימנע חקירות פליליות מלהתבצע. בנוסף, ביטקוין גם מתוכנן למנוע טווח נרחב של פשעים פיננסיים.</p>
+      </div>
+    </div>
+    <p>כדי ללמוד עוד על ביטקוין בקרו את הדף המלא של <a href="/en/faq">שאלות נפוצות</a> או את דפי  <a href="https://en.bitcoin.it/wiki/Help:FAQ">ביטקוין וויקי</a>.</p>
+  </div>
+</div>
+
+
+
+    </div>
+  </div>
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/he/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">עזרו ל Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">תרמו</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">מבוא:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/he/bitcoin-for-individuals">פרטים</a>
+        </li>
+        <li>
+          <a href="/he/bitcoin-for-businesses">עסקים</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">מפתחים</a>
+        </li>
+        <li>
+          <a href="/he/getting-started">מתחילים</a>
+        </li>
+        <li>
+          <a href="/he/how-it-works">איך זה עובד</a>
+        </li>
+        <li>
+          <a href="/he/you-need-to-know">עליך לדעת</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">משאבים:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/he/resources">משאבים</a>
+        <li>
+          <a href="/he/exchanges">בורסות</a>
+        </li>
+        <li>
+          <a href="/he/community">קהילה</a>
+        </li>
+        <li>
+          <a href="/he/vocabulary">אוצר מילים
+          </a>
+        </li>
+        <li>
+          <a href="/he/events">אירועים</a>
+        </li>
+        
+          <li>
+            <a href="/he/download">ליבת ביטקוין</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">השתתפות:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/he/support-bitcoin">תמיכת ביטקוין</a>
+        
+        
+        <li>
+          <a href="/he/development">פיתוח</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">אחר:</p>
+      
+      <a href="/he/legal">חוקיות</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/he/press">תקשורת</a>
+      <a href="/he/about-us">אודות bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>אתר הקהילה הנו בחסות של</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 שוחרר לפי <a href="http://opensource.org/licenses/mit-license.php" target="_blank">רשיון MIT </a></div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">מצב הרשת</a>
+        
+<ul class="lang is-expand">
+  <li><a>עברית</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/pers">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/premsa">Català</a></li>
+        
+        
+          <li><a href="/da/presse">Dansk</a></li>
+        
+        
+          <li><a href="/de/presse">Deutsch</a></li>
+        
+        
+          <li><a href="/en/press">English</a></li>
+        
+        
+          <li><a href="/es/prensa">Español</a></li>
+        
+        
+          <li><a href="/fr/presse">Français</a></li>
+        
+        
+          <li><a href="/it/stampa">Italiano</a></li>
+        
+        
+          <li><a href="/hu/sajto">Magyar</a></li>
+        
+        
+          <li><a href="/nl/pers">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/prasa">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/imprensa">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/presa">Română</a></li>
+        
+        
+          <li><a href="/sl/mediji">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/mediji">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/press">Svenska</a></li>
+        
+        
+          <li><a href="/tr/basin">Türkçe</a></li>
+        
+        
+          <li><a href="/el/press">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/press">български</a></li>
+        
+        
+          <li><a href="/ru/press">Русский</a></li>
+        
+        
+          <li><a href="/uk/press">Українська</a></li>
+        
+        
+          <li><a href="/ar/press">العربية</a></li>
+        
+        
+          <li><a href="/fa/press">فارسی</a></li>
+        
+        
+          <li><a href="/he/press" class="active">עברית</a></li>
+        
+        
+          <li><a href="/hi/press">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/press">한국어</a></li>
+        
+        
+          <li><a href="/ja/press">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/press">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/press">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/pers" >Bahasa Indonesia</option>
+              
+              <option value="/ca/premsa" >Català</option>
+              
+              <option value="/da/presse" >Dansk</option>
+              
+              <option value="/de/presse" >Deutsch</option>
+              
+              <option value="/en/press" >English</option>
+              
+              <option value="/es/prensa" >Español</option>
+              
+              <option value="/fr/presse" >Français</option>
+              
+              <option value="/it/stampa" >Italiano</option>
+              
+              <option value="/hu/sajto" >Magyar</option>
+              
+              <option value="/nl/pers" >Nederlands</option>
+              
+              <option value="/pl/prasa" >Polski</option>
+              
+              <option value="/pt_BR/imprensa" >Português Brasil</option>
+              
+              <option value="/ro/presa" >Română</option>
+              
+              <option value="/sl/mediji" >Slovenščina</option>
+              
+              <option value="/sr/mediji" >Srpski</option>
+              
+              <option value="/sv/press" >Svenska</option>
+              
+              <option value="/tr/basin" >Türkçe</option>
+              
+              <option value="/el/press" >Ελληνικά</option>
+              
+              <option value="/bg/press" >български</option>
+              
+              <option value="/ru/press" >Русский</option>
+              
+              <option value="/uk/press" >Українська</option>
+              
+              <option value="/ar/press" >العربية</option>
+              
+              <option value="/fa/press" >فارسی</option>
+              
+              <option value="/he/press"  selected="selected">עברית</option>
+              
+              <option value="/hi/press" >हिन्दी</option>
+              
+              <option value="/ko/press" >한국어</option>
+              
+              <option value="/ja/press" >日本語</option>
+              
+              <option value="/zh_CN/press" >简体中文</option>
+              
+              <option value="/zh_TW/press" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">he</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+  <script>updateToc();</script>
+<script>accordion();</script>
+<script>onScrollButton();</script>
+<script>boxShow();</script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,796 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Help Test Bitcoin.org's New Design Before Launch</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org is a community funded project, donations are appreciated and used to improve the website.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Make a donation
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org needs your support!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Donate to Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">Use this QR code or address below</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Or custom amount? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Or custom amount? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Optional description (for your wallet)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/en/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">Introduction</a>
+    <ul>
+      <li><a href="/en/bitcoin-for-individuals">Individuals</a></li>
+      <li><a href="/en/bitcoin-for-businesses">Businesses</a></li>
+      <li><a href="https://developer.bitcoin.org/">Developers</a></li>
+      <li><a href="/en/getting-started">Getting started</a></li>
+      <li><a href="/en/how-it-works">How it works</a></li>
+      
+      <li><a href="/en/bitcoin-paper">White paper</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">Resources</a>
+    <ul>
+      <li><a href="/en/resources">Resources</a>
+      <li><a href="/en/exchanges">Exchanges</a></li>
+      <li><a href="/en/community">Community</a></li>
+      
+      
+      <li><a href="https://developer.bitcoin.org/">Documentation</a></li>
+      
+      <li><a href="/en/vocabulary">Vocabulary</a></li>
+      <li><a href="/en/events">Events</a></li>
+      
+        <li><a href="/en/bitcoin-core/">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/en/innovation">Innovation</a></li>
+  <li><a class="is-expand">Participate</a>
+    <ul>
+      <li><a href="/en/support-bitcoin">Support Bitcoin</a>
+      <li><a href="/en/buy">Buy Bitcoin</a></li>
+      <li><a href="/en/full-node">Running a full node</a></li>
+      <li><a href="/en/development">Development</a></li>
+    </ul>
+  </li>
+  <li><a href="/en/faq">FAQ</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>English</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/">Català</a></li>
+        
+        
+          <li><a href="/da/">Dansk</a></li>
+        
+        
+          <li><a href="/de/">Deutsch</a></li>
+        
+        
+          <li><a href="/en/" class="active">English</a></li>
+        
+        
+          <li><a href="/es/">Español</a></li>
+        
+        
+          <li><a href="/fr/">Français</a></li>
+        
+        
+          <li><a href="/it/">Italiano</a></li>
+        
+        
+          <li><a href="/hu/">Magyar</a></li>
+        
+        
+          <li><a href="/nl/">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/">Română</a></li>
+        
+        
+          <li><a href="/sl/">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/">Svenska</a></li>
+        
+        
+          <li><a href="/tr/">Türkçe</a></li>
+        
+        
+          <li><a href="/el/">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/">български</a></li>
+        
+        
+          <li><a href="/ru/">Русский</a></li>
+        
+        
+          <li><a href="/uk/">Українська</a></li>
+        
+        
+          <li><a href="/ar/">العربية</a></li>
+        
+        
+          <li><a href="/fa/">فارسی</a></li>
+        
+        
+          <li><a href="/he/">עברית</a></li>
+        
+        
+          <li><a href="/hi/">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/">한국어</a></li>
+        
+        
+          <li><a href="/ja/">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/" >Bahasa Indonesia</option>
+            
+            <option value="/ca/" >Català</option>
+            
+            <option value="/da/" >Dansk</option>
+            
+            <option value="/de/" >Deutsch</option>
+            
+            <option value="/en/"  selected="selected">English</option>
+            
+            <option value="/es/" >Español</option>
+            
+            <option value="/fr/" >Français</option>
+            
+            <option value="/it/" >Italiano</option>
+            
+            <option value="/hu/" >Magyar</option>
+            
+            <option value="/nl/" >Nederlands</option>
+            
+            <option value="/pl/" >Polski</option>
+            
+            <option value="/pt_BR/" >Português Brasil</option>
+            
+            <option value="/ro/" >Română</option>
+            
+            <option value="/sl/" >Slovenščina</option>
+            
+            <option value="/sr/" >Srpski</option>
+            
+            <option value="/sv/" >Svenska</option>
+            
+            <option value="/tr/" >Türkçe</option>
+            
+            <option value="/el/" >Ελληνικά</option>
+            
+            <option value="/bg/" >български</option>
+            
+            <option value="/ru/" >Русский</option>
+            
+            <option value="/uk/" >Українська</option>
+            
+            <option value="/ar/" >العربية</option>
+            
+            <option value="/fa/" >فارسی</option>
+            
+            <option value="/he/" >עברית</option>
+            
+            <option value="/hi/" >हिन्दी</option>
+            
+            <option value="/ko/" >한국어</option>
+            
+            <option value="/ja/" >日本語</option>
+            
+            <option value="/zh_CN/" >简体中文</option>
+            
+            <option value="/zh_TW/" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">en</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <link rel="alternate" type="application/atom+xml" href="/en/rss/blog.xml" title="Bitcoin.org Site Blog">
+
+<div class="subhead-links">
+  <div class="container">
+    <a href="/en/blog">Blog home</a>
+    |
+    <a type="application/atom+xml" href="/en/rss/blog.xml">Subscribe to RSS feed</a>
+    |
+    <a href="https://github.com/bitcoin-dot-org/bitcoin.org/commits/master/_posts/2018-05-01-test-the-new-site-design.md">Post history</a>
+    |
+    <a href="https://github.com/bitcoin-dot-org/bitcoin.org/issues/new?body=Source%20File%3A%20_posts/2018-05-01-test-the-new-site-design.md%0A%0A">Report issue</a>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="container hero-container">
+    <h1>Help Test Bitcoin.org's New Design Before Launch</h1>
+  </div>
+</header>
+
+<div class="toc-container">
+  <div class="row toc-row">
+  
+
+    <div class="toccontent">
+      <article class="article" markdown="1">
+        <h2 id="a-redesigned-bitcoinorg">A Redesigned Bitcoin.org</h2>
+
+<p>One of our goals in 2018 has been to modernize the look and feel of
+Bitcoin.org. Each day, tens of thousands of new users come to Bitcoin.org to
+learn how to get started using the currency and technology. The site has grown
+exponentially in popularity as Bitcoin adoption has increased. Last year alone,
+there were over 30 million visitors to Bitcoin.org. These visitors viewed the
+site’s pages over 200 million times. Many of these pages are often the first
+results on search engines for bitcoin-related phrases and terms.</p>
+
+<p>As traffic and engagement has increased, however, the design has become very
+dated. In fact, the current look and feel of the site has pretty much remained
+the same for ~5 years, going all the way back to 2013. As a result, a large
+amount of effort and attention has gone into a recent redesign project, that’s
+getting closer to complete. After holding a <a href="https://bitcoin.org/en/posts/vote-on-the-new-site-design">community vote</a>
+on various design options, the community selection has been extended into all of
+the different subpages.</p>
+
+<p>We’ve reached one of the most critical phases of the project, now, which is
+getting feedback and lots of help testing from a bunch of different people,
+before it goes live.</p>
+
+<p><strong><a href="https://bitcoin.cryptopelago.com/">Help test the new design.</a></strong></p>
+
+<p>If you visited the link above and experienced any issues or have feedback, please
+<a href="mailto:will@bitcoin.org?subject=Redesign%20Feedback&quot;">send us an email</a> or
+<a href="https://github.com/bitcoin-dot-org/bitcoin.org/issues/new?title=Redesign%20Feedback">open an issue</a>
+on Bitcoin.org’s GitHub repository. Please also make sure to note your device,
+operating system and browser version(s), when applicable, to give us additional
+context and clarity - it is super-helpful.</p>
+
+<p>Even the most minor bits of feedback, nits or issues are welcome. The community
+we are all part of is very diverse, and we want to strive to make Bitcoin.org
+the best site it can be for as many people as possible.</p>
+
+<h2 id="acknowledgments">Acknowledgments</h2>
+
+<p>Bitcoin.org is funded exclusively by donations from the community, and a huge
+debt of gratitude is owed. Without community donations, the current redesign
+work would not have been possible. More enhancements and special projects are
+on the horizon, so stay tuned. The support from donations that allow
+Bitcoin.org to compete with sites that aren’t community supported, are greatly
+appreciated.</p>
+
+<p>A big thanks is also due specifically to Natalia, Marek and Oleksandr at
+<a href="https://ethworks.io">ETHworks</a> who have spear-headed the redesign efforts,
+worked tirelessly, and have delivered great results from the very beginning,
+every step of the way. They are amazingly talented people in the cryptocurrency
+space.</p>
+
+<h2 id="about-bitcoinorg">About Bitcoin.org</h2>
+
+<p>Bitcoin.org was originally registered and owned by Satoshi Nakamoto and Martti
+Malmi. When Satoshi left the project, he gave ownership of the domain to
+additional people, separate from the Bitcoin developers, to spread
+responsibility and prevent any one person or group from easily gaining control
+over the Bitcoin project. Since then, the site has been developed and
+maintained by different members of the Bitcoin community.</p>
+
+<p>There have been over 3,200 commits from 180 contributors from all over the
+world. In addition to this, over 950 translators have helped to make the site
+display natively to visitors by default in their own languages —now 25
+different languages and growing.</p>
+
+        <p class="post-meta">Posted to the
+        <a href="/en/blog">Bitcoin.org Site Blog</a> on 01 May 2018  by <a href="https://github.com/wbnns">Will Binns</a>
+
+        </p>
+      </article>
+    </div>
+  </div>
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/en/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Support Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Donate</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">Introduction:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/en/bitcoin-for-individuals">Individuals</a>
+        </li>
+        <li>
+          <a href="/en/bitcoin-for-businesses">Businesses</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">Developers</a>
+        </li>
+        <li>
+          <a href="/en/getting-started">Getting started</a>
+        </li>
+        <li>
+          <a href="/en/how-it-works">How it works</a>
+        </li>
+        <li>
+          <a href="/en/you-need-to-know">You need to know</a>
+        </li>
+        
+        <li>
+          <a href="/en/bitcoin-paper">White paper</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">Resources:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/en/resources">Resources</a>
+        <li>
+          <a href="/en/exchanges">Exchanges</a>
+        </li>
+        <li>
+          <a href="/en/community">Community</a>
+        </li>
+        <li>
+          <a href="/en/vocabulary">Vocabulary
+          </a>
+        </li>
+        <li>
+          <a href="/en/events">Events</a>
+        </li>
+        
+        <li>
+          <a href="/en/bitcoin-core/">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">Participate:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/en/support-bitcoin">Support Bitcoin</a>
+        
+        <li>
+          <a href="/en/buy">Buy Bitcoin</a>
+        </li>
+        
+        
+        <li>
+          <a href="/en/full-node">Running a full node</a>
+        </li>
+        
+        <li>
+          <a href="/en/development">Development</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Other:</p>
+      
+      <a href="/en/scams">Avoid Scams</a>
+      
+      <a href="/en/legal">Legal</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/en/press">Press</a>
+      <a href="/en/about-us">About bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>A community website sponsored by</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 Released under the <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT license</a></div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Network Status</a>
+        
+<ul class="lang is-expand">
+  <li><a>English</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/">Català</a></li>
+        
+        
+          <li><a href="/da/">Dansk</a></li>
+        
+        
+          <li><a href="/de/">Deutsch</a></li>
+        
+        
+          <li><a href="/en/" class="active">English</a></li>
+        
+        
+          <li><a href="/es/">Español</a></li>
+        
+        
+          <li><a href="/fr/">Français</a></li>
+        
+        
+          <li><a href="/it/">Italiano</a></li>
+        
+        
+          <li><a href="/hu/">Magyar</a></li>
+        
+        
+          <li><a href="/nl/">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/">Română</a></li>
+        
+        
+          <li><a href="/sl/">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/">Svenska</a></li>
+        
+        
+          <li><a href="/tr/">Türkçe</a></li>
+        
+        
+          <li><a href="/el/">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/">български</a></li>
+        
+        
+          <li><a href="/ru/">Русский</a></li>
+        
+        
+          <li><a href="/uk/">Українська</a></li>
+        
+        
+          <li><a href="/ar/">العربية</a></li>
+        
+        
+          <li><a href="/fa/">فارسی</a></li>
+        
+        
+          <li><a href="/he/">עברית</a></li>
+        
+        
+          <li><a href="/hi/">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/">한국어</a></li>
+        
+        
+          <li><a href="/ja/">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/" >Bahasa Indonesia</option>
+              
+              <option value="/ca/" >Català</option>
+              
+              <option value="/da/" >Dansk</option>
+              
+              <option value="/de/" >Deutsch</option>
+              
+              <option value="/en/"  selected="selected">English</option>
+              
+              <option value="/es/" >Español</option>
+              
+              <option value="/fr/" >Français</option>
+              
+              <option value="/it/" >Italiano</option>
+              
+              <option value="/hu/" >Magyar</option>
+              
+              <option value="/nl/" >Nederlands</option>
+              
+              <option value="/pl/" >Polski</option>
+              
+              <option value="/pt_BR/" >Português Brasil</option>
+              
+              <option value="/ro/" >Română</option>
+              
+              <option value="/sl/" >Slovenščina</option>
+              
+              <option value="/sr/" >Srpski</option>
+              
+              <option value="/sv/" >Svenska</option>
+              
+              <option value="/tr/" >Türkçe</option>
+              
+              <option value="/el/" >Ελληνικά</option>
+              
+              <option value="/bg/" >български</option>
+              
+              <option value="/ru/" >Русский</option>
+              
+              <option value="/uk/" >Українська</option>
+              
+              <option value="/ar/" >العربية</option>
+              
+              <option value="/fa/" >فارسی</option>
+              
+              <option value="/he/" >עברית</option>
+              
+              <option value="/hi/" >हिन्दी</option>
+              
+              <option value="/ko/" >한국어</option>
+              
+              <option value="/ja/" >日本語</option>
+              
+              <option value="/zh_CN/" >简体中文</option>
+              
+              <option value="/zh_TW/" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">en</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+  <script>updateToc();</script>
+<script>boxShow();</script>
+<script>onScrollButton();</script>
+
+
+
+</body>
+
+</html>

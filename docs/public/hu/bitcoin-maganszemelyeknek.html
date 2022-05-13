@@ -1,0 +1,733 @@
+<!DOCTYPE HTML>
+<html lang="hu">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Bitcoin magánszemélyeknek - Bitcoin</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        A Bitcoin.org egy közösség finanszírozta projekt, nagyra értékeljük az adományokat és segítségével fejleszteni tudjuk a honlapot.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Adományozás
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    A Bitcoin.org-nak szüksége van a támogatásodra!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Adományozz a Bitcoin.org-nak</p>
+    </div>
+    <p class="modal-subheader">Használd a lenti QR kódot vagy címet</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Vagy tetszőleges összeg? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Vagy tetszőleges összeg? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Opcionális leírás (a tárcádhoz)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/hu/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">Bevezetés</a>
+    <ul>
+      <li class="active"><a href="/hu/bitcoin-maganszemelyeknek">Magánszemélyek</a></li>
+      <li><a href="/hu/bitcoin-vallalkozasoknak">Vállalkozások</a></li>
+      <li><a href="https://developer.bitcoin.org/">Fejlesztők</a></li>
+      <li><a href="/hu/vagjon-bele">Vágjon bele</a></li>
+      <li><a href="/hu/hogyan-mukodik">Hogyan működik</a></li>
+      
+      <li><a href="/hu/papir-bitcoin">Fehérkönyv</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">Információs anyagok</a>
+    <ul>
+      <li><a href="/hu/informacios-anyagok">Információs anyagok</a>
+      <li><a href="/hu/tozsdek">Tőzsdék</a></li>
+      <li><a href="/hu/kozosseg">Közösség</a></li>
+      
+      
+      <li><a href="/hu/szotar">Szótár</a></li>
+      <li><a href="/hu/rendezvenyek">Rendezvények</a></li>
+      
+        <li><a href="/hu/letoltes">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/hu/innovacio">Innováció</a></li>
+  <li><a class="is-expand">Vegyél részt</a>
+    <ul>
+      <li><a href="/hu/tamogassa-a-bitcoint">Támogasd a Bitcoint</a>
+      <li><a href="/hu/vasarlas">Vásárolj bitcoint</a></li>
+      
+      <li><a href="/hu/fejlesztes">Fejlesztés</a></li>
+    </ul>
+  </li>
+  <li><a href="/hu/gyik">GYIK</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>Magyar</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/bitcoin-untuk-perorangan">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/bitcoin-per-persones">Català</a></li>
+        
+        
+          <li><a href="/da/bitcoin-for-enkeltpersoner">Dansk</a></li>
+        
+        
+          <li><a href="/de/bitcoin-fuer-einzelpersonen">Deutsch</a></li>
+        
+        
+          <li><a href="/en/bitcoin-for-individuals">English</a></li>
+        
+        
+          <li><a href="/es/bitcoin-para-personas">Español</a></li>
+        
+        
+          <li><a href="/fr/bitcoin-pour-particuliers">Français</a></li>
+        
+        
+          <li><a href="/it/bitcoin-per-privati">Italiano</a></li>
+        
+        
+          <li><a href="/hu/bitcoin-maganszemelyeknek" class="active">Magyar</a></li>
+        
+        
+          <li><a href="/nl/bitcoin-voor-particulieren">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/bitcoin-dla-osob-fizycznych">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/bitcoin-para-pessoas">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/bitcoin-pentru-persoane-fizice">Română</a></li>
+        
+        
+          <li><a href="/sl/bitcoin-za-posameznike">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/bitkoin-za-lica">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/bitcoin-for-privatpersoner">Svenska</a></li>
+        
+        
+          <li><a href="/tr/bireyler-icin-bitcoin">Türkçe</a></li>
+        
+        
+          <li><a href="/el/bitcoin-for-individuals">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/bitcoin-for-individuals">български</a></li>
+        
+        
+          <li><a href="/ru/bitcoin-for-individuals">Русский</a></li>
+        
+        
+          <li><a href="/uk/bitcoin-for-individuals">Українська</a></li>
+        
+        
+          <li><a href="/ar/bitcoin-for-individuals">العربية</a></li>
+        
+        
+          <li><a href="/fa/bitcoin-for-individuals">فارسی</a></li>
+        
+        
+          <li><a href="/he/bitcoin-for-individuals">עברית</a></li>
+        
+        
+          <li><a href="/hi/bitcoin-for-individuals">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/bitcoin-for-individuals">한국어</a></li>
+        
+        
+          <li><a href="/ja/bitcoin-for-individuals">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/bitcoin-for-individuals">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/bitcoin-for-individuals">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/bitcoin-untuk-perorangan" >Bahasa Indonesia</option>
+            
+            <option value="/ca/bitcoin-per-persones" >Català</option>
+            
+            <option value="/da/bitcoin-for-enkeltpersoner" >Dansk</option>
+            
+            <option value="/de/bitcoin-fuer-einzelpersonen" >Deutsch</option>
+            
+            <option value="/en/bitcoin-for-individuals" >English</option>
+            
+            <option value="/es/bitcoin-para-personas" >Español</option>
+            
+            <option value="/fr/bitcoin-pour-particuliers" >Français</option>
+            
+            <option value="/it/bitcoin-per-privati" >Italiano</option>
+            
+            <option value="/hu/bitcoin-maganszemelyeknek"  selected="selected">Magyar</option>
+            
+            <option value="/nl/bitcoin-voor-particulieren" >Nederlands</option>
+            
+            <option value="/pl/bitcoin-dla-osob-fizycznych" >Polski</option>
+            
+            <option value="/pt_BR/bitcoin-para-pessoas" >Português Brasil</option>
+            
+            <option value="/ro/bitcoin-pentru-persoane-fizice" >Română</option>
+            
+            <option value="/sl/bitcoin-za-posameznike" >Slovenščina</option>
+            
+            <option value="/sr/bitkoin-za-lica" >Srpski</option>
+            
+            <option value="/sv/bitcoin-for-privatpersoner" >Svenska</option>
+            
+            <option value="/tr/bireyler-icin-bitcoin" >Türkçe</option>
+            
+            <option value="/el/bitcoin-for-individuals" >Ελληνικά</option>
+            
+            <option value="/bg/bitcoin-for-individuals" >български</option>
+            
+            <option value="/ru/bitcoin-for-individuals" >Русский</option>
+            
+            <option value="/uk/bitcoin-for-individuals" >Українська</option>
+            
+            <option value="/ar/bitcoin-for-individuals" >العربية</option>
+            
+            <option value="/fa/bitcoin-for-individuals" >فارسی</option>
+            
+            <option value="/he/bitcoin-for-individuals" >עברית</option>
+            
+            <option value="/hi/bitcoin-for-individuals" >हिन्दी</option>
+            
+            <option value="/ko/bitcoin-for-individuals" >한국어</option>
+            
+            <option value="/ja/bitcoin-for-individuals" >日本語</option>
+            
+            <option value="/zh_CN/bitcoin-for-individuals" >简体中文</option>
+            
+            <option value="/zh_TW/bitcoin-for-individuals" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">hu</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>Bitcoin magánszemélyeknek</h1>
+    <p class="summary">A bitcoin a nagyon olcsó vagyontovábbítás legegyszerűbb módja.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row card-row">
+    <div class="card individuals-card">
+      <img src="/img/icons/ico_mobile.svg?1651746487" alt="Icon" />
+      <h2 id="mobile">Mobilfizetések egyszerűen</h2>
+      <p>A mobileszközön kezelt Bitcoin lehetővé teszi, hogy egyszerű, kétlépcsős szkennelj-és-fizess megoldással utalj. Nincs szükség regisztrációra, bankkártyaérintésre, PIN-kód beírására vagy akármilyen aláírásra. Bitcoinutaláshoz mindössze annyit kell tenned, hogy megmutatod a tárcaalkalmazás QR-kódját – a másik fél pedig kamerájával beolvassa a kódot, vagy az NFC-technológiát kihasználva a tiédhez érinti a mobilját.</p>
+    </div>
+
+    <div class="card individuals-card">
+      <img src="/img/icons/ico_lock.svg?1651746487" alt="Icon" />
+      <h2 id="secure">Védelem és kontroll a pénzed felett</h2>
+      <p>A Bitcoin-tranzakciókat katonai szintű kriptográfia védi. Senki sem veheti el a pénzedet vagy utalhat a nevedben. Mindaddig, amíg betartod a <a href="/hu/vedje-meg-penztarcajat">tárcád védelméhez</a> szükséges előírásokat, a Bitcoin ellenőrzést biztosít a pénzed fölött, és egy nagyon erős szintű védelmet nyújt számos csalással és átveréssel szemben.</p>
+    </div>
+
+    <div class="card individuals-card">
+      <img src="/img/icons/ico_simple.svg?1651746487" alt="Icon" />
+      <h2 id="simple">Bárhol, bármikor működik</h2>
+      <p>Az e-mailhez hasonlóan nem szükséges, hogy a fogadók ugyanazt a szoftvert, tárcát vagy szolgáltatót használják. Csak a Bitcoin-címük ismeretében bármikor utalhatsz szmukra kriptovalutát. A Bitcoin-hálózat éjjel-nappal fut – még hétvégén és ünnepnapokon sem áll le.</p>
+    </div>
+
+    <div class="card individuals-card">
+      <img src="/img/icons/ico_international.svg?1651746487" alt="Icon" />
+      <h2 id="international">Gyors nemzetközi kifizetések</h2>
+      <p>A bitcoin határokon át történő utalása olyan, mintha csak az utca másik végére küldenéd. Nincsenek bankok, amelyek három munkanapig várakoztatnak, nincsenek extra díjak vagy speciális korlátok a minimális és maximális küldött összeg tekintetében.
+</p>
+    </div>
+
+    <div class="card individuals-card">
+      <img src="/img/icons/ico_lowfee.svg?1651746487" alt="Icon" />
+      <h2 id="lowfee">Válaszd ki Te, mekkora díjat akarsz fizetni</h2>
+      <p>A bitcoin fogadása semmibe sem kerül. Sok tárca ezen felül megengedi, hogy Te határozd meg, mekkora díjjal szeretnél egy tranzakciót végrehajtani. A legtöbb tárcának észszerű, alapértelmezett díjai vannak, a magasabb tranzakciós költség pedig az utalások gyorsabb <a href="/hu/amit-tudnia-erdemes#instant">visszaigazolásához</a> szükségesek. A díjak nem függnek a küldött összeg nagyságától, azaz teljesen mindegy, hogy 100.000, vagy 1 bitcoint küldesz – a költség ugyanannyi.
+</p>
+    </div>
+
+    <div class="card individuals-card">
+      <img src="/img/icons/ico_anon.svg?1651746487" alt="Icon" />
+      <h2 id="anonymous">Maradj anonim</h2>
+      <p>A Bitcoinnal nem jár együtt bankkártyaszám, amelyet rosszindulatú támadók elmenthetnének, hogy később lophassanak tőled. Sőt, bizonyos esetekben még anélkül is tudsz utalást küldeni, hogy felfednéd valódi kilétedet – majdnem ugyanúgy, mint a készpénz esetében. Azt viszont hozzá kell tenni, bizonyos erőfeszítéseket meg kell tenned a <a href="/hu/vedje-meg-szemelyes-adatait">személyazonosságod védelme érdekében</a>.</p>
+    </div>
+  </div>
+
+  <div class="btn-container ">
+    <a class="btn btn-bright get-started-btn" href="/hu/vagjon-bele">Vágjon bele a Bitcoinba</a>
+  </div>
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/hu/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Támogasd a Bitcoin.org-ot:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Adományozás</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">Bevezetés:</p>
+      <ul class="footermenu-list">
+        <li class="active">
+          <a href="/hu/bitcoin-maganszemelyeknek">Magánszemélyek</a>
+        </li>
+        <li>
+          <a href="/hu/bitcoin-vallalkozasoknak">Vállalkozások</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">Fejlesztők</a>
+        </li>
+        <li>
+          <a href="/hu/vagjon-bele">Vágjon bele</a>
+        </li>
+        <li>
+          <a href="/hu/hogyan-mukodik">Hogyan működik</a>
+        </li>
+        <li>
+          <a href="/hu/amit-tudnia-erdemes">Érdemes tudnia</a>
+        </li>
+        
+        <li>
+          <a href="/hu/papir-bitcoin">Fehérkönyv</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">Információs anyagok:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/hu/informacios-anyagok">Információs anyagok</a>
+        <li>
+          <a href="/hu/tozsdek">Tőzsdék</a>
+        </li>
+        <li>
+          <a href="/hu/kozosseg">Közösség</a>
+        </li>
+        <li>
+          <a href="/hu/szotar">Szótár
+          </a>
+        </li>
+        <li>
+          <a href="/hu/rendezvenyek">Rendezvények</a>
+        </li>
+        
+          <li>
+            <a href="/hu/letoltes">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">Vegyél részt:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/hu/tamogassa-a-bitcoint">Támogasd a Bitcoint</a>
+        
+        
+        <li>
+          <a href="/hu/fejlesztes">Fejlesztés</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Egyéb:</p>
+      
+      <a href="/hu/jogi-vonatkozasok">Jogi vonatkozások</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/hu/sajto">Sajtó</a>
+      <a href="/hu/rolunk">A bitcoin.org-ról</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>E közösségi weboldal szponzora a</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 Az <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT licence</a> alatt közzétéve</div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Hálózat státusza</a>
+        
+<ul class="lang is-expand">
+  <li><a>Magyar</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/bitcoin-untuk-perorangan">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/bitcoin-per-persones">Català</a></li>
+        
+        
+          <li><a href="/da/bitcoin-for-enkeltpersoner">Dansk</a></li>
+        
+        
+          <li><a href="/de/bitcoin-fuer-einzelpersonen">Deutsch</a></li>
+        
+        
+          <li><a href="/en/bitcoin-for-individuals">English</a></li>
+        
+        
+          <li><a href="/es/bitcoin-para-personas">Español</a></li>
+        
+        
+          <li><a href="/fr/bitcoin-pour-particuliers">Français</a></li>
+        
+        
+          <li><a href="/it/bitcoin-per-privati">Italiano</a></li>
+        
+        
+          <li><a href="/hu/bitcoin-maganszemelyeknek" class="active">Magyar</a></li>
+        
+        
+          <li><a href="/nl/bitcoin-voor-particulieren">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/bitcoin-dla-osob-fizycznych">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/bitcoin-para-pessoas">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/bitcoin-pentru-persoane-fizice">Română</a></li>
+        
+        
+          <li><a href="/sl/bitcoin-za-posameznike">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/bitkoin-za-lica">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/bitcoin-for-privatpersoner">Svenska</a></li>
+        
+        
+          <li><a href="/tr/bireyler-icin-bitcoin">Türkçe</a></li>
+        
+        
+          <li><a href="/el/bitcoin-for-individuals">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/bitcoin-for-individuals">български</a></li>
+        
+        
+          <li><a href="/ru/bitcoin-for-individuals">Русский</a></li>
+        
+        
+          <li><a href="/uk/bitcoin-for-individuals">Українська</a></li>
+        
+        
+          <li><a href="/ar/bitcoin-for-individuals">العربية</a></li>
+        
+        
+          <li><a href="/fa/bitcoin-for-individuals">فارسی</a></li>
+        
+        
+          <li><a href="/he/bitcoin-for-individuals">עברית</a></li>
+        
+        
+          <li><a href="/hi/bitcoin-for-individuals">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/bitcoin-for-individuals">한국어</a></li>
+        
+        
+          <li><a href="/ja/bitcoin-for-individuals">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/bitcoin-for-individuals">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/bitcoin-for-individuals">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/bitcoin-untuk-perorangan" >Bahasa Indonesia</option>
+              
+              <option value="/ca/bitcoin-per-persones" >Català</option>
+              
+              <option value="/da/bitcoin-for-enkeltpersoner" >Dansk</option>
+              
+              <option value="/de/bitcoin-fuer-einzelpersonen" >Deutsch</option>
+              
+              <option value="/en/bitcoin-for-individuals" >English</option>
+              
+              <option value="/es/bitcoin-para-personas" >Español</option>
+              
+              <option value="/fr/bitcoin-pour-particuliers" >Français</option>
+              
+              <option value="/it/bitcoin-per-privati" >Italiano</option>
+              
+              <option value="/hu/bitcoin-maganszemelyeknek"  selected="selected">Magyar</option>
+              
+              <option value="/nl/bitcoin-voor-particulieren" >Nederlands</option>
+              
+              <option value="/pl/bitcoin-dla-osob-fizycznych" >Polski</option>
+              
+              <option value="/pt_BR/bitcoin-para-pessoas" >Português Brasil</option>
+              
+              <option value="/ro/bitcoin-pentru-persoane-fizice" >Română</option>
+              
+              <option value="/sl/bitcoin-za-posameznike" >Slovenščina</option>
+              
+              <option value="/sr/bitkoin-za-lica" >Srpski</option>
+              
+              <option value="/sv/bitcoin-for-privatpersoner" >Svenska</option>
+              
+              <option value="/tr/bireyler-icin-bitcoin" >Türkçe</option>
+              
+              <option value="/el/bitcoin-for-individuals" >Ελληνικά</option>
+              
+              <option value="/bg/bitcoin-for-individuals" >български</option>
+              
+              <option value="/ru/bitcoin-for-individuals" >Русский</option>
+              
+              <option value="/uk/bitcoin-for-individuals" >Українська</option>
+              
+              <option value="/ar/bitcoin-for-individuals" >العربية</option>
+              
+              <option value="/fa/bitcoin-for-individuals" >فارسی</option>
+              
+              <option value="/he/bitcoin-for-individuals" >עברית</option>
+              
+              <option value="/hi/bitcoin-for-individuals" >हिन्दी</option>
+              
+              <option value="/ko/bitcoin-for-individuals" >한국어</option>
+              
+              <option value="/ja/bitcoin-for-individuals" >日本語</option>
+              
+              <option value="/zh_CN/bitcoin-for-individuals" >简体中文</option>
+              
+              <option value="/zh_TW/bitcoin-for-individuals" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">hu</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+
+</body>
+
+</html>

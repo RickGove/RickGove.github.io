@@ -1,0 +1,821 @@
+<!DOCTYPE HTML>
+<html lang="sr">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Vokabular - Bitkoin</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org je projekat koji se finansira od strane zajednice. Veoma cenimo vaše donacije i koristimo ih kako bi poboljšali sajt.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Doniraj
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org treba tvoju pomoć!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Doniraj Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">Koristi QR kod ili adresu ispod</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Ili drugi iznos? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Ili drugi iznos? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Opcioni opis (za vaš novčanik)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/sr/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">Uvod</a>
+    <ul>
+      <li><a href="/sr/bitkoin-za-lica">Fizička lica</a></li>
+      <li><a href="/sr/bitkoin-za-preduzeca">Preduzeća</a></li>
+      <li><a href="https://developer.bitcoin.org/">Programeri</a></li>
+      <li><a href="/sr/prvi-koraci">Početni koraci</a></li>
+      <li><a href="/sr/kako-to-radi">Kako funkcioniše</a></li>
+      
+      <li><a href="/sr/bitkoin-papir">Osnovni dokument - beli papir</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">Sredstva</a>
+    <ul>
+      <li><a href="/sr/sredstva">Sredstva</a>
+      <li><a href="/sr/menjacnice">Menjačnice</a></li>
+      <li><a href="/sr/zajednica">Zajednica</a></li>
+      
+      
+      <li class="active"><a href="/sr/vokabular">Rečnik</a></li>
+      <li><a href="/sr/dogadaji">Događaji</a></li>
+      
+        <li><a href="/sr/preuzimanje">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/sr/inovacija">Inovacija</a></li>
+  <li><a class="is-expand">Učestvujte</a>
+    <ul>
+      <li><a href="/sr/podrzite-bitkoin">Podržite Bitkoin</a>
+      <li><a href="/sr/kupi">Kupi Bitkoin</a></li>
+      
+      <li><a href="/sr/razvoj">Razvoj</a></li>
+    </ul>
+  </li>
+  <li><a href="/sr/cesto-postavljanja-pitanja">ČPP</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>Srpski</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/kosa-kata">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/vocabulari">Català</a></li>
+        
+        
+          <li><a href="/da/ordliste">Dansk</a></li>
+        
+        
+          <li><a href="/de/glossar">Deutsch</a></li>
+        
+        
+          <li><a href="/en/vocabulary">English</a></li>
+        
+        
+          <li><a href="/es/vocabulario">Español</a></li>
+        
+        
+          <li><a href="/fr/vocabulaire">Français</a></li>
+        
+        
+          <li><a href="/it/glossario">Italiano</a></li>
+        
+        
+          <li><a href="/hu/szotar">Magyar</a></li>
+        
+        
+          <li><a href="/nl/woordenlijst">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/slownik">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/vocabulario">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/vocabular">Română</a></li>
+        
+        
+          <li><a href="/sl/besednjak">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/vokabular" class="active">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/ordlista">Svenska</a></li>
+        
+        
+          <li><a href="/tr/kelime-haznesi">Türkçe</a></li>
+        
+        
+          <li><a href="/el/vocabulary">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/vocabulary">български</a></li>
+        
+        
+          <li><a href="/ru/vocabulary">Русский</a></li>
+        
+        
+          <li><a href="/uk/vocabulary">Українська</a></li>
+        
+        
+          <li><a href="/ar/vocabulary">العربية</a></li>
+        
+        
+          <li><a href="/fa/vocabulary">فارسی</a></li>
+        
+        
+          <li><a href="/he/vocabulary">עברית</a></li>
+        
+        
+          <li><a href="/hi/vocabulary">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/vocabulary">한국어</a></li>
+        
+        
+          <li><a href="/ja/vocabulary">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/vocabulary">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/vocabulary">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/kosa-kata" >Bahasa Indonesia</option>
+            
+            <option value="/ca/vocabulari" >Català</option>
+            
+            <option value="/da/ordliste" >Dansk</option>
+            
+            <option value="/de/glossar" >Deutsch</option>
+            
+            <option value="/en/vocabulary" >English</option>
+            
+            <option value="/es/vocabulario" >Español</option>
+            
+            <option value="/fr/vocabulaire" >Français</option>
+            
+            <option value="/it/glossario" >Italiano</option>
+            
+            <option value="/hu/szotar" >Magyar</option>
+            
+            <option value="/nl/woordenlijst" >Nederlands</option>
+            
+            <option value="/pl/slownik" >Polski</option>
+            
+            <option value="/pt_BR/vocabulario" >Português Brasil</option>
+            
+            <option value="/ro/vocabular" >Română</option>
+            
+            <option value="/sl/besednjak" >Slovenščina</option>
+            
+            <option value="/sr/vokabular"  selected="selected">Srpski</option>
+            
+            <option value="/sv/ordlista" >Svenska</option>
+            
+            <option value="/tr/kelime-haznesi" >Türkçe</option>
+            
+            <option value="/el/vocabulary" >Ελληνικά</option>
+            
+            <option value="/bg/vocabulary" >български</option>
+            
+            <option value="/ru/vocabulary" >Русский</option>
+            
+            <option value="/uk/vocabulary" >Українська</option>
+            
+            <option value="/ar/vocabulary" >العربية</option>
+            
+            <option value="/fa/vocabulary" >فارسی</option>
+            
+            <option value="/he/vocabulary" >עברית</option>
+            
+            <option value="/hi/vocabulary" >हिन्दी</option>
+            
+            <option value="/ko/vocabulary" >한국어</option>
+            
+            <option value="/ja/vocabulary" >日本語</option>
+            
+            <option value="/zh_CN/vocabulary" >简体中文</option>
+            
+            <option value="/zh_TW/vocabulary" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">sr</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>Neki od Bitkoin termina koje ste možda čuli</h1>
+    <p class="summarytxt">Bitkoin pruža novi pristup plaćanju, i kao takav postoje novi pojmovi koje će postati de vašeg vokabulara.</p>
+  </div>
+</div>
+
+<div class="toc-container">
+  <div class="row toc-row">
+    <div id="toc" class="toc">
+      <div>
+        <button class="mob-sidebar-open" hidden>ALL TOPICS</button>
+        <div class="sidebar">
+          <div class="sidebar-inner vocabulary-list">
+            <button class="mob-sidebar-close" hidden></button>
+            <ul>
+            
+              <li><a href="#adresa">Adresa</a></li>
+            
+              <li><a href="#bit">Bit</a></li>
+            
+              <li><a href="#bitkoin">Bitkoin</a></li>
+            
+              <li><a href="#blokcejn">Blokčejn</a></li>
+            
+              <li><a href="#blok">Blok</a></li>
+            
+              <li><a href="#btc">BTC</a></li>
+            
+              <li><a href="#potvrda">Potvrda</a></li>
+            
+              <li><a href="#kriptografija">Kriptografija</a></li>
+            
+              <li><a href="#dupli-trosak">Dvostrano Trošenje</a></li>
+            
+              <li><a href="#has-stopa">Haš stopa</a></li>
+            
+              <li><a href="#rudarenje">Rudarenje</a></li>
+            
+              <li><a href="#p2p">P2P</a></li>
+            
+              <li><a href="#privatni-kljuc">Privatni kljuc</a></li>
+            
+              <li><a href="#potpis">Potpis</a></li>
+            
+              <li><a href="#novcanik">Novčanik</a></li>
+            
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toccontent">
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="adresa">Adresa</h2>
+        <p>Bitkoin adresa <b>slična je adresi stanovanja ili email adresi</b>. To je jedina informacija koju morate dati nekome kako bi vam platio Bitkoinom. Bitna razlika je da bi svaka adresa trebalo da se iskoristi samo jednom, za svaku pojedinačnu transakciju.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="bit">Bit</h2>
+        <p>Bit je uobičajena jedinica koja se koristi za označavanje podjedinice bitkoin - 1.000.000 bitova je jednako 1 bitcoin (BTC). Ova jedinica je obično pogodnija za određivanje cena, robe i usluga.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="bitkoin">Bitkoin</h2>
+        <p>Bitkoin - sa početnim velikim slovom, se koristi kada objašnjavamo koncept Bitkoina, ili čitave mreže. Npr. "Učio sam danas o Bitkoin protokolu."<br>bitkoin - sa malim početnim slovom, koristimo kada pričamo o bitkoinima kao jedinici računa. Npr. "Danas sam slao bitkoine"; Često se koriste i skraćenice BTC ili XBT</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="blokcejn">Blokčejn</h2>
+        <p>Blokčejn je j<b>avna knjiga, hronološki organizovanih Bitkoin transakcija</b>. Blokčejn se deli između svih korisnika Bitkoina. Koristi se za verifikovanje postojanosti Bitkoin transakcija i da spreči <a href="#dupli-trosak">duplu potrošnju</a>.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="blok">Blok</h2>
+        <p>Blok je <b>zapis u blokčejnu (lancu blokova) koji sadrži i potvrđuje mnoštvo transakcija koje su na čekanju</b>. Optirlike svakih 10 minuta u proseku, novi blok koji sadrži transakcije dodaje se na <a href="#blokcejn">blokčejn</a> preko procesa koji se zove <a href="#rudarenje">rudarenje</a>.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="btc">BTC</h2>
+        <p>BTC je uobičajena jedinica koja se koristi za označavanje jednog bitkoina.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="potvrda">Potvrda</h2>
+        <p>Potvda znači da je transakcija <b>obrađena na mreži i da je vrlo malo verovatno da ona bude obrnuta</b>. Transakcije primaju potvrde kada se uključe u blok i za svaki kasniji <a href="/sr/vokabular#blok">blok</a>. Čak i jedna potvrda može se smatrati sigurnom za transakcije manje vrednosti, međutim za veće transakcije poput 1000$ USD, ima smisla sačekati 6 ili više potvrda. Svaka potvrda <i>eksponencijalno</i> smanjuje rizik od obrtanja transakcije.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="kriptografija">Kriptografija</h2>
+        <p>Kriptografija je grana matematike koja nam dozvoljava da napravimo <b>matematičke dokaze koji pružaju veoma visok nivo zaštite</b>. Poslovni subjetki na internetu i bankarstvu već koriste kriptografiju. U slučaju Bitkoina, kriptografija se koristi kako bi učinila nemogućim da bilo ko potroši sredstva drugog korisnika ili da korumpira <a href="#blokcejn">blokčejn</a>. Takođe se koristi i za enkripciju novčanika, tako da se on ne može koristiti bez šifre.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="dupli-trosak">Dvostrano Trošenje</h2>
+        <p>Ukoliko maliciozan korisnik pokuša da <b>potroši svoje bitkoine na dva različita primaoca u isto vreme</b>, ovo se zove duplo trošenje. Bitkoin <a href="#rudarenje">rudarenje</a> i <a href="#blokcejn">blokčejn</a> su tu da naprave koncenzus na mreži, koja od dve transakcije će biti potvrđena i smatrana validnom.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="has-stopa">Haš stopa</h2>
+        <p>Haš stopa (hash rate) <b>merna je jedinica procesne snage Bitkoin mreže</b>. Bitkoin mreža mora obavljati intenzivne matematičke operacije u cilju sigurnosti. Kada je mreža dostigla brzinu ishanja od 10 Th / s, to znači da može napraviti 10 triliona kalkulacija u sekundi.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="rudarenje">Rudarenje</h2>
+        <p>Bitkoin rudarenje je proces <b>kojim kompijuterski hardver vrši matematičke proračune za Bitkoin mrežu kako bi se potvrdile transakcije</b> i povećala bezbednost. Kao nagradu za njihove usluge, Bitkoin rudari mogu prikupljati transakcijske provizije od transakcija koje potvrde, zajedno sa novonastalim bitkoinima. Rudarenje je specijalizovano i konkurentno tržište gde su nagrade podeljene na osnovu toga kolika je količina prračuna uradjena. Ne bave se svi Bitkoin korisnici Bitkoin rudarenjem, i to nije lak načina da se dodje do novca.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="p2p">P2P</h2>
+        <p>Peer-to-peer se odnosi na sisteme koji funkcionišu kao organizovani kolektiv tako što omogućavaju svakom pojedincu direktno interakciju sa drugima. U slučaju Bitkoina, mreža je izgrađena na takav način da svaki korisnik emituje transakcije drugih korisnika. Ključno, nijedna banka nije potrebna kao treća strana.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="privatni-kljuc">Privatni kljuc</h2>
+        <p>Privatni ključ <b>je deo podatka koji vam omogućava da potrošite bitkoine sa određenog novčanika</b> putem kriptografskog <a href="#potpis">potpisa</a>. Vaši privatni ključ(evi) su uskladišteni na vašem kompijuteru ako koristite programski novčanik; oni su uskladišteni na nekom udaljenom serveru ako koristite web novčanik. Privatni ključevi ne smeju nikada da se otkrivaju zato što oni omogućavaju trošenje bitkoina sa Bitkoin računa.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="potpis">Potpis</h2>
+        <p><a href="#kriptografija">Kriptografski</a> potpis je <b>matematički mehanizam koji omogućava nekome da dokaže vlasništvo</b>. U slučaju Bitkoina, <a href="#novcanik">Bitkoin novčanik</a> i njegovi <a href="#privatni-kljuc">privatni ključ(evi)</a> su povezani su matematičkim magijom. Kada vaš Bitkoin softver potpiše transakciju sa odgovarajućim privatnim ključem, cela mreža može videti da se potpis podudara sa bitkoinima koji se troše. Međutim, ne postoji način da svet pogodi vaš privatni ključ da ukrade vaše mukom stečene bitkoine.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="novcanik">Novčanik</h2>
+        <p>Bitkoin novčanik je otprilike <b>ekvivalent fizičkom novčaniku na Bitkoin mreži</b>. Novčanik zapravo sadrži vaš <a href="#privatni-kljuc">privatni ključ(eve)</a> koji vam omogućavaju da potrošite bitkoine raspoređene u <a href="#blokcejn">lancu blokova (blokčejnu)</a>. Svaki Bitkoin novčanik može vam pokazati ukupan bilans svih bitkoina koje kontroliše i omogućava vam da platite određenu količinu određenoj osobi, baš kao pravi novčanik. Razlikuje se od kreditnih kartica sa kojima vam trgovac naplaćuje.</p>
+      </div>
+      
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/sr/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Podržite Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Doniraj</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">Uvod:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/sr/bitkoin-za-lica">Fizička lica</a>
+        </li>
+        <li>
+          <a href="/sr/bitkoin-za-preduzeca">Preduzeća</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">Programeri</a>
+        </li>
+        <li>
+          <a href="/sr/prvi-koraci">Početni koraci</a>
+        </li>
+        <li>
+          <a href="/sr/kako-to-radi">Kako funkcioniše</a>
+        </li>
+        <li>
+          <a href="/sr/trebali-bi-da-znate">Trebali bi da znate</a>
+        </li>
+        
+        <li>
+          <a href="/sr/bitkoin-papir">Osnovni dokument - beli papir</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">Sredstva:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/sr/sredstva">Sredstva</a>
+        <li>
+          <a href="/sr/menjacnice">Menjačnice</a>
+        </li>
+        <li>
+          <a href="/sr/zajednica">Zajednica</a>
+        </li>
+        <li class="active">
+          <a href="/sr/vokabular">Rečnik
+          </a>
+        </li>
+        <li>
+          <a href="/sr/dogadaji">Događaji</a>
+        </li>
+        
+          <li>
+            <a href="/sr/preuzimanje">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">Učestvujte:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/sr/podrzite-bitkoin">Podržite Bitkoin</a>
+        
+        
+        <li>
+          <a href="/sr/razvoj">Razvoj</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Drugo:</p>
+      
+      <a href="/sr/zakon">Zakon</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/sr/mediji">Mediji</a>
+      <a href="/sr/o-nama">O nama - bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>Web sjat zajednice sponzorisan od strane</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 Izbačeno pod <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT licencom</a></div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Status Mreže</a>
+        
+<ul class="lang is-expand">
+  <li><a>Srpski</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/kosa-kata">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/vocabulari">Català</a></li>
+        
+        
+          <li><a href="/da/ordliste">Dansk</a></li>
+        
+        
+          <li><a href="/de/glossar">Deutsch</a></li>
+        
+        
+          <li><a href="/en/vocabulary">English</a></li>
+        
+        
+          <li><a href="/es/vocabulario">Español</a></li>
+        
+        
+          <li><a href="/fr/vocabulaire">Français</a></li>
+        
+        
+          <li><a href="/it/glossario">Italiano</a></li>
+        
+        
+          <li><a href="/hu/szotar">Magyar</a></li>
+        
+        
+          <li><a href="/nl/woordenlijst">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/slownik">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/vocabulario">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/vocabular">Română</a></li>
+        
+        
+          <li><a href="/sl/besednjak">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/vokabular" class="active">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/ordlista">Svenska</a></li>
+        
+        
+          <li><a href="/tr/kelime-haznesi">Türkçe</a></li>
+        
+        
+          <li><a href="/el/vocabulary">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/vocabulary">български</a></li>
+        
+        
+          <li><a href="/ru/vocabulary">Русский</a></li>
+        
+        
+          <li><a href="/uk/vocabulary">Українська</a></li>
+        
+        
+          <li><a href="/ar/vocabulary">العربية</a></li>
+        
+        
+          <li><a href="/fa/vocabulary">فارسی</a></li>
+        
+        
+          <li><a href="/he/vocabulary">עברית</a></li>
+        
+        
+          <li><a href="/hi/vocabulary">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/vocabulary">한국어</a></li>
+        
+        
+          <li><a href="/ja/vocabulary">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/vocabulary">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/vocabulary">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/kosa-kata" >Bahasa Indonesia</option>
+              
+              <option value="/ca/vocabulari" >Català</option>
+              
+              <option value="/da/ordliste" >Dansk</option>
+              
+              <option value="/de/glossar" >Deutsch</option>
+              
+              <option value="/en/vocabulary" >English</option>
+              
+              <option value="/es/vocabulario" >Español</option>
+              
+              <option value="/fr/vocabulaire" >Français</option>
+              
+              <option value="/it/glossario" >Italiano</option>
+              
+              <option value="/hu/szotar" >Magyar</option>
+              
+              <option value="/nl/woordenlijst" >Nederlands</option>
+              
+              <option value="/pl/slownik" >Polski</option>
+              
+              <option value="/pt_BR/vocabulario" >Português Brasil</option>
+              
+              <option value="/ro/vocabular" >Română</option>
+              
+              <option value="/sl/besednjak" >Slovenščina</option>
+              
+              <option value="/sr/vokabular"  selected="selected">Srpski</option>
+              
+              <option value="/sv/ordlista" >Svenska</option>
+              
+              <option value="/tr/kelime-haznesi" >Türkçe</option>
+              
+              <option value="/el/vocabulary" >Ελληνικά</option>
+              
+              <option value="/bg/vocabulary" >български</option>
+              
+              <option value="/ru/vocabulary" >Русский</option>
+              
+              <option value="/uk/vocabulary" >Українська</option>
+              
+              <option value="/ar/vocabulary" >العربية</option>
+              
+              <option value="/fa/vocabulary" >فارسی</option>
+              
+              <option value="/he/vocabulary" >עברית</option>
+              
+              <option value="/hi/vocabulary" >हिन्दी</option>
+              
+              <option value="/ko/vocabulary" >한국어</option>
+              
+              <option value="/ja/vocabulary" >日本語</option>
+              
+              <option value="/zh_CN/vocabulary" >简体中文</option>
+              
+              <option value="/zh_TW/vocabulary" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">sr</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+  <script>updateToc();</script>
+<script>accordion();</script>
+<script>onScrollButton();</script>
+<script>boxShow();</script>
+
+
+
+
+
+</body>
+
+</html>

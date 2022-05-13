@@ -1,0 +1,758 @@
+<!DOCTYPE HTML>
+<html lang="tr">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Yenilik - Bitcoin</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+<link rel="stylesheet" href="/css/sans.css?1651746487">
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org is a community funded project, donations are appreciated and used to improve the website.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Make a donation
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org needs your support!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Donate to Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">Use this QR code or address below</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Or custom amount? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Or custom amount? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Optional description (for your wallet)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/tr/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">Giriş</a>
+    <ul>
+      <li><a href="/tr/bireyler-icin-bitcoin">Bireyler</a></li>
+      <li><a href="/tr/isletmeler-icin-bitcoin">İşletmeler</a></li>
+      <li><a href="https://developer.bitcoin.org/">Geliştiriciler</a></li>
+      <li><a href="/tr/baslarken">Başlarken</a></li>
+      <li><a href="/tr/nasil-calisir">Nasıl Çalışır</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">Kaynaklar</a>
+    <ul>
+      <li><a href="/tr/kaynaklar">Kaynaklar</a>
+      <li><a href="/tr/borsalari">Exchanges</a></li>
+      <li><a href="/tr/topluluk">Topluluk</a></li>
+      
+      
+      <li><a href="/tr/kelime-haznesi">Sözlük</a></li>
+      <li><a href="/tr/etkinlikler">Etkinlikler</a></li>
+      
+        <li><a href="/tr/indir">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li class="active"><a href="/tr/yenilik">Yenilik</a></li>
+  <li><a class="is-expand">Katılın</a>
+    <ul>
+      <li><a href="/tr/bitcoini-destekleyin">Bitcoin'i Destekleyin</a>
+      <li><a href="/tr/satin">Buy Bitcoin</a></li>
+      
+      <li><a href="/tr/gelistirme">Gelişim</a></li>
+    </ul>
+  </li>
+  <li><a href="/tr/sss">SSS</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>Türkçe</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/inovasi">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/innovacio">Català</a></li>
+        
+        
+          <li><a href="/da/innovation">Dansk</a></li>
+        
+        
+          <li><a href="/de/innovation">Deutsch</a></li>
+        
+        
+          <li><a href="/en/innovation">English</a></li>
+        
+        
+          <li><a href="/es/innovacion">Español</a></li>
+        
+        
+          <li><a href="/fr/innovation">Français</a></li>
+        
+        
+          <li><a href="/it/innovazione">Italiano</a></li>
+        
+        
+          <li><a href="/hu/innovacio">Magyar</a></li>
+        
+        
+          <li><a href="/nl/innovatie">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/innowacje">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/inovacao">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/inovatie">Română</a></li>
+        
+        
+          <li><a href="/sl/inovacije">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/inovacija">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/innovation">Svenska</a></li>
+        
+        
+          <li><a href="/tr/yenilik" class="active">Türkçe</a></li>
+        
+        
+          <li><a href="/el/innovation">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/innovation">български</a></li>
+        
+        
+          <li><a href="/ru/innovation">Русский</a></li>
+        
+        
+          <li><a href="/uk/innovation">Українська</a></li>
+        
+        
+          <li><a href="/ar/innovation">العربية</a></li>
+        
+        
+          <li><a href="/fa/innovation">فارسی</a></li>
+        
+        
+          <li><a href="/he/innovation">עברית</a></li>
+        
+        
+          <li><a href="/hi/innovation">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/innovation">한국어</a></li>
+        
+        
+          <li><a href="/ja/innovation">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/innovation">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/innovation">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/inovasi" >Bahasa Indonesia</option>
+            
+            <option value="/ca/innovacio" >Català</option>
+            
+            <option value="/da/innovation" >Dansk</option>
+            
+            <option value="/de/innovation" >Deutsch</option>
+            
+            <option value="/en/innovation" >English</option>
+            
+            <option value="/es/innovacion" >Español</option>
+            
+            <option value="/fr/innovation" >Français</option>
+            
+            <option value="/it/innovazione" >Italiano</option>
+            
+            <option value="/hu/innovacio" >Magyar</option>
+            
+            <option value="/nl/innovatie" >Nederlands</option>
+            
+            <option value="/pl/innowacje" >Polski</option>
+            
+            <option value="/pt_BR/inovacao" >Português Brasil</option>
+            
+            <option value="/ro/inovatie" >Română</option>
+            
+            <option value="/sl/inovacije" >Slovenščina</option>
+            
+            <option value="/sr/inovacija" >Srpski</option>
+            
+            <option value="/sv/innovation" >Svenska</option>
+            
+            <option value="/tr/yenilik"  selected="selected">Türkçe</option>
+            
+            <option value="/el/innovation" >Ελληνικά</option>
+            
+            <option value="/bg/innovation" >български</option>
+            
+            <option value="/ru/innovation" >Русский</option>
+            
+            <option value="/uk/innovation" >Українська</option>
+            
+            <option value="/ar/innovation" >العربية</option>
+            
+            <option value="/fa/innovation" >فارسی</option>
+            
+            <option value="/he/innovation" >עברית</option>
+            
+            <option value="/hi/innovation" >हिन्दी</option>
+            
+            <option value="/ko/innovation" >한국어</option>
+            
+            <option value="/ja/innovation" >日本語</option>
+            
+            <option value="/zh_CN/innovation" >简体中文</option>
+            
+            <option value="/zh_TW/innovation" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">tr</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>Ödeme yöntemlerinde yenilik</h1>
+    <p class="summarytxt">Bitcoin'in protokolü A'dan B'ye para yollanmasından ibaret değildir. Bunun yanında birçok özelliği ve henüz keşfedilmeyi bekleyen imkanları vardır. İşte burada şimdiden araştırılmış bazı teknolojiler var ve bunlar bazı durumlarda gerçek ürünlere ve servislere dönüşebilir. Bitcoin'i en iyi şekilde kullanabilecek yöntem henüz muhtemelen keşfedilmeyi bekliyor.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row card-row">
+
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/ico_control.svg?1651746487" alt="Icon" />
+      <h2 id="control">Dolandırıcılığa karşı kontrol</h2>
+      <p>Bitcoin ile eşi görülmemiş bir güvenliğe sahip olmak mümkün. Ağ kullanıcılarına geri ödeme ya da istenmeyen ödemeler gibi en yaygın dolandırıcılıklara karşı koruma sağlar ve sahtesinin yapılması mümkün değildir. Kullanıcılar kendi cüzdanlarının yedeğini alabilir ya da şifreleyebilir ve donanımsal cüzdan gelecekte para kaybını ya da çalınmasını çok zor hale getirecektir. Bitcoin kullanıcılarına paraları üzerinde tam bir hakimiyet sağlayacak şekilde tasarlanmıştır.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/accessibility.svg?1651746487" alt="Icon" />
+      <h2 id="global">Küresel erişebilirlik</h2>
+      <p>Dünyadaki bütün ödemeler birlikte işlem görebilir. Bitcoin, her hangi bir bankanın, iş yerinin ya da bireyin istediği zaman ve istediği yere, bir banka hesabına ihtiyacı olmadan güvenle para göndermeyi sağlar. Bitcoin henüz sahip olduğu kısıtlamalarından dolayı kendi ödeme sistemini çok iyi oluşturamamış bir çok ülkede kullanılabiliyor. Bitcoin ticari olarak dünya çapında etkisini arttırıyor ve bu uluslararası ticaretin gelişmesine yardımcı olabilir.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/efficiency.svg?1651746487" alt="Icon" />
+      <h2 id="cost">Uygun maliyet</h2>
+      <p>Kriptografinin kullanımı ile yavaş ve masraflı aracılar olmadan güvenli ödemeler mümkün olur . Bir Bitcoin işlemi rakipleri ile karşılaştırıldığında çok daha ucuzdur ve tamamlanması daha kısa sürer. Bu da Bitcoin'in gelecekte yaygın bir ödeme yöntemi olabilecek potansiyeli taşıdığını gösterir. Bitcoin ayrıca bir çok ülkede işçi ödemelerindeki yüksek işlem ücretlerini keserek, <a href="https://www.youtube.com/watch?v=BrRXP1tp6Kw">açlığın azalmasında</a> rol oynar.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/donation.svg?1651746487" alt="Icon" />
+      <h2 id="donation">Bahşiş ve bağışlar</h2>
+      <p>Bitcoin bir çok durumda bahşiş ve bağış ödemelerine etkili çözümler sunar. Para yollamak bir tık kadar ve bağış toplamak bir QR kodunun gösterilmesi kadar kolaydır. Bağışlar halka görünür olabilir, kar amacı gütmeyen şirketlere muazzam bir şeffaflık sunar. Doğal felaketler gibi acil durumlarda Bitcoin bağışları hızlı cevap verebilmesi nedeni ile katkı sağlayabilir.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/crowdfunding.svg?1651746487" alt="Icon" />
+      <h2 id="crowdfunding">Topluluk destekli</h2>
+      <p>Her ne kadar kullanılması henüz kolay olmasa da, Bitcoin Kickstarter tarzı kitle fonlaması kampanyalarında yani belli bir grup katılımcının paralarını rehin bıraktıkları ve sadece belirlenen hedefe ulaşılanca gönderilen bir sistemde kullanılabilir. Bu tarz güvence kontratları, bir işlemi tüm şartlar karşılanana kadar gerçekleştirmeyen Bitcoin protokolünde yerini alır. Kitle fonlaması hakkında <a href="https://en.bitcoin.it/wiki/Contracts#Example_3:_Assurance_contracts">daha fazla bilgi</a>.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/micro-payments.svg?1651746487" alt="Icon" />
+      <h2 id="micro">Mikro ödemeler</h2>
+      <p>Bitcoin bir dolar değerinde ödemeleri ve yakında çok daha düşük miktarda olan işlemleri yapabilirsiniz. Bu gibi ödemeler bugün bile rutin haldedir. Saniyeye göre ödeme yaptığınız bir internet radyosu dinlediğinizi düşünün ya da reklam görünmemesi için bir web sitesine çok düşük miktarda ödeme yaptığınızı, ya da kilobayt başı WiFi hizmeti satın aldığınızı düşünün. Bitcoin tüm bu ödemeleri yapabilecek yeteneğe sahiptir. Bitcoin mikro ödemeler hakkında <a href="https://bitcoinj.github.io/working-with-micropayments">daha fazla</a> bilgi edinin.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/mediation.svg?1651746487" alt="Icon" />
+      <h2 id="mediation">Anlaşmazlık tartışmaları</h2>
+      <p>Bitcoin çoklu imzayı kullanan yaratıcı aracılık anlaşmazlık sistemleri geliştirmek için kullanılabilir. Bu gibi bir ödeme yöntemi ile üçüncü bir kişi bir ödemeyi paraları üzerinde tam yetkiye sahip olmayan diğer kişilerin anlaşmasını haklı bulmayarak onaylayabilir ve ret edebilir. Bu servisler kullanıcılar ve Bitcoin kullanan mağazalar için rekabetçi olduğundan, büyük ihtimalle bedava bir rekabet ve yüksek kalite standartlarına liderlik edecek.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/multi-signature.svg?1651746487" alt="Icon" />
+      <h2 id="multisig">Çoklu imza hesapları</h2>
+      <p>Çoklu imza, bir işlemin gerçekleşmesi için onay vermesi belirlenmiş bazı grup ya da kişilerden tamamı onay verdiğinde bu işleme izin verir. Bir yönetim kurulu bunu, bir üyenin diğer üyelerin onayını almadan harcama yapmasını engelleyebilir. Bu ayrıca bankalar tarafından kullanıcı farklı bir bilgi sağlamadıkça, belli bir eşiğin üzerindeki ödemeleri bloklayarak hırsızlığı önlemek amacıyla kullanılabilir. </p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/trust.svg?1651746487" alt="Icon" />
+      <h2 id="trust">Güven ve dürüstlük</h2>
+      <p>Bitcoin'in, bankaların başına bela olmuş bir çok sorun için bir çözümü vardır. Seçkin hesaplama şeffaflığı, dijital kontratlar ve geri dönüşümsüz işlemleri ile Bitcoin, güven ve mutabakat sağlama amacı ile kullanılabilir. Yolsuz bankalar bu sistemde, diğer bankaların ve kişilerin harcamalarından hileli kar elde edemezler. İleride oluşacak dev bankalar Bitcoin'i destekleyerek eski dürüstlüğü geri getirebilir ve finansal dünyayı güvenilir hale getirebilirler.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/decentralization.svg?1651746487" alt="Icon" />
+      <h2 id="resiliency">Esneklik ve merkezsizleşme</h2>
+      <p>Sahip olduğu aşırı merkezsizliği ile, Bitcoin yüksek oranda esnek ve yedekli değişik bir ödeme formu yarattı. Bitcoin ile milyonlarca dolarlık ödemelerin altından askeri korumaya ihtiyaç duymadan kalkabilirsiniz. Bir bilgi merkezi gibi merkezi bir hata noktası olmadığından, sisteme saldırmak çok zor olur. Bitcoin güvenli bir yerel ve küresel finansal yöntem için önemli bir adımı temsil eder.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/transparency.svg?1651746487" alt="Icon" />
+      <h2 id="transparency">Esnek şeffaflık</h2>
+      <p>Bütün Bitcoin işlemleri halka açık ve şeffaf olmasına rağmen, değiştirilmediği taktirde bu işlemleri yapan kişilerin kimlikleri gizlidir. Bu da kişilere ve şirketlere şeffaf bir çalışma ortamı hazırlar. Mesela kar amacı gütmeyen şirketler gibi bir şirket belli bir işlemi ya da bakiyeyi sadece istediği çalışanlarına göstermeyi seçebilir ve bu şekilde herkes onların aldığı günlük ve aylık bağışlarının miktarını görebilir.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/automatization.svg?1651746487" alt="Icon" />
+      <h2 id="automation">Otomatik çözümler</h2>
+      <p>Otomatikleştirilmiş servisler genelde nakit ve kredi kartı ödemelerindeki limitlerle ve ek ücretlerle baş etmelidir. Bu, otobüs biletinden kahve makinasına her türden satış makinesini içerir. Bitcoin yeni nesil için her türlü ödeme yöntemini kesintisiz olarak karşılayabilecek şekilde tasarlanmıştır.  Kendisini sürebilen taksilerin var olduğnu hayal edin, ya da alış veriş çantanızın sıra beklemeden sizden ödeme aldığını. Pek çok fikir mümkündür.</p>
+    </div>
+
+  </div>
+</div>
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/tr/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Support Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Donate</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">Giriş:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/tr/bireyler-icin-bitcoin">Bireyler</a>
+        </li>
+        <li>
+          <a href="/tr/isletmeler-icin-bitcoin">İşletmeler</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">Geliştiriciler</a>
+        </li>
+        <li>
+          <a href="/tr/baslarken">Başlarken</a>
+        </li>
+        <li>
+          <a href="/tr/nasil-calisir">Nasıl Çalışır</a>
+        </li>
+        <li>
+          <a href="/tr/bilmeniz-gerekenler">Bilmeniz gerekenler</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">Kaynaklar:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/tr/kaynaklar">Kaynaklar</a>
+        <li>
+          <a href="/tr/borsalari">Exchanges</a>
+        </li>
+        <li>
+          <a href="/tr/topluluk">Topluluk</a>
+        </li>
+        <li>
+          <a href="/tr/kelime-haznesi">Sözlük
+          </a>
+        </li>
+        <li>
+          <a href="/tr/etkinlikler">Etkinlikler</a>
+        </li>
+        
+          <li>
+            <a href="/tr/indir">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">Katılın:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/tr/bitcoini-destekleyin">Bitcoin'i Destekleyin</a>
+        
+        
+        <li>
+          <a href="/tr/gelistirme">Gelişim</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Other:</p>
+      
+      <a href="/tr/yasal">Yasal</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/tr/basin">Basın</a>
+      <a href="/tr/hakkimizda">Bitcoin.org hakkında</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>Sponsor bir topluluğun web sitesi</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT lisansı</a> altında yayınlanmaktadır</div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Network Status</a>
+        
+<ul class="lang is-expand">
+  <li><a>Türkçe</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/inovasi">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/innovacio">Català</a></li>
+        
+        
+          <li><a href="/da/innovation">Dansk</a></li>
+        
+        
+          <li><a href="/de/innovation">Deutsch</a></li>
+        
+        
+          <li><a href="/en/innovation">English</a></li>
+        
+        
+          <li><a href="/es/innovacion">Español</a></li>
+        
+        
+          <li><a href="/fr/innovation">Français</a></li>
+        
+        
+          <li><a href="/it/innovazione">Italiano</a></li>
+        
+        
+          <li><a href="/hu/innovacio">Magyar</a></li>
+        
+        
+          <li><a href="/nl/innovatie">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/innowacje">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/inovacao">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/inovatie">Română</a></li>
+        
+        
+          <li><a href="/sl/inovacije">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/inovacija">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/innovation">Svenska</a></li>
+        
+        
+          <li><a href="/tr/yenilik" class="active">Türkçe</a></li>
+        
+        
+          <li><a href="/el/innovation">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/innovation">български</a></li>
+        
+        
+          <li><a href="/ru/innovation">Русский</a></li>
+        
+        
+          <li><a href="/uk/innovation">Українська</a></li>
+        
+        
+          <li><a href="/ar/innovation">العربية</a></li>
+        
+        
+          <li><a href="/fa/innovation">فارسی</a></li>
+        
+        
+          <li><a href="/he/innovation">עברית</a></li>
+        
+        
+          <li><a href="/hi/innovation">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/innovation">한국어</a></li>
+        
+        
+          <li><a href="/ja/innovation">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/innovation">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/innovation">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/inovasi" >Bahasa Indonesia</option>
+              
+              <option value="/ca/innovacio" >Català</option>
+              
+              <option value="/da/innovation" >Dansk</option>
+              
+              <option value="/de/innovation" >Deutsch</option>
+              
+              <option value="/en/innovation" >English</option>
+              
+              <option value="/es/innovacion" >Español</option>
+              
+              <option value="/fr/innovation" >Français</option>
+              
+              <option value="/it/innovazione" >Italiano</option>
+              
+              <option value="/hu/innovacio" >Magyar</option>
+              
+              <option value="/nl/innovatie" >Nederlands</option>
+              
+              <option value="/pl/innowacje" >Polski</option>
+              
+              <option value="/pt_BR/inovacao" >Português Brasil</option>
+              
+              <option value="/ro/inovatie" >Română</option>
+              
+              <option value="/sl/inovacije" >Slovenščina</option>
+              
+              <option value="/sr/inovacija" >Srpski</option>
+              
+              <option value="/sv/innovation" >Svenska</option>
+              
+              <option value="/tr/yenilik"  selected="selected">Türkçe</option>
+              
+              <option value="/el/innovation" >Ελληνικά</option>
+              
+              <option value="/bg/innovation" >български</option>
+              
+              <option value="/ru/innovation" >Русский</option>
+              
+              <option value="/uk/innovation" >Українська</option>
+              
+              <option value="/ar/innovation" >العربية</option>
+              
+              <option value="/fa/innovation" >فارسی</option>
+              
+              <option value="/he/innovation" >עברית</option>
+              
+              <option value="/hi/innovation" >हिन्दी</option>
+              
+              <option value="/ko/innovation" >한국어</option>
+              
+              <option value="/ja/innovation" >日本語</option>
+              
+              <option value="/zh_CN/innovation" >简体中文</option>
+              
+              <option value="/zh_TW/innovation" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">tr</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+
+</body>
+
+</html>

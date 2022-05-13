@@ -1,0 +1,821 @@
+<!DOCTYPE HTML>
+<html lang="uk">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Словник - Біткойн</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+<link rel="stylesheet" href="/css/sans.css?1651746487">
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org фінансується спільнотою. Пожертвування дуже цінуються та використовуються для покращення роботи сайту.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Пожертвувати
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org потрібна Ваша підтримка!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Пожертвування для Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">Скористайтеся QR-кодом або адресою знизу</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Інша сума? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Інша сума? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Необов'язковий опис транзакції (для Вашого гаманця)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/uk/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">Презентація</a>
+    <ul>
+      <li><a href="/uk/bitcoin-for-individuals">Приватним особам</a></li>
+      <li><a href="/uk/bitcoin-for-businesses">Бізнесу</a></li>
+      <li><a href="https://developer.bitcoin.org/">Розробникам</a></li>
+      <li><a href="/uk/getting-started">Початок роботи</a></li>
+      <li><a href="/uk/how-it-works">Як це працює</a></li>
+      
+      <li><a href="/uk/bitcoin-paper">White paper</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">Ресурси</a>
+    <ul>
+      <li><a href="/uk/resources">Ресурси</a>
+      <li><a href="/uk/exchanges">Обмінники</a></li>
+      <li><a href="/uk/community">Спільнота</a></li>
+      
+      
+      <li class="active"><a href="/uk/vocabulary">Словник</a></li>
+      <li><a href="/uk/events">Події</a></li>
+      
+        <li><a href="/uk/download">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/uk/innovation">Інновації</a></li>
+  <li><a class="is-expand">Взяти участь</a>
+    <ul>
+      <li><a href="/uk/support-bitcoin">Підтримка Біткойн</a>
+      <li><a href="/uk/buy">Buy Bitcoin</a></li>
+      
+      <li><a href="/uk/development">Розробка</a></li>
+    </ul>
+  </li>
+  <li><a href="/uk/faq">ЧаПи</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>Українська</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/kosa-kata">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/vocabulari">Català</a></li>
+        
+        
+          <li><a href="/da/ordliste">Dansk</a></li>
+        
+        
+          <li><a href="/de/glossar">Deutsch</a></li>
+        
+        
+          <li><a href="/en/vocabulary">English</a></li>
+        
+        
+          <li><a href="/es/vocabulario">Español</a></li>
+        
+        
+          <li><a href="/fr/vocabulaire">Français</a></li>
+        
+        
+          <li><a href="/it/glossario">Italiano</a></li>
+        
+        
+          <li><a href="/hu/szotar">Magyar</a></li>
+        
+        
+          <li><a href="/nl/woordenlijst">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/slownik">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/vocabulario">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/vocabular">Română</a></li>
+        
+        
+          <li><a href="/sl/besednjak">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/vokabular">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/ordlista">Svenska</a></li>
+        
+        
+          <li><a href="/tr/kelime-haznesi">Türkçe</a></li>
+        
+        
+          <li><a href="/el/vocabulary">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/vocabulary">български</a></li>
+        
+        
+          <li><a href="/ru/vocabulary">Русский</a></li>
+        
+        
+          <li><a href="/uk/vocabulary" class="active">Українська</a></li>
+        
+        
+          <li><a href="/ar/vocabulary">العربية</a></li>
+        
+        
+          <li><a href="/fa/vocabulary">فارسی</a></li>
+        
+        
+          <li><a href="/he/vocabulary">עברית</a></li>
+        
+        
+          <li><a href="/hi/vocabulary">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/vocabulary">한국어</a></li>
+        
+        
+          <li><a href="/ja/vocabulary">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/vocabulary">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/vocabulary">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/kosa-kata" >Bahasa Indonesia</option>
+            
+            <option value="/ca/vocabulari" >Català</option>
+            
+            <option value="/da/ordliste" >Dansk</option>
+            
+            <option value="/de/glossar" >Deutsch</option>
+            
+            <option value="/en/vocabulary" >English</option>
+            
+            <option value="/es/vocabulario" >Español</option>
+            
+            <option value="/fr/vocabulaire" >Français</option>
+            
+            <option value="/it/glossario" >Italiano</option>
+            
+            <option value="/hu/szotar" >Magyar</option>
+            
+            <option value="/nl/woordenlijst" >Nederlands</option>
+            
+            <option value="/pl/slownik" >Polski</option>
+            
+            <option value="/pt_BR/vocabulario" >Português Brasil</option>
+            
+            <option value="/ro/vocabular" >Română</option>
+            
+            <option value="/sl/besednjak" >Slovenščina</option>
+            
+            <option value="/sr/vokabular" >Srpski</option>
+            
+            <option value="/sv/ordlista" >Svenska</option>
+            
+            <option value="/tr/kelime-haznesi" >Türkçe</option>
+            
+            <option value="/el/vocabulary" >Ελληνικά</option>
+            
+            <option value="/bg/vocabulary" >български</option>
+            
+            <option value="/ru/vocabulary" >Русский</option>
+            
+            <option value="/uk/vocabulary"  selected="selected">Українська</option>
+            
+            <option value="/ar/vocabulary" >العربية</option>
+            
+            <option value="/fa/vocabulary" >فارسی</option>
+            
+            <option value="/he/vocabulary" >עברית</option>
+            
+            <option value="/hi/vocabulary" >हिन्दी</option>
+            
+            <option value="/ko/vocabulary" >한국어</option>
+            
+            <option value="/ja/vocabulary" >日本語</option>
+            
+            <option value="/zh_CN/vocabulary" >简体中文</option>
+            
+            <option value="/zh_TW/vocabulary" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">uk</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>Деякі біткойн-терміни, про які ви можливо чули</h1>
+    <p class="summarytxt">Біткойн впроваджує новий підхід до платежів, а це означає, що ваш словниковий запас поповниться новими слівцями. Не хвилюйтесь, навіть скромне телебачення створює нові слова! </p>
+  </div>
+</div>
+
+<div class="toc-container">
+  <div class="row toc-row">
+    <div id="toc" class="toc">
+      <div>
+        <button class="mob-sidebar-open" hidden>ALL TOPICS</button>
+        <div class="sidebar">
+          <div class="sidebar-inner vocabulary-list">
+            <button class="mob-sidebar-close" hidden></button>
+            <ul>
+            
+              <li><a href="#address">Адреса</a></li>
+            
+              <li><a href="#bit">Біт</a></li>
+            
+              <li><a href="#bitcoin">Біткойн</a></li>
+            
+              <li><a href="#block-chain">Ланцюжок блоків</a></li>
+            
+              <li><a href="#block">Блок</a></li>
+            
+              <li><a href="#btc">BTC</a></li>
+            
+              <li><a href="#confirmation">Підтвердження</a></li>
+            
+              <li><a href="#cryptography">Криптографія</a></li>
+            
+              <li><a href="#double-spend">Повторне витрачання</a></li>
+            
+              <li><a href="#hash-rate">Хешрейт</a></li>
+            
+              <li><a href="#mining">Видобуток</a></li>
+            
+              <li><a href="#p2p">P2P</a></li>
+            
+              <li><a href="#private-key">Приватний ключ</a></li>
+            
+              <li><a href="#signature">Підпис</a></li>
+            
+              <li><a href="#wallet">Гаманець</a></li>
+            
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toccontent">
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="address">Адреса</h2>
+        <p>Біткойн-адреса <b>подібна до фізичної чи електронної адреси</b>. Це єдина інформація, яку вам необхідно передати тому, хто надсилатиме вам біткоїни. Проте, важлива відмінність полягає у тому, що кожна адреса повинна використовуватись тільки для однієї транзакції.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="bit">Біт</h2>
+        <p>Біт - загальноприйнята одиниця, що використовується для позначення субодиниць біткоїну - 1 000 000 бітів дорівнює 1 біткойн (BTC або ₿). Ця одиниця зазвичай більш зручна для встановлення вартості чайових, товарів та послуг.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="bitcoin">Біткойн</h2>
+        <p>Біткойн з великої літери використовується для опису ідеї Біткойн, або системи в цілому, наприклад: "Сьогодні я вивчав інформацію про протокол Біткойн".<br>біткойн з маленької літери використовується для опису біткоїну в якості розрахункової одиниці, наприклад: "Сьогодні я надіслав десять біткоїнів"; також часто використовується його абревіатура - BTC або XBT.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="block-chain">Ланцюжок блоків</h2>
+        <p>Ланцюжок блоків - це <b>публічний запис біткойн-транзакцій</b> у хронологічному порядку. Ланцюжок блоків єдиний для усіх біткойн-кристувачів. Він використовується для перевірки незмінності біткойн-транзакцій та запобігання <a href="#double-spend">повторному витрачанню</a>.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="block">Блок</h2>
+        <p>Блок - це <b>запис у ланцюжку блоків, що містить та підтверджує багато транзакцій, що очікують підтвердження</b>. Завдяки <a href="#mining">видобутку</a>, в середньому приблизно кожні 10 хвилин до <a href="#block-chain">ланцюжка блоків</a> додається новий блок транзакцій.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="btc">BTC</h2>
+        <p>BTC - загальноприйнята одиниця, що використовується для позначення одного біткоїну (₿).</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="confirmation">Підтвердження</h2>
+        <p>Підтвердження означає, що транзакція була <b>опрацьована мережею та майже напевно не буде відмінена</b>. Транзакції отримують підтвердження тоді, коли вони включені до <a href="/uk/vocabulary#block">блоку</a> і до всіх наступних блоків. Навіть одне підтвердження вважається безпечним для транзакції невеликого розміру, тим не менше, для більших сум, таких як 1000 доларів США і більше, бажано дочекатись щонайменше 6 підтверджень. Кожне підтвердження <i>експоненціально</i> зменшує ризик звороту транзакції.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="cryptography">Криптографія</h2>
+        <p>Криптографія - це гілка математики, що дозволяє нам створювати <b>математичні докази, які забезпечують високий рівень безпеки</b>. Криптографія вже використовується у онлайн-торгівлі та банківській справі. У Біткойн криптографія використовується для унеможливлення витрачання коштів з чужого гаманця чи псування <a href="#block-chain">ланцюжка блоків</a>. Окрім цього, вона також може використовуватись для шифрування гаманця, щоб його було неможливо використовувати без паролю.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="double-spend">Повторне витрачання</h2>
+        <p>Якщо зловмисний користувач намагається <b>одночасно надіслати свої біткоїни двом різним отримувачам</b>, - це називається повторним витрачанням. <a href="#mining">Біткойн-видобуток</a> та <a href="#block-chain">ланцюжок блоків</a> існують для того, щоб мережа могла досягнути згоди з приводу того, яку з двох транзакцій підтвердити та вважати дійсною.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="hash-rate">Хешрейт</h2>
+        <p>Хешрейт - це <b>одиниця вимірювання обчислювальної потужності мережі Біткойн</b>. Мережа Біткойн повинна виконувати потужні математичні операції для забезпечення безпеки. Коли мережа досягає 10 Терахешів за секунду, це означає, що вона може виконувати 10 трильйонів розрахунків за секунду.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="mining">Видобуток</h2>
+        <p>Видобуток біткоїнів - це процес, <b>що передбачає використання апаратних ресурсів комп'ютера з метою виконання математичних розрахунків для підтвердження транзакцій</b> і забезпечення безпеки мережі Біткойн. У якості винагороди за свої послуги видобувачі можуть збирати комісії за підтверджені ними транзакції - новостворені біткоїни. Видобуток - це специфічний та конкурентний ринок, де винагорода розподіляється у відповідності до кількості виконаних розрахунків. Не всі біткойн-користувачі використовують видобуток, і це не легкий спосіб заробити гроші.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="p2p">P2P</h2>
+        <p>Термін рeer-to-peer означає <b>системи, що працюють як організована спільнота</b>, надаючи можливість кожному учаснику безпосередньо взаємодіяти з іншими. У випадку Біткойн, мережа побудована таким чином, що кожен користувач транслює транзакції інших користувачів. Ключовим моментом є те, що для роботи не потрібен ніякий банк чи інший посередник.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="private-key">Приватний ключ</h2>
+        <p>Приватний ключ - це <b>секретні дані, що підтверджують ваше право на витрачання біткоїнів з конкретного гаманця</b> за допомогою криптографічного <a href="#signature">підпису</a>. У випадку використання програми-гаманця, ваші приватні ключі зберігаються на вашому комп'ютері; якщо ж ви використовуєте веб-гаманець, вони зберігаються на віддалених серверах. Приватні ключі ніколи не варто розголошувати, так як вони дозволяють вам витрачати біткоїни з гаманця, до якого вони мають відношення.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="signature">Підпис</h2>
+        <p><a href="#cryptography">Криптографічний</a> підпис - це <b>математичний механізм, що дозволяє підтвердити право власності</b>. У випадку Біткойн, <a href="#wallet">біткойн-гаманець</a> та його <a href="#private-key">приватні ключі</a> поєднані деякою математичною магією. Коли ваша біткойн-програма підписує транзакцію за допомогою відповідного приватного ключа, уся мережа може бачити, що підпис співпадає з біткоїнами, що надсилаються. Проте, ніхто і ніде не може вгадати ваш приватний ключ з метою викрадення ваших біткоїнів, зароблених тяжкою працею.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="wallet">Гаманець</h2>
+        <p>Біткойн-гаманець - це деякою мірою <b>еквівалент фізичного гаманця у мережі Біткойн</b>. Гаманець насправді містить ваші <a href="#private-key">приватні ключі</a>, що дозволяють вам витрачати біткоїни, виділені окремому ключеві у <a href="#block-chain">ланцюжку блоків</a>. Кожен біткойн-гаманець може показати вам загальний баланс усіх біткоїнів, що знаходяться у ньому, а також дозволяє вам надсилати конкретну суму конкретній особі, так само як справжній гаманець. Гаманець відрізняється від кредитних карт, де кошти списуються торговцем.</p>
+      </div>
+      
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/uk/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Support Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Donate</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">Презентація:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/uk/bitcoin-for-individuals">Приватним особам</a>
+        </li>
+        <li>
+          <a href="/uk/bitcoin-for-businesses">Бізнесу</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">Розробникам</a>
+        </li>
+        <li>
+          <a href="/uk/getting-started">Початок роботи</a>
+        </li>
+        <li>
+          <a href="/uk/how-it-works">Як це працює</a>
+        </li>
+        <li>
+          <a href="/uk/you-need-to-know">Ви повинні це знати</a>
+        </li>
+        
+        <li>
+          <a href="/uk/bitcoin-paper">White paper</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">Ресурси:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/uk/resources">Ресурси</a>
+        <li>
+          <a href="/uk/exchanges">Обмінники</a>
+        </li>
+        <li>
+          <a href="/uk/community">Спільнота</a>
+        </li>
+        <li class="active">
+          <a href="/uk/vocabulary">Словник
+          </a>
+        </li>
+        <li>
+          <a href="/uk/events">Події</a>
+        </li>
+        
+          <li>
+            <a href="/uk/download">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">Взяти участь:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/uk/support-bitcoin">Підтримка Біткойн</a>
+        
+        
+        <li>
+          <a href="/uk/development">Розробка</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Other:</p>
+      
+      <a href="/uk/legal">Правові питання</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/uk/press">Преса</a>
+      <a href="/uk/about-us">Про bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>Спонсор веб-сайту спільноти </span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 ПЗ розповсюджується за <a href="http://opensource.org/licenses/mit-license.php" target="_blank">ліцензією MIT</a></div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Network Status</a>
+        
+<ul class="lang is-expand">
+  <li><a>Українська</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/kosa-kata">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/vocabulari">Català</a></li>
+        
+        
+          <li><a href="/da/ordliste">Dansk</a></li>
+        
+        
+          <li><a href="/de/glossar">Deutsch</a></li>
+        
+        
+          <li><a href="/en/vocabulary">English</a></li>
+        
+        
+          <li><a href="/es/vocabulario">Español</a></li>
+        
+        
+          <li><a href="/fr/vocabulaire">Français</a></li>
+        
+        
+          <li><a href="/it/glossario">Italiano</a></li>
+        
+        
+          <li><a href="/hu/szotar">Magyar</a></li>
+        
+        
+          <li><a href="/nl/woordenlijst">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/slownik">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/vocabulario">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/vocabular">Română</a></li>
+        
+        
+          <li><a href="/sl/besednjak">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/vokabular">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/ordlista">Svenska</a></li>
+        
+        
+          <li><a href="/tr/kelime-haznesi">Türkçe</a></li>
+        
+        
+          <li><a href="/el/vocabulary">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/vocabulary">български</a></li>
+        
+        
+          <li><a href="/ru/vocabulary">Русский</a></li>
+        
+        
+          <li><a href="/uk/vocabulary" class="active">Українська</a></li>
+        
+        
+          <li><a href="/ar/vocabulary">العربية</a></li>
+        
+        
+          <li><a href="/fa/vocabulary">فارسی</a></li>
+        
+        
+          <li><a href="/he/vocabulary">עברית</a></li>
+        
+        
+          <li><a href="/hi/vocabulary">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/vocabulary">한국어</a></li>
+        
+        
+          <li><a href="/ja/vocabulary">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/vocabulary">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/vocabulary">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/kosa-kata" >Bahasa Indonesia</option>
+              
+              <option value="/ca/vocabulari" >Català</option>
+              
+              <option value="/da/ordliste" >Dansk</option>
+              
+              <option value="/de/glossar" >Deutsch</option>
+              
+              <option value="/en/vocabulary" >English</option>
+              
+              <option value="/es/vocabulario" >Español</option>
+              
+              <option value="/fr/vocabulaire" >Français</option>
+              
+              <option value="/it/glossario" >Italiano</option>
+              
+              <option value="/hu/szotar" >Magyar</option>
+              
+              <option value="/nl/woordenlijst" >Nederlands</option>
+              
+              <option value="/pl/slownik" >Polski</option>
+              
+              <option value="/pt_BR/vocabulario" >Português Brasil</option>
+              
+              <option value="/ro/vocabular" >Română</option>
+              
+              <option value="/sl/besednjak" >Slovenščina</option>
+              
+              <option value="/sr/vokabular" >Srpski</option>
+              
+              <option value="/sv/ordlista" >Svenska</option>
+              
+              <option value="/tr/kelime-haznesi" >Türkçe</option>
+              
+              <option value="/el/vocabulary" >Ελληνικά</option>
+              
+              <option value="/bg/vocabulary" >български</option>
+              
+              <option value="/ru/vocabulary" >Русский</option>
+              
+              <option value="/uk/vocabulary"  selected="selected">Українська</option>
+              
+              <option value="/ar/vocabulary" >العربية</option>
+              
+              <option value="/fa/vocabulary" >فارسی</option>
+              
+              <option value="/he/vocabulary" >עברית</option>
+              
+              <option value="/hi/vocabulary" >हिन्दी</option>
+              
+              <option value="/ko/vocabulary" >한국어</option>
+              
+              <option value="/ja/vocabulary" >日本語</option>
+              
+              <option value="/zh_CN/vocabulary" >简体中文</option>
+              
+              <option value="/zh_TW/vocabulary" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">uk</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+  <script>updateToc();</script>
+<script>accordion();</script>
+<script>onScrollButton();</script>
+<script>boxShow();</script>
+
+
+
+
+
+</body>
+
+</html>

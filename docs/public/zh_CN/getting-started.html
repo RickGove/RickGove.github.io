@@ -1,0 +1,811 @@
+<!DOCTYPE HTML>
+<html lang="zh_CN">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>入门指南 - 比特币</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+<link rel="stylesheet" href="/css/sans.css?1651746487">
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org 是一个社区支持的社区，我们十分感谢任何捐助。这些捐助会用于改进网站。
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        捐助
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org 需要你的帮助！
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">捐助Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">使用下方二维码或地址</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="或者自定义数量？ (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="或者自定义数量？ (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="（你的钱包的）可选描述"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/zh_CN/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">介绍</a>
+    <ul>
+      <li><a href="/zh_CN/bitcoin-for-individuals">个人</a></li>
+      <li><a href="/zh_CN/bitcoin-for-businesses">商家</a></li>
+      <li><a href="https://developer.bitcoin.org/">开发者</a></li>
+      <li class="active"><a href="/zh_CN/getting-started">入门指南</a></li>
+      <li><a href="/zh_CN/how-it-works">工作原理</a></li>
+      
+      <li><a href="/zh_CN/bitcoin-paper">White paper</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">资源</a>
+    <ul>
+      <li><a href="/zh_CN/resources">资源</a>
+      <li><a href="/zh_CN/exchanges">兑换</a></li>
+      <li><a href="/zh_CN/community">社区</a></li>
+      
+      
+      <li><a href="/zh_CN/vocabulary">词汇表</a></li>
+      <li><a href="/zh_CN/events">活动</a></li>
+      
+        <li><a href="/zh_CN/download">比特币核心</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/zh_CN/innovation">创新</a></li>
+  <li><a class="is-expand">参与</a>
+    <ul>
+      <li><a href="/zh_CN/support-bitcoin">支持比特币</a>
+      <li><a href="/zh_CN/buy">购买比特币</a></li>
+      
+      <li><a href="/zh_CN/development">开发</a></li>
+    </ul>
+  </li>
+  <li><a href="/zh_CN/faq">常见问题</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>简体中文</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/memulai">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/iniciat">Català</a></li>
+        
+        
+          <li><a href="/da/kom-i-gang">Dansk</a></li>
+        
+        
+          <li><a href="/de/erste-schritte">Deutsch</a></li>
+        
+        
+          <li><a href="/en/getting-started">English</a></li>
+        
+        
+          <li><a href="/es/como-empezar">Español</a></li>
+        
+        
+          <li><a href="/fr/debuter">Français</a></li>
+        
+        
+          <li><a href="/it/come-iniziare">Italiano</a></li>
+        
+        
+          <li><a href="/hu/vagjon-bele">Magyar</a></li>
+        
+        
+          <li><a href="/nl/aan-de-slag">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/pierwsze-kroki">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/comecando">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/notiuni-de-baza">Română</a></li>
+        
+        
+          <li><a href="/sl/prvi-koraki">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/prvi-koraci">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/kom-igang">Svenska</a></li>
+        
+        
+          <li><a href="/tr/baslarken">Türkçe</a></li>
+        
+        
+          <li><a href="/el/getting-started">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/getting-started">български</a></li>
+        
+        
+          <li><a href="/ru/getting-started">Русский</a></li>
+        
+        
+          <li><a href="/uk/getting-started">Українська</a></li>
+        
+        
+          <li><a href="/ar/getting-started">العربية</a></li>
+        
+        
+          <li><a href="/fa/getting-started">فارسی</a></li>
+        
+        
+          <li><a href="/he/getting-started">עברית</a></li>
+        
+        
+          <li><a href="/hi/getting-started">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/getting-started">한국어</a></li>
+        
+        
+          <li><a href="/ja/getting-started">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/getting-started" class="active">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/getting-started">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/memulai" >Bahasa Indonesia</option>
+            
+            <option value="/ca/iniciat" >Català</option>
+            
+            <option value="/da/kom-i-gang" >Dansk</option>
+            
+            <option value="/de/erste-schritte" >Deutsch</option>
+            
+            <option value="/en/getting-started" >English</option>
+            
+            <option value="/es/como-empezar" >Español</option>
+            
+            <option value="/fr/debuter" >Français</option>
+            
+            <option value="/it/come-iniziare" >Italiano</option>
+            
+            <option value="/hu/vagjon-bele" >Magyar</option>
+            
+            <option value="/nl/aan-de-slag" >Nederlands</option>
+            
+            <option value="/pl/pierwsze-kroki" >Polski</option>
+            
+            <option value="/pt_BR/comecando" >Português Brasil</option>
+            
+            <option value="/ro/notiuni-de-baza" >Română</option>
+            
+            <option value="/sl/prvi-koraki" >Slovenščina</option>
+            
+            <option value="/sr/prvi-koraci" >Srpski</option>
+            
+            <option value="/sv/kom-igang" >Svenska</option>
+            
+            <option value="/tr/baslarken" >Türkçe</option>
+            
+            <option value="/el/getting-started" >Ελληνικά</option>
+            
+            <option value="/bg/getting-started" >български</option>
+            
+            <option value="/ru/getting-started" >Русский</option>
+            
+            <option value="/uk/getting-started" >Українська</option>
+            
+            <option value="/ar/getting-started" >العربية</option>
+            
+            <option value="/fa/getting-started" >فارسی</option>
+            
+            <option value="/he/getting-started" >עברית</option>
+            
+            <option value="/hi/getting-started" >हिन्दी</option>
+            
+            <option value="/ko/getting-started" >한국어</option>
+            
+            <option value="/ja/getting-started" >日本語</option>
+            
+            <option value="/zh_CN/getting-started"  selected="selected">简体中文</option>
+            
+            <option value="/zh_TW/getting-started" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">zh_CN</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>比特币入门指南</h1>
+    <p class="summary">使用比特币交易对于所有人都是简单易用的。</p>
+  </div>
+</div>
+
+<div class="row startbar">
+  <a class="startbar-link" href="#start-section-1">如何使用比特币</a>
+  <a class="startbar-link" href="#start-section-2">如何接受比特币</a>
+</div>
+
+<div class="container">
+  <div id="start-section-1" class="starttitle">
+    <span>如何使用比特币</span>
+  </div>
+  
+  <div class="start">
+    <div class="start-block">
+      <div class="start-content">
+        <div class="left-column">
+          <h2 id="inform">
+            告诉自己</h2>
+          <p>比特币与你日常所知道的、所用到的都不同。在开始使用它之前，先了解一些注意事项可以增加安全性和避免常见的陷阱。</p>
+          <div>
+            <a class="btn-bright" href="/zh_CN/you-need-to-know">了解更多</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="start-block">
+      <div class="start-content">
+        <div class="right-column">
+          <h2 id="choose">
+            选择钱包</h2>
+          <p>各个主流平台都有免费且满足各种需求的比特币钱包。例如，你可以在移动设备上安装一个日常使用的应用，或者在电脑上安装一个只用于网上付款的钱包。不管怎样，选择和安装钱包都十分便捷。</p>
+          <div>
+            <a class="btn-bright" href="/zh_CN/choose-your-wallet">选择钱包</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="start-block">
+      <div class="start-content">
+        <div class="left-column">
+          <h2 id="get">
+            获取比特币</h2>
+          <p>你可以接受比特币作为商品或服务的支付方式，也可以通过许多方式购买比特币。</p>
+          <div>
+            <a class="btn-bright" href="/zh_CN/buy">购买比特币</a>
+          </div>
+       </div>
+      </div>
+    </div>
+
+    <div class="start-block">
+      <div class="start-content">
+        <div class="right-column">
+          <h2 id="spend">
+            花费比特币</h2>
+          <p>世界上接受比特币付款的服务和商家正在逐渐增多。你可以在他们那里用比特币付款，并为你的购物体验评分来帮助这些商家获得更多的知名度。</p>
+          <div>
+            <a class="btn-bright" href="/zh_CN/spend-bitcoin">寻找商家和产品</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="start-section-2" class="starttitle">
+    <span>如何接受比特币</span>
+  </div>
+  
+  <div class="start">
+    <div class="start-block">
+      <div class="start-content">
+        <div class="left-column">
+          <h2 id="merchantinform">
+            告诉你自己</h2>
+          <p>比特币不需要商家改变习惯，但是比特币不同于你日常所知所用的东西。在开始使用比特币之前，你需要先了解一些注意事项以便安全使用比特币以及避免常见的陷阱。</p>
+          <div>
+            <a class="btn-bright" href="/zh_CN/you-need-to-know">阅读更多</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="start-block">
+      <div class="start-content">
+        <div class="right-column">
+          <h2 id="merchantservice">
+            支付处理</h2>
+          <p>你可以自己处理支付和发票，或者你可以使用商户服务将资金存为当地货币或比特币。大部分销售点业务使用平板电脑或者手机，让顾客可以用他们的手机进行支付。</p>
+          <div>
+            <a class="btn-bright" href="https://en.bitcoin.it/wiki/How_to_accept_Bitcoin,_for_small_businesses#Merchant_Services">寻找商户服务</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="start-block">
+      <div class="start-content">
+        <div class="left-column">
+          <h2 id="tax">
+            会计与税收</h2>
+          <p>商家通常用当地货币进行存款和标价。在其他情况下，比特币则相当于一种国外货币。你需要联系一个有资质的会计师以获得关于如何符合当地税收规定的适当指导。</p>
+          <div>
+            <a class="btn-bright" href="https://en.bitcoin.it/wiki/Tax_compliance">阅读更多</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="start-block">
+      <div class="start-content">
+        <div class="right-column">
+          <h2 id="visibility">
+            获得知名度</h2>
+          <p>越来越多的用户在寻找消费他们比特币的途径。你可以向网上目录提交你的业务，帮助用户轻松找到你。你也可以在你的网站或者实体企业中展示 <a href="https://en.bitcoin.it/wiki/Promotional_graphics">比特币标识</a>。</p>
+          <div>
+            <a class="btn-bright" href="/zh_CN/spend-bitcoin">提交你的业务</a>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+  </div>
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/zh_CN/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">支持Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">捐助</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">介绍:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/zh_CN/bitcoin-for-individuals">个人</a>
+        </li>
+        <li>
+          <a href="/zh_CN/bitcoin-for-businesses">商家</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">开发者</a>
+        </li>
+        <li class="active">
+          <a href="/zh_CN/getting-started">入门指南</a>
+        </li>
+        <li>
+          <a href="/zh_CN/how-it-works">工作原理</a>
+        </li>
+        <li>
+          <a href="/zh_CN/you-need-to-know">注意事项</a>
+        </li>
+        
+        <li>
+          <a href="/zh_CN/bitcoin-paper">White paper</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">资源:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/zh_CN/resources">资源</a>
+        <li>
+          <a href="/zh_CN/exchanges">兑换</a>
+        </li>
+        <li>
+          <a href="/zh_CN/community">社区</a>
+        </li>
+        <li>
+          <a href="/zh_CN/vocabulary">词汇表
+          </a>
+        </li>
+        <li>
+          <a href="/zh_CN/events">活动</a>
+        </li>
+        
+          <li>
+            <a href="/zh_CN/download">比特币核心</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">参与:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/zh_CN/support-bitcoin">支持比特币</a>
+        
+        
+        <li>
+          <a href="/zh_CN/development">开发</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">其他:</p>
+      
+      <a href="/zh_CN/legal">法律</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/zh_CN/press">新闻媒体</a>
+      <a href="/zh_CN/about-us">关于bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>社区网站主办方：</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 基于<a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT协议</a>授权发布</div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Network Status</a>
+        
+<ul class="lang is-expand">
+  <li><a>简体中文</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/memulai">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/iniciat">Català</a></li>
+        
+        
+          <li><a href="/da/kom-i-gang">Dansk</a></li>
+        
+        
+          <li><a href="/de/erste-schritte">Deutsch</a></li>
+        
+        
+          <li><a href="/en/getting-started">English</a></li>
+        
+        
+          <li><a href="/es/como-empezar">Español</a></li>
+        
+        
+          <li><a href="/fr/debuter">Français</a></li>
+        
+        
+          <li><a href="/it/come-iniziare">Italiano</a></li>
+        
+        
+          <li><a href="/hu/vagjon-bele">Magyar</a></li>
+        
+        
+          <li><a href="/nl/aan-de-slag">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/pierwsze-kroki">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/comecando">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/notiuni-de-baza">Română</a></li>
+        
+        
+          <li><a href="/sl/prvi-koraki">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/prvi-koraci">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/kom-igang">Svenska</a></li>
+        
+        
+          <li><a href="/tr/baslarken">Türkçe</a></li>
+        
+        
+          <li><a href="/el/getting-started">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/getting-started">български</a></li>
+        
+        
+          <li><a href="/ru/getting-started">Русский</a></li>
+        
+        
+          <li><a href="/uk/getting-started">Українська</a></li>
+        
+        
+          <li><a href="/ar/getting-started">العربية</a></li>
+        
+        
+          <li><a href="/fa/getting-started">فارسی</a></li>
+        
+        
+          <li><a href="/he/getting-started">עברית</a></li>
+        
+        
+          <li><a href="/hi/getting-started">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/getting-started">한국어</a></li>
+        
+        
+          <li><a href="/ja/getting-started">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/getting-started" class="active">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/getting-started">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/memulai" >Bahasa Indonesia</option>
+              
+              <option value="/ca/iniciat" >Català</option>
+              
+              <option value="/da/kom-i-gang" >Dansk</option>
+              
+              <option value="/de/erste-schritte" >Deutsch</option>
+              
+              <option value="/en/getting-started" >English</option>
+              
+              <option value="/es/como-empezar" >Español</option>
+              
+              <option value="/fr/debuter" >Français</option>
+              
+              <option value="/it/come-iniziare" >Italiano</option>
+              
+              <option value="/hu/vagjon-bele" >Magyar</option>
+              
+              <option value="/nl/aan-de-slag" >Nederlands</option>
+              
+              <option value="/pl/pierwsze-kroki" >Polski</option>
+              
+              <option value="/pt_BR/comecando" >Português Brasil</option>
+              
+              <option value="/ro/notiuni-de-baza" >Română</option>
+              
+              <option value="/sl/prvi-koraki" >Slovenščina</option>
+              
+              <option value="/sr/prvi-koraci" >Srpski</option>
+              
+              <option value="/sv/kom-igang" >Svenska</option>
+              
+              <option value="/tr/baslarken" >Türkçe</option>
+              
+              <option value="/el/getting-started" >Ελληνικά</option>
+              
+              <option value="/bg/getting-started" >български</option>
+              
+              <option value="/ru/getting-started" >Русский</option>
+              
+              <option value="/uk/getting-started" >Українська</option>
+              
+              <option value="/ar/getting-started" >العربية</option>
+              
+              <option value="/fa/getting-started" >فارسی</option>
+              
+              <option value="/he/getting-started" >עברית</option>
+              
+              <option value="/hi/getting-started" >हिन्दी</option>
+              
+              <option value="/ko/getting-started" >한국어</option>
+              
+              <option value="/ja/getting-started" >日本語</option>
+              
+              <option value="/zh_CN/getting-started"  selected="selected">简体中文</option>
+              
+              <option value="/zh_TW/getting-started" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">zh_CN</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+
+</body>
+
+</html>

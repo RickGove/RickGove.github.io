@@ -1,0 +1,758 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Innovation - Bitcoin</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org is a community funded project, donations are appreciated and used to improve the website.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Make a donation
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org needs your support!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Donate to Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">Use this QR code or address below</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Or custom amount? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Or custom amount? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Optional description (for your wallet)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/fr/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">Introduction</a>
+    <ul>
+      <li><a href="/fr/bitcoin-pour-particuliers">Particuliers</a></li>
+      <li><a href="/fr/bitcoin-pour-entreprises">Entreprises</a></li>
+      <li><a href="https://developer.bitcoin.org/">Développeurs</a></li>
+      <li><a href="/fr/debuter">Débuter</a></li>
+      <li><a href="/fr/comment-ca-marche">Comment ça marche</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">Ressources</a>
+    <ul>
+      <li><a href="/fr/ressources">Ressources</a>
+      <li><a href="/fr/des-echanges">Exchanges</a></li>
+      <li><a href="/fr/communaute">Communauté</a></li>
+      
+      
+      <li><a href="/fr/vocabulaire">Vocabulaire</a></li>
+      <li><a href="/fr/evenements">Événements</a></li>
+      
+        <li><a href="/fr/telecharger">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li class="active"><a href="/fr/innovation">Innovation</a></li>
+  <li><a class="is-expand">Participer</a>
+    <ul>
+      <li><a href="/fr/supporter-bitcoin">Soutenir Bitcoin</a>
+      <li><a href="/fr/acheter">Buy Bitcoin</a></li>
+      
+      <li><a href="/fr/developpement">Développement</a></li>
+    </ul>
+  </li>
+  <li><a href="/fr/faq">FAQ</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>Français</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/inovasi">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/innovacio">Català</a></li>
+        
+        
+          <li><a href="/da/innovation">Dansk</a></li>
+        
+        
+          <li><a href="/de/innovation">Deutsch</a></li>
+        
+        
+          <li><a href="/en/innovation">English</a></li>
+        
+        
+          <li><a href="/es/innovacion">Español</a></li>
+        
+        
+          <li><a href="/fr/innovation" class="active">Français</a></li>
+        
+        
+          <li><a href="/it/innovazione">Italiano</a></li>
+        
+        
+          <li><a href="/hu/innovacio">Magyar</a></li>
+        
+        
+          <li><a href="/nl/innovatie">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/innowacje">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/inovacao">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/inovatie">Română</a></li>
+        
+        
+          <li><a href="/sl/inovacije">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/inovacija">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/innovation">Svenska</a></li>
+        
+        
+          <li><a href="/tr/yenilik">Türkçe</a></li>
+        
+        
+          <li><a href="/el/innovation">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/innovation">български</a></li>
+        
+        
+          <li><a href="/ru/innovation">Русский</a></li>
+        
+        
+          <li><a href="/uk/innovation">Українська</a></li>
+        
+        
+          <li><a href="/ar/innovation">العربية</a></li>
+        
+        
+          <li><a href="/fa/innovation">فارسی</a></li>
+        
+        
+          <li><a href="/he/innovation">עברית</a></li>
+        
+        
+          <li><a href="/hi/innovation">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/innovation">한국어</a></li>
+        
+        
+          <li><a href="/ja/innovation">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/innovation">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/innovation">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/inovasi" >Bahasa Indonesia</option>
+            
+            <option value="/ca/innovacio" >Català</option>
+            
+            <option value="/da/innovation" >Dansk</option>
+            
+            <option value="/de/innovation" >Deutsch</option>
+            
+            <option value="/en/innovation" >English</option>
+            
+            <option value="/es/innovacion" >Español</option>
+            
+            <option value="/fr/innovation"  selected="selected">Français</option>
+            
+            <option value="/it/innovazione" >Italiano</option>
+            
+            <option value="/hu/innovacio" >Magyar</option>
+            
+            <option value="/nl/innovatie" >Nederlands</option>
+            
+            <option value="/pl/innowacje" >Polski</option>
+            
+            <option value="/pt_BR/inovacao" >Português Brasil</option>
+            
+            <option value="/ro/inovatie" >Română</option>
+            
+            <option value="/sl/inovacije" >Slovenščina</option>
+            
+            <option value="/sr/inovacija" >Srpski</option>
+            
+            <option value="/sv/innovation" >Svenska</option>
+            
+            <option value="/tr/yenilik" >Türkçe</option>
+            
+            <option value="/el/innovation" >Ελληνικά</option>
+            
+            <option value="/bg/innovation" >български</option>
+            
+            <option value="/ru/innovation" >Русский</option>
+            
+            <option value="/uk/innovation" >Українська</option>
+            
+            <option value="/ar/innovation" >العربية</option>
+            
+            <option value="/fa/innovation" >فارسی</option>
+            
+            <option value="/he/innovation" >עברית</option>
+            
+            <option value="/hi/innovation" >हिन्दी</option>
+            
+            <option value="/ko/innovation" >한국어</option>
+            
+            <option value="/ja/innovation" >日本語</option>
+            
+            <option value="/zh_CN/innovation" >简体中文</option>
+            
+            <option value="/zh_TW/innovation" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">fr</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>Innovation dans les systèmes de paiement</h1>
+    <p class="summarytxt">Le protocole Bitcoin ne se limite pas à envoyer de l'argent de A à B. Il intègre de nombreuses fonctions et ouvre la porte à une multitude de possibilités qui sont encore explorées par la communauté. Voici quelques-unes des technologies en cours de développement, dont certaines sont devenues des produits et services bien réels. Les utilisations les plus intéressantes de Bitcoin restent sans aucun doute à découvrir.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row card-row">
+
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/ico_control.svg?1651746487" alt="Icon" />
+      <h2 id="control">Contrôle contre la fraude</h2>
+      <p>Un niveau de sécurité sans précédent est possible avec Bitcoin. Le réseau fournit aux utilisateurs une haute protection contre les fraudes les plus répandues telles que les rejets de débit ou les facturations imprévues et la contrefaçon de bitcoins est impossible. Les utilisateurs peuvent sauvegarder ou chiffrer leurs portefeuilles et les portefeuilles matériels pourraient grandement limiter les pertes ou les vols dans le futur. Bitcoin est conçu pour permettre à ses utilisateurs d'avoir un contrôle complet sur leur argent.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/accessibility.svg?1651746487" alt="Icon" />
+      <h2 id="global">Accessibilité globale</h2>
+      <p>Tous les paiements effectués dans le monde peuvent être entièrement interopérables. Bitcoin permet à toute banque, entreprise ou individu d'envoyer et recevoir des paiements de façon sécurisée, partout, à tout moment, avec ou sans compte bancaire. Bitcoin est disponible dans un grand nombre de pays qui demeurent hors de portée pour la majorité des systèmes de paiement en raison de leurs propres limitations. Bitcoin augmente l'accès global au commerce et il peut aider les échanges internationaux à prospérer.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/efficiency.svg?1651746487" alt="Icon" />
+      <h2 id="cost">Coûts et efficacité</h2>
+      <p>L'utilisation de la cryptographie permet l'existence de paiements sécurisés sans intermédiaires lents et coûteux. Une transaction Bitcoin peut être beaucoup plus économique et se compléter dans un court délai. Ce qui signifie que Bitcoin pourrait présenter le potentiel de devenir un moyen commun pour effectuer des transferts dans toutes les devises. Bitcoin pourrait également jouer un rôle de <a href="https://www.youtube.com/watch?v=BrRXP1tp6Kw">réduction de la pauvreté</a> dans plusieurs pays en diminuant les frais élevés de transaction sur le salaire des travailleurs.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/donation.svg?1651746487" alt="Icon" />
+      <h2 id="donation">Dons et pourboires</h2>
+      <p>Bitcoin s'est avéré être une solution particulièrement efficace pour les pourboires et les dons dans plusieurs cas. Envoyer un paiement ne requiert qu'un clic et recevoir des dons peut être aussi simple que d'afficher un code QR. Les dons peuvent être visibles pour le public, offrant une plus grande transparence pour les organisations sans but lucratif. Dans des cas d'urgence tels que des désastres naturels, les dons avec Bitcoin pourraient contribuer à déployer une réponse internationale plus rapide.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/crowdfunding.svg?1651746487" alt="Icon" />
+      <h2 id="crowdfunding">Financement participatif</h2>
+      <p>Bien que cette fonction ne soit pas encore facile à utiliser, Bitcoin peut être utilisé pour effectuer des campagnes de financement participatif à la manière de Kickstarter, dans lesquelles des individus s'engagent à verser de l'argent à un projet à condition que l'objectif de financement soit atteint. De tels contrats d'assurance sont traités par le protocole Bitcoin qui empêche à une transaction d'avoir lieu tant que les conditions n'ont pas toutes été remplies.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/micro-payments.svg?1651746487" alt="Icon" />
+      <h2 id="micro">Micro paiements</h2>
+      <p>Bitcoin peut traiter des paiements de l'ordre d'un dollar et bientôt de bien plus petites transactions. De tels paiements sont courants même de nos jours. Imaginez une radio sur Internet payable à la seconde, visionner des pages Web avec un petit pourboire pour chaque publicité non affichée ou acheter de la bande-passante d'un point d'accès Wi-Fi au kilo-octet. Bitcoin est suffisamment efficace pour rendre possible toutes ces idées. <a href="https://bitcoinj.github.io/working-with-micropayments">En savoir plus</a> sur la technologie derrière les micro paiements Bitcoin.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/mediation.svg?1651746487" alt="Icon" />
+      <h2 id="mediation">Médiation de litiges</h2>
+      <p>Grâce aux signatures multiples, Bitcoin peut être utilisé pour développer des services de médiation de litiges innovants. De tels services pourraient permettre à un tiers d'autoriser ou de refuser une transaction en cas de désaccord entre les autres partis sans avoir de contrôle sur leur argent. Puisque ces services seraient compatibles avec tous les utilisateurs et tous les commerces utilisant Bitcoin, la libre concurrence et de meilleurs standards de qualité s'en trouveraient certainement favorisés.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/multi-signature.svg?1651746487" alt="Icon" />
+      <h2 id="multisig">Comptes multi-signatures</h2>
+      <p>Les signatures multiples permettent à une transaction d'être acceptée par le réseau seulement si un certain nombre d'un groupe défini de personnes est d'accord pour signer une transaction. Ceci pourrait être utilisé par un conseil d'administration afin d'empêcher à tout membre d'effectuer une dépense sans le consentement d'autres membres, ou par les banques pour empêcher le vol en bloquant les paiements au-dessus d'une certaine limite si l'utilisateur ne fournit pas d'informations d'authentification supplémentaires.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/trust.svg?1651746487" alt="Icon" />
+      <h2 id="trust">Confiance et intégrité</h2>
+      <p>Bitcoin offre des solutions à plusieurs problèmes liés à la confiance, un fléau pour les banques. Avec la transparence comptable sélective, les transactions irréversibles et les contrats numériques, Bitcoin peut être utilisé comme fondation pour rétablir la confiance et les accords. Les banques malhonnêtes ne peuvent pas escroquer le système au frais des autres banques ou du public. Un futur dans lequel les grandes banques utiliseraient Bitcoin pourrait aider à réinstaurer l'intégrité et la confiance dans les institutions financières.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/decentralization.svg?1651746487" alt="Icon" />
+      <h2 id="resiliency">Résilience et décentralisation</h2>
+      <p>Grâce à sa grande décentralisation, Bitcoin a créé une forme différente de réseau de paiement doté d'un niveau accru de résilience et de redondance. Bitcoin peut supporter des millions de dollars en transactions sans nécessiter de protection militaire. Sans point central de défaillance tel qu'un centre de données, attaquer le réseau est un projet qui peut s'avérer beaucoup plus difficile. Bitcoin pourrait représenter un avancement intéressant dans la sécurisation des systèmes financiers locaux et internationaux.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/transparency.svg?1651746487" alt="Icon" />
+      <h2 id="transparency">Transparence flexible</h2>
+      <p>Toutes les transactions Bitcoin sont publiques et transparentes et l'identité des personnes derrière les paiements est privée par défaut. Ceci permet aux individus et aux organisations de travailler avec des règles de transparence flexibles. Par exemple, une entreprise peut choisir de révéler certains soldes et transactions uniquement à certains employés, de la même façon qu'une organisation sans but lucratif est libre de permettre au public de visualiser combien elle reçoit en dons journaliers et mensuels.</p>
+    </div>
+    
+    <div class="card innovation-card">
+      <img class="titleicon" src="/img/icons/automatization.svg?1651746487" alt="Icon" />
+      <h2 id="automation">Solutions automatisées</h2>
+      <p>Les services automatisés doivent habituellement composer avec les limites et les coûts qu'imposent les paiements en argent liquide ou par cartes de crédits. Ceci inclut toutes sortes des distributrices automatiques, des billetteries aux machines à café. Bitcoin est adapté pour être utilisé dans une nouvelle génération de services et pour diminuer leurs frais d'exploitation. Imaginez des taxis auto-pilotés, ou une boutique dans laquelle votre panier vous permet de payer vos achats sans faire la file. Plusieurs idées sont possibles.</p>
+    </div>
+
+  </div>
+</div>
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/fr/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Support Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Donate</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">Introduction:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/fr/bitcoin-pour-particuliers">Particuliers</a>
+        </li>
+        <li>
+          <a href="/fr/bitcoin-pour-entreprises">Entreprises</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">Développeurs</a>
+        </li>
+        <li>
+          <a href="/fr/debuter">Débuter</a>
+        </li>
+        <li>
+          <a href="/fr/comment-ca-marche">Comment ça marche</a>
+        </li>
+        <li>
+          <a href="/fr/vous-devez-savoir">Vous devez savoir</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">Ressources:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/fr/ressources">Ressources</a>
+        <li>
+          <a href="/fr/des-echanges">Exchanges</a>
+        </li>
+        <li>
+          <a href="/fr/communaute">Communauté</a>
+        </li>
+        <li>
+          <a href="/fr/vocabulaire">Vocabulaire
+          </a>
+        </li>
+        <li>
+          <a href="/fr/evenements">Événements</a>
+        </li>
+        
+          <li>
+            <a href="/fr/telecharger">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">Participer:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/fr/supporter-bitcoin">Soutenir Bitcoin</a>
+        
+        
+        <li>
+          <a href="/fr/developpement">Développement</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Other:</p>
+      
+      <a href="/fr/legal">Légal</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/fr/presse">Presse</a>
+      <a href="/fr/a-propos-de-nous">À propos de bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>Un site web communautaire commandité par</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 Publié sous la <a href="http://opensource.org/licenses/mit-license.php" target="_blank">licence MIT</a></div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Network Status</a>
+        
+<ul class="lang is-expand">
+  <li><a>Français</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/inovasi">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/innovacio">Català</a></li>
+        
+        
+          <li><a href="/da/innovation">Dansk</a></li>
+        
+        
+          <li><a href="/de/innovation">Deutsch</a></li>
+        
+        
+          <li><a href="/en/innovation">English</a></li>
+        
+        
+          <li><a href="/es/innovacion">Español</a></li>
+        
+        
+          <li><a href="/fr/innovation" class="active">Français</a></li>
+        
+        
+          <li><a href="/it/innovazione">Italiano</a></li>
+        
+        
+          <li><a href="/hu/innovacio">Magyar</a></li>
+        
+        
+          <li><a href="/nl/innovatie">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/innowacje">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/inovacao">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/inovatie">Română</a></li>
+        
+        
+          <li><a href="/sl/inovacije">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/inovacija">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/innovation">Svenska</a></li>
+        
+        
+          <li><a href="/tr/yenilik">Türkçe</a></li>
+        
+        
+          <li><a href="/el/innovation">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/innovation">български</a></li>
+        
+        
+          <li><a href="/ru/innovation">Русский</a></li>
+        
+        
+          <li><a href="/uk/innovation">Українська</a></li>
+        
+        
+          <li><a href="/ar/innovation">العربية</a></li>
+        
+        
+          <li><a href="/fa/innovation">فارسی</a></li>
+        
+        
+          <li><a href="/he/innovation">עברית</a></li>
+        
+        
+          <li><a href="/hi/innovation">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/innovation">한국어</a></li>
+        
+        
+          <li><a href="/ja/innovation">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/innovation">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/innovation">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/inovasi" >Bahasa Indonesia</option>
+              
+              <option value="/ca/innovacio" >Català</option>
+              
+              <option value="/da/innovation" >Dansk</option>
+              
+              <option value="/de/innovation" >Deutsch</option>
+              
+              <option value="/en/innovation" >English</option>
+              
+              <option value="/es/innovacion" >Español</option>
+              
+              <option value="/fr/innovation"  selected="selected">Français</option>
+              
+              <option value="/it/innovazione" >Italiano</option>
+              
+              <option value="/hu/innovacio" >Magyar</option>
+              
+              <option value="/nl/innovatie" >Nederlands</option>
+              
+              <option value="/pl/innowacje" >Polski</option>
+              
+              <option value="/pt_BR/inovacao" >Português Brasil</option>
+              
+              <option value="/ro/inovatie" >Română</option>
+              
+              <option value="/sl/inovacije" >Slovenščina</option>
+              
+              <option value="/sr/inovacija" >Srpski</option>
+              
+              <option value="/sv/innovation" >Svenska</option>
+              
+              <option value="/tr/yenilik" >Türkçe</option>
+              
+              <option value="/el/innovation" >Ελληνικά</option>
+              
+              <option value="/bg/innovation" >български</option>
+              
+              <option value="/ru/innovation" >Русский</option>
+              
+              <option value="/uk/innovation" >Українська</option>
+              
+              <option value="/ar/innovation" >العربية</option>
+              
+              <option value="/fa/innovation" >فارسی</option>
+              
+              <option value="/he/innovation" >עברית</option>
+              
+              <option value="/hi/innovation" >हिन्दी</option>
+              
+              <option value="/ko/innovation" >한국어</option>
+              
+              <option value="/ja/innovation" >日本語</option>
+              
+              <option value="/zh_CN/innovation" >简体中文</option>
+              
+              <option value="/zh_TW/innovation" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">fr</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,815 @@
+<!DOCTYPE HTML>
+<html lang="hi">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>शब्दावलि - Bitcoin</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+<link rel="stylesheet" href="/css/sans.css?1651746487">
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org is a community funded project, donations are appreciated and used to improve the website.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Make a donation
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org needs your support!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Donate to Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">Use this QR code or address below</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Or custom amount? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Or custom amount? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Optional description (for your wallet)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/hi/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">परिचय</a>
+    <ul>
+      <li><a href="/hi/bitcoin-for-individuals">व्यक्तिगत</a></li>
+      <li><a href="/hi/bitcoin-for-businesses">व्यवसाय</a></li>
+      <li><a href="https://developer.bitcoin.org/">डेवलपर्स</a></li>
+      <li><a href="/hi/getting-started"> प्रारंभ करें</a></li>
+      <li><a href="/hi/how-it-works">यह कैसे काम करता है</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">संसाधन</a>
+    <ul>
+      <li><a href="/hi/resources">संसाधन</a>
+      <li><a href="/hi/exchanges">Exchanges</a></li>
+      <li><a href="/hi/community">समुदाय</a></li>
+      
+      
+      <li class="active"><a href="/hi/vocabulary">शब्दावली</a></li>
+      <li><a href="/hi/events">कार्यक्रम</a></li>
+      
+        <li><a href="/hi/download">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/hi/innovation">अभिनव</a></li>
+  <li><a class="is-expand">भाग लें</a>
+    <ul>
+      <li><a href="/hi/support-bitcoin">Bitcoin समर्थन करें</a>
+      <li><a href="/hi/buy">Buy Bitcoin</a></li>
+      
+      <li><a href="/hi/development">विकास</a></li>
+    </ul>
+  </li>
+  <li><a href="/hi/faq">अक्सर पूछे जाने वाले प्रश्न</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>हिन्दी</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/kosa-kata">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/vocabulari">Català</a></li>
+        
+        
+          <li><a href="/da/ordliste">Dansk</a></li>
+        
+        
+          <li><a href="/de/glossar">Deutsch</a></li>
+        
+        
+          <li><a href="/en/vocabulary">English</a></li>
+        
+        
+          <li><a href="/es/vocabulario">Español</a></li>
+        
+        
+          <li><a href="/fr/vocabulaire">Français</a></li>
+        
+        
+          <li><a href="/it/glossario">Italiano</a></li>
+        
+        
+          <li><a href="/hu/szotar">Magyar</a></li>
+        
+        
+          <li><a href="/nl/woordenlijst">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/slownik">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/vocabulario">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/vocabular">Română</a></li>
+        
+        
+          <li><a href="/sl/besednjak">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/vokabular">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/ordlista">Svenska</a></li>
+        
+        
+          <li><a href="/tr/kelime-haznesi">Türkçe</a></li>
+        
+        
+          <li><a href="/el/vocabulary">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/vocabulary">български</a></li>
+        
+        
+          <li><a href="/ru/vocabulary">Русский</a></li>
+        
+        
+          <li><a href="/uk/vocabulary">Українська</a></li>
+        
+        
+          <li><a href="/ar/vocabulary">العربية</a></li>
+        
+        
+          <li><a href="/fa/vocabulary">فارسی</a></li>
+        
+        
+          <li><a href="/he/vocabulary">עברית</a></li>
+        
+        
+          <li><a href="/hi/vocabulary" class="active">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/vocabulary">한국어</a></li>
+        
+        
+          <li><a href="/ja/vocabulary">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/vocabulary">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/vocabulary">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/kosa-kata" >Bahasa Indonesia</option>
+            
+            <option value="/ca/vocabulari" >Català</option>
+            
+            <option value="/da/ordliste" >Dansk</option>
+            
+            <option value="/de/glossar" >Deutsch</option>
+            
+            <option value="/en/vocabulary" >English</option>
+            
+            <option value="/es/vocabulario" >Español</option>
+            
+            <option value="/fr/vocabulaire" >Français</option>
+            
+            <option value="/it/glossario" >Italiano</option>
+            
+            <option value="/hu/szotar" >Magyar</option>
+            
+            <option value="/nl/woordenlijst" >Nederlands</option>
+            
+            <option value="/pl/slownik" >Polski</option>
+            
+            <option value="/pt_BR/vocabulario" >Português Brasil</option>
+            
+            <option value="/ro/vocabular" >Română</option>
+            
+            <option value="/sl/besednjak" >Slovenščina</option>
+            
+            <option value="/sr/vokabular" >Srpski</option>
+            
+            <option value="/sv/ordlista" >Svenska</option>
+            
+            <option value="/tr/kelime-haznesi" >Türkçe</option>
+            
+            <option value="/el/vocabulary" >Ελληνικά</option>
+            
+            <option value="/bg/vocabulary" >български</option>
+            
+            <option value="/ru/vocabulary" >Русский</option>
+            
+            <option value="/uk/vocabulary" >Українська</option>
+            
+            <option value="/ar/vocabulary" >العربية</option>
+            
+            <option value="/fa/vocabulary" >فارسی</option>
+            
+            <option value="/he/vocabulary" >עברית</option>
+            
+            <option value="/hi/vocabulary"  selected="selected">हिन्दी</option>
+            
+            <option value="/ko/vocabulary" >한국어</option>
+            
+            <option value="/ja/vocabulary" >日本語</option>
+            
+            <option value="/zh_CN/vocabulary" >简体中文</option>
+            
+            <option value="/zh_TW/vocabulary" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">hi</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>कुछ Bitcoin शब्द जो आप अक्सर सुनेंगे  </h1>
+    <p class="summarytxt">Bitcoin भुगतान का एक नया दृष्टिकोण प्रदान करता है और इस लिए कुछ नए शब्द जो आपके शब्दावली का हिस्सा बन सकते हैं। चिंता मत करिए, विनम्र टेलीविजन ने भी नए शब्द अपनाए थे!</p>
+  </div>
+</div>
+
+<div class="toc-container">
+  <div class="row toc-row">
+    <div id="toc" class="toc">
+      <div>
+        <button class="mob-sidebar-open" hidden>ALL TOPICS</button>
+        <div class="sidebar">
+          <div class="sidebar-inner vocabulary-list">
+            <button class="mob-sidebar-close" hidden></button>
+            <ul>
+            
+              <li><a href="#address">पता</a></li>
+            
+              <li><a href="#bit">Bit</a></li>
+            
+              <li><a href="#bitcoin">Bitcoin</a></li>
+            
+              <li><a href="#block-chain">ब्लॉक चैन</a></li>
+            
+              <li><a href="#block">ब्लॉक</a></li>
+            
+              <li><a href="#btc">BTC</a></li>
+            
+              <li><a href="#confirmation">पुष्टि</a></li>
+            
+              <li><a href="#cryptography">कूटलेखन</a></li>
+            
+              <li><a href="#double-spend">दो जगह खर्च</a></li>
+            
+              <li><a href="#hash-rate">हैश रेट</a></li>
+            
+              <li><a href="#mining">खनन</a></li>
+            
+              <li><a href="#p2p">P2P</a></li>
+            
+              <li><a href="#private-key">निजी कुंजी</a></li>
+            
+              <li><a href="#signature">हस्ताक्षर</a></li>
+            
+              <li><a href="#wallet">बटुआ</a></li>
+            
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toccontent">
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="address">पता</h2>
+        <p>Bitcoin पता <b>एक भौतिक पते या ईमेल की तरह ही है</b> Bitcoin के साथ भुगतान करने के लिए सिर्फ इसी जानकारी की ही जरूरत होती है। सबसे महत्वपूर्ण अंतर यह है कि, प्रत्येक पता एक ही लेन - देन के लिए इस्तेमाल किया जाना चाहिए।</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="bit">Bit</h2>
+        <p>Bit एक आम इकाई है जो एक Bitcoin का उप इकाई को नामित करने के लिए इस्तेमाल कि जाती है - 1,000,000 bits एक Bitcoin के बराबर है (BTC or ₿).  यह इकाई आमतौर पर मूल्य निर्धारण टिप्स, वस्तुओं और सेवाओं के लिए अधिक सुविधाजनक है । </p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="bitcoin">Bitcoin</h2>
+        <p>Bitcoin - अंग्रेज़ी मे कैपीटल के साथ प्रयोग किया जाता है जब Bitcoin की अवधारणा का वर्णन किया जा रहा हो, या तो पूरे नेटवर्क का।  उदाहरण के लिए "आज  मै Bitcoin प्रोटोकॉल के बारे में पढ़ रहा था।" <br>bitcoin - अंग्रेज़ी के छोटे लेटरों में तब इस्तमाल करते हैं जब वह खाते की इकाई के रूप में संदर्भित होते हैं।  उदाहरण के लिए, "मैने आज दस bitcoins भेजे।";  ये अक्सर BTC या  XBT भी  संक्षिप्त  किए जाते हैं।</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="block-chain">ब्लॉक चैन</h2>
+        <p>ब्लॉक श्रृंखला या चेन, कालक्रम में <b>Bitcoin लेनदेन का सार्वजनिक रिकॉर्ड</b> है। ब्लॉक श्रृंखला सभी Bitcoin उपयोगकर्ताओं के बीच साझा किए जाते हैं। यह Bitcoin लेनदेन के स्थायित्व को सत्यापित करने  और <a href="#double-spend">डबल खर्च</a> दो बार खर्च को रोकने के लिए उपयोग में लाए जाते हैं।</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="block">ब्लॉक</h2>
+        <p>ब्लॉक <b>ब्लॉक श्रृंखला में रिकॉर्ड है जिसमें कई लेन-देन होते हैं और  कि होता है और रुके हुए लेनदेन की पुष्टि करते हैं।</b> औसतन करीब करीब हर 10 मिनट में एक नया ब्लॉक, लेनदेन सहित <a href="#block-chain">ब्लॉक श्रृंखला</a> में  जोड़ा जाता है <a href="#mining">खनन</a> के द्वारा। </p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="btc">BTC</h2>
+        <p>BTC,  एक Bitcoin की आम इकाई  नामित करने के लिए प्रयोग कि जाती है (₿).</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="confirmation">पुष्टि</h2>
+        <p>पुष्टिकरण का मतलब है कि सौदा <b>नेटवर्क द्वारा संसाधित किया गया और और उलटना नामुमकिन है</b> लेनदेन की पुष्टि तब होती है जब वे  <a href="/hi/vocabulary#block">ब्लॉक</a> में शामिल किए जाते हैं और प्रत्येक निम्न ब्लॉक में। कम मूल्य के लेनदेन के लिए एक पुष्टि भी सुरक्षित मानी जाती   है, लेकिन 1000 अमरीकी डॉलर की तरह बड़ी मात्रा के लिए, 6 या अधिक पुष्टियों के लिए रुकना ठीक होगा। प्रत्येक पुष्टि <i>चरघातांकी </i>लेन - देन के उलटने का खतरा कम करता है।</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="cryptography">कूटलेखन</h2>
+        <p>क्रिप्टोग्राफी गणित की वो शाखा है जो हमें <b>गणितीय साक्ष्य प्रदान करता है जिससे सुरक्षा का उच्च स्तर प्राप्त होता है।</b> ऑनलाइन वाणिज्य और बैंकिंग पहले से ही क्रिप्टोग्राफी का उपयोग करते हैं। Bitcoin के मामले में, क्रिप्टोग्राफी का प्रयोग किसी अन्य उपयोगकर्ता के बटुए से दूसरे व्यक्ती को धन खर्च करने  या <a href="#block-chain">ब्लॉक श्रृंखला</a>. भ्रष्ट करने से रोकने के लिए किया जाता है। इसे बटुए को एन्क्रिप्ट करने के लिए भी इस्तेमाल किया जा सकता है ताकी इसे पासवर्ड के बगैर इस्तमाल ना कर सके।</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="double-spend">दो जगह खर्च</h2>
+        <p>यदि एक दुर्भावनापूर्ण उपयोगकर्ता <b>एक ही समय में, उनके Bitcoins दो अलग प्राप्तकर्ताओं पर खर्च करता है</b>, इसे दो जगह खर्च कहते हैं। Bitcoin <a href="#mining">खनन</a> और <a href="#block-chain">ब्लॉक श्रृंखला</a> नेटवर्क पर आम सहमति देते हैं, कौनसे  लेनदेन की पुष्टि होगी और  वैध माने जाएंगे।</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="hash-rate">हैश रेट</h2>
+        <p>हैश रेट  <b>Bitcoin नेटवर्क के प्रसंस्करण शक्ति का मापन इकाई</b> है। सुरक्षा उद्देश्यों के लिए  Bitcoin नेटवर्क को गहन गणितीय कार्य करने पड़ते हैं। जब नेटवर्क  हैश रेट 10 Th/s पहुंच जाय तो इसका मतलब यह प्रति सेकंड 10 खरब गणनाए कर सकता है। </p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="mining">खनन</h2>
+        <p>Bitcoin खनन वह प्रक्रिया है जो <b> Bitcoin नेटवर्क के लि कंप्यूटर हार्डवेयर को लेनदेन की पुष्टि के लिए गणितीय गणना करता है।</b> और सुरक्षा में वृद्धि लाता है।  उनकी सेवाओं के लिए इनाम के रूप में, Bitcoin खनिक,  लेन - देन पर, जिस पर वे पुष्टि करते है, और साथ ही नव निर्मित Bitcoins पर फीस जमा कर सकते हैंं। खनन एक विशेष और प्रतिस्पर्धी बाजार है जहां पुरस्कार  गणना अनुसार बांटा जाता है।  सभी Bitcoin उपयोगकर्ताओं Bitcoin खनन  नहीं करते, और यह पैसा बनाने के आसान तरीका नहीं है।</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="p2p">P2P</h2>
+        <p>सहकर्मी से सहकर्मी  संदर्भ करता है  <b>सिस्टम जो एक संगठित सामूहिक तरीके से काम करता है</b>प्रत्येक व्यक्ति को अन्य लोगों के साथ सीधे बातचीत करने की अनुमति देता है। Bitcoin के मामले में, नेटवर्क इस तरह से बनाया गया है कि प्रत्येक उपयोगकर्ता अन्य उपयोगकर्ताओं के लेनदेन का प्रसारण करता है। और महत्वपूर्ण बात यह है कि  किसी बैंक की, एक तीसरे पक्ष के रूप में, आवश्यकता नही होती। </p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="private-key">निजी कुंजी</h2>
+        <p>एक निजी कुंजी <b> रहस्य डेटा का हिस्सा है जो एक विशिष्ट बटुए से Bitcoins खर्च करने के लिए आपको हक्क देता है।</b>a गूढ़ालेखी <a href="#signature">हस्ताक्षर</a> द्वारा।  यदि आप सॉफ्टवेयर बटुए का उपयोग करते हैं तो आपकी निजी कुंजी (याँ) आपके कंप्यूटर में संग्रहित  रहती है; लेकिन अगर आप वेब बटुए का उपयोग करते हैं तो वे किसी दूरस्थ सर्वर पर जमा हो जाती है। निजी कुंजी  का खुलासा नहीं करना चाहिए क्योंकि  वे आपको उनके संबंधित Bitcoin बटुए से  Bitcoins खर्च करने की अनुमति देते हैं।</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="signature">हस्ताक्षर</h2>
+        <p><a href="#cryptography">गूढ़ालेखी</a> हस्ताक्षर <b>aगणितीय तंत्र है जो किसी को स्वामित्व प्रमाणित करने की अनुमति देता है</b> Bitcoin के मामले में<a href="#wallet">Bitcoin बटुआ</a> और इसके <a href="#private-key">निजी कुंजी(याँ)</a> कुछ गणितीय तरिके से जुड़े हुए होते हैं। जब आपका Bitcoin सॉफ्टवेयर, उचित निजी कुंजी के साथ एक सौदे पर हस्ताक्षर करता है, पूरे नेटवर्क देख सकता है कि हस्ताक्षर खर्च किए जानेवाले Bitcoins से मेल खाता है। हालांकि, आपके मेहनत से कमाए Bitcoins को  चोरने के लिए किसी भी हालत में कोई भी आपकी निजी कुंजी का अंदाज़ा नही लगा सकता।</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="wallet">बटुआ</h2>
+        <p>Bitcoin बटुआ <b>Bitcoin नेटवर्क पर एक भौतिक बटुए के बराबर</b> माना जा सकता है। वास्तव में बटुए में आपकी <a href="#private-key">निजी कुंजी (याँ)</a> होती है, जो आपको इससे   आवंटित Bitcoins <a href="#block-chain">ब्लॉक श्रृंखला </a>में, खर्च करने की अनुमति देती है। प्रत्येक Bitcoin बटुआ आपको  कुल शेष Bitcoins दिखाता है जिस पर यह नियंत्रण करता है और आपको  विशिष्ट व्यक्ति को विशेष राशि भुगतान करने देता है, बिलकुल एक वास्तविक बटुए की ही तरह। यह क्रेडिट कार्ड से अलग होता है जहां  व्यापारी  आपको चार्ज करते हैं। .</p>
+      </div>
+      
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/hi/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Support Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Donate</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">परिचय:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/hi/bitcoin-for-individuals">व्यक्तिगत</a>
+        </li>
+        <li>
+          <a href="/hi/bitcoin-for-businesses">व्यवसाय</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">डेवलपर्स</a>
+        </li>
+        <li>
+          <a href="/hi/getting-started"> प्रारंभ करें</a>
+        </li>
+        <li>
+          <a href="/hi/how-it-works">यह कैसे काम करता है</a>
+        </li>
+        <li>
+          <a href="/hi/you-need-to-know">आपको पता होना चाहिए </a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">संसाधन:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/hi/resources">संसाधन</a>
+        <li>
+          <a href="/hi/exchanges">Exchanges</a>
+        </li>
+        <li>
+          <a href="/hi/community">समुदाय</a>
+        </li>
+        <li class="active">
+          <a href="/hi/vocabulary">शब्दावली
+          </a>
+        </li>
+        <li>
+          <a href="/hi/events">कार्यक्रम</a>
+        </li>
+        
+          <li>
+            <a href="/hi/download">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">भाग लें:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/hi/support-bitcoin">Bitcoin समर्थन करें</a>
+        
+        
+        <li>
+          <a href="/hi/development">विकास</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Other:</p>
+      
+      <a href="/hi/legal">कानूनी</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/hi/press">प्रेस</a>
+      <a href="/hi/about-us">bitcoin.org के बारे में</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span> समुदाय वेबसाइट प्रायोजित किया गया निम्न के द्वारा</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022  <a href="http://opensource.org/licenses/mit-license.php" target="_blank"> MIT लाइसेंस </a> के तहत जारी किया गया है </div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Network Status</a>
+        
+<ul class="lang is-expand">
+  <li><a>हिन्दी</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/kosa-kata">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/vocabulari">Català</a></li>
+        
+        
+          <li><a href="/da/ordliste">Dansk</a></li>
+        
+        
+          <li><a href="/de/glossar">Deutsch</a></li>
+        
+        
+          <li><a href="/en/vocabulary">English</a></li>
+        
+        
+          <li><a href="/es/vocabulario">Español</a></li>
+        
+        
+          <li><a href="/fr/vocabulaire">Français</a></li>
+        
+        
+          <li><a href="/it/glossario">Italiano</a></li>
+        
+        
+          <li><a href="/hu/szotar">Magyar</a></li>
+        
+        
+          <li><a href="/nl/woordenlijst">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/slownik">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/vocabulario">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/vocabular">Română</a></li>
+        
+        
+          <li><a href="/sl/besednjak">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/vokabular">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/ordlista">Svenska</a></li>
+        
+        
+          <li><a href="/tr/kelime-haznesi">Türkçe</a></li>
+        
+        
+          <li><a href="/el/vocabulary">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/vocabulary">български</a></li>
+        
+        
+          <li><a href="/ru/vocabulary">Русский</a></li>
+        
+        
+          <li><a href="/uk/vocabulary">Українська</a></li>
+        
+        
+          <li><a href="/ar/vocabulary">العربية</a></li>
+        
+        
+          <li><a href="/fa/vocabulary">فارسی</a></li>
+        
+        
+          <li><a href="/he/vocabulary">עברית</a></li>
+        
+        
+          <li><a href="/hi/vocabulary" class="active">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/vocabulary">한국어</a></li>
+        
+        
+          <li><a href="/ja/vocabulary">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/vocabulary">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/vocabulary">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/kosa-kata" >Bahasa Indonesia</option>
+              
+              <option value="/ca/vocabulari" >Català</option>
+              
+              <option value="/da/ordliste" >Dansk</option>
+              
+              <option value="/de/glossar" >Deutsch</option>
+              
+              <option value="/en/vocabulary" >English</option>
+              
+              <option value="/es/vocabulario" >Español</option>
+              
+              <option value="/fr/vocabulaire" >Français</option>
+              
+              <option value="/it/glossario" >Italiano</option>
+              
+              <option value="/hu/szotar" >Magyar</option>
+              
+              <option value="/nl/woordenlijst" >Nederlands</option>
+              
+              <option value="/pl/slownik" >Polski</option>
+              
+              <option value="/pt_BR/vocabulario" >Português Brasil</option>
+              
+              <option value="/ro/vocabular" >Română</option>
+              
+              <option value="/sl/besednjak" >Slovenščina</option>
+              
+              <option value="/sr/vokabular" >Srpski</option>
+              
+              <option value="/sv/ordlista" >Svenska</option>
+              
+              <option value="/tr/kelime-haznesi" >Türkçe</option>
+              
+              <option value="/el/vocabulary" >Ελληνικά</option>
+              
+              <option value="/bg/vocabulary" >български</option>
+              
+              <option value="/ru/vocabulary" >Русский</option>
+              
+              <option value="/uk/vocabulary" >Українська</option>
+              
+              <option value="/ar/vocabulary" >العربية</option>
+              
+              <option value="/fa/vocabulary" >فارسی</option>
+              
+              <option value="/he/vocabulary" >עברית</option>
+              
+              <option value="/hi/vocabulary"  selected="selected">हिन्दी</option>
+              
+              <option value="/ko/vocabulary" >한국어</option>
+              
+              <option value="/ja/vocabulary" >日本語</option>
+              
+              <option value="/zh_CN/vocabulary" >简体中文</option>
+              
+              <option value="/zh_TW/vocabulary" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">hi</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+  <script>updateToc();</script>
+<script>accordion();</script>
+<script>onScrollButton();</script>
+<script>boxShow();</script>
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,759 @@
+<!DOCTYPE HTML>
+<html lang="zh_CN">
+
+
+
+<head>
+
+
+<link rel="stylesheet" href="/css/jquery-ui.min.css">
+
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>比特币系统扩展</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+<link rel="stylesheet" href="/css/sans.css?1651746487">
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org 是一个社区支持的社区，我们十分感谢任何捐助。这些捐助会用于改进网站。
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        捐助
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org 需要你的帮助！
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">捐助Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">使用下方二维码或地址</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="或者自定义数量？ (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="或者自定义数量？ (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="（你的钱包的）可选描述"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+
+<div class="banner-message minor">
+  <a href="https://bitcoincore.org/zh_CN/2015/12/21/%E6%AF%94%E7%89%B9%E5%B8%81%E7%B3%BB%E7%BB%9F%E6%89%A9%E5%B1%95/"><span>本页面已经移到新的比特币核心
+网站（点击这里进行重定向）
+</span></a>
+</div>
+
+
+
+<div class="head"><div>
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+    
+
+<a class="logo" href="/zh_CN/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+    
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">介绍</a>
+    <ul>
+      <li><a href="/zh_CN/bitcoin-for-individuals">个人</a></li>
+      <li><a href="/zh_CN/bitcoin-for-businesses">商家</a></li>
+      <li><a href="https://developer.bitcoin.org/">开发者</a></li>
+      <li><a href="/zh_CN/getting-started">入门指南</a></li>
+      <li><a href="/zh_CN/how-it-works">工作原理</a></li>
+      
+      <li><a href="/zh_CN/bitcoin-paper">White paper</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">资源</a>
+    <ul>
+      <li><a href="/zh_CN/resources">资源</a>
+      <li><a href="/zh_CN/exchanges">兑换</a></li>
+      <li><a href="/zh_CN/community">社区</a></li>
+      
+      
+      <li><a href="/zh_CN/vocabulary">词汇表</a></li>
+      <li><a href="/zh_CN/events">活动</a></li>
+      
+        <li><a href="/zh_CN/download">比特币核心</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/zh_CN/innovation">创新</a></li>
+  <li><a class="is-expand">参与</a>
+    <ul>
+      <li><a href="/zh_CN/support-bitcoin">支持比特币</a>
+      <li><a href="/zh_CN/buy">购买比特币</a></li>
+      
+      <li><a href="/zh_CN/development">开发</a></li>
+    </ul>
+  </li>
+  <li><a href="/zh_CN/faq">常见问题</a></li>
+</ul>
+
+  
+    
+<ul class="lang is-expand">
+  <li><a>简体中文</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/">Català</a></li>
+        
+        
+          <li><a href="/da/">Dansk</a></li>
+        
+        
+          <li><a href="/de/">Deutsch</a></li>
+        
+        
+          <li><a href="/en/">English</a></li>
+        
+        
+          <li><a href="/es/">Español</a></li>
+        
+        
+          <li><a href="/fr/">Français</a></li>
+        
+        
+          <li><a href="/it/">Italiano</a></li>
+        
+        
+          <li><a href="/hu/">Magyar</a></li>
+        
+        
+          <li><a href="/nl/">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/">Română</a></li>
+        
+        
+          <li><a href="/sl/">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/">Svenska</a></li>
+        
+        
+          <li><a href="/tr/">Türkçe</a></li>
+        
+        
+          <li><a href="/el/">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/">български</a></li>
+        
+        
+          <li><a href="/ru/">Русский</a></li>
+        
+        
+          <li><a href="/uk/">Українська</a></li>
+        
+        
+          <li><a href="/ar/">العربية</a></li>
+        
+        
+          <li><a href="/fa/">فارسی</a></li>
+        
+        
+          <li><a href="/he/">עברית</a></li>
+        
+        
+          <li><a href="/hi/">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/">한국어</a></li>
+        
+        
+          <li><a href="/ja/">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/" class="active">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+    
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/" >Bahasa Indonesia</option>
+            
+            <option value="/ca/" >Català</option>
+            
+            <option value="/da/" >Dansk</option>
+            
+            <option value="/de/" >Deutsch</option>
+            
+            <option value="/en/" >English</option>
+            
+            <option value="/es/" >Español</option>
+            
+            <option value="/fr/" >Français</option>
+            
+            <option value="/it/" >Italiano</option>
+            
+            <option value="/hu/" >Magyar</option>
+            
+            <option value="/nl/" >Nederlands</option>
+            
+            <option value="/pl/" >Polski</option>
+            
+            <option value="/pt_BR/" >Português Brasil</option>
+            
+            <option value="/ro/" >Română</option>
+            
+            <option value="/sl/" >Slovenščina</option>
+            
+            <option value="/sr/" >Srpski</option>
+            
+            <option value="/sv/" >Svenska</option>
+            
+            <option value="/tr/" >Türkçe</option>
+            
+            <option value="/el/" >Ελληνικά</option>
+            
+            <option value="/bg/" >български</option>
+            
+            <option value="/ru/" >Русский</option>
+            
+            <option value="/uk/" >Українська</option>
+            
+            <option value="/ar/" >العربية</option>
+            
+            <option value="/fa/" >فارسی</option>
+            
+            <option value="/he/" >עברית</option>
+            
+            <option value="/hi/" >हिन्दी</option>
+            
+            <option value="/ko/" >한국어</option>
+            
+            <option value="/ja/" >日本語</option>
+            
+            <option value="/zh_CN/"  selected="selected">简体中文</option>
+            
+            <option value="/zh_TW/" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">zh_CN</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+  
+
+<div id="content" class="content">
+    <h1 id="比特币系统扩展">比特币系统扩展</h1>
+
+<p>我们连署支持 <a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2015-December/011865.html">比特币系统扩展</a> 路线图。我们已在Bitcoin Core计划内为可扩展性工作多年，认为这是最可以延续我们一直以来努力的方向。</p>
+
+<p>有关更多详情请参阅 <a href="/zh_CN/bitcoin-core/capacity-increases-faq">常见问题解答</a>。</p>
+
+<ul>
+  <li><a href="https://github.com/adam3us">Adam Back</a></li>
+  <li><a href="https://github.com/morcos">Alex Morcos</a></li>
+  <li><a href="https://github.com/voisine">Aaron Voisine</a></li>
+  <li><a href="https://github.com/bpdavenport">Ben Davenport</a></li>
+  <li><a href="https://github.com/bgorlick">Ben Gorlick</a></li>
+  <li><a href="https://github.com/bramcohen">Bram Cohen</a></li>
+  <li><a href="https://github.com/kanzure">Bryan Bishop</a></li>
+  <li><a href="https://github.com/btcdrak">BtcDrak</a></li>
+  <li><a href="https://github.com/coblee">Charlie Lee</a></li>
+  <li><a href="https://github.com/cdecker">Christian Decker</a></li>
+  <li><a href="https://github.com/cobra-bitcoin">Cøbra</a></li>
+  <li><a href="https://github.com/theuni">Cory Fields</a></li>
+  <li><a href="https://github.com/crwatkins">Craig Watkins</a></li>
+  <li><a href="https://github.com/arowser">Daniel</a></li>
+  <li><a href="https://github.com/domob1812">Daniel Kraft</a></li>
+  <li><a href="https://github.com/harding">David A. Harding</a></li>
+  <li><a href="https://github.com/DavidVorick">David Vorick</a></li>
+  <li><a href="https://github.com/devrandom">Dev Random</a></li>
+  <li><a href="https://github.com/dexX7">DexX7</a></li>
+  <li><a href="https://github.com/jrmithdobbs">Douglas Huff</a></li>
+  <li><a href="https://github.com/CodeShark">Eric Lombrozo</a></li>
+  <li><a href="https://github.com/ghtdak">Glenn H Tarbox</a></li>
+  <li><a href="https://github.com/gmaxwell">Gregory Maxwell</a></li>
+  <li><a href="https://github.com/instagibbs">Gregory Sanders</a></li>
+  <li><a href="https://github.com/jameshilliard">James Hilliard</a></li>
+  <li><a href="https://github.com/jmcorgan">Johnathan Corgan</a></li>
+  <li><a href="https://github.com/jl2012">Johnson Lau</a></li>
+  <li><a href="https://github.com/jonasschnelli">Jonas Schnelli</a></li>
+  <li><a href="https://github.com/Joukehofman">Jouke Hofman</a></li>
+  <li><a href="https://github.com/greenaddress">Lawrence Nahum</a></li>
+  <li><a href="https://github.com/luke-jr">Luke Dashjr</a></li>
+  <li><a href="https://github.com/maaku">Mark Friedenbach</a></li>
+  <li><a href="https://github.com/martindale">Eric Martindale</a></li>
+  <li><a href="https://github.com/maraoz">Manuel Aráoz</a></li>
+  <li><a href="https://github.com/MarcoFalke">Marco Falke</a></li>
+  <li><a href="https://github.com/TheBlueMatt">Matt Corallo</a></li>
+  <li><a href="https://github.com/midnightmagic">Midnight Magic</a></li>
+  <li><a href="https://github.com/fanquake">Michael Ford</a></li>
+  <li><a href="https://github.com/btchip">Nicolas Bacca</a></li>
+  <li><a href="https://github.com/NicolasDorier">Nicolas Dorier</a></li>
+  <li><a href="https://github.com/obi">Obi Nwosu</a></li>
+  <li><a href="https://github.com/pstratem">Patrick Strateman</a></li>
+  <li><a href="https://github.com/paveljanik">Pavel Janik</a></li>
+  <li><a href="https://github.com/petertodd">Peter Todd</a></li>
+  <li><a href="https://github.com/sipa">Pieter Wuille</a></li>
+  <li><a href="https://github.com/randy-waterhouse">Randy Waterhouse</a></li>
+  <li><a href="https://github.com/nvk">Rodolfo Novak</a></li>
+  <li><a href="https://github.com/rubensayshi">Ruben de Vries</a></li>
+  <li><a href="https://github.com/sdaftuar">Suhas Daftuar</a></li>
+  <li><a href="https://github.com/theymos">Theymos</a></li>
+  <li><a href="https://github.com/afk11">Thomas Kerin</a></li>
+  <li><a href="https://github.com/wangchun">Wang Chun</a></li>
+  <li><a href="https://github.com/wtogami">Warren Togami</a></li>
+  <li><a href="https://github.com/laanwj">Wladimir J. van der Laan</a></li>
+</ul>
+
+<hr />
+
+<p>如果你想参与连署，请到<a href="https://github.com/bitcoin-dot-org/bitcoin.org/pull/1165">#1165</a>。</p>
+
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+      
+
+<a class="logo-footer" href="/zh_CN/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a>
+      
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">支持Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">捐助</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">介绍:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/zh_CN/bitcoin-for-individuals">个人</a>
+        </li>
+        <li>
+          <a href="/zh_CN/bitcoin-for-businesses">商家</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">开发者</a>
+        </li>
+        <li>
+          <a href="/zh_CN/getting-started">入门指南</a>
+        </li>
+        <li>
+          <a href="/zh_CN/how-it-works">工作原理</a>
+        </li>
+        <li>
+          <a href="/zh_CN/you-need-to-know">注意事项</a>
+        </li>
+        
+        <li>
+          <a href="/zh_CN/bitcoin-paper">White paper</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">资源:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/zh_CN/resources">资源</a>
+        <li>
+          <a href="/zh_CN/exchanges">兑换</a>
+        </li>
+        <li>
+          <a href="/zh_CN/community">社区</a>
+        </li>
+        <li>
+          <a href="/zh_CN/vocabulary">词汇表
+          </a>
+        </li>
+        <li>
+          <a href="/zh_CN/events">活动</a>
+        </li>
+        
+          <li>
+            <a href="/zh_CN/download">比特币核心</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">参与:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/zh_CN/support-bitcoin">支持比特币</a>
+        
+        
+        <li>
+          <a href="/zh_CN/development">开发</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">其他:</p>
+      
+      <a href="/zh_CN/legal">法律</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/zh_CN/press">新闻媒体</a>
+      <a href="/zh_CN/about-us">关于bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 基于<a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT协议</a>授权发布
+        <br> Bitcoin Core pages on Bitcoin.org are
+        <a href="/en/bitcoin-core/about-site">maintained separately</a> from the rest of the site.
+      </div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Network Status</a>
+        
+<ul class="lang is-expand">
+  <li><a>简体中文</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/">Català</a></li>
+        
+        
+          <li><a href="/da/">Dansk</a></li>
+        
+        
+          <li><a href="/de/">Deutsch</a></li>
+        
+        
+          <li><a href="/en/">English</a></li>
+        
+        
+          <li><a href="/es/">Español</a></li>
+        
+        
+          <li><a href="/fr/">Français</a></li>
+        
+        
+          <li><a href="/it/">Italiano</a></li>
+        
+        
+          <li><a href="/hu/">Magyar</a></li>
+        
+        
+          <li><a href="/nl/">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/">Română</a></li>
+        
+        
+          <li><a href="/sl/">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/">Svenska</a></li>
+        
+        
+          <li><a href="/tr/">Türkçe</a></li>
+        
+        
+          <li><a href="/el/">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/">български</a></li>
+        
+        
+          <li><a href="/ru/">Русский</a></li>
+        
+        
+          <li><a href="/uk/">Українська</a></li>
+        
+        
+          <li><a href="/ar/">العربية</a></li>
+        
+        
+          <li><a href="/fa/">فارسی</a></li>
+        
+        
+          <li><a href="/he/">עברית</a></li>
+        
+        
+          <li><a href="/hi/">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/">한국어</a></li>
+        
+        
+          <li><a href="/ja/">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/" class="active">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/" >Bahasa Indonesia</option>
+              
+              <option value="/ca/" >Català</option>
+              
+              <option value="/da/" >Dansk</option>
+              
+              <option value="/de/" >Deutsch</option>
+              
+              <option value="/en/" >English</option>
+              
+              <option value="/es/" >Español</option>
+              
+              <option value="/fr/" >Français</option>
+              
+              <option value="/it/" >Italiano</option>
+              
+              <option value="/hu/" >Magyar</option>
+              
+              <option value="/nl/" >Nederlands</option>
+              
+              <option value="/pl/" >Polski</option>
+              
+              <option value="/pt_BR/" >Português Brasil</option>
+              
+              <option value="/ro/" >Română</option>
+              
+              <option value="/sl/" >Slovenščina</option>
+              
+              <option value="/sr/" >Srpski</option>
+              
+              <option value="/sv/" >Svenska</option>
+              
+              <option value="/tr/" >Türkçe</option>
+              
+              <option value="/el/" >Ελληνικά</option>
+              
+              <option value="/bg/" >български</option>
+              
+              <option value="/ru/" >Русский</option>
+              
+              <option value="/uk/" >Українська</option>
+              
+              <option value="/ar/" >العربية</option>
+              
+              <option value="/fa/" >فارسی</option>
+              
+              <option value="/he/" >עברית</option>
+              
+              <option value="/hi/" >हिन्दी</option>
+              
+              <option value="/ko/" >한국어</option>
+              
+              <option value="/ja/" >日本語</option>
+              
+              <option value="/zh_CN/"  selected="selected">简体中文</option>
+              
+              <option value="/zh_TW/" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">zh_CN</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+
+
+  <script src="/js/bitcoin-core.js"></script>
+
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+
+</body>
+
+</html>

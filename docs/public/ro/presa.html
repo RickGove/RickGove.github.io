@@ -1,0 +1,909 @@
+<!DOCTYPE HTML>
+<html lang="ro">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Presă- Bitcoin</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+<link rel="stylesheet" href="/css/sans.css?1651746487">
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org is a community funded project, donations are appreciated and used to improve the website.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Make a donation
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org needs your support!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Donate to Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">Use this QR code or address below</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Or custom amount? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Or custom amount? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Optional description (for your wallet)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/ro/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">Introducere</a>
+    <ul>
+      <li><a href="/ro/bitcoin-pentru-persoane-fizice">Persoane fizice</a></li>
+      <li><a href="/ro/bitcoin-pentru-companii">Companii</a></li>
+      <li><a href="https://developer.bitcoin.org/">Dezvoltatori</a></li>
+      <li><a href="/ro/notiuni-de-baza">Noțiuni de bază</a></li>
+      <li><a href="/ro/cum-functioneaza">Cum funcționează</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">Resurse</a>
+    <ul>
+      <li><a href="/ro/resurse">Resurse</a>
+      <li><a href="/ro/schimburi">Exchanges</a></li>
+      <li><a href="/ro/comunitate">Comunitate</a></li>
+      
+      
+      <li><a href="/ro/vocabular">Vocabular</a></li>
+      <li><a href="/ro/evenimente">Evenimente</a></li>
+      
+        <li><a href="/ro/descarca">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/ro/inovatie">Inovaţie</a></li>
+  <li><a class="is-expand">Participă</a>
+    <ul>
+      <li><a href="/ro/sustine-bitcoin">Susţine Bitcoin</a>
+      <li><a href="/ro/cumpara">Buy Bitcoin</a></li>
+      
+      <li><a href="/ro/dezvoltare">Dezvoltare</a></li>
+    </ul>
+  </li>
+  <li><a href="/ro/intrebari-frecvente">Întrebări Frecvente</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>Română</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/pers">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/premsa">Català</a></li>
+        
+        
+          <li><a href="/da/presse">Dansk</a></li>
+        
+        
+          <li><a href="/de/presse">Deutsch</a></li>
+        
+        
+          <li><a href="/en/press">English</a></li>
+        
+        
+          <li><a href="/es/prensa">Español</a></li>
+        
+        
+          <li><a href="/fr/presse">Français</a></li>
+        
+        
+          <li><a href="/it/stampa">Italiano</a></li>
+        
+        
+          <li><a href="/hu/sajto">Magyar</a></li>
+        
+        
+          <li><a href="/nl/pers">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/prasa">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/imprensa">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/presa" class="active">Română</a></li>
+        
+        
+          <li><a href="/sl/mediji">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/mediji">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/press">Svenska</a></li>
+        
+        
+          <li><a href="/tr/basin">Türkçe</a></li>
+        
+        
+          <li><a href="/el/press">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/press">български</a></li>
+        
+        
+          <li><a href="/ru/press">Русский</a></li>
+        
+        
+          <li><a href="/uk/press">Українська</a></li>
+        
+        
+          <li><a href="/ar/press">العربية</a></li>
+        
+        
+          <li><a href="/fa/press">فارسی</a></li>
+        
+        
+          <li><a href="/he/press">עברית</a></li>
+        
+        
+          <li><a href="/hi/press">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/press">한국어</a></li>
+        
+        
+          <li><a href="/ja/press">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/press">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/press">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/pers" >Bahasa Indonesia</option>
+            
+            <option value="/ca/premsa" >Català</option>
+            
+            <option value="/da/presse" >Dansk</option>
+            
+            <option value="/de/presse" >Deutsch</option>
+            
+            <option value="/en/press" >English</option>
+            
+            <option value="/es/prensa" >Español</option>
+            
+            <option value="/fr/presse" >Français</option>
+            
+            <option value="/it/stampa" >Italiano</option>
+            
+            <option value="/hu/sajto" >Magyar</option>
+            
+            <option value="/nl/pers" >Nederlands</option>
+            
+            <option value="/pl/prasa" >Polski</option>
+            
+            <option value="/pt_BR/imprensa" >Português Brasil</option>
+            
+            <option value="/ro/presa"  selected="selected">Română</option>
+            
+            <option value="/sl/mediji" >Slovenščina</option>
+            
+            <option value="/sr/mediji" >Srpski</option>
+            
+            <option value="/sv/press" >Svenska</option>
+            
+            <option value="/tr/basin" >Türkçe</option>
+            
+            <option value="/el/press" >Ελληνικά</option>
+            
+            <option value="/bg/press" >български</option>
+            
+            <option value="/ru/press" >Русский</option>
+            
+            <option value="/uk/press" >Українська</option>
+            
+            <option value="/ar/press" >العربية</option>
+            
+            <option value="/fa/press" >فارسی</option>
+            
+            <option value="/he/press" >עברית</option>
+            
+            <option value="/hi/press" >हिन्दी</option>
+            
+            <option value="/ko/press" >한국어</option>
+            
+            <option value="/ja/press" >日本語</option>
+            
+            <option value="/zh_CN/press" >简体中文</option>
+            
+            <option value="/zh_TW/press" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">ro</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>Centru Presă</h1>
+    
+      <p class="summarytxt">Găseşte persoane de intervievat, răspunsuri şi materiale de presă de inaltă calitate.</p>
+    
+  </div>
+</div>
+
+<div class="toc-container">
+  <div class="row toc-row">
+
+    <div id="toc" class="toc">
+      <div>
+        <button class="mob-sidebar-open" hidden>View All</button>
+        <div class="sidebar">
+          <div class="sidebar-inner">
+            <button class="mob-sidebar-close" hidden></button>
+            
+
+<ul>
+  <li><a href="#volunteer">Interviuri</a></li>
+  <li><a href="#layout">Întrebări Frecvente</a>
+    <ul>
+      <li><a href="#whatisbitcoin">Ce este Bitcoin?</a></li>
+      <li><a href="#howitworks">Cum funcționează Bitcoin?</a></li>
+      <li><a href="#whatismining">Ce este mineritul de Bitcoin?</a></li>
+      <li><a href="#acquire">Cum achiziționăm bitcoini?</a></li>
+      <li><a href="#used">Foloseşte lumea Bitcoin?</a></li>
+      <li><a href="#makepayment">Cât de dificil este să facem plăţi cu Bitcoin ?</a></li>
+      <li><a href="#advantages">Care sunt avantajele Bitcoin?</a></li>
+      <li><a href="#disadvantages">Care sunt dezavantajele Bitcoin?</a></li>
+      <li><a href="#secure">Este Bitcoin sigur?</a></li>
+      <li><a href="#islegal">Este legal Bitcoinul?</a></li>
+      <li><a href="#taxes">Dar despre Bitcoin şi taxe şi impozite?</a></li>
+      <li><a href="#illegalactivities">Este Bitcoin util pentru activități ilegale?</a></li>
+      <li><a href="#bubble">Este Bitcoin o bulă speculativă?</a></li>
+      <li><a href="#whyvalue">De ce au bitcoinii valoare?</a></li>
+      <li><a href="#ponzi">Este Bitcoin o schemă Ponzi?</a></li>
+      <li><a href="#creator">Cine a creat Bitcoin?</a></li>
+      <li><a href="#worthless">Pot bitcoinii să-şi piardă valoarea?</a></li>
+      <li><a href="#virtual">Este Bitcoin într-adevar virtual și imaterial?</a></li>
+      <li><a href="#trust">De ce au oamenii încredere în Bitcoin?</a></li>
+      <li><a href="#anonymous">Este Bitcoin anonim?</a></li>
+    </ul>
+  </li>
+</ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toccontent">
+      <div class="toccontent-intro">
+  <h2 id="volunteer">Interviuri</h2>
+  <p>Comunică cu <a href="https://bitcoinfoundation.org/contact/">Bitcoin Foundation</a> sau <a href="/ro/comunitate#non-profit">organizaţii locale non-profit</a>.</p>
+</div>
+
+<div class="toccontent-block boxexpand expanded">
+  <h2 id="layout">Întrebări Frecvente</h2>
+  <div class="press-faq">
+    <div>
+      <h3 id="whatisbitcoin" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Ce este Bitcoin?</h3>
+      <div>
+        <p>Bitcoin este o reţea consensuală ce oferă un nou sistem de plată şi bani complet digitali. Este primul sistem de plată peer-to-peer descentralizat susţinut de utilizatorii săi fără o autoritate centrală sau intermediari. Din perspectiva unui utilizator, Bitcoin reprezintă în mare bani cash pentru Internet. Bitcoin poate fi văzut de asemenea şi ca cel mai proeminent <a href="http://financialcryptography.com/mt/archives/001325.html">sistem de contabilitate triple entry</a> existent.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="howitworks" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Cum funcționează Bitcoin?</h3>
+      <div>
+        <p>Din perspectiva unui utilizator obişnuit, Bitcoin nu este nimic mai mult decât o aplicaţie pe telefon sau un program pe calculator ce oferă un portofel personal Bitcoin şi permite unui utilizator să trimită şi să primească bitcoini prin el. Acesta este modul în care funcţionează Bitcoin pentru majoritatea utilizatorilor.</p>
+        <p>În culise, reţeaua Bitcoin distribuie un registru public denumit "lanţul de blocuri". Acest registru conţine fiecare tranzacţie procesată vreodată, permiţând calculatorului unui utilizator să verifice validitatea fiecărei tranzacţii. Autenticitatea fiecarei tranzacţii este protejată de semnăturile digitale ce corespund cu adresele de unde au fost trimişi bitcoinii, permiţând tuturor utilizatorilor să aibă control total asupra trimiterii de bitcoini din adresele lor Bitcoin personale. Adiţional, oricine poate procesa tranzacţii folosind puterea computaţională a hardware-ului specializat şi să fie răsplătiţi cu bitcoini pentru acest serviciu. Acest lucru este adesea denumit "minat". Pentru a afla mai multe despre Bitcoin, poţi consulta <a href="/ro/cum-functioneaza">pagina dedicată</a> şi <a href="/bitcoin.pdf">lucrarea originală</a>.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="whatismining" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Ce este mineritul de Bitcoin?</h3>
+      <div>
+        <p>Minatul este procedeul prin care se consumă putere de calcul pentru a procesa tranzacţii, securiza reţeaua, dar şi pentru a menţine toată lumea din reţea sincronizată. Poate fi privit ca un fel de data center Bitcoin cu excepţia că este construit să fie complet descentralizat, minerii operând în toate ţările şi niciun individ nu are control asupra reţelei. Acest proces este numit "minerit" ca o analogie a mineritului aurului deoarece este de asemenea un mecanism temporar folosit pentru a emite noi bitcoini. Spre deosebire de mineritul de aur, mineritul de Bitcoin oferă o recompensă în schimbul unor servicii utile necesare pentru a opera o reţea de plăţi securizată. Minatul va fi necesar şi după ce ultimul bitcoin este emis.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="acquire" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Cum achiziționăm bitcoini?</h3>
+      <div>
+        <ul>
+          <li>Ca plată pentru bunuri şi servicii.</li>
+          <li>Cumpără bitcoini de la un <a href="https://www.buybitcoinworldwide.com">exchange de Bitcoin</a>.</li>
+          <li>Schimbă bitcoini cu cineva <a href="https://localbitcoins.com/">din apropierea ta</a>.</li>
+          <li>Câştigă bitcoini intr-un mod competitiv prin <a href="http://www.bitcoinmining.com/">minerit</a>.</li>
+        </ul>
+        <p>În timp ce este posibil să găseşti persoane ce doresc să vândă bitcoini plătind prin card de credit sau PayPal, majoritatea exchange-urilor nu oferă finanţare prin aceste mijloace de plată. Acest lucru se întâmplă din cauza cazurilor în care cineva cumpără bitcoini folosind PayPal, doar ca mai târziu să-şi recupereze jumătatea lor din tranzacţie. Acest procedeu este denumit în general chargeback.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="used" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Foloseşte lumea Bitcoin?</h3>
+      <div>
+        <p>Da. Este folosit de un număr tot mai mare de afaceri şi persoane. Acestea includ afaceri fizice, cum ar fi restaurante, firme de avocatură, săli de fitness şi servicii online populare cum ar fi Namecheap, WordPress, Reddit şi Flattr. În timp ce Bitcoin rămâne un fenomen relativ nou, acesta creşte rapid. În luna Martie 2014, <a href="https://bitcoincharts.com/bitcoin/">valorarea tuturor bitcoinilor aflaţi în circulaţie</a> depăşea suma de 8 miliarde de dolari şi bitcoini în valorare de milioane de dolari fiind schimbaţi zilnic.</p>
+        <p>
+          <img style="height:165px;width:380px;" src="/img/faq/merchants_map.png?1651746487" alt="Screenshot">
+        </p>
+      </div>
+    </div>
+    <div>
+      <h3 id="makepayment" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Cât de dificil este să facem plăţi cu Bitcoin ?</h3>
+      <div>
+        <p>Este mai uşor să faci tranzacţii cu Bitcoin decât să faci cumpărături cu un card de debit sau de credit, acestea putând fi primite fără un cont de comerciant. Plăţile sunt făcute direct dintr-o aplicaţie portofel, fie de pe calculatorul sau mobilul tău, introducând adresa recipientului, suma, şi apăsarea butonului Trimite. Pentru a face şi mai uşoară introducerea adresei recipientului, multe portofele pot obţine adresa prin scanarea unui cod QR sau alăturarea a două telefoane ce beneficiază de tehnologia NFC.</p>
+        <p>
+          <img src="/img/faq/mobile_send.png?1651746487" style="height:325px;width:190px;" alt="Screenshot">
+          <img src="/img/faq/mobile_receive.png?1651746487" style="height:325px;width:190px;" alt="Screenshot">
+        </p>
+      </div>
+    </div>
+    <div>
+      <h3 id="advantages" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Care sunt avantajele Bitcoin?</h3>
+      <div>
+        <ul>
+          <li><em><b>Libertatea plăţilor</b></em> - Este posibil să trimiţi şi să primeşti orice sumă de bani instant oriunde în lume la orice oră. Fără zile în care băncile sunt închise. Fără limite impuse. Bitcoin permite utilizatorilor săi să aibă control deplin asupra banilor lor.</li>
+          <li><em><b>Taxe foarte mici</b></em> - Plăţile Bitcoin sunt în momentul de faţă procesate fie fără taxe sau cu taxe extrem de mici. Utilizatorii pot include opţional o taxă pentru a beneficia de prioritate în procesarea tranzacţiei, ce rezultă într-o confirmare mai rapidă a tranzacţiilor de către reţea. Adiţional, există procesatori comerciali ce asistă comercianţii în procesarea tranzacţiilor, schimbând bitcoinii în monedă fiat şi depozitând zilnic fondurile direct în contul bancar al comerciantului. Aceste servicii fiind bazate pe Bitcoin, ele pot fi oferite cu taxe mult mai mici decât PayPal sau reţele de carduri de credit.</li>
+          <li><em><b>Mai puţine riscuri pentru comercianţi</b></em> - Tranzacţiile Bitcoin sunt sigure, ireversibile şi nu conţin informaţii personale ale clientului. Acest lucru protejează comercianţii de pagube cauzate de fraudă sau chargeback-uri fraudulente şi nu este necesară conformarea PCI. Comercianţii pot să se extindă cu uşurinţă către noi pieţe unde ori nu sunt disponibile cardurile de credit ori ratele de fraudă sunt inacceptabil de înalte. Rezultatele nete sunt taxe mai mici, pieţe mai extinse şi costuri administrative mai mici.</li>
+          <li><em><b>Securitate şi control</b></em> - Utilizatorii Bitcoin au un control total asupra tranzacţiilor; este imposibil pentru comercianţi să forţeze taxe sau plăţi nedorite sau ascunse aşa cum se poate întâmpla prin alte metode de plată. Plăţile Bitcoin pot fi făcute fără că informaţii personale să fie legate de tranzacţie. Acest lucru oferă protecţie crescută împotriva furtului de identitate. Cei ce folosesc Bitcoin pot de asemenea să-şi protejeze banii prin backup şi criptare.</li>
+          <li><em><b>Transparent şi neutru</b></em> - <a href="https://live.blockcypher.com/btc/">Toate informaţiile</a> despre masa monetară a Bitcoin sunt disponibile oricând în lanţul de blocuri putând fi verificate de oricine şi folosite în timp real. Nici un individ sau organizaţie nu poate controla sau manipula protocolul Bitcoin deoarece este sigur din punct de vedere criptografic. Asta permite ca Bitcoin să fie complet neutru, transparent şi previzibil.</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3 id="disadvantages" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Care sunt dezavantajele Bitcoin?</h3>
+      <div>
+        <ul>
+          <li><em><b>Gradul de acceptare</b></em> - Mulţi oameni încă nu au auzit de Bitcoin. În fiecare zi, din ce în ce mai multe firme acceptă bitcoini pentru că îşi doresc avantajele asociate cu aceasta, dar lista este încă mică şi trebuie să mai crească pentru a beneficia de <a href="https://en.wikipedia.org/wiki/Network_effect">efectul de reţea</a>.</li>
+          <li><em><b>Volatilitatea</b></em> - <a href="https://bitcoincharts.com/bitcoin/">Totalul valorii</a> bitcoinilor în circulaţie şi numărul de firme ce folosesc Bitcoin este încă foarte mic faţă de ce ar putea fi. Aşa că, evenimente relativ mici, specule, sau activităţile anumitor firme pot influenţa major preţul. În teorie, această volatilitate se va micşora pe măsură ce pieţele Bitcoin şi tehnologia se va matura. Nu a mai existat niciodată o astfel de monedă, aşa că este destul de dificil(şi palpitant) să ne imaginăm ce se va întâmpla.</li>
+          <li><em><b>Dezvoltare continuă</b></em> - Software-ul Bitcoin este încă într-un stadiu beta cu multe opţiuni încă incomplete aflate în dezvoltare activă. Noi unelte, opţiuni şi servicii sunt în curs de dezvoltare pentru a face Bitcoin mai sigur şi mai accesibil pentru mase. Unele dintre ele încă nu sunt gata pentru toată lumea. Majoritatea afacerilor ce au la bază Bitcoin sunt la început şi nu oferă încă vreo asigurare. În general, Bitcoin este încă în faza de maturare.</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3 id="secure" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Este Bitcoin sigur?</h3>
+      <div>
+        <p>Tehnologia Bitcoin - protocolul şi criptografia - au un palmares de securitate impresionant, iar reţeaua Bitcoin este probabil cel mai mare proiect de calcul distribuit din lume. Cea mai comună vulnerabilitate a Bitcoin este eroarea umană din partea utilizatorului. Fişierele portofofelului Bitcoin ce păstrează cheile private necesare pot fi şterse din greşeală, pierdute sau furate. Acest lucru este similar cu banii cash păstraţi într-o formă digitală. Din fericire, utilizatorii pot respecta <a href="/ro/securizeaza-portofelul">practici de securitate</a> pentru a-şi proteja banii sau să folosească furnizori de servicii ce oferă niveluri bune de securitate şi asigurare împotriva furtului sau pierderii.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="islegal" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Este legal Bitcoinul?</h3>
+      <div>
+        <p>Din datele pe care le deţinem, <a href="https://en.wikipedia.org/wiki/Legality_of_bitcoin_by_country">Bitcoin nu a fost declarat ilegal</a> în majoritatea legislaţiilor diferitelor jurisdicţii. Dar, unele jurisdicţii(cum ar fi Argentina sau Rusia) restricţionează sau interzic valutele străine. Alte jurisdicţii(ca Tailanda) pot limita licenţierea anumitor entităţi cum ar fi exchange-urile Bitcoin.</p>
+        <p>Regulatori din diverse jurisdicţii fac paşi pentru a oferi indivizilor şi firmelor reguli pentru cum ar trebui să integreze această nouă tehnologie cu sistemul financiar formal şi regulat. De exemplu, Reţeaua de Combatere a Ilegalităţilor Financiare(FinCEN), o instituţie a Departamentului de Trezorerie al Statelor Unite, a emis o ghidare neimpusa de lege privind încadrarea anumitor activităţi în care sunt implicate valutele digitale.</p>
+        <ul>
+          <li>
+            <a href="https://www.ecb.europa.eu/pub/pdf/other/virtualcurrencyschemes201210en.pdf">Virtual Currency Schemes - European Central Bank</a>
+          </li>
+          <li>
+            <a href="https://www.fincen.gov/statutes_regs/guidance/pdf/FIN-2013-G001.pdf">Application of FinCEN’s Regulations to Persons Administering, Exchanging, or Using Virtual Currencies</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3 id="taxes" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Dar despre Bitcoin şi taxe şi impozite?</h3>
+      <div>
+        <p>Bitcoin nu este o monedă fiat cu statut legal în nici o jurisdicţie, dar deseori responsabilitatea financiară vis a vis de taxe şi impozite va creşte indiferent de mediumul folosit. Există o gama variată de legi în diferite jurisdicţii ce pot face ca venitul, vânzările, salariile, profiturile din vânzări, sau orice altă responsabilitate fiscală să crească cu Bitcoin.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="illegalactivities" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Este Bitcoin util pentru activități ilegale?</h3>
+      <div>
+        <p>Bitcoin reprezintă bani, iar banii au fost dintotdeauna folosiţi pentru scopuri legale dar şi ilegale. Banii cash, cardurile de credit şi sistemul bancar actual depăşesc cu mult Bitcoin prin gradul de folosinţă în finanţarea activităţilor ilegale. Bitcoin poate aduce o inovaţie semnificativă în sistemele de plăţi şi beneficiile unei asemenea inovaţii sunt adesea considerate ca fiind cu mult peste potenţialele dezavantaje.</p>
+        <p>Bitcoin este făcut pentru a fi un uriaş pas în faţă în drumul de a face banii mai siguri şi poate funcţiona de asemenea ca o protecţie semnificativă împotriva multor forme de ilegalităţi financiare. De exemplu, bitcoinii sunt complet imposibil de falsificat. Utilizatorii au control total asupra tranzacţiilor lor şi nu pot fi afectaţi de plăţi neautorizate ca în cazul fraudării cardurilor de credit. Tranzacţiile Bitcoin sunt ireversibile şi imune împotriva chargeback-urilor fraudulente. Bitcoin permite banilor să fie securizati împotriva furtului sau a pierderii folosind mecanisme foarte puternice şi folositoare cum ar fi backup-uri, criptare şi semnături multiple.</p>
+        <p>Există controverse legate de faptul că Bitcoin poate fi atractiv de folosit de către cei ce fac lucruri ilegale din cauză că permite efectuarea de plăţi ireversibile şi private. Însă, banii cash şi transferurile wire au deja aceste caracteristici, ambele fiind folosite pe scară largă şi deja consacrate. Folosirea Bitcoin va fi fără îndoială subiectul unor reglementări similare ce deja există în cadrul sistemelor financiare existente, iar Bitcoin este improbabil să prevină conducerea investigaţiilor oficiale. În general, este ceva comun că descoperirile importante să fie percepute că fiind controversate înainte că beneficiile sale să fie bine înţelese. Internetul este un bun exemplu alături de multe altele pentru a ilustra acest lucru.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="bubble" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Este Bitcoin o bulă speculativă?</h3>
+      <div>
+        <p>O creştere rapidă a preţului nu înseamnă neapărat o bulă. O supraapreciere artificială ce duce la o corecţie bruscă în minus a preţului constituie o bulă. Alegerile bazate pe acţiunea umană individuală a sutelor de mii de participanţi în piaţă este cauza fluctuatilor de preţ al bitcoinilor în timp ce piaţa caută descoperirea preţului. Motivele pentru o schimbare în sentiment pot include pierderea încrederii în Bitcoin, o diferenţă mare între valoare şi preţ ce nu este bazată pe fundamentele economiei Bitcoin, mediatizare ce stimulează cererea speculativă, teama de incertitudine şi obişnuita exuberanţă iraţională şi lăcomie.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="whyvalue" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">De ce au bitcoinii valoare?</h3>
+      <div>
+        <p>Bitcoinii au valoare pentru că sunt utili ca formă de bani. Bitcoin are caracteristicile unui ban(durabilitate, portabilitate, fungibilitate, raritate, divizibilitate şi este uşor de recunoscut) bazat mai mult pe proprietăţi matematice decât pe proprietăţi fizice(ca aurul şi argintul) sau pe încredere în autorităţi centrale(ca valutele fiat obişnuite). Pe scurt, Bitcoin este asigurat de matematică. Având aceste atribute, tot ce mai are nevoie o formă de bani pentru a avea valoare este încredere şi adopţie. În cazul Bitcoin, acest lucru poate fi măsurat prin numărul de utilizatori, comercianţi şi firme aflat în continuă creştere. Ca în cazul tuturor valutelor, valoarea unui bitcoin vine doar din partea persoanelor dispuse să-l accepte ca plată.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="ponzi" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Este Bitcoin o schemă Ponzi?</h3>
+      <div>
+        <p>O schemă Ponzi este o operaţiune de investiţie fraudulentă ce returnează banii investitorilor săi din proprii lor bani, sau din banii investitorilor precedenţi, în loc să o facă din profitul generat de către persoanele ce conduc afacerea. Schemele Ponzi sunt menite să se prăbuşească pe cheltuiala ultimilor investitori atunci când nu mai sunt destui participanţi noi.</p>
+        <p>Bitcoin este o program gratis fără autoritate centrală. În consecinţă, nimeni nu este în măsură să facă promisiuni fraudulente despre rentabilitatea investiţiilor. Ca în cazul altor valute majore cum ar fi aurul, dolarul american, euro, yen, etc. nu există o putere de cumpărare garantată şi preţul este liber. Aceasta duce la volatilitate, situaţie în care deţinătorii de bitcoini pot câştiga sau pierde bani într-un mod imprevizibil. Dincolo de speculă, Bitcoin este de asemenea un sistem de plată util cu proprietăţi competitive ce este folosit de mii de utilizatori şi companii.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="creator" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Cine a creat Bitcoin?</h3>
+      <div>
+        <p>Bitcoin este prima implementare a unui concept numit "cripto-valută", care a fost pentru prima oară enunţat în 1998 de către Wei Dai în lista de mail cypherpunks, sugerând ideea unei noi forme de bani ce foloseşte criptografia pentru a controla emiterea lor şi tranzacţiile, spre deosebire de a se baza pe o autoritate centrală. Primele specificaţii şi validarea conceptului au fost publicate în 2009 într-o listă de mail dedicată criptografiei de către Satoshi Nakamoto. Satoshi a părăsit proiectul la sfârşitul anului 2010 fără să spună foarte multe lucruri despre persoana sa. De atunci, comunitatea a crescut exponenţial, cu <a href="/ro/dezvoltare">mulţi programatori</a> lucrând la Bitcoin.</p>
+        <p>Anonimitatea lui Satoshi a ridicat deseori îngrijorări nejustificate, multe dintre ele legate de neînţelegerea naturii open source a Bitcoin. Protocolul şi software-ul Bitcoin sunt publicate liber şi orice programator din lume poate vedea codul sau să-şi facă propria versiune modificată a software-ului Bitcoin. Ca şi programatorii actuali, influenţa lui Satoshi a fost limitată de faptul că schimbările făcute de el trebuiesc să fie adoptate de ceilalţi şi din cauza asta el nu a avut control asupra Bitcoin. Ca atare, identitatea inventatorului Bitcoin este probabil la fel de relevantă astăzi ca identitatea persoanei care a inventat hârtia.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="worthless" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Pot bitcoinii să-şi piardă valoarea?</h3>
+      <div>
+        <p>Da. Istoria este plină de valute ce au eşuat şi nu mai sunt folosite, cum ar fi <a href="https://en.wikipedia.org/wiki/German_gold_mark">Marca Germană</a> în timpul Republicii de la Weimar şi, mai recent, <a href="https://en.wikipedia.org/wiki/Zimbabwean_dollar">dolarul Zimbabwean</a>. Deşi în trecut eşecurile valutelor se datorau în general hiperinflaţiei de care Bitcoin nu poate să aibă parte, întotdeauna există potenţialul unor eşecuri tehnice, monezi cu care se află în competiţie, chestiuni legale şi aşa mai departe. Ca o lege nescrisă, nicio valută nu ar trebui să fie considerată imună eşecului sau timpurilor de răstrişte. Bitcoin s-a dovedit a fi sigur încă de la început şi există un potenţial uriaş ca Bitcoin să se dezvolte în continuare. Pe de altă parte, nimeni nu este în măsură să prezică ce va rezerva viitorul pentru Bitcoin.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="virtual" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Este Bitcoin într-adevar virtual și imaterial?</h3>
+      <div>
+        <p>Bitcoin este la fel de virtual ca şi cardurile de credit sau soluţiile de online banking folosite de oameni zi de zi. Bitcoin poate fi folosit pentru a efectua plăţi online sau în magazine ca orice altă formă de bani. Bitcoinii de asemenea pot fi tranzacţionaţi în forme fizice, cum ar fi <a href="https://www.casascius.com/">monezile Casascius</a>, dar a plăti folosind telefonul mobil este de obicei mai convenabil. Balanţele Bitcoin sunt stocate într-o enormă reţea distribuită de date şi nu pot fi modificate fraudulent de nimeni. Cu alte cuvinte, utilizatorii Bitcoin au control exclusiv asupra propriilor fonduri şi bitcoinii nu pot dispărea pur şi simplu doar pentru că sunt virtuali.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="trust" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">De ce au oamenii încredere în Bitcoin?</h3>
+      <div>
+        <p>Majoritatea încrederii pe care oamenii o au în Bitcoin vine din faptul că nu necesită încredere deloc. Bitcoin este în întregime open-source şi descentralizat. Asta înseamnă că oricine are acces la întregul cod sursă oricând. Orice programator din lume poate deci să verifice exact cum funcţionează Bitcoin. Toţi bitcoinii aflaţi în existenţă şi toate tranzacţiile pot fi consultaţi în timp real de către toată lumea. Toate plăţile pot fi făcute fără implicarea unei părţi terţe şi tot sistemul este protejat de către algoritmi criptografici foarte puternici verificaţi de comunitate asemănători cu cei folosiţi în banking-ul online. Nici o organizaţie sau individ nu poate controla Bitcoin, iar reţeaua rămâne securizată chiar dacă nu toţi utilizatorii sunt de încredere.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="anonymous" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Este Bitcoin anonim?</h3>
+      <div>
+        <p>Bitcoin este construit pentru a permite utilizatorilor săi să trimită şi să primească plăţi cu un nivel acceptabil de confidenţialitate ca orice altă formă de bani. Însă, Bitcoin nu este la fel de anonim şi nu poate oferi acelaşi nivel de confidenţialitate ca şi banii cash. Folosirea de Bitcoin lasă destule urme în registrul public. Există <a href="/ro/protejeaza-ti-intimitatea">diverse metode</a> pentru a proteja confidenţialitatea utilizatorilor, cu mai multe aflate în stadiu de dezvoltare. Cu toate acestea, mai este destulă muncă de făcut înainte ca aceste metode să fie folosite în mod corect de utilizatorii Bitcoin.</p>
+        <p>Există controverse legate de tranzacţiile private care ar putea fi folosite în scopuri ilegale. Însă, merită notat că Bitcoin în cele din urmă va fi supus unor reglementări existente deja în sistemele financiare. Bitcoin nu poate fi mai anonim decât banii cash şi nu poate pune piedici în investigaţii oficiale ale autorităţilor. În plus, Bitcoin este construit în aşa fel încât să prevină o gamă largă de ilegalităţi financiare.</p>
+      </div>
+    </div>
+    <p>Pentru a afla mai multe despre Bitcoin, te rugăm să vizitezi <a href="/en/faq">FAQ-u</a>l complet sau <a href="https://en.bitcoin.it/wiki/Help:FAQ">Bitcoin Wiki</a>.</p>
+  </div>
+</div>
+
+
+
+    </div>
+  </div>
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/ro/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Support Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Donate</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">Introducere:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/ro/bitcoin-pentru-persoane-fizice">Persoane fizice</a>
+        </li>
+        <li>
+          <a href="/ro/bitcoin-pentru-companii">Companii</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">Dezvoltatori</a>
+        </li>
+        <li>
+          <a href="/ro/notiuni-de-baza">Noțiuni de bază</a>
+        </li>
+        <li>
+          <a href="/ro/cum-functioneaza">Cum funcționează</a>
+        </li>
+        <li>
+          <a href="/ro/ce-trebuie-sa-stii">Trebuie să știi</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">Resurse:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/ro/resurse">Resurse</a>
+        <li>
+          <a href="/ro/schimburi">Exchanges</a>
+        </li>
+        <li>
+          <a href="/ro/comunitate">Comunitate</a>
+        </li>
+        <li>
+          <a href="/ro/vocabular">Vocabular
+          </a>
+        </li>
+        <li>
+          <a href="/ro/evenimente">Evenimente</a>
+        </li>
+        
+          <li>
+            <a href="/ro/descarca">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">Participă:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/ro/sustine-bitcoin">Susţine Bitcoin</a>
+        
+        
+        <li>
+          <a href="/ro/dezvoltare">Dezvoltare</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Other:</p>
+      
+      <a href="/ro/legal">Legal</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/ro/presa">Presă</a>
+      <a href="/ro/despre-noi">Despre bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>Un site comunitar sponsorizat de</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 Lansat sub <a href="http://opensource.org/licenses/mit-license.php" target="_blank">licența MIT</a></div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Network Status</a>
+        
+<ul class="lang is-expand">
+  <li><a>Română</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/pers">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/premsa">Català</a></li>
+        
+        
+          <li><a href="/da/presse">Dansk</a></li>
+        
+        
+          <li><a href="/de/presse">Deutsch</a></li>
+        
+        
+          <li><a href="/en/press">English</a></li>
+        
+        
+          <li><a href="/es/prensa">Español</a></li>
+        
+        
+          <li><a href="/fr/presse">Français</a></li>
+        
+        
+          <li><a href="/it/stampa">Italiano</a></li>
+        
+        
+          <li><a href="/hu/sajto">Magyar</a></li>
+        
+        
+          <li><a href="/nl/pers">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/prasa">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/imprensa">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/presa" class="active">Română</a></li>
+        
+        
+          <li><a href="/sl/mediji">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/mediji">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/press">Svenska</a></li>
+        
+        
+          <li><a href="/tr/basin">Türkçe</a></li>
+        
+        
+          <li><a href="/el/press">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/press">български</a></li>
+        
+        
+          <li><a href="/ru/press">Русский</a></li>
+        
+        
+          <li><a href="/uk/press">Українська</a></li>
+        
+        
+          <li><a href="/ar/press">العربية</a></li>
+        
+        
+          <li><a href="/fa/press">فارسی</a></li>
+        
+        
+          <li><a href="/he/press">עברית</a></li>
+        
+        
+          <li><a href="/hi/press">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/press">한국어</a></li>
+        
+        
+          <li><a href="/ja/press">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/press">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/press">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/pers" >Bahasa Indonesia</option>
+              
+              <option value="/ca/premsa" >Català</option>
+              
+              <option value="/da/presse" >Dansk</option>
+              
+              <option value="/de/presse" >Deutsch</option>
+              
+              <option value="/en/press" >English</option>
+              
+              <option value="/es/prensa" >Español</option>
+              
+              <option value="/fr/presse" >Français</option>
+              
+              <option value="/it/stampa" >Italiano</option>
+              
+              <option value="/hu/sajto" >Magyar</option>
+              
+              <option value="/nl/pers" >Nederlands</option>
+              
+              <option value="/pl/prasa" >Polski</option>
+              
+              <option value="/pt_BR/imprensa" >Português Brasil</option>
+              
+              <option value="/ro/presa"  selected="selected">Română</option>
+              
+              <option value="/sl/mediji" >Slovenščina</option>
+              
+              <option value="/sr/mediji" >Srpski</option>
+              
+              <option value="/sv/press" >Svenska</option>
+              
+              <option value="/tr/basin" >Türkçe</option>
+              
+              <option value="/el/press" >Ελληνικά</option>
+              
+              <option value="/bg/press" >български</option>
+              
+              <option value="/ru/press" >Русский</option>
+              
+              <option value="/uk/press" >Українська</option>
+              
+              <option value="/ar/press" >العربية</option>
+              
+              <option value="/fa/press" >فارسی</option>
+              
+              <option value="/he/press" >עברית</option>
+              
+              <option value="/hi/press" >हिन्दी</option>
+              
+              <option value="/ko/press" >한국어</option>
+              
+              <option value="/ja/press" >日本語</option>
+              
+              <option value="/zh_CN/press" >简体中文</option>
+              
+              <option value="/zh_TW/press" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">ro</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+  <script>updateToc();</script>
+<script>accordion();</script>
+<script>onScrollButton();</script>
+<script>boxShow();</script>
+
+
+
+</body>
+
+</html>

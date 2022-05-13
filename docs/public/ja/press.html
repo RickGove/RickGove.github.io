@@ -1,0 +1,917 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>プレス-　ビットコイン</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.orgはコミュニティの支援金によって成り立つプロジェクトであり、頂いた寄付は、本ウェブサイトの改善に使用します。
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        寄付する
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.orgにはサポートが必要です！
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Bitcoin.orgに寄付する</p>
+    </div>
+    <p class="modal-subheader">このQRコードまたは以下のアドレスを使用する</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="または自分で金額を設定しますか？ (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="または自分で金額を設定しますか？ (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="（各ユーザーのウォレットのための）追加の記述"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/ja/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">紹介</a>
+    <ul>
+      <li><a href="/ja/bitcoin-for-individuals">個人</a></li>
+      <li><a href="/ja/bitcoin-for-businesses">ビジネス</a></li>
+      <li><a href="https://developer.bitcoin.org/">開発者</a></li>
+      <li><a href="/ja/getting-started">開始する</a></li>
+      <li><a href="/ja/how-it-works">ビットコインの仕組み</a></li>
+      
+      <li><a href="/ja/bitcoin-paper">ホワイトペーパー</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">リソース</a>
+    <ul>
+      <li><a href="/ja/resources">リソース</a>
+      <li><a href="/ja/exchanges">取引所</a></li>
+      <li><a href="/ja/community">コミュニティ</a></li>
+      
+      
+      <li><a href="/ja/vocabulary">用語</a></li>
+      <li><a href="/ja/events">イベント</a></li>
+      
+        <li><a href="/ja/download">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/ja/innovation">革新</a></li>
+  <li><a class="is-expand">参加</a>
+    <ul>
+      <li><a href="/ja/support-bitcoin">ビットコインを支援</a>
+      <li><a href="/ja/buy">ビットコインを購入</a></li>
+      
+      <li><a href="/ja/development">開発</a></li>
+    </ul>
+  </li>
+  <li><a href="/ja/faq">よくある質問</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>日本語</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/pers">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/premsa">Català</a></li>
+        
+        
+          <li><a href="/da/presse">Dansk</a></li>
+        
+        
+          <li><a href="/de/presse">Deutsch</a></li>
+        
+        
+          <li><a href="/en/press">English</a></li>
+        
+        
+          <li><a href="/es/prensa">Español</a></li>
+        
+        
+          <li><a href="/fr/presse">Français</a></li>
+        
+        
+          <li><a href="/it/stampa">Italiano</a></li>
+        
+        
+          <li><a href="/hu/sajto">Magyar</a></li>
+        
+        
+          <li><a href="/nl/pers">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/prasa">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/imprensa">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/presa">Română</a></li>
+        
+        
+          <li><a href="/sl/mediji">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/mediji">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/press">Svenska</a></li>
+        
+        
+          <li><a href="/tr/basin">Türkçe</a></li>
+        
+        
+          <li><a href="/el/press">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/press">български</a></li>
+        
+        
+          <li><a href="/ru/press">Русский</a></li>
+        
+        
+          <li><a href="/uk/press">Українська</a></li>
+        
+        
+          <li><a href="/ar/press">العربية</a></li>
+        
+        
+          <li><a href="/fa/press">فارسی</a></li>
+        
+        
+          <li><a href="/he/press">עברית</a></li>
+        
+        
+          <li><a href="/hi/press">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/press">한국어</a></li>
+        
+        
+          <li><a href="/ja/press" class="active">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/press">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/press">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/pers" >Bahasa Indonesia</option>
+            
+            <option value="/ca/premsa" >Català</option>
+            
+            <option value="/da/presse" >Dansk</option>
+            
+            <option value="/de/presse" >Deutsch</option>
+            
+            <option value="/en/press" >English</option>
+            
+            <option value="/es/prensa" >Español</option>
+            
+            <option value="/fr/presse" >Français</option>
+            
+            <option value="/it/stampa" >Italiano</option>
+            
+            <option value="/hu/sajto" >Magyar</option>
+            
+            <option value="/nl/pers" >Nederlands</option>
+            
+            <option value="/pl/prasa" >Polski</option>
+            
+            <option value="/pt_BR/imprensa" >Português Brasil</option>
+            
+            <option value="/ro/presa" >Română</option>
+            
+            <option value="/sl/mediji" >Slovenščina</option>
+            
+            <option value="/sr/mediji" >Srpski</option>
+            
+            <option value="/sv/press" >Svenska</option>
+            
+            <option value="/tr/basin" >Türkçe</option>
+            
+            <option value="/el/press" >Ελληνικά</option>
+            
+            <option value="/bg/press" >български</option>
+            
+            <option value="/ru/press" >Русский</option>
+            
+            <option value="/uk/press" >Українська</option>
+            
+            <option value="/ar/press" >العربية</option>
+            
+            <option value="/fa/press" >فارسی</option>
+            
+            <option value="/he/press" >עברית</option>
+            
+            <option value="/hi/press" >हिन्दी</option>
+            
+            <option value="/ko/press" >한국어</option>
+            
+            <option value="/ja/press"  selected="selected">日本語</option>
+            
+            <option value="/zh_CN/press" >简体中文</option>
+            
+            <option value="/zh_TW/press" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">ja</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>プレスセンター</h1>
+    
+      <p class="summarytxt">インタビュー、回答、高品質な報道資料を見つけましょう。</p>
+    
+  </div>
+</div>
+
+<div class="toc-container">
+  <div class="row toc-row">
+
+    <div id="toc" class="toc">
+      <div>
+        <button class="mob-sidebar-open" hidden>View All</button>
+        <div class="sidebar">
+          <div class="sidebar-inner">
+            <button class="mob-sidebar-close" hidden></button>
+            
+
+<ul>
+  <li><a href="#volunteer">インタビュー</a></li>
+  <li><a href="#layout">よくある質問</a>
+    <ul>
+      <li><a href="#whatisbitcoin">ビットコインとは？</a></li>
+      <li><a href="#howitworks">ビットコインの仕組み</a></li>
+      <li><a href="#whatismining">ビットコインマイニングとは何ですか？</a></li>
+      <li><a href="#acquire">ビットコインを手に入れる方法は？</a></li>
+      <li><a href="#used">ビットコインは、実際に使用されているのか？</a></li>
+      <li><a href="#makepayment">ビットコイン決済は難しいですか？</a></li>
+      <li><a href="#advantages">ビットコインの利点は？</a></li>
+      <li><a href="#disadvantages">ビットコインの欠点は？</a></li>
+      <li><a href="#secure">ビットコインは安全ですか？</a></li>
+      <li><a href="#islegal">ビットコインは合法ですか？</a></li>
+      <li><a href="#taxes">ビットコインと課税については？</a></li>
+      <li><a href="#illegalactivities">ビットコインは違法活動に使用されますか？</a></li>
+      <li><a href="#bubble">ビットコインはバブルですか？</a></li>
+      <li><a href="#whyvalue">なぜビットコインに価値があるのでしょうか？</a></li>
+      <li><a href="#ponzi">ビットコインはネズミ講ですか？</a></li>
+      <li><a href="#creator">ビットコインを創設したのは誰？</a></li>
+      <li><a href="#worthless">ビットコインの価値がなくなる事はありますか？</a></li>
+      <li><a href="#virtual">ビットコインは、インターネット上の、実体のないものですか？</a></li>
+      <li><a href="#trust">なぜ人々はビットコインを信頼するのですか？</a></li>
+      <li><a href="#anonymous">ビットコインは匿名ですか？</a></li>
+    </ul>
+  </li>
+</ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toccontent">
+      <div class="toccontent-intro">
+  <h2 id="volunteer">インタビュー</h2>
+  <p><a href="https://www.bitgivefoundation.org">BitGive</a>や<a href="https://bitcoincore.org/en/contact">Bitcoin Coreプロジェクト</a>、または地元の<a href="/ja/community#non-profit">非営利団体</a>とコミュニケーションをとりましょう。</p>
+</div>
+
+<div class="toccontent-block boxexpand expanded">
+  <h2 id="layout">よくある質問</h2>
+  <div class="press-faq">
+    <div>
+      <h3 id="whatisbitcoin" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">ビットコインとは？</h3>
+      <div>
+        <p>ビットコインは、新しい決済システムと完全な電子通貨を実現するものであり、中央機関や仲介者を必要としない、ユーザーによる初の分散型P2P決済ネットワークです。ユーザーの観点からは、ビットコインはインターネット上のお金の様なものです。また、ビットコインは現存するものの中で、最も優れた<a href="http://financialcryptography.com/mt/archives/001325.html">三式簿記システム</a> ともいえます。</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="howitworks" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">ビットコインの仕組み</h3>
+      <div>
+        <p>ユーザーの観点から見れば、ビットコインは、自分のビットコイン・ウォレットを提供し、ユーザー間でビットコインを送ったり受け取ったりするモバイル・アプリやコンピュータ・プログラムに過ぎません。殆どのユーザーにとっては、これがビットコインの仕組みです。</p>
+        <p>ビットコイン・ネットワークは、「ブロックチェーン」と呼ばれる公開台帳を共有しています。この公開台帳は、今までに処理された全てのトランザクションを含み、ユーザーのコンピューターが各トランザクションの有効性を検証できる様になっています。各トランザクションの信憑性は、送信アドレスに対応するデジタル署名によって保護されており、全ユーザーが、自分のビットコイン・アドレスからビットコインを送付する事を完全にコントロールできる様になっています。更に、専用のハードウェアの計算能力を使用し、誰もがトランザクションを処理し、このサービスに対する報酬をビットコインで獲得する事ができます。これは、「マイニング」と呼ばれます。ビットコインの詳細については、<a href="/ja/how-it-works">ビットコインの仕組み</a>と<a href="/ja/bitcoin-paper">原論文</a>をお読みください。</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="whatismining" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">ビットコインマイニングとは何ですか？</h3>
+      <div>
+        <p>マイニングは、トランザクションを処理し、ネットワークを安全にし、システム上の全ての人々を同期するために計算能力を使用するプロセスです。これは、ビットコインのデータセンターの様に考えられています。唯一の違いは、全ての国々のマイナーによる完全な分散型で、ネットワークをコントロールする個人が存在しない事です。このプロセスは、新しいビットコインを発行するために使用される一時的なメカニズムであるため、金の採掘に例えてマイニングと呼ばれます。しかし、金の採掘とは異なり、ビットコイン・マイニングでは、安全な決済ネットワークを運営するために必要な便利なサービスである事の引き換えとして、マイナーに報酬を提供します。</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="acquire" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">ビットコインを手に入れる方法は？</h3>
+      <div>
+        <ul>
+          <li>サービスや商品の対価として受け取る。</li>
+          <li><a href="https://www.buybitcoinworldwide.com">ビットコイン取引所</a>で、ビットコインを購入する。</li>
+          <li> <a href="https://localbitcoins.com/">周囲の人達</a>とビットコインを交換する。</li>
+          <li>競争の激しい<a href="http://www.bitcoinmining.com/">マイニング</a>でビットコインを稼ぐ。</li>
+        </ul>
+        <p>クレジットカードや、ペイパル決済でビットコインを売却したい人を見つける事ができるかもしれませんが、殆どの取引所ではこうした支払い方法での資金調達を許可していません。それは、ペイパルでビットコインを買い、その取引の半分を取り消す人がいる場合があるためです。これは一般に、支払い取消として知られています。</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="used" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">ビットコインは、実際に使用されているのか？</h3>
+      <div>
+        <p>はい。ビットコインを使用する個人や<a href="/en/spend-bitcoin">企業が増えています。</a> これには、レストラン、アパート、法律事務所等の従来型企業のほか、Namecheap、Overstock.com、Reddit等の人気のオンラインサービスが含まれます。ビットコインは比較的新しい現象ですが、急速に成長しています。2018年5月には、<a href="https://bitcoincharts.com/bitcoin/">流通しているビットコインの総価値</a>は、1000億USドルを超え、毎日数十億USドル相当のビットコインが取引されています。</p>
+        <p>
+          <img style="height:165px;width:380px;" src="/img/faq/merchants_map.png?1651746487" alt="Screenshot">
+        </p>
+      </div>
+    </div>
+    <div>
+      <h3 id="makepayment" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">ビットコイン決済は難しいですか？</h3>
+      <div>
+        <p>ビットコイン決済は、デビットカードやクレジットカード購入より簡単で、マーチャント・アカウントなしで支払いを受け取る事ができます。支払いは、各ユーザーのコンピューターやスマートフォンのウォレット・アプリに、受取人アドレス、支払い額を記載し、送信する事で完了します。受取人のアドレス入力を更に容易にするために、QRコードのスキャンや、NFCテクノロジーでお互いの携帯電話をタッチさせる事で、アドレスを取得できるウォレットも沢山あります。</p>
+        <p>
+          <img src="/img/faq/mobile_send.png?1651746487" style="height:325px;width:190px;" alt="Screenshot">
+          <img src="/img/faq/mobile_receive.png?1651746487" style="height:325px;width:190px;" alt="Screenshot">
+        </p>
+      </div>
+    </div>
+    <div>
+      <h3 id="advantages" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">ビットコインの利点は？</h3>
+      <div>
+        <ul>
+          <li><em><b>自由な決済</b></em> - いつでもどこでも無制限の支払いと受け取りが可能です。銀行の休日や国境、煩雑な手続きはありません。ユーザーが自分のお金を完全にコントロールする事ができるのです。
+</li>
+          <li><em><b>手数料の選択</b></em> - ビットコインを受け取るために手数料は必要ありません。また、多くのウォレットでは、支払いの際に手数料の調整が可能であり、手数料を高くするとトランザクションの<a href="/ja/you-need-to-know#instant">承認</a>を早める事ができます。手数料は送信されるビットコインの多さとは無関係であり、1ビットコインを送信するのと同じ手数料で、10万ビットコインを送信する事ができます。更に、一日毎にビットコインを法定通貨に換え、業者の銀行口座に直接預金する事で業者の取引処理を支援する、マーチャント・プロセッサーというものも存在します。こうしたサービスはビットコインが元となっているため、ペイパルやクレジットカード・ネットワークよりも、低い手数料で提供する事ができるのです。
+</li>
+          <li><em><b>業者にとってのリスクがより低い</b></em> - ビットコイン取引は安全で、取り消す事ができず、慎重に扱う必要がある顧客の個人情報を考慮する必要もありません。そのため、詐欺や不正な支払い取消による損害を防ぎ、PCIコンプライアンスの必要もありません。業者は、クレジットカードが使用できない市場や、詐欺率が非常に高い新興市場にも、容易にビジネスを拡大する事ができます。結果として、より低い手数料、より広い市場、そしてより少ない管理コストを実現できるのです。</li>
+          <li><em><b>セキュリティーとコントロール</b></em> - ビットコイン・ユーザーは、自分の取引を完全にコントロールする事ができます。業者が不必要または非通知の料金を課す等の他の支払い方法で可能となってしまう事は、ビットコインでは不可能です。ビットコインの支払いは、取引に関連する個人情報を提供せずに行う事ができます。これは個人情報の盗難等に対する、強力な保護策となります。更に、ビットコインのユーザーは、バックアップと暗号化によって資産を守る事もできます。</li>
+          <li><em><b>透明性と中立性</b></em> - ビットコインの供給に関する<a href="https://live.blockcypher.com/btc/">全ての情報</a>は、ブロックチェーン上で簡単に入手でき、誰もがすぐにそれを確認し使用できます。 ビットコイン・プロトコルは暗号学的に安全であるため、いかなる個人および組織もビットコイン・プロトコルをコントロールできません。ビットコインの中核技術が完全に中立、透明および予測可能であると信頼できるのは、このためです。</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3 id="disadvantages" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">ビットコインの欠点は？</h3>
+      <div>
+        <ul>
+          <li><em><b>受け入れの度合い</b></em> -　多くの人々はビットコインの存在をまだ知りません。より多くの企業が日々、ビットコインを受け入れています。それは、そうする事による利益を得たいためですが、こうした企業はまだまだ少なく、<a href="https://en.wikipedia.org/wiki/Network_effect">ネットワーク効果</a>の利益を享受するには、その数を増やす事が必要です。</li>
+          <li><em><b>ボラティリティ</b></em> - 流通しているビットコインの <a href="https://bitcoincharts.com/bitcoin/">合計価値</a>と、ビットコインを使うビジネスの数は、その可能性に比べるとまだ非常に少ないです。従って、比較的小規模なイベントや貿易、ビジネス活動は、その価格に大いに影響を与えます。理論的には、ビットコイン市場とその技術が十分に成熟すれば、このボラティリティが減少します。スタートアップ通貨というものは前代未聞であるため、これが今後どの様に展開するか想像する事は、とても困難であると共に、エキサイティングな事です。</li>
+          <li><em><b>継続的発展</b></em> - ビットコイン・ソフトウェアは、まだ開発途中の不完全な機能が多数ある、ベータの段階です。ビットコインをより安全にし、多くの方々がアクセスできる様に、新しいツール、機能、サービスの開発が進められています。それらの中には、まだ全ての人が使用できないものもあります。殆どのビットコイン・ビジネスは新しく、まだ保護手段を提供するまでに至っていません。つまり、ビットコインは成長を続けている段階なのです。</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3 id="secure" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">ビットコインは安全ですか？</h3>
+      <div>
+        <p>ビットコインの技術 －プロトコルと暗号学は安全性が強固であるという実績があり、ビットコインネットワークは、恐らく世界最大の分散型コンピューティングプロジェクトと言えるでしょう。ビットコインの最も一般的な脆弱性は、ユーザー側の過失にあります。つまり、プライベートキーを保管するビットコインウォレットファイルを、うっかり消したり、紛失したり、盗まれたりする事です。これは現金を電子的に保管する事と似ているでしょう。ユーザーは幸い、通貨を守るために<a href="/ja/secure-your-wallet">セキュリティー対策</a>をしっかり行ったり、高いレベルのセキュリティーと窃盗や紛失に対する保険を提供するプロバイダーを使用して、対応する事ができます。</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="islegal" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">ビットコインは合法ですか？</h3>
+      <div>
+        <p>当サイトが知る限り、殆どの管轄区域の法律の下では、<a href="https://en.wikipedia.org/wiki/Legality_of_bitcoin_by_country">ビットコインは違法とされていません。</a>しかし、外貨を厳しく制限したり禁止する管轄区域もいくつかあります（アルゼンチンやロシア等）。また、 ビットコイン取引所の様な特定の事業体のライセンスを制限する管轄区域もあります（タイ等）。</p>
+        <p>様々な管轄区域の規制当局は、この新しい技術を規制に基づいた従来の金融システムに統合するための規定を、個人や企業に提供する手段を講じています。例えば、米国財務省内局の金融犯罪取締ネットワーク (FinCEN)では、拘束力はないものの、バーチャル通貨に関連した特定活動をどの様に看做すかという指導を公表しています。</p>
+        <ul>
+          <li>
+            <a href="https://www.ecb.europa.eu/pub/pdf/other/virtualcurrencyschemes201210en.pdf">Virtual Currency Schemes - European Central Bank</a>
+          </li>
+          <li>
+            <a href="https://www.fincen.gov/statutes_regs/guidance/pdf/FIN-2013-G001.pdf">Application of FinCEN’s Regulations to Persons Administering, Exchanging, or Using Virtual Currencies</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3 id="taxes" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">ビットコインと課税については？</h3>
+      <div>
+        <p>ビットコインは、どの管轄区域においても法定通貨とはされていませんが、どの様な媒体を使用する場合にも納税義務は生じるでしょう。各管轄区域では多種多様な法規があり、ビットコインでも、所得、販売、給与、資本利得等の納税義務が生じる可能性があります。</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="illegalactivities" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">ビットコインは違法活動に使用されますか？</h3>
+      <div>
+        <p>ビットコインは通貨であり、通貨は常に法的あるいは違法な目的で使用されてきました。現金、クレジットカード、銀行システムは、ビットコインよりも遥かに多くの金融犯罪に使用されています。ビットコインは決済システムに大きな変革をもたらし、この変革による利点は潜在的な欠点を大きく上回ると考えられています。</p>
+        <p>ビットコインは、通貨をより安全にする大きな一歩となる様に設計されており、様々な金融犯罪を防ぐ事ができます。例えば、偽のビットコインを作成する事はできません。ユーザーが支払いを完全にコントロールし、クレジットカード詐欺の様に、未承諾の手数料を受け取る事はできません。ビットコインのトランザクションは、バックアップ、暗号化、複数署名等の強力で有効なメカニズムを使用するため、窃盗や紛失を防ぐ事もできます。</p>
+        <p>ビットコインは支払いが個人に帰属し取り消しができないため、犯罪者にとって魅力があるという懸念があります。しかし、広く確立した方法である現金や電信送金にもこうした側面があります。ビットコインが、既存の金融システム内に確立されている様な規制の対象となる事は明らかであり、犯罪捜査が行われる事を防ぐ事はできません。一般的に、重要なブレイクスルーは、その長所がよく理解される前に論議の余地があるものとして捉えられます。インターネットがその典型例です。</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="bubble" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">ビットコインはバブルですか？</h3>
+      <div>
+        <p>価格の急速な上昇がバブルを起こすのではありません。急速な下方修正に繋がる人工的な価値の吊り上げが、バブルを生み出すのです。市場が価格を設定する際には、何十万人もの市場参加者の行動に基づいた選択の数々が、ビットコインの価格を変動させます。感情の変化には、ビットコインへの自信の喪失、ビットコイン経済に基づかない価値と価格の大きな開き、投機需要を促進させる報道の増加、不確実性への恐怖、昔ながらの根拠のない熱狂と欲等があります。</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="whyvalue" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">なぜビットコインに価値があるのでしょうか？</h3>
+      <div>
+        <p>ビットコインは通貨の様に役立つため、価値があります。ビットコインは、物質的なもの（金や銀の様なもの）や中央権力への信頼（法定通貨の様なもの）を拠り所とする訳ではなく、数学的な特性に基づいた通貨の特徴（耐久性、携帯性、代替可能性、希少性、分割可能性、および認識性）を拠り所とするものです。つまり、ビットコインは数学に裏付けられたものなのです。こうした特性を持ち、価値を持つ通貨になるために必要な条件は、人々による信頼と採用です。ビットコインの場合は、ユーザー、業者、スタートアップの増加で、これを測る事ができます。通貨としてのビットコインの価値は、それを支払いとして承諾する人々の存在によってのみ、生まれるのです。</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="ponzi" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">ビットコインはネズミ講ですか？</h3>
+      <div>
+        <p>ネズミ講は詐欺的な投資運用であり、ビジネス運営者が稼いだ利益ではなく、投資家自身や後続投資家のお金がリターンとして投資家に支払われます。ネズミ講は、十分な数の新しい参加者が存在しない時、最後の投資家を犠牲にして崩壊する様に設計されています。</p>
+        <p>ビットコインは、中央組織のないフリーソフトウェア・プログラムです。従って、投資リターンに関する詐欺ができる者はいません。金、USドル、ユーロ、円等の他の主要な通貨の様に、購買力に保証はなく、為替レートも自由に変動します。これが、ビットコインの所有者が、予想外にお金を得たり失ったりする不安定さに繋がるのです。ビットコインは投機の域を超え、多数のユーザーやビジネスによって使用されれている、効果的で競争性のある決済システムでもあります。</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="creator" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">ビットコインを創設したのは誰？</h3>
+      <div>
+        <p>ビットコインは、1998年にサイファーパンクのメーリングリストで、Wei Daiが提唱した「暗号通貨」のコンセプトを実現したものです。このコンセプトは、通貨の製造と取引に、中央権力ではなく暗号学を使った、新しい通貨の使用を提案したものです。そして2009年、暗号技術者専門のメーリングリストで、サトシ・ナカモトが、最初のビットコイン仕様とコンセプトの証明を発表しました。サトシは自分の身元を明かす事なく、2010年にプロジェクトを去りました。その後、コミュニティーは、ビットコインの <a href="/ja/development">大勢の開発者</a>のおかげで、急速に成長を続けています。 </p>
+        <p>サトシの匿名性が、しばしば不当な懸念を呼んでいます。その多くは、ビットコインのオープンソースに対する誤解と結びついています。ビットコイン・プロトコルとソフトウェアは公開されており、世界中の開発者の誰もが、このコードを再評価し、自分で修正したビットコイン・ソフトウェアを作成する事ができます。現在の開発者同様、サトシの影響も、彼のコードを他者が採用したものに限られているため、彼がビットコインをコントロールしている訳ではありません。つまり、紙の発明者が誰かという事と同様に、ビットコインの発明者が誰かという事も、今日では意味のある事ではないでしょう。</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="worthless" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">ビットコインの価値がなくなる事はありますか？</h3>
+      <div>
+        <p>ビットコインの価値がなくなる可能性もあります。歴史上には、ワイマール共和国時代の<a href="https://en.wikipedia.org/wiki/German_gold_mark">ドイツマルク</a>や、最近では、<a href="https://en.wikipedia.org/wiki/Zimbabwean_dollar">ジンバブエドル</a>のように、通貨としての機能を失い、使用できなくなったものが沢山あります。これまでの通貨機能の喪失は、ハイパーインフレーションによるものが典型的であり、ビットコインでは起こりえない事ですが、技術的な失敗、競争通貨の台頭、政治問題等は常に考えられます。大まかに言えば、絶対に機能を失わない、あるいは困難に陥らない通貨は存在しません。ビットコインは、生まれて以来何年もの間その信頼性を証明しており、成長を続ける可能性は大きいでしょう。しかし、ビットコインの将来がどの様なものになるか予測できる者は、誰もいません。</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="virtual" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">ビットコインは、インターネット上の、実体のないものですか？</h3>
+      <div>
+        <p>ビットコインは、人々が毎日の様に利用するクレジットカードやオンラインバンキングネットワークの様に、バーチャルなものです。ビットコインは、他の金銭的価値を持つものと同様に、オンライン上や実店舗で使用する事ができます。ビットコインは<a href="https://denarium.com/">デナリウムコイン</a>等を使用して物理的に交換する事もできますが、通常はスマートフォンでの支払いがより​​便利です。ビットコインの残高は、大規模な分散ネットワーク上にあり、これを不正に変更できる者はいません。つまり、ビットコインのユーザーは、自らの資産を独占的にコントロールでき、それがバーチャルであるという理由だけで失われる事はないのです。</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="trust" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">なぜ人々はビットコインを信頼するのですか？</h3>
+      <div>
+        <p>ビットコインへの信頼は、それが信頼を全く必要としない事に由来します。ビットコインは、完全にオープンソースで分散的です。つまり、誰もが全ソースコードに、いつでもアクセスでき、世界中の開発者が、ビットコインがどの様に機能するのか検証する事ができるのです。誰もが全取引と発行されたビットコインを、リアルタイムで確認する事ができます。また、全ての支払は、第三者に頼る事なく可能であり、全てのシステムは、主にオンライン・バンキングで用いられている様な、ピアレビューの暗号学的アルゴリズムによって保護されています。ビットコインをコントロールできる組織や個人は存在せず、全ユーザーを信頼できるわけではないとしても、このネットワークは安全性を維持する事ができるのです。</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="anonymous" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">ビットコインは匿名ですか？</h3>
+      <div>
+        <p>ビットコインは他の形態の通貨と同様に、ユーザーが許容できるレベルのプライバシーを保ち、支払いを送受信できる様に設計されています。しかし、ビットコインは匿名ではないため、現金の様なプライバシーの保持はできません。ビットコインを使用すると大規模な公的記録を残しますが、ユーザーのプライバシーを保護する<a href="/ja/protect-your-privacy">様々なメカニズム</a> が既に存在し、現在開発中のものも数多くあります。しかし、多くのビットコインユーザーにこうした機能が使用される前に優先すべき事項がまだ沢山あります。</p>
+        <p>ビットコインを使用した個人取引が違法目的で行われる懸念はありますが、ビットコインが既存の金融システムで実施されている様な規制対象となる事は疑いありません。ビットコインは現金より匿名性が低く、犯罪捜査の行使を防ぐ事はできず、様々な金融犯罪を防げる様に設計されています。</p>
+      </div>
+    </div>
+    <p>ビットコインについて更に詳しく学びたい方は、完全版の<a href="/en/faq">FAQ</a>または、<a href="https://en.bitcoin.it/wiki/Help:FAQ">Bitcoin Wiki</a>をご覧下さい。</p>
+  </div>
+</div>
+
+
+
+    </div>
+  </div>
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/ja/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Bitcoin.orgを支援する:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">寄付する</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">紹介:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/ja/bitcoin-for-individuals">個人</a>
+        </li>
+        <li>
+          <a href="/ja/bitcoin-for-businesses">ビジネス</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">開発者</a>
+        </li>
+        <li>
+          <a href="/ja/getting-started">開始する</a>
+        </li>
+        <li>
+          <a href="/ja/how-it-works">ビットコインの仕組み</a>
+        </li>
+        <li>
+          <a href="/ja/you-need-to-know">知っておくべき事</a>
+        </li>
+        
+        <li>
+          <a href="/ja/bitcoin-paper">ホワイトペーパー</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">リソース:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/ja/resources">リソース</a>
+        <li>
+          <a href="/ja/exchanges">取引所</a>
+        </li>
+        <li>
+          <a href="/ja/community">コミュニティ</a>
+        </li>
+        <li>
+          <a href="/ja/vocabulary">用語
+          </a>
+        </li>
+        <li>
+          <a href="/ja/events">イベント</a>
+        </li>
+        
+          <li>
+            <a href="/ja/download">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">参加:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/ja/support-bitcoin">ビットコインを支援</a>
+        
+        
+        <li>
+          <a href="/ja/development">開発</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">その他:</p>
+      
+      <a href="/ja/legal">法律</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/ja/press">プレス</a>
+      <a href="/ja/about-us">bitcoin.org について</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>コミュニティ・ウェブサイト　主催：</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MITライセンス</a>の下でのリリース</div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">ネットワークステータス</a>
+        
+<ul class="lang is-expand">
+  <li><a>日本語</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/pers">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/premsa">Català</a></li>
+        
+        
+          <li><a href="/da/presse">Dansk</a></li>
+        
+        
+          <li><a href="/de/presse">Deutsch</a></li>
+        
+        
+          <li><a href="/en/press">English</a></li>
+        
+        
+          <li><a href="/es/prensa">Español</a></li>
+        
+        
+          <li><a href="/fr/presse">Français</a></li>
+        
+        
+          <li><a href="/it/stampa">Italiano</a></li>
+        
+        
+          <li><a href="/hu/sajto">Magyar</a></li>
+        
+        
+          <li><a href="/nl/pers">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/prasa">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/imprensa">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/presa">Română</a></li>
+        
+        
+          <li><a href="/sl/mediji">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/mediji">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/press">Svenska</a></li>
+        
+        
+          <li><a href="/tr/basin">Türkçe</a></li>
+        
+        
+          <li><a href="/el/press">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/press">български</a></li>
+        
+        
+          <li><a href="/ru/press">Русский</a></li>
+        
+        
+          <li><a href="/uk/press">Українська</a></li>
+        
+        
+          <li><a href="/ar/press">العربية</a></li>
+        
+        
+          <li><a href="/fa/press">فارسی</a></li>
+        
+        
+          <li><a href="/he/press">עברית</a></li>
+        
+        
+          <li><a href="/hi/press">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/press">한국어</a></li>
+        
+        
+          <li><a href="/ja/press" class="active">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/press">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/press">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/pers" >Bahasa Indonesia</option>
+              
+              <option value="/ca/premsa" >Català</option>
+              
+              <option value="/da/presse" >Dansk</option>
+              
+              <option value="/de/presse" >Deutsch</option>
+              
+              <option value="/en/press" >English</option>
+              
+              <option value="/es/prensa" >Español</option>
+              
+              <option value="/fr/presse" >Français</option>
+              
+              <option value="/it/stampa" >Italiano</option>
+              
+              <option value="/hu/sajto" >Magyar</option>
+              
+              <option value="/nl/pers" >Nederlands</option>
+              
+              <option value="/pl/prasa" >Polski</option>
+              
+              <option value="/pt_BR/imprensa" >Português Brasil</option>
+              
+              <option value="/ro/presa" >Română</option>
+              
+              <option value="/sl/mediji" >Slovenščina</option>
+              
+              <option value="/sr/mediji" >Srpski</option>
+              
+              <option value="/sv/press" >Svenska</option>
+              
+              <option value="/tr/basin" >Türkçe</option>
+              
+              <option value="/el/press" >Ελληνικά</option>
+              
+              <option value="/bg/press" >български</option>
+              
+              <option value="/ru/press" >Русский</option>
+              
+              <option value="/uk/press" >Українська</option>
+              
+              <option value="/ar/press" >العربية</option>
+              
+              <option value="/fa/press" >فارسی</option>
+              
+              <option value="/he/press" >עברית</option>
+              
+              <option value="/hi/press" >हिन्दी</option>
+              
+              <option value="/ko/press" >한국어</option>
+              
+              <option value="/ja/press"  selected="selected">日本語</option>
+              
+              <option value="/zh_CN/press" >简体中文</option>
+              
+              <option value="/zh_TW/press" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">ja</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+  <script>updateToc();</script>
+<script>accordion();</script>
+<script>onScrollButton();</script>
+<script>boxShow();</script>
+
+
+
+</body>
+
+</html>
