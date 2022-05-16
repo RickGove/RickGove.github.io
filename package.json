@@ -1,7 +1,7 @@
 {
-  "name": "bitcoin-il",
+  "name": "rickgove.github.io",
   "version": "1.0.0",
-  "description": "Bitcoin IL Website",
+  "description": "",
   "main": "index.js",
   "directories": {
     "doc": "docs"
