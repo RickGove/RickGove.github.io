@@ -566,15 +566,15 @@ aliases:
 
 safe:        false
 port: 4000
+url: "https://rickgove.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 ## Used in older version of Jekyll
 base-url: "/"
 ## Used in newer versions of Jekyll
 baseurl: "/"
-url: "https://rickgove.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+destination: ./thisisthebuild
 
 source:      .
 # destination: ./_site
-destination: ./_site
 
 plugins_dir: ./_plugins
 exclude:
