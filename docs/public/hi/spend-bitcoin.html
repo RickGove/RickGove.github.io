@@ -1,0 +1,711 @@
+<!DOCTYPE HTML>
+<html lang="hi">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Spending Bitcoin - Bitcoin</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+<link rel="stylesheet" href="/css/sans.css?1651746487">
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org is a community funded project, donations are appreciated and used to improve the website.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Make a donation
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org needs your support!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Donate to Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">Use this QR code or address below</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Or custom amount? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Or custom amount? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Optional description (for your wallet)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/hi/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">परिचय</a>
+    <ul>
+      <li><a href="/hi/bitcoin-for-individuals">व्यक्तिगत</a></li>
+      <li><a href="/hi/bitcoin-for-businesses">व्यवसाय</a></li>
+      <li><a href="https://developer.bitcoin.org/">डेवलपर्स</a></li>
+      <li><a href="/hi/getting-started"> प्रारंभ करें</a></li>
+      <li><a href="/hi/how-it-works">यह कैसे काम करता है</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">संसाधन</a>
+    <ul>
+      <li><a href="/hi/resources">संसाधन</a>
+      <li><a href="/hi/exchanges">Exchanges</a></li>
+      <li><a href="/hi/community">समुदाय</a></li>
+      
+      
+      <li><a href="/hi/vocabulary">शब्दावली</a></li>
+      <li><a href="/hi/events">कार्यक्रम</a></li>
+      
+        <li><a href="/hi/download">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/hi/innovation">अभिनव</a></li>
+  <li><a class="is-expand">भाग लें</a>
+    <ul>
+      <li><a href="/hi/support-bitcoin">Bitcoin समर्थन करें</a>
+      <li><a href="/hi/buy">Buy Bitcoin</a></li>
+      
+      <li><a href="/hi/development">विकास</a></li>
+    </ul>
+  </li>
+  <li><a href="/hi/faq">अक्सर पूछे जाने वाले प्रश्न</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>हिन्दी</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/menggunakan-bitcoin">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/gasta-bitcoins">Català</a></li>
+        
+        
+          <li><a href="/da/bruge-bitcoin">Dansk</a></li>
+        
+        
+          <li><a href="/de/bitcoins-ausgeben">Deutsch</a></li>
+        
+        
+          <li><a href="/en/spend-bitcoin">English</a></li>
+        
+        
+          <li><a href="/es/gastar-bitcoin">Español</a></li>
+        
+        
+          <li><a href="/fr/depenser-bitcoin">Français</a></li>
+        
+        
+          <li><a href="/it/spendi-bitcoin">Italiano</a></li>
+        
+        
+          <li><a href="/hu/fizess-bitcoinnal">Magyar</a></li>
+        
+        
+          <li><a href="/nl/bitcoin-uitgeven">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/zuzyc-bitcoin">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/gastar-bitcoin">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/petrece-bitcoin">Română</a></li>
+        
+        
+          <li><a href="/sl/porabiti-bitcoin">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/potrosi-bitkoin">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/spendera-bitcoin">Svenska</a></li>
+        
+        
+          <li><a href="/tr/bitcoin-para-harcamak">Türkçe</a></li>
+        
+        
+          <li><a href="/el/spend-bitcoin">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/spend-bitcoin">български</a></li>
+        
+        
+          <li><a href="/ru/spend-bitcoin">Русский</a></li>
+        
+        
+          <li><a href="/uk/spend-bitcoin">Українська</a></li>
+        
+        
+          <li><a href="/ar/spend-bitcoin">العربية</a></li>
+        
+        
+          <li><a href="/fa/spend-bitcoin">فارسی</a></li>
+        
+        
+          <li><a href="/he/spend-bitcoin">עברית</a></li>
+        
+        
+          <li><a href="/hi/spend-bitcoin" class="active">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/spend-bitcoin">한국어</a></li>
+        
+        
+          <li><a href="/ja/spend-bitcoin">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/spend-bitcoin">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/spend-bitcoin">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/menggunakan-bitcoin" >Bahasa Indonesia</option>
+            
+            <option value="/ca/gasta-bitcoins" >Català</option>
+            
+            <option value="/da/bruge-bitcoin" >Dansk</option>
+            
+            <option value="/de/bitcoins-ausgeben" >Deutsch</option>
+            
+            <option value="/en/spend-bitcoin" >English</option>
+            
+            <option value="/es/gastar-bitcoin" >Español</option>
+            
+            <option value="/fr/depenser-bitcoin" >Français</option>
+            
+            <option value="/it/spendi-bitcoin" >Italiano</option>
+            
+            <option value="/hu/fizess-bitcoinnal" >Magyar</option>
+            
+            <option value="/nl/bitcoin-uitgeven" >Nederlands</option>
+            
+            <option value="/pl/zuzyc-bitcoin" >Polski</option>
+            
+            <option value="/pt_BR/gastar-bitcoin" >Português Brasil</option>
+            
+            <option value="/ro/petrece-bitcoin" >Română</option>
+            
+            <option value="/sl/porabiti-bitcoin" >Slovenščina</option>
+            
+            <option value="/sr/potrosi-bitkoin" >Srpski</option>
+            
+            <option value="/sv/spendera-bitcoin" >Svenska</option>
+            
+            <option value="/tr/bitcoin-para-harcamak" >Türkçe</option>
+            
+            <option value="/el/spend-bitcoin" >Ελληνικά</option>
+            
+            <option value="/bg/spend-bitcoin" >български</option>
+            
+            <option value="/ru/spend-bitcoin" >Русский</option>
+            
+            <option value="/uk/spend-bitcoin" >Українська</option>
+            
+            <option value="/ar/spend-bitcoin" >العربية</option>
+            
+            <option value="/fa/spend-bitcoin" >فارسی</option>
+            
+            <option value="/he/spend-bitcoin" >עברית</option>
+            
+            <option value="/hi/spend-bitcoin"  selected="selected">हिन्दी</option>
+            
+            <option value="/ko/spend-bitcoin" >한국어</option>
+            
+            <option value="/ja/spend-bitcoin" >日本語</option>
+            
+            <option value="/zh_CN/spend-bitcoin" >简体中文</option>
+            
+            <option value="/zh_TW/spend-bitcoin" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">hi</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>Spending Bitcoin</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row card-row">
+    <div class="card spend-card">
+      <img src="/img/icons/product.svg?1651746487" alt="icon">
+      <h2 id="products-online">Find products for sale online</h2>
+      <p>One common use for Bitcoin is making purchases online. There are hundreds of online shops and retailers that accept Bitcoin. Using a search engine like <a href="https://spendabit.co/">Spendabit</a> you can search through millions of products, all available for purchase with bitcoins.</p>
+    </div>
+
+    <div class="card spend-card">
+      <img src="/img/icons/search.svg?1651746487" alt="icon">
+      <h2 id="business-search">Global local and online business search</h2>
+      <p><a href="https://bitcoinwide.com/">BitcoinWide.com</a> is a global, open and free platform to search businesses, organizations or individuals who accept Bitcoin and other Cryptocurrency.</p>
+    </div>
+
+    <div class="card spend-card">
+      <img src="/img/icons/directory.svg?1651746487" alt="icon">
+      <h2 id="directory">Navigate a business directory</h2>
+      <p>You can also find many businesses listed in <a href="https://99bitcoins.com/who-accepts-bitcoins-payment-companies-stores-take-bitcoins/">online directories</a>.</p>
+    </div>
+
+
+    <div class="card spend-card">
+      <img src="/img/icons/local.svg?1651746487" alt="icon">
+      <h2 id="map">Find local businesses</h2>
+      <p>There are also many local businesses, like cafes and restaurants, that accept Bitcoin. You can use <a href="https://coinmap.org/">Coinmap.org</a> to browse thousands of businesses across the globe.</p>
+    </div>
+
+  </div>
+</div>
+
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/hi/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Support Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Donate</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">परिचय:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/hi/bitcoin-for-individuals">व्यक्तिगत</a>
+        </li>
+        <li>
+          <a href="/hi/bitcoin-for-businesses">व्यवसाय</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">डेवलपर्स</a>
+        </li>
+        <li>
+          <a href="/hi/getting-started"> प्रारंभ करें</a>
+        </li>
+        <li>
+          <a href="/hi/how-it-works">यह कैसे काम करता है</a>
+        </li>
+        <li>
+          <a href="/hi/you-need-to-know">आपको पता होना चाहिए </a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">संसाधन:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/hi/resources">संसाधन</a>
+        <li>
+          <a href="/hi/exchanges">Exchanges</a>
+        </li>
+        <li>
+          <a href="/hi/community">समुदाय</a>
+        </li>
+        <li>
+          <a href="/hi/vocabulary">शब्दावली
+          </a>
+        </li>
+        <li>
+          <a href="/hi/events">कार्यक्रम</a>
+        </li>
+        
+          <li>
+            <a href="/hi/download">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">भाग लें:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/hi/support-bitcoin">Bitcoin समर्थन करें</a>
+        
+        
+        <li>
+          <a href="/hi/development">विकास</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Other:</p>
+      
+      <a href="/hi/legal">कानूनी</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/hi/press">प्रेस</a>
+      <a href="/hi/about-us">bitcoin.org के बारे में</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span> समुदाय वेबसाइट प्रायोजित किया गया निम्न के द्वारा</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022  <a href="http://opensource.org/licenses/mit-license.php" target="_blank"> MIT लाइसेंस </a> के तहत जारी किया गया है </div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Network Status</a>
+        
+<ul class="lang is-expand">
+  <li><a>हिन्दी</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/menggunakan-bitcoin">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/gasta-bitcoins">Català</a></li>
+        
+        
+          <li><a href="/da/bruge-bitcoin">Dansk</a></li>
+        
+        
+          <li><a href="/de/bitcoins-ausgeben">Deutsch</a></li>
+        
+        
+          <li><a href="/en/spend-bitcoin">English</a></li>
+        
+        
+          <li><a href="/es/gastar-bitcoin">Español</a></li>
+        
+        
+          <li><a href="/fr/depenser-bitcoin">Français</a></li>
+        
+        
+          <li><a href="/it/spendi-bitcoin">Italiano</a></li>
+        
+        
+          <li><a href="/hu/fizess-bitcoinnal">Magyar</a></li>
+        
+        
+          <li><a href="/nl/bitcoin-uitgeven">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/zuzyc-bitcoin">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/gastar-bitcoin">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/petrece-bitcoin">Română</a></li>
+        
+        
+          <li><a href="/sl/porabiti-bitcoin">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/potrosi-bitkoin">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/spendera-bitcoin">Svenska</a></li>
+        
+        
+          <li><a href="/tr/bitcoin-para-harcamak">Türkçe</a></li>
+        
+        
+          <li><a href="/el/spend-bitcoin">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/spend-bitcoin">български</a></li>
+        
+        
+          <li><a href="/ru/spend-bitcoin">Русский</a></li>
+        
+        
+          <li><a href="/uk/spend-bitcoin">Українська</a></li>
+        
+        
+          <li><a href="/ar/spend-bitcoin">العربية</a></li>
+        
+        
+          <li><a href="/fa/spend-bitcoin">فارسی</a></li>
+        
+        
+          <li><a href="/he/spend-bitcoin">עברית</a></li>
+        
+        
+          <li><a href="/hi/spend-bitcoin" class="active">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/spend-bitcoin">한국어</a></li>
+        
+        
+          <li><a href="/ja/spend-bitcoin">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/spend-bitcoin">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/spend-bitcoin">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/menggunakan-bitcoin" >Bahasa Indonesia</option>
+              
+              <option value="/ca/gasta-bitcoins" >Català</option>
+              
+              <option value="/da/bruge-bitcoin" >Dansk</option>
+              
+              <option value="/de/bitcoins-ausgeben" >Deutsch</option>
+              
+              <option value="/en/spend-bitcoin" >English</option>
+              
+              <option value="/es/gastar-bitcoin" >Español</option>
+              
+              <option value="/fr/depenser-bitcoin" >Français</option>
+              
+              <option value="/it/spendi-bitcoin" >Italiano</option>
+              
+              <option value="/hu/fizess-bitcoinnal" >Magyar</option>
+              
+              <option value="/nl/bitcoin-uitgeven" >Nederlands</option>
+              
+              <option value="/pl/zuzyc-bitcoin" >Polski</option>
+              
+              <option value="/pt_BR/gastar-bitcoin" >Português Brasil</option>
+              
+              <option value="/ro/petrece-bitcoin" >Română</option>
+              
+              <option value="/sl/porabiti-bitcoin" >Slovenščina</option>
+              
+              <option value="/sr/potrosi-bitkoin" >Srpski</option>
+              
+              <option value="/sv/spendera-bitcoin" >Svenska</option>
+              
+              <option value="/tr/bitcoin-para-harcamak" >Türkçe</option>
+              
+              <option value="/el/spend-bitcoin" >Ελληνικά</option>
+              
+              <option value="/bg/spend-bitcoin" >български</option>
+              
+              <option value="/ru/spend-bitcoin" >Русский</option>
+              
+              <option value="/uk/spend-bitcoin" >Українська</option>
+              
+              <option value="/ar/spend-bitcoin" >العربية</option>
+              
+              <option value="/fa/spend-bitcoin" >فارسی</option>
+              
+              <option value="/he/spend-bitcoin" >עברית</option>
+              
+              <option value="/hi/spend-bitcoin"  selected="selected">हिन्दी</option>
+              
+              <option value="/ko/spend-bitcoin" >한국어</option>
+              
+              <option value="/ja/spend-bitcoin" >日本語</option>
+              
+              <option value="/zh_CN/spend-bitcoin" >简体中文</option>
+              
+              <option value="/zh_TW/spend-bitcoin" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">hi</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+
+</body>
+
+</html>

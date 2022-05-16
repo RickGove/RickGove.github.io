@@ -1,0 +1,757 @@
+<!DOCTYPE HTML>
+<html lang="sl">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Nekaj stvari, ki jih morate vedeti - bitcoin</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+<link rel="stylesheet" href="/css/sans.css?1651746487">
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org is a community funded project, donations are appreciated and used to improve the website.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Make a donation
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org needs your support!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Donate to Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">Use this QR code or address below</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Or custom amount? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Or custom amount? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Optional description (for your wallet)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/sl/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">Uvod</a>
+    <ul>
+      <li><a href="/sl/bitcoin-za-posameznike">Posamezniki</a></li>
+      <li><a href="/sl/bitcoin-za-podjetja">Podjetja</a></li>
+      <li><a href="https://developer.bitcoin.org/">Razvijalci</a></li>
+      <li><a href="/sl/prvi-koraki">Prvi koraki</a></li>
+      <li><a href="/sl/kako-deluje">Kako deluje</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">Viri</a>
+    <ul>
+      <li><a href="/sl/viri">Viri</a>
+      <li><a href="/sl/izmenjave">Exchanges</a></li>
+      <li><a href="/sl/skupnost">Skupnost</a></li>
+      
+      
+      <li><a href="/sl/besednjak">Slovar</a></li>
+      <li><a href="/sl/dogodki">Dogodki</a></li>
+      
+        <li><a href="/sl/prenos">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/sl/inovacije">Inovacije</a></li>
+  <li><a class="is-expand">Sodelujte</a>
+    <ul>
+      <li><a href="/sl/podprite-bitcoin">Podprite bitcoin</a>
+      <li><a href="/sl/kupit">Buy Bitcoin</a></li>
+      
+      <li><a href="/sl/razvoj">Razvoj</a></li>
+    </ul>
+  </li>
+  <li><a href="/sl/vprasanja-in-odgovori">Pogosta vprašanja</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>Slovenščina</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/yang-perlu-anda-ketahui">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/necessites-saber">Català</a></li>
+        
+        
+          <li><a href="/da/du-boer-vide">Dansk</a></li>
+        
+        
+          <li><a href="/de/das-sollten-sie-wissen">Deutsch</a></li>
+        
+        
+          <li><a href="/en/you-need-to-know">English</a></li>
+        
+        
+          <li><a href="/es/debes-saber">Español</a></li>
+        
+        
+          <li><a href="/fr/vous-devez-savoir">Français</a></li>
+        
+        
+          <li><a href="/it/da-sapere">Italiano</a></li>
+        
+        
+          <li><a href="/hu/amit-tudnia-erdemes">Magyar</a></li>
+        
+        
+          <li><a href="/nl/wat-u-moet-weten">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/co-potrzebujesz-wiedziec">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/voce-precisa-saber">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/ce-trebuie-sa-stii">Română</a></li>
+        
+        
+          <li><a href="/sl/kaj-moram-vedeti" class="active">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/trebali-bi-da-znate">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/du-behover-kanna-till">Svenska</a></li>
+        
+        
+          <li><a href="/tr/bilmeniz-gerekenler">Türkçe</a></li>
+        
+        
+          <li><a href="/el/you-need-to-know">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/you-need-to-know">български</a></li>
+        
+        
+          <li><a href="/ru/you-need-to-know">Русский</a></li>
+        
+        
+          <li><a href="/uk/you-need-to-know">Українська</a></li>
+        
+        
+          <li><a href="/ar/you-need-to-know">العربية</a></li>
+        
+        
+          <li><a href="/fa/you-need-to-know">فارسی</a></li>
+        
+        
+          <li><a href="/he/you-need-to-know">עברית</a></li>
+        
+        
+          <li><a href="/hi/you-need-to-know">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/you-need-to-know">한국어</a></li>
+        
+        
+          <li><a href="/ja/you-need-to-know">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/you-need-to-know">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/you-need-to-know">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/yang-perlu-anda-ketahui" >Bahasa Indonesia</option>
+            
+            <option value="/ca/necessites-saber" >Català</option>
+            
+            <option value="/da/du-boer-vide" >Dansk</option>
+            
+            <option value="/de/das-sollten-sie-wissen" >Deutsch</option>
+            
+            <option value="/en/you-need-to-know" >English</option>
+            
+            <option value="/es/debes-saber" >Español</option>
+            
+            <option value="/fr/vous-devez-savoir" >Français</option>
+            
+            <option value="/it/da-sapere" >Italiano</option>
+            
+            <option value="/hu/amit-tudnia-erdemes" >Magyar</option>
+            
+            <option value="/nl/wat-u-moet-weten" >Nederlands</option>
+            
+            <option value="/pl/co-potrzebujesz-wiedziec" >Polski</option>
+            
+            <option value="/pt_BR/voce-precisa-saber" >Português Brasil</option>
+            
+            <option value="/ro/ce-trebuie-sa-stii" >Română</option>
+            
+            <option value="/sl/kaj-moram-vedeti"  selected="selected">Slovenščina</option>
+            
+            <option value="/sr/trebali-bi-da-znate" >Srpski</option>
+            
+            <option value="/sv/du-behover-kanna-till" >Svenska</option>
+            
+            <option value="/tr/bilmeniz-gerekenler" >Türkçe</option>
+            
+            <option value="/el/you-need-to-know" >Ελληνικά</option>
+            
+            <option value="/bg/you-need-to-know" >български</option>
+            
+            <option value="/ru/you-need-to-know" >Русский</option>
+            
+            <option value="/uk/you-need-to-know" >Українська</option>
+            
+            <option value="/ar/you-need-to-know" >العربية</option>
+            
+            <option value="/fa/you-need-to-know" >فارسی</option>
+            
+            <option value="/he/you-need-to-know" >עברית</option>
+            
+            <option value="/hi/you-need-to-know" >हिन्दी</option>
+            
+            <option value="/ko/you-need-to-know" >한국어</option>
+            
+            <option value="/ja/you-need-to-know" >日本語</option>
+            
+            <option value="/zh_CN/you-need-to-know" >简体中文</option>
+            
+            <option value="/zh_TW/you-need-to-know" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">sl</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>Nekaj stvari, ki jih morate vedeti</h1>
+    <p class="summarytxt">Če nameravate raziskovati bitcoin, morate vedeti nekaj stvari. Prenos denarja z uporabo bitcoina deluje drugače kot z bankami, zato je potrebno, da si vzamete čas in pridobite osnovno znanje, preden uporabite bitcoin za kakršen koli resen prenos denarja. Bitcoin morate jemati enako pazljivo kot sicer jemljete svoj denar, v nekaterih primerih pa še bolj!</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="two-column-layout">
+    <div class="row two-column-row">
+      <div>
+        <img class="column-img" src="/img/icons/securing.svg?1651746487" alt="icon">
+      </div>
+      <div class="column-text">
+        <h2 class="section-title" id="secure">Varovanje denarnice</h2>
+        <p>Bitcoin denarnica zahteva določeno stopnjo varnosti, ravno tako kot običajna denarnica. Bitcoin vam omogoča popoln nadzor nad upravljanjem svojega denarja, to pa prinaša s sabo potrebo po skrbi za varnost. Bitcoin, če se uporablja pravilno, omogoča visoko stopnjo varnosti. Nikoli ne pozabite, da z uporabo Bitcoina prevzemate nase popolno odgovornost za varnost in zaščito svojega denarja.<a href="/sl/zavarujte-svojo-denarnico"><b>Preberite več o tem, kako zaščititi svojo denarnico</b></a>.</p>
+      </div>
+    </div>
+    
+    <div class="row two-column-row">
+      <div>
+        <img class="column-img" src="/img/icons/bitcoin-price.svg?1651746487" alt="icon">
+      </div>
+      <div class="column-text">
+        <h2 class="section-title" id="volatile">Cena bitcoina je spremenljiva</h2>
+        <p>Cena bitcoina lahko kadarkoli nepredvideno zraste ali pade v kratkem času, saj je bitcoin ekonomija mlada, trgi pa so pogosto nizko likvidni. Zaradi tega ni priporočljivo imeti svojih prihrankov v bitcoinu. Bitcoin raje glejte kot visoko tvegano sredstvo in v njem ne shranjujte več denarja, kot ste ga pripravljeni izgubiti. Če sprejemate plačila v bitcoinu, vam jih lahko mnogi ponudniki plačilnih storitev sproti pretvarjajo v tradicionalne valute, npr. evre.</p>
+      </div>
+    </div>
+    
+    <div class="row two-column-row">
+      <div>
+        <img class="column-img" src="/img/icons/bitcoin-payments.svg?1651746487" alt="icon">
+      </div>
+      <div class="column-text">
+        <h2 class="section-title" id="irreversible">Plačila z bitcoinom so dokončna</h2>
+        <p>Nakazil v omrežju bitcoin ni mogoče stornirati; le oseba, ki je prejela novce, vam jih lahko pošlje nazaj. Zato bodite pazljivi in sklepajte posle le z osebami in podjetji, ki jim zaupate oziroma imajo visok ugled. Podjetja morajo nadzorovati zahtevke za plačilo, ki jih posredujejo svojim strankam. Bitcoin lahko zazna tipkarske lapsuse in vam običajno ne bo dovolil poslati sredstev na neveljaven naslov. V prihodnosti bodo najbrž obstajale storitve, ki bodo uporabnikom omogočale več izbire in zaščite.</p>
+      </div>
+    </div>
+    
+    <div class="row two-column-row">
+      <div>
+        <img class="column-img" src="/img/icons/not-anonymous.svg?1651746487" alt="icon">
+      </div>
+      <div class="column-text">
+        <h2 class="section-title" id="anonymous">Bitcoin ni anonimen</h2>
+        <p>V zaščito svoje zasebnosti pri uporabi bitcoina je potrebno vložiti nekaj truda. Prav vsa nakazila v omrežju bitcoin se hranijo javno in trajno v omrežju, kar pomeni, da lahko vsakdo vidi vsa nakazila in stanje na vsakem bitcoin naslovu. Identiteta uporabnika, ki stoji za posameznim naslovom, je skrita, dokler se ne razkrije s plačilom ali drugimi okoliščinami. To je eden od razlogov, zakaj naj bi se vsak bitcoin naslov uporabil le enkrat. Ne pozabite, da ste za zaščito svoje zasebnosti odgovorni sami in da se morate v ta namen naučiti uporabljati bitcoin na pravilen način.  <a href="/sl/zascita-zasebnosti"><b>Preberite več o zaščiti svoje zasebnosti</b></a>.</p>
+      </div>
+    </div>
+    
+    <div class="row two-column-row">
+      <div class="column-table">
+         
+      </div>
+      <div class="column-text column-text-s">
+        <h2 class="section-title" id="instant">Instantna plačila so manj varna</h2>
+        <p>Nakazilo se običajno razpošlje po omrežju v nekaj sekundah in se začne potrjevati po približno 10 minutah. V teh 10 minutah do prve potrditve se nakazilo smatra za veljavno, a z možnostjo stornacije. Zlonamerni uporabniki lahko skušajo goljufati. Če pri prejemanju nakazila ne morete čakati na prvo potrditev, lahko za povečanje varnosti plačnika prosite, da pri nakazilu plača (še vedno nizek) prispevek, ali pa uporabite sistem za odkrivanje sumljivih nakazil. Pri večjih zneskih, npr. 1000 EUR, je smiselno počakati na 6 potrditev ali več. Tveganje za stornacijo nakazila se z novimi potrditvami eksponentno zmanjšuje.</p>
+      </div>
+    </div>
+    
+    <div class="row two-column-row">
+      <div>
+        <img class="column-img" src="/img/icons/experimental.svg?1651746487" alt="icon">
+      </div>
+      <div class="column-text">
+        <h2 class="section-title" id="experimental">Bitcoin je še vedno eksperiment</h2>
+        <p>Bitcoin je eksperimentalna valuta, ki je v fazi aktivnega razvoja. Čeprav z razširjanjem uporabe postaja čedalje manj eksperimentalna, ne smemo pozabiti, da bitcoin predstavlja inovacijo, ki s svojo idejo posega v področja, kamor ni stopil še nihče. Prihodnosti bitcoina se torej enostavno ne da napovedati.</p>
+      </div>
+    </div>
+    
+    <div class="row two-column-row">
+      <div>
+        <img class="column-img" src="/img/icons/taxes.svg?1651746487" alt="icon">
+      </div>
+      <div class="column-text">
+        <h2 class="section-title" id="tax">Davki in zakonodaja</h2>
+        <p>Bitcoin ni uradna valuta. Še vedno pa večina zakonodaj zahteva, da plačate davke na dohodek, dobiček, plače itd. za vse stvari, ki imajo kako vrednost, vključno z bitcoini. Vaša odgovornost je, da se pozanimate in sledite davčnim in drugim zakonom države in kraja, kjer živite. Nekaj informacij, tudi o Sloveniji, lahko najdete na <a href="https://en.wikipedia.org/wiki/Legality_of_bitcoin_by_country#Slovenia">Wikipedia</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/sl/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Support Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Donate</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">Uvod:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/sl/bitcoin-za-posameznike">Posamezniki</a>
+        </li>
+        <li>
+          <a href="/sl/bitcoin-za-podjetja">Podjetja</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">Razvijalci</a>
+        </li>
+        <li>
+          <a href="/sl/prvi-koraki">Prvi koraki</a>
+        </li>
+        <li>
+          <a href="/sl/kako-deluje">Kako deluje</a>
+        </li>
+        <li class="active">
+          <a href="/sl/kaj-moram-vedeti">Obvezno branje</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">Viri:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/sl/viri">Viri</a>
+        <li>
+          <a href="/sl/izmenjave">Exchanges</a>
+        </li>
+        <li>
+          <a href="/sl/skupnost">Skupnost</a>
+        </li>
+        <li>
+          <a href="/sl/besednjak">Slovar
+          </a>
+        </li>
+        <li>
+          <a href="/sl/dogodki">Dogodki</a>
+        </li>
+        
+          <li>
+            <a href="/sl/prenos">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">Sodelujte:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/sl/podprite-bitcoin">Podprite bitcoin</a>
+        
+        
+        <li>
+          <a href="/sl/razvoj">Razvoj</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Other:</p>
+      
+      <a href="/sl/pravno">Pravno</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/sl/mediji">Mediji</a>
+      <a href="/sl/o-nas">O bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>Spletišče skupnosti pod pokroviteljstvom</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 Objavljeno pod pogoji <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT licence</a></div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Network Status</a>
+        
+<ul class="lang is-expand">
+  <li><a>Slovenščina</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/yang-perlu-anda-ketahui">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/necessites-saber">Català</a></li>
+        
+        
+          <li><a href="/da/du-boer-vide">Dansk</a></li>
+        
+        
+          <li><a href="/de/das-sollten-sie-wissen">Deutsch</a></li>
+        
+        
+          <li><a href="/en/you-need-to-know">English</a></li>
+        
+        
+          <li><a href="/es/debes-saber">Español</a></li>
+        
+        
+          <li><a href="/fr/vous-devez-savoir">Français</a></li>
+        
+        
+          <li><a href="/it/da-sapere">Italiano</a></li>
+        
+        
+          <li><a href="/hu/amit-tudnia-erdemes">Magyar</a></li>
+        
+        
+          <li><a href="/nl/wat-u-moet-weten">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/co-potrzebujesz-wiedziec">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/voce-precisa-saber">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/ce-trebuie-sa-stii">Română</a></li>
+        
+        
+          <li><a href="/sl/kaj-moram-vedeti" class="active">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/trebali-bi-da-znate">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/du-behover-kanna-till">Svenska</a></li>
+        
+        
+          <li><a href="/tr/bilmeniz-gerekenler">Türkçe</a></li>
+        
+        
+          <li><a href="/el/you-need-to-know">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/you-need-to-know">български</a></li>
+        
+        
+          <li><a href="/ru/you-need-to-know">Русский</a></li>
+        
+        
+          <li><a href="/uk/you-need-to-know">Українська</a></li>
+        
+        
+          <li><a href="/ar/you-need-to-know">العربية</a></li>
+        
+        
+          <li><a href="/fa/you-need-to-know">فارسی</a></li>
+        
+        
+          <li><a href="/he/you-need-to-know">עברית</a></li>
+        
+        
+          <li><a href="/hi/you-need-to-know">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/you-need-to-know">한국어</a></li>
+        
+        
+          <li><a href="/ja/you-need-to-know">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/you-need-to-know">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/you-need-to-know">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/yang-perlu-anda-ketahui" >Bahasa Indonesia</option>
+              
+              <option value="/ca/necessites-saber" >Català</option>
+              
+              <option value="/da/du-boer-vide" >Dansk</option>
+              
+              <option value="/de/das-sollten-sie-wissen" >Deutsch</option>
+              
+              <option value="/en/you-need-to-know" >English</option>
+              
+              <option value="/es/debes-saber" >Español</option>
+              
+              <option value="/fr/vous-devez-savoir" >Français</option>
+              
+              <option value="/it/da-sapere" >Italiano</option>
+              
+              <option value="/hu/amit-tudnia-erdemes" >Magyar</option>
+              
+              <option value="/nl/wat-u-moet-weten" >Nederlands</option>
+              
+              <option value="/pl/co-potrzebujesz-wiedziec" >Polski</option>
+              
+              <option value="/pt_BR/voce-precisa-saber" >Português Brasil</option>
+              
+              <option value="/ro/ce-trebuie-sa-stii" >Română</option>
+              
+              <option value="/sl/kaj-moram-vedeti"  selected="selected">Slovenščina</option>
+              
+              <option value="/sr/trebali-bi-da-znate" >Srpski</option>
+              
+              <option value="/sv/du-behover-kanna-till" >Svenska</option>
+              
+              <option value="/tr/bilmeniz-gerekenler" >Türkçe</option>
+              
+              <option value="/el/you-need-to-know" >Ελληνικά</option>
+              
+              <option value="/bg/you-need-to-know" >български</option>
+              
+              <option value="/ru/you-need-to-know" >Русский</option>
+              
+              <option value="/uk/you-need-to-know" >Українська</option>
+              
+              <option value="/ar/you-need-to-know" >العربية</option>
+              
+              <option value="/fa/you-need-to-know" >فارسی</option>
+              
+              <option value="/he/you-need-to-know" >עברית</option>
+              
+              <option value="/hi/you-need-to-know" >हिन्दी</option>
+              
+              <option value="/ko/you-need-to-know" >한국어</option>
+              
+              <option value="/ja/you-need-to-know" >日本語</option>
+              
+              <option value="/zh_CN/you-need-to-know" >简体中文</option>
+              
+              <option value="/zh_TW/you-need-to-know" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">sl</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+
+</body>
+
+</html>

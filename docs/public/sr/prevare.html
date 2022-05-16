@@ -1,0 +1,821 @@
+<!DOCTYPE HTML>
+<html lang="sr">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Izbegnite prevare - Bitkoin</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org je projekat koji se finansira od strane zajednice. Veoma cenimo vaše donacije i koristimo ih kako bi poboljšali sajt.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Doniraj
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org treba tvoju pomoć!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Doniraj Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">Koristi QR kod ili adresu ispod</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Ili drugi iznos? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Ili drugi iznos? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Opcioni opis (za vaš novčanik)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/sr/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">Uvod</a>
+    <ul>
+      <li><a href="/sr/bitkoin-za-lica">Fizička lica</a></li>
+      <li><a href="/sr/bitkoin-za-preduzeca">Preduzeća</a></li>
+      <li><a href="https://developer.bitcoin.org/">Programeri</a></li>
+      <li><a href="/sr/prvi-koraci">Početni koraci</a></li>
+      <li><a href="/sr/kako-to-radi">Kako funkcioniše</a></li>
+      
+      <li><a href="/sr/bitkoin-papir">Osnovni dokument - beli papir</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">Sredstva</a>
+    <ul>
+      <li><a href="/sr/sredstva">Sredstva</a>
+      <li><a href="/sr/menjacnice">Menjačnice</a></li>
+      <li><a href="/sr/zajednica">Zajednica</a></li>
+      
+      
+      <li><a href="/sr/vokabular">Rečnik</a></li>
+      <li><a href="/sr/dogadaji">Događaji</a></li>
+      
+        <li><a href="/sr/preuzimanje">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/sr/inovacija">Inovacija</a></li>
+  <li><a class="is-expand">Učestvujte</a>
+    <ul>
+      <li><a href="/sr/podrzite-bitkoin">Podržite Bitkoin</a>
+      <li><a href="/sr/kupi">Kupi Bitkoin</a></li>
+      
+      <li><a href="/sr/razvoj">Razvoj</a></li>
+    </ul>
+  </li>
+  <li><a href="/sr/cesto-postavljanja-pitanja">ČPP</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>Srpski</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/scam">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/estafes">Català</a></li>
+        
+        
+          <li><a href="/da/">Dansk</a></li>
+        
+        
+          <li><a href="/de/scams">Deutsch</a></li>
+        
+        
+          <li><a href="/en/scams">English</a></li>
+        
+        
+          <li><a href="/es/">Español</a></li>
+        
+        
+          <li><a href="/fr/">Français</a></li>
+        
+        
+          <li><a href="/it/truffe">Italiano</a></li>
+        
+        
+          <li><a href="/hu/atveresek">Magyar</a></li>
+        
+        
+          <li><a href="/nl/oplichtingspraktijken">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/fraudes">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/">Română</a></li>
+        
+        
+          <li><a href="/sl/">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/prevare" class="active">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/bedragerier">Svenska</a></li>
+        
+        
+          <li><a href="/tr/">Türkçe</a></li>
+        
+        
+          <li><a href="/el/">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/">български</a></li>
+        
+        
+          <li><a href="/ru/">Русский</a></li>
+        
+        
+          <li><a href="/uk/">Українська</a></li>
+        
+        
+          <li><a href="/ar/">العربية</a></li>
+        
+        
+          <li><a href="/fa/">فارسی</a></li>
+        
+        
+          <li><a href="/he/">עברית</a></li>
+        
+        
+          <li><a href="/hi/">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/">한국어</a></li>
+        
+        
+          <li><a href="/ja/scams">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/scam" >Bahasa Indonesia</option>
+            
+            <option value="/ca/estafes" >Català</option>
+            
+            <option value="/da/" >Dansk</option>
+            
+            <option value="/de/scams" >Deutsch</option>
+            
+            <option value="/en/scams" >English</option>
+            
+            <option value="/es/" >Español</option>
+            
+            <option value="/fr/" >Français</option>
+            
+            <option value="/it/truffe" >Italiano</option>
+            
+            <option value="/hu/atveresek" >Magyar</option>
+            
+            <option value="/nl/oplichtingspraktijken" >Nederlands</option>
+            
+            <option value="/pl/" >Polski</option>
+            
+            <option value="/pt_BR/fraudes" >Português Brasil</option>
+            
+            <option value="/ro/" >Română</option>
+            
+            <option value="/sl/" >Slovenščina</option>
+            
+            <option value="/sr/prevare"  selected="selected">Srpski</option>
+            
+            <option value="/sv/bedragerier" >Svenska</option>
+            
+            <option value="/tr/" >Türkçe</option>
+            
+            <option value="/el/" >Ελληνικά</option>
+            
+            <option value="/bg/" >български</option>
+            
+            <option value="/ru/" >Русский</option>
+            
+            <option value="/uk/" >Українська</option>
+            
+            <option value="/ar/" >العربية</option>
+            
+            <option value="/fa/" >فارسی</option>
+            
+            <option value="/he/" >עברית</option>
+            
+            <option value="/hi/" >हिन्दी</option>
+            
+            <option value="/ko/" >한국어</option>
+            
+            <option value="/ja/scams" >日本語</option>
+            
+            <option value="/zh_CN/" >简体中文</option>
+            
+            <option value="/zh_TW/" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">sr</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>Izbegnite prevare</h1>
+    <p class="summarytxt">Upoznajte se sa najčešćim Bitkoin prevarama kako biste zaštitili sebe i svoje finansije.</p>
+  </div>
+</div>
+
+<div class="toc-container">
+  <div class="row toc-row">
+    <div id="toc" class="toc">
+      <div>
+        <button class="mob-sidebar-open" hidden>Vrste prevara</button>
+        <div class="sidebar">
+          <div class="sidebar-inner vocabulary-list">
+            <button class="mob-sidebar-close" hidden></button>
+            <ul>
+            
+              <li><a href="#ucenjivanje">Ucenjivanje</a></li>
+            
+              <li><a href="#lazne-menjacnice">Lažne menjačnice</a></li>
+            
+              <li><a href="#poklanjanje">Poklanjanje kriptovaluta</a></li>
+            
+              <li><a href="#lazno-predstavljanje">Lažno predstavljanje</a></li>
+            
+              <li><a href="#malver">Malver</a></li>
+            
+              <li><a href="#susret-uzivo">Susret uživo</a></li>
+            
+              <li><a href="#prevara-za-transfer-novca">Prevara prenosa novca</a></li>
+            
+              <li><a href="#imejlovi-za-pecanje">E-mail Pecanje</a></li>
+            
+              <li><a href="#sajtovi-za-pecanje">Sajtovi za Pecanje</a></li>
+            
+              <li><a href="#ponzi-seme">Ponzi Šema</a></li>
+            
+              <li><a href="#piramidalne-seme">Piramidalne Šeme</a></li>
+            
+              <li><a href="#nagradivanje">Nagradne igre</a></li>
+            
+              <li><a href="#pump-and-dump">Pumpaj pa deponuj</a></li>
+            
+              <li><a href="#softver-za-iznudu-otkupa">Otkup</a></li>
+            
+              <li><a href="#lazni-novcici">Prevarantske valute</a></li>
+            
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toccontent">
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="ucenjivanje">Ucenjivanje</h2>
+        <p>Pazite se pokušaja ucenjivanja gde vam stranci prete u zamenu za Bitkoin kao sredstvo iznude. Jedan od čestih načina izvršenja ove metode je putem imejla, gde vam pošiljalac šalje poruku u kojoj tvrdi da je hakovao vaš računar i da upravlja istim preko daljinskog desktop protokola (RDP). Pošiljalac kaže da je instaliran proglam za beleženje pritisnutih tastera (key logger) i da je vaša veb kamera korišćena za snimanje nečega za šta možda ne želite da drugi saznaju. Pošiljalac nudi dve opcije - pošaljite Bitkoin za ignorisanje materijala ili nemojte poslati ništa, nakon čega će sadržaj biti poslat vašim imejl kontaktima i na vaše društvene mreže. Prevaranti koriste ukradene imejl liste i druge procurele korisničke informacije kako bi masovno napali hiljade ljudi.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="lazne-menjacnice">Lažne menjačnice</h2>
+        <p>Kako je Bitkoin postao popularniji, sve više ljudi želi da ga kupi. Nažalost, pokvareni ljudi su to iskoristili i poznato je da su pokretali lažne Bitkoin menjačnice. Ove lažne menjačnice mogu da prevare korisnika nudeći veoma konkurentne tržišne cene koje ih navode da misle da dobijaju odlićnu pogodby, sa brzim i lakim pristupom jefttinom Bitkoinu. Uverite se da koristite <a href="/en/exchanges">menjačnicu sa dobrom reputacijom</a> kada kupujete ili prodajete Bitkoin.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="poklanjanje">Poklanjanje kriptovaluta</h2>
+        <p>Usled viralne prirode širenja informacija preko interneta, prevaranti pokušavaju da iskoriste ljude tako što besplatno nude Bitkoin ili druge digitalne valute u zamenu za slanje malog iznosa za registraciju, ili u zamenu za neke lične podatke. Kada vidite nešto takvo na veb-sajtu ili na društvenoj mreži, najbolje je da odmah prijavite sadržaj kao preveru tako da drugi ne bi postali žrtve te prevare.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="lazno-predstavljanje">Lažno predstavljanje</h2>
+        <p>Nažalost, prevarantima veoma lako mogu da kreiraju naloge na društvenim mrežama i imitiraju ljude. Često čekaju dok osoba koju pokušavaju da imitiraju ne objavi neki sadržaj. Imitator onda odgovara dodatnom porukom ili pozivom na akciju - poput poklanjanja - koristeći nalog koji deluje gotovo identično prvobitnom autoru. Na ovaj način se čini da originalni autor to govori. Alternativno, imitatori takođe mogu pokušati da koriste te iste lažne naloge da prevare druge preko privatnih ili direktnih poruka da preduzmu neke radnje kako bi ih prevarili ili kompromitovali. Nikada ne učestvujte u poklanjanju, a ako primite čudne zahteve iz nekoga u vašoj mreži, najbolje je da dvaput proverite autentičnost preko više sredstava komunikacije.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="malver">Malver</h2>
+        <p>Hakeri su kreativni kada je u pitanju pronalaženje načina da ukradu od ljudi. Kada šaljete bitkoin, uvek proverite dvaput, ili čak triput adresu na koju šaljete. Pojedini maliciozni programi, kada su instaliratni, mogu promeniti bitkoin adrese koje se kopiraju sa računara, tako da bitkoin nesvesno može biti poslat na adresu hakera. Zbog toga što su šanse da se bitkoin transakcija preokrene, kada je potvrđena na mreži, to  znači da je gotovo nemoguće povratiti sredsta. Treba biti dosta oprezan u vezi sa programima kojima dozvoljavate administrativni pristup vašim uređajima. Ažuriran anti-virus program sa dobrom reputacijom može pomoći ali nije stoprocentno sigurno rešenje.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="susret-uzivo">Susret uživo</h2>
+        <p>Kada kupujete ili prodajete bitkoin lokalno, ugovorna strana može predloži da se transakcija obavi susretom lice u lice. Takav predlog je dosta riskantan ukoliko osobu ne pozajete i i može dovesti do toga da budete opljačkani ili povređeni. Prevaranti vam takođe mogu ponuditi falsifikovan novac u zamenu za bitkoin. Razmislite o korišćenju peer-to-peer platforme za escrov sredstva na licu mjesta.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="prevara-za-transfer-novca">Prevara prenosa novca</h2>
+        <p>Ne odgovarajte na poruke e-pošte ili dolazne komunikacije od stranaca koji vam govore da im je potrebna pomoć za premeštanje novca, nakon čega ćete u zamenu za vaše usluge dobiti deo sredstava.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="imejlovi-za-pecanje">E-mail Pecanje</h2>
+        <p>Čuvajte se e-mail poruka e-pošte koje od vas navodno traže da restartujete lozinku ili da kliknete kako bi obezbedili neku vrstu interakcije u vezi sa vašim korisničkim nalogom. Ponekad može biti veoma teško uočiti razliku lažne e-pošei koja pokušava da vas podstakne da kompromitujete svoj nalog o odosu na i legitimni e-mai koji se šalje u ime proizvoda ili usluge koju koristite. Kada ste u nedoumici, razmislite o trostrukoj provjeri autentičnosti komunikacije tako što ćete poruku prosediti kompaniji, koristeći kontakt adresu e-pošte na njihovoj veb stranici, nazvati ih telefonom i / ili doprijeti do njih putem njihovih zvaničnih računa društvenih medija.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="sajtovi-za-pecanje">Sajtovi za Pecanje</h2>
+        <p>Veb sajtovi za pecanje (phishing) često idu ruku pod ruku sa phishing porukama. E-pošta za krađu identiteta može da vas usmeri na repliku veb-stranice koja je dizajnirana da ukrade korisničke podatke za prijavljivanje ili  da instalira maliciozan program. Ne instalirajte softvere i ne prijavljujte se na veb-stranice ako 100% niste sigurni da sajt nije lažan. Veb lokacije za krađu identiteta mogu se pojaviti i kao sponzorisani rezultati na pretraživačima ili na prodavnicama aplikacija koje koriste mobilni uređaji. Budite oprezni da ne preuzmete lažnu aplikaciju ili kliknete sponzorisani link koji vodi na lažnu veb lokaciju.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="ponzi-seme">Ponzi Šema</h2>
+        <p>Nemojte učestvovati u ponudama u kojima vam jedna ili više osoba nude zagarantovani povrat u zamenu za uplatu unapred. Ovo je poznato kao ponzi šema, gde se u investicije budućih investitora koriste kako bi se isplatili prethodni investitori. Krajnji rezultat ovakvih šema je obično gubljenje novca od strane velikog broja ljudi.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="piramidalne-seme">Piramidalne Šeme</h2>
+        <p>Piramidalna šema obećava učesnicima povratak na osnovu broja ljudi koje pozovu da se pridruže. To omogućava da šema raste viralno i brzo, ali najčešće ne rezultira bilo kakvim smislenim povratkom za članove i / ili one koji su se pridružili. Nikada ne pozivajte svoj lični krug ljudi da ulaže u proizvod ili uslugu u čiji je jedini cilj nagomilavanje nagrada koje doprinose vašem ličnom kapitalu po nalogu drugih da ubrzate proces.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="nagradivanje">Nagradne igre</h2>
+        <p>Slično kao i besplatni pokloni, nagrade igre dovode u situaciju ljude da preduzmu određen akciju  ili pruže informacije o sebi. Na primer, dajućii ime, adresu, e-mail i broj telefona da bi ste dobili nagradu. To može omogućiti hakeru da pokuša da koristi informacije da bi pristupio nalozima opnašajući vas.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="pump-and-dump">Pumpaj pa deponuj</h2>
+        <p>Nemojte verovati ljudima koji mame vas ili druge da investirate jer tvrde da znaju unapred cenu Bitkoina. U šemi pumpe i deponije, osoba (ili osobe) pokušavaju da veštački podignu ili pumpaju cenu tako da mogu da deponuju svoje zalihe radi profita.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="softver-za-iznudu-otkupa">Otkup</h2>
+        <p>Ovo je vrsta zlonamernog softvera koji delimično ili potpuno blokira pristup uređaju, osim ako ne platite otkupninu u Bitkoin-u. Najbolje je da se konsultujete sa računarskmim stručnjakom za pomoć pri uklanjanju, umesto da platite otkupninu. Budite oprezni u vezi sa programima koje instalirate na svojim uređajima, posebno onima koji zahtevaju administratorski pristup. Takođe proverite da proverite da li aplikacija koju preuzimate nije lažna koja se predstavlja kao legitimna koja ste koristili u prošlosti.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="lazni-novcici">Prevarantske valute</h2>
+        <p>Budite pažljivi kada investirate u alternativne valute (altkoin). Među altkoinima mogu biti i valute, koji privlače korisnike da ulažu putem privatne prodaje, ili sa pretprodajnim popustima. Prevarantske valute mogu imati šljašteću veb stranicu i / ili se mogu pohvaliti velikom zajednicom da stvore strah od propuštanja efekta na ljude koji ga otkriju. Ovo pomaže ranim investitorima da podignu cenu tako da mogu da deponuju i napuste svoje pozicije radi profita. Prevarantske valute bez velikih zajednica uglavnom rade airdrop - nudeći besplatnan novac (ili žetone, tokene) ljudima u zamenu za pridruživanje njihovim zajednicama. Ovo omogućava da lažno predstave svoju inicijativu sa naduvnom statistikom kako bi se potencijalni investitori osećali kao da propuštaju veliki budući dobitak. Prevare mogu koristiti i reč Bitkoin u nastojanju da prevare ili zavedu ljude da misle da je ponuda legitimna.</p>
+      </div>
+      
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/sr/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Podržite Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Doniraj</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">Uvod:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/sr/bitkoin-za-lica">Fizička lica</a>
+        </li>
+        <li>
+          <a href="/sr/bitkoin-za-preduzeca">Preduzeća</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">Programeri</a>
+        </li>
+        <li>
+          <a href="/sr/prvi-koraci">Početni koraci</a>
+        </li>
+        <li>
+          <a href="/sr/kako-to-radi">Kako funkcioniše</a>
+        </li>
+        <li>
+          <a href="/sr/trebali-bi-da-znate">Trebali bi da znate</a>
+        </li>
+        
+        <li>
+          <a href="/sr/bitkoin-papir">Osnovni dokument - beli papir</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">Sredstva:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/sr/sredstva">Sredstva</a>
+        <li>
+          <a href="/sr/menjacnice">Menjačnice</a>
+        </li>
+        <li>
+          <a href="/sr/zajednica">Zajednica</a>
+        </li>
+        <li>
+          <a href="/sr/vokabular">Rečnik
+          </a>
+        </li>
+        <li>
+          <a href="/sr/dogadaji">Događaji</a>
+        </li>
+        
+          <li>
+            <a href="/sr/preuzimanje">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">Učestvujte:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/sr/podrzite-bitkoin">Podržite Bitkoin</a>
+        
+        
+        <li>
+          <a href="/sr/razvoj">Razvoj</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Drugo:</p>
+      
+      <a href="/sr/zakon">Zakon</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/sr/mediji">Mediji</a>
+      <a href="/sr/o-nama">O nama - bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>Web sjat zajednice sponzorisan od strane</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 Izbačeno pod <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT licencom</a></div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Status Mreže</a>
+        
+<ul class="lang is-expand">
+  <li><a>Srpski</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/scam">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/estafes">Català</a></li>
+        
+        
+          <li><a href="/da/">Dansk</a></li>
+        
+        
+          <li><a href="/de/scams">Deutsch</a></li>
+        
+        
+          <li><a href="/en/scams">English</a></li>
+        
+        
+          <li><a href="/es/">Español</a></li>
+        
+        
+          <li><a href="/fr/">Français</a></li>
+        
+        
+          <li><a href="/it/truffe">Italiano</a></li>
+        
+        
+          <li><a href="/hu/atveresek">Magyar</a></li>
+        
+        
+          <li><a href="/nl/oplichtingspraktijken">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/fraudes">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/">Română</a></li>
+        
+        
+          <li><a href="/sl/">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/prevare" class="active">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/bedragerier">Svenska</a></li>
+        
+        
+          <li><a href="/tr/">Türkçe</a></li>
+        
+        
+          <li><a href="/el/">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/">български</a></li>
+        
+        
+          <li><a href="/ru/">Русский</a></li>
+        
+        
+          <li><a href="/uk/">Українська</a></li>
+        
+        
+          <li><a href="/ar/">العربية</a></li>
+        
+        
+          <li><a href="/fa/">فارسی</a></li>
+        
+        
+          <li><a href="/he/">עברית</a></li>
+        
+        
+          <li><a href="/hi/">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/">한국어</a></li>
+        
+        
+          <li><a href="/ja/scams">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/scam" >Bahasa Indonesia</option>
+              
+              <option value="/ca/estafes" >Català</option>
+              
+              <option value="/da/" >Dansk</option>
+              
+              <option value="/de/scams" >Deutsch</option>
+              
+              <option value="/en/scams" >English</option>
+              
+              <option value="/es/" >Español</option>
+              
+              <option value="/fr/" >Français</option>
+              
+              <option value="/it/truffe" >Italiano</option>
+              
+              <option value="/hu/atveresek" >Magyar</option>
+              
+              <option value="/nl/oplichtingspraktijken" >Nederlands</option>
+              
+              <option value="/pl/" >Polski</option>
+              
+              <option value="/pt_BR/fraudes" >Português Brasil</option>
+              
+              <option value="/ro/" >Română</option>
+              
+              <option value="/sl/" >Slovenščina</option>
+              
+              <option value="/sr/prevare"  selected="selected">Srpski</option>
+              
+              <option value="/sv/bedragerier" >Svenska</option>
+              
+              <option value="/tr/" >Türkçe</option>
+              
+              <option value="/el/" >Ελληνικά</option>
+              
+              <option value="/bg/" >български</option>
+              
+              <option value="/ru/" >Русский</option>
+              
+              <option value="/uk/" >Українська</option>
+              
+              <option value="/ar/" >العربية</option>
+              
+              <option value="/fa/" >فارسی</option>
+              
+              <option value="/he/" >עברית</option>
+              
+              <option value="/hi/" >हिन्दी</option>
+              
+              <option value="/ko/" >한국어</option>
+              
+              <option value="/ja/scams" >日本語</option>
+              
+              <option value="/zh_CN/" >简体中文</option>
+              
+              <option value="/zh_TW/" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">sr</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+  <script>updateToc();</script>
+<script>accordion();</script>
+<script>onScrollButton();</script>
+<script>boxShow();</script>
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,747 @@
+<!DOCTYPE HTML>
+<html lang="fa">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>حفاظت از حریم شخصی‌ خود - بیت‌کوین</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+<link rel="stylesheet" href="/css/rtl.css?1651746487">
+
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org is a community funded project, donations are appreciated and used to improve the website.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Make a donation
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org needs your support!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Donate to Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">Use this QR code or address below</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Or custom amount? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Or custom amount? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Optional description (for your wallet)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/fa/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">مقدمه</a>
+    <ul>
+      <li><a href="/fa/bitcoin-for-individuals">افراد</a></li>
+      <li><a href="/fa/bitcoin-for-businesses">کسب و کارها</a></li>
+      <li><a href="https://developer.bitcoin.org/">توسعه دهندگان</a></li>
+      <li><a href="/fa/getting-started">آغاز به کار</a></li>
+      <li><a href="/fa/how-it-works">چگونه کار می کند</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">منابع</a>
+    <ul>
+      <li><a href="/fa/resources">منابع</a>
+      <li><a href="/fa/exchanges">Exchanges</a></li>
+      <li><a href="/fa/community">جامعه</a></li>
+      
+      
+      <li><a href="/fa/vocabulary">دایره واژگان</a></li>
+      <li><a href="/fa/events">رویداد ها</a></li>
+      
+        <li><a href="/fa/download">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/fa/innovation">نو آوری</a></li>
+  <li><a class="is-expand">مشارکت</a>
+    <ul>
+      <li><a href="/fa/support-bitcoin">حمایت از بیت کوین</a>
+      <li><a href="/fa/buy">Buy Bitcoin</a></li>
+      
+      <li><a href="/fa/development">توسعه</a></li>
+    </ul>
+  </li>
+  <li><a href="/fa/faq">پرسش‌های رایج</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>فارسی</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/lindungi-privasi-anda">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/protegeix-la-teva-privacitat">Català</a></li>
+        
+        
+          <li><a href="/da/beskyt-dit-privatliv">Dansk</a></li>
+        
+        
+          <li><a href="/de/schuetzen-sie-ihre-privatsphaere">Deutsch</a></li>
+        
+        
+          <li><a href="/en/protect-your-privacy">English</a></li>
+        
+        
+          <li><a href="/es/proteja-su-privacidad">Español</a></li>
+        
+        
+          <li><a href="/fr/proteger-votre-vie-privee">Français</a></li>
+        
+        
+          <li><a href="/it/proteggi-la-tua-privacy">Italiano</a></li>
+        
+        
+          <li><a href="/hu/vedje-meg-szemelyes-adatait">Magyar</a></li>
+        
+        
+          <li><a href="/nl/bescherm-uw-privacy">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/chron-swoja-prywatnosc">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/proteger-sua-privacidade">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/protejeaza-ti-intimitatea">Română</a></li>
+        
+        
+          <li><a href="/sl/zascita-zasebnosti">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/zastitite-svoju-privatnost">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/skydda-din-integritet">Svenska</a></li>
+        
+        
+          <li><a href="/tr/gizliliginizi-koruyun">Türkçe</a></li>
+        
+        
+          <li><a href="/el/protect-your-privacy">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/protect-your-privacy">български</a></li>
+        
+        
+          <li><a href="/ru/protect-your-privacy">Русский</a></li>
+        
+        
+          <li><a href="/uk/protect-your-privacy">Українська</a></li>
+        
+        
+          <li><a href="/ar/protect-your-privacy">العربية</a></li>
+        
+        
+          <li><a href="/fa/protect-your-privacy" class="active">فارسی</a></li>
+        
+        
+          <li><a href="/he/protect-your-privacy">עברית</a></li>
+        
+        
+          <li><a href="/hi/protect-your-privacy">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/protect-your-privacy">한국어</a></li>
+        
+        
+          <li><a href="/ja/protect-your-privacy">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/protect-your-privacy">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/protect-your-privacy">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/lindungi-privasi-anda" >Bahasa Indonesia</option>
+            
+            <option value="/ca/protegeix-la-teva-privacitat" >Català</option>
+            
+            <option value="/da/beskyt-dit-privatliv" >Dansk</option>
+            
+            <option value="/de/schuetzen-sie-ihre-privatsphaere" >Deutsch</option>
+            
+            <option value="/en/protect-your-privacy" >English</option>
+            
+            <option value="/es/proteja-su-privacidad" >Español</option>
+            
+            <option value="/fr/proteger-votre-vie-privee" >Français</option>
+            
+            <option value="/it/proteggi-la-tua-privacy" >Italiano</option>
+            
+            <option value="/hu/vedje-meg-szemelyes-adatait" >Magyar</option>
+            
+            <option value="/nl/bescherm-uw-privacy" >Nederlands</option>
+            
+            <option value="/pl/chron-swoja-prywatnosc" >Polski</option>
+            
+            <option value="/pt_BR/proteger-sua-privacidade" >Português Brasil</option>
+            
+            <option value="/ro/protejeaza-ti-intimitatea" >Română</option>
+            
+            <option value="/sl/zascita-zasebnosti" >Slovenščina</option>
+            
+            <option value="/sr/zastitite-svoju-privatnost" >Srpski</option>
+            
+            <option value="/sv/skydda-din-integritet" >Svenska</option>
+            
+            <option value="/tr/gizliliginizi-koruyun" >Türkçe</option>
+            
+            <option value="/el/protect-your-privacy" >Ελληνικά</option>
+            
+            <option value="/bg/protect-your-privacy" >български</option>
+            
+            <option value="/ru/protect-your-privacy" >Русский</option>
+            
+            <option value="/uk/protect-your-privacy" >Українська</option>
+            
+            <option value="/ar/protect-your-privacy" >العربية</option>
+            
+            <option value="/fa/protect-your-privacy"  selected="selected">فارسی</option>
+            
+            <option value="/he/protect-your-privacy" >עברית</option>
+            
+            <option value="/hi/protect-your-privacy" >हिन्दी</option>
+            
+            <option value="/ko/protect-your-privacy" >한국어</option>
+            
+            <option value="/ja/protect-your-privacy" >日本語</option>
+            
+            <option value="/zh_CN/protect-your-privacy" >简体中文</option>
+            
+            <option value="/zh_TW/protect-your-privacy" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">fa</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>حفاظت از حریم شخصی خود</h1>
+    <p class="summarytxt">اغلب بیت کوین را یک شبکه پرداخت گمنام می دانند. اما در واقع، بیت کوین احتمالاً شفاف ترین شبکه پرداخت در جهان است. در همین حال، بیت کوین، اگر بدرستی استفاده شود، می تواند سطوح قابل قبولی از حریم خصوصی ایجاد کند. <b>همواره بخاطر داشته باشید که جهت حفظ حریم خصوصی، مسئولیت انجام اقدامات درست با خود شماست</b>.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="two-column-layout">
+
+    <div class="row two-column-row">
+      <div>
+        <img class="column-img" src="/img/icons/traceability.svg?1651746487" alt="icon">
+      </div>
+      <div class="column-text">
+        <h2 class="section-title" id="traceable">درک قابلیت ردیابی بیت کوین</h2>
+        <p>بیت کوین با سطح بی نظیری از شفافیت کار می کند که بیشتر مردم تا کنون از آن استفاده نکرده اند. تمام تراکنشهای بیت کوین عمومی و قابل پیگیری بوده و در شبکه بیت کوین بطور دائمی، ثبت می شوند. آدرسهای بیت کوینی، تنها اطلاعاتی است که برای تعریف محل تخصیص بیت کوینها و اینکه بیت کوینها به کجا فرستاده می شوند، بکار می رود. این آدرسها بطور خصوصی و توسط کیف پولهای هر کاربر، ساخته می شوند. اما به محضی که از این آدرسها استفاده شود، رکوردی که تمام تراکنشهای حاوی این آدرسها را نگه میدارد، این آدرسها را مخدوش می کند. هر کسی می تواند  <a href="https://live.blockcypher.com/btc">تراز و تمام تراکنشهای</a> هر آدرسی را ببیند. از آنجایی که کاربران  به منظور دریافت سرویس و کالا معمولاً باید هویت خود را آشکار کنند، آدرسهای بیت کوینی نمی توانند کاملاً گمنام بمانند. به همین دلایل است که آدرسهای بیت کوینی باید یکبار مصرف باشند و کاربران باید مراقب باشند آدرسهایشان را فاش نکنند.</p>
+      </div>
+    </div>
+
+    <div class="row two-column-row">
+      <div>
+        <img class="column-img" src="/img/icons/addresses.svg?1651746487" alt="icon">
+      </div>
+      <div class="column-text">
+        <h2 class="section-title" id="receive"> برای دریافت پرداخت‌ها، از آدرس‌های جدید استفاده کنید</h2>
+        <p>به منظور حفظ حریم خصوصی خود، هرگاه که قرارست پرداخت جدیدی را دریافت نمایید، باید از یک آدرس بیت کوینی جدید استفاده کنید. علاوه بر آن، می توانید از چندین کیف پول برای اهداف مختلف استفاده کنید. به این ترتیب خواهید توانست هر یک از تراکنشهای خود را به گونه ای مجزا کنید که ارتباط دادن آنها به یکدیگر ممکن نباشد. کسانی که برای شما پول می فرستند، نمی توانند  آدرسهای بیت کوینی شما را ببینند و یا بدانند که شما با آنها چه می کنید. این احتمالاً مهمترین توصیه ای است که شما باید در ذهن داشته باشید.</p>
+      </div>
+    </div>
+
+    <div class="row two-column-row">
+      <div>
+        <img class="column-img" src="/img/icons/public-spaces.svg?1651746487" alt="icon">
+      </div>
+      <div class="column-text">
+        <h2 class="section-title" id="public">مراقب فضاهای عمومی باشید</h2>
+        <p>انتشار یک آدرس بیت کوینی در فضای عمومی مانند یک وب سایت یا یک شبکه عمومی، از نقطه نظر حریم خصوصی ایده خوبی نیست مگر آنکه قصد شما دریافت یک اعانه یا پرداختهای عمومی با شفافیت کامل باشد. اگر خود انتخاب کرده اید که اینگونه باشد، همواره بخاطر داشته باشید که اگر هر مبلغی را با این آدرس به یکی از آدرسهای دیگر خود منتقل کنید، آن آدرسها توسط رکورد آدرس عمومی شما، بطور عمومی مخدوش خواهند شد. افزون بر این، شاید بهتر باشد مراقب بوده و اطلاعات تراکنشها و خریدهایی که ممکن است کسی بتواند از آن طریق آدرسهای بیت کوینی شما را شناسایی کند، منتشر نکنید.</p>
+      </div>
+    </div>
+
+    <div class="row two-column-row">
+      <div>
+        <img class="column-img" src="/img/icons/ip-address.svg?1651746487" alt="icon">
+      </div>
+      <div class="column-text">
+        <h2 class="section-title" id="iplog">آدرس IP شما می‌تواند ثبت شود</h2>
+        <p>چون شبکه بیت کوین یک شبکه همتا به همتاست، می تواند به رله های تراکنشها گوش کرده و آی پی آدرسهای آنها را ثبت کند. کلاینتهای فول نُد تمام تراکنشهای کاربران را درست مانند تراکنشهای خودشان، رله می کنند. این به آن معناست که یافتن منبع هر تراکنش خاصی می تواند دشوار باشد و هر نُد بیت کوین به اشتباه منبع تراکنش درنظر گرفته شود؛ در حالیکه اینطور نیست. ممکن است بخواهید آی پی آدرس کامپیوتر خود را با ابزاری مانند <a href="https://www.torproject.org/">Tor</a> پنهان کنید بطوریکه آن آدرس قابل ثبت نباشد.</p>
+      </div>
+    </div>
+
+    <div class="row two-column-row">
+      <div>
+        <img class="column-img" src="/img/icons/mixing-services.svg?1651746487" alt="icon">
+      </div>
+      <div class="column-text">
+        <h2 class="section-title" id="mixing">محدودیتهای سرویسهای مخلوط کننده</h2>
+        <p>بعضی سرویسهای آنلاین به نام سرویسهای مخلوط کننده، پیشنهاد می کنند که قابلیت ردیابی را بین کاربران از طریق دریافت و سپس برگرداندن همان مقدار با استفاده از آدرسهای بیت کوینی مستقل ، مخلوط  کنند. بخاطر داشتن این مطلب مهم است که اجازه استفاده از چنین سرویسهایی متغیر بوده و در هر دستگاه قضایی تابع قوانین متفاوتی است. چنین سرویسهایی همچنین شما را ملزم می کنند که به افرادی که این سرویسها را اجرا می کنند، اعتماد داشته باشید تا پولتان گم یا دزدیده نشده و از درخواستهایتان نسخه برداری نکنند. اگر چه سرویسهای مخلوط کننده میتوانند قابلیت ردیابی مقادیر کوچک را از بین ببرند، ولی انجام همین کار برای تراکنشهای بزرگتر بطور فزاینده ای مشکل تر خواهد شد.</p>
+      </div>
+    </div>
+
+    <div class="row two-column-row">
+      <div>
+        <img class="column-img" src="/img/icons/future-improvements.svg?1651746487" alt="icon">
+      </div>
+      <div class="column-text">
+        <h2 class="section-title" id="future">بهبودهای آتی</h2>
+        <p>می توان امیدوار بود که در آینده، بهبود حریم خصوصی، پیشرفت زیادی داشته باشد. مثلاً هم اکنون تلاشهایی روی API  برای پیام دهی پرداخت، در حال انجام است که بکمک آن می توان از مخدوش کردن آدرسهای چندگانه باهم در خلال یک پرداخت، پرهیز کرد. تغییر آدرسهای هسته بیت کوین ممکن است در طول زمان در کیف پولهای دیگر پیاده سازی شود. واسط گرافیکی کاربری ممکن است بهبود یابد تا امکان درخواست یک پرداخت، بگونه ای کاربر پسند فراهم شود و از استفاده کردن دوباره از آدرسها جلوگیری شود. کارها و تحقیقات مختلفی نیز در دست انجام است تا دیگر امکانات بالقوه حریم خصوصی گسترده، مثلاً توانایی پیوستن تصادفی تراکنشهای کاربران به یکدیگر، توسعه یابد.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/fa/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Support Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Donate</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">مقدمه:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/fa/bitcoin-for-individuals">افراد</a>
+        </li>
+        <li>
+          <a href="/fa/bitcoin-for-businesses">کسب و کارها</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">توسعه دهندگان</a>
+        </li>
+        <li>
+          <a href="/fa/getting-started">آغاز به کار</a>
+        </li>
+        <li>
+          <a href="/fa/how-it-works">چگونه کار می کند</a>
+        </li>
+        <li>
+          <a href="/fa/you-need-to-know">لازم است بدانید</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">منابع:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/fa/resources">منابع</a>
+        <li>
+          <a href="/fa/exchanges">Exchanges</a>
+        </li>
+        <li>
+          <a href="/fa/community">جامعه</a>
+        </li>
+        <li>
+          <a href="/fa/vocabulary">دایره واژگان
+          </a>
+        </li>
+        <li>
+          <a href="/fa/events">رویداد ها</a>
+        </li>
+        
+          <li>
+            <a href="/fa/download">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">مشارکت:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/fa/support-bitcoin">حمایت از بیت کوین</a>
+        
+        
+        <li>
+          <a href="/fa/development">توسعه</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Other:</p>
+      
+      <a href="/fa/legal">حقوقی</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/fa/press">مطبوعات</a>
+      <a href="/fa/about-us">درباره bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>یک وب سایت جامعه با تامین مالی از سوی</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022  منتشر شده تحت <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT license</a></div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Network Status</a>
+        
+<ul class="lang is-expand">
+  <li><a>فارسی</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/lindungi-privasi-anda">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/protegeix-la-teva-privacitat">Català</a></li>
+        
+        
+          <li><a href="/da/beskyt-dit-privatliv">Dansk</a></li>
+        
+        
+          <li><a href="/de/schuetzen-sie-ihre-privatsphaere">Deutsch</a></li>
+        
+        
+          <li><a href="/en/protect-your-privacy">English</a></li>
+        
+        
+          <li><a href="/es/proteja-su-privacidad">Español</a></li>
+        
+        
+          <li><a href="/fr/proteger-votre-vie-privee">Français</a></li>
+        
+        
+          <li><a href="/it/proteggi-la-tua-privacy">Italiano</a></li>
+        
+        
+          <li><a href="/hu/vedje-meg-szemelyes-adatait">Magyar</a></li>
+        
+        
+          <li><a href="/nl/bescherm-uw-privacy">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/chron-swoja-prywatnosc">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/proteger-sua-privacidade">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/protejeaza-ti-intimitatea">Română</a></li>
+        
+        
+          <li><a href="/sl/zascita-zasebnosti">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/zastitite-svoju-privatnost">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/skydda-din-integritet">Svenska</a></li>
+        
+        
+          <li><a href="/tr/gizliliginizi-koruyun">Türkçe</a></li>
+        
+        
+          <li><a href="/el/protect-your-privacy">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/protect-your-privacy">български</a></li>
+        
+        
+          <li><a href="/ru/protect-your-privacy">Русский</a></li>
+        
+        
+          <li><a href="/uk/protect-your-privacy">Українська</a></li>
+        
+        
+          <li><a href="/ar/protect-your-privacy">العربية</a></li>
+        
+        
+          <li><a href="/fa/protect-your-privacy" class="active">فارسی</a></li>
+        
+        
+          <li><a href="/he/protect-your-privacy">עברית</a></li>
+        
+        
+          <li><a href="/hi/protect-your-privacy">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/protect-your-privacy">한국어</a></li>
+        
+        
+          <li><a href="/ja/protect-your-privacy">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/protect-your-privacy">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/protect-your-privacy">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/lindungi-privasi-anda" >Bahasa Indonesia</option>
+              
+              <option value="/ca/protegeix-la-teva-privacitat" >Català</option>
+              
+              <option value="/da/beskyt-dit-privatliv" >Dansk</option>
+              
+              <option value="/de/schuetzen-sie-ihre-privatsphaere" >Deutsch</option>
+              
+              <option value="/en/protect-your-privacy" >English</option>
+              
+              <option value="/es/proteja-su-privacidad" >Español</option>
+              
+              <option value="/fr/proteger-votre-vie-privee" >Français</option>
+              
+              <option value="/it/proteggi-la-tua-privacy" >Italiano</option>
+              
+              <option value="/hu/vedje-meg-szemelyes-adatait" >Magyar</option>
+              
+              <option value="/nl/bescherm-uw-privacy" >Nederlands</option>
+              
+              <option value="/pl/chron-swoja-prywatnosc" >Polski</option>
+              
+              <option value="/pt_BR/proteger-sua-privacidade" >Português Brasil</option>
+              
+              <option value="/ro/protejeaza-ti-intimitatea" >Română</option>
+              
+              <option value="/sl/zascita-zasebnosti" >Slovenščina</option>
+              
+              <option value="/sr/zastitite-svoju-privatnost" >Srpski</option>
+              
+              <option value="/sv/skydda-din-integritet" >Svenska</option>
+              
+              <option value="/tr/gizliliginizi-koruyun" >Türkçe</option>
+              
+              <option value="/el/protect-your-privacy" >Ελληνικά</option>
+              
+              <option value="/bg/protect-your-privacy" >български</option>
+              
+              <option value="/ru/protect-your-privacy" >Русский</option>
+              
+              <option value="/uk/protect-your-privacy" >Українська</option>
+              
+              <option value="/ar/protect-your-privacy" >العربية</option>
+              
+              <option value="/fa/protect-your-privacy"  selected="selected">فارسی</option>
+              
+              <option value="/he/protect-your-privacy" >עברית</option>
+              
+              <option value="/hi/protect-your-privacy" >हिन्दी</option>
+              
+              <option value="/ko/protect-your-privacy" >한국어</option>
+              
+              <option value="/ja/protect-your-privacy" >日本語</option>
+              
+              <option value="/zh_CN/protect-your-privacy" >简体中文</option>
+              
+              <option value="/zh_TW/protect-your-privacy" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">fa</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+
+</body>
+
+</html>

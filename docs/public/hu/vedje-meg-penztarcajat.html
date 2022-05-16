@@ -1,0 +1,821 @@
+<!DOCTYPE HTML>
+<html lang="hu">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Védje meg pénztárcáját - Bitcoin</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        A Bitcoin.org egy közösség finanszírozta projekt, nagyra értékeljük az adományokat és segítségével fejleszteni tudjuk a honlapot.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Adományozás
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    A Bitcoin.org-nak szüksége van a támogatásodra!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Adományozz a Bitcoin.org-nak</p>
+    </div>
+    <p class="modal-subheader">Használd a lenti QR kódot vagy címet</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Vagy tetszőleges összeg? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Vagy tetszőleges összeg? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Opcionális leírás (a tárcádhoz)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/hu/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">Bevezetés</a>
+    <ul>
+      <li><a href="/hu/bitcoin-maganszemelyeknek">Magánszemélyek</a></li>
+      <li><a href="/hu/bitcoin-vallalkozasoknak">Vállalkozások</a></li>
+      <li><a href="https://developer.bitcoin.org/">Fejlesztők</a></li>
+      <li><a href="/hu/vagjon-bele">Vágjon bele</a></li>
+      <li><a href="/hu/hogyan-mukodik">Hogyan működik</a></li>
+      
+      <li><a href="/hu/papir-bitcoin">Fehérkönyv</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">Információs anyagok</a>
+    <ul>
+      <li><a href="/hu/informacios-anyagok">Információs anyagok</a>
+      <li><a href="/hu/tozsdek">Tőzsdék</a></li>
+      <li><a href="/hu/kozosseg">Közösség</a></li>
+      
+      
+      <li><a href="/hu/szotar">Szótár</a></li>
+      <li><a href="/hu/rendezvenyek">Rendezvények</a></li>
+      
+        <li><a href="/hu/letoltes">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/hu/innovacio">Innováció</a></li>
+  <li><a class="is-expand">Vegyél részt</a>
+    <ul>
+      <li><a href="/hu/tamogassa-a-bitcoint">Támogasd a Bitcoint</a>
+      <li><a href="/hu/vasarlas">Vásárolj bitcoint</a></li>
+      
+      <li><a href="/hu/fejlesztes">Fejlesztés</a></li>
+    </ul>
+  </li>
+  <li><a href="/hu/gyik">GYIK</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>Magyar</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/amankan-wallet-anda">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/assegura-el-teu-moneder">Català</a></li>
+        
+        
+          <li><a href="/da/sikr-din-tegnebog">Dansk</a></li>
+        
+        
+          <li><a href="/de/sichern-sie-ihre-wallet">Deutsch</a></li>
+        
+        
+          <li><a href="/en/secure-your-wallet">English</a></li>
+        
+        
+          <li><a href="/es/asegure-su-monedero">Español</a></li>
+        
+        
+          <li><a href="/fr/securiser-porte-monnaie">Français</a></li>
+        
+        
+          <li><a href="/it/proteggi-il-portafoglio">Italiano</a></li>
+        
+        
+          <li><a href="/hu/vedje-meg-penztarcajat" class="active">Magyar</a></li>
+        
+        
+          <li><a href="/nl/beveilig-uw-portemonnee">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/zabezpiecz-swoj-portfel">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/proteja-sua-carteira">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/securizeaza-portofelul">Română</a></li>
+        
+        
+          <li><a href="/sl/zavarujte-svojo-denarnico">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/sigurnost-vaseg-novcanik">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/sakra-din-planbok">Svenska</a></li>
+        
+        
+          <li><a href="/tr/cuzdaninizi-guvenceye-almak">Türkçe</a></li>
+        
+        
+          <li><a href="/el/secure-your-wallet">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/secure-your-wallet">български</a></li>
+        
+        
+          <li><a href="/ru/secure-your-wallet">Русский</a></li>
+        
+        
+          <li><a href="/uk/secure-your-wallet">Українська</a></li>
+        
+        
+          <li><a href="/ar/secure-your-wallet">العربية</a></li>
+        
+        
+          <li><a href="/fa/secure-your-wallet">فارسی</a></li>
+        
+        
+          <li><a href="/he/secure-your-wallet">עברית</a></li>
+        
+        
+          <li><a href="/hi/secure-your-wallet">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/secure-your-wallet">한국어</a></li>
+        
+        
+          <li><a href="/ja/secure-your-wallet">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/secure-your-wallet">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/secure-your-wallet">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/amankan-wallet-anda" >Bahasa Indonesia</option>
+            
+            <option value="/ca/assegura-el-teu-moneder" >Català</option>
+            
+            <option value="/da/sikr-din-tegnebog" >Dansk</option>
+            
+            <option value="/de/sichern-sie-ihre-wallet" >Deutsch</option>
+            
+            <option value="/en/secure-your-wallet" >English</option>
+            
+            <option value="/es/asegure-su-monedero" >Español</option>
+            
+            <option value="/fr/securiser-porte-monnaie" >Français</option>
+            
+            <option value="/it/proteggi-il-portafoglio" >Italiano</option>
+            
+            <option value="/hu/vedje-meg-penztarcajat"  selected="selected">Magyar</option>
+            
+            <option value="/nl/beveilig-uw-portemonnee" >Nederlands</option>
+            
+            <option value="/pl/zabezpiecz-swoj-portfel" >Polski</option>
+            
+            <option value="/pt_BR/proteja-sua-carteira" >Português Brasil</option>
+            
+            <option value="/ro/securizeaza-portofelul" >Română</option>
+            
+            <option value="/sl/zavarujte-svojo-denarnico" >Slovenščina</option>
+            
+            <option value="/sr/sigurnost-vaseg-novcanik" >Srpski</option>
+            
+            <option value="/sv/sakra-din-planbok" >Svenska</option>
+            
+            <option value="/tr/cuzdaninizi-guvenceye-almak" >Türkçe</option>
+            
+            <option value="/el/secure-your-wallet" >Ελληνικά</option>
+            
+            <option value="/bg/secure-your-wallet" >български</option>
+            
+            <option value="/ru/secure-your-wallet" >Русский</option>
+            
+            <option value="/uk/secure-your-wallet" >Українська</option>
+            
+            <option value="/ar/secure-your-wallet" >العربية</option>
+            
+            <option value="/fa/secure-your-wallet" >فارسی</option>
+            
+            <option value="/he/secure-your-wallet" >עברית</option>
+            
+            <option value="/hi/secure-your-wallet" >हिन्दी</option>
+            
+            <option value="/ko/secure-your-wallet" >한국어</option>
+            
+            <option value="/ja/secure-your-wallet" >日本語</option>
+            
+            <option value="/zh_CN/secure-your-wallet" >简体中文</option>
+            
+            <option value="/zh_TW/secure-your-wallet" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">hu</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>Védje meg pénztárcáját</h1>
+    
+      <p class="summarytxt">Akárcsak a való életben, a pénztárcáját ebben az esetben is védenie szükséges. A Bitcoin az értékek továbbítását nagyon egyszerű módon teszi lehetővé, és lehetőséget teremt a pénze feletti irányítás megszerzésére. E nagyszerű szolgáltatások azonban komoly biztonsági megfontolásokat igényelnek. A Bitcoin megfelelő használat esetén igen magas szintű biztonságot nyújthat. <b>Soha ne feledje, az Ön felelőssége, hogy jó gyakorlatokat sajátítson el pénze védelmére</b>.</p>
+    
+  </div>
+</div>
+
+<div class="toc-container">
+  <div class="row toc-row">
+
+    <div id="toc" class="toc">
+      <div>
+        <button class="mob-sidebar-open" hidden>View All</button>
+        <div class="sidebar">
+          <div class="sidebar-inner">
+            <button class="mob-sidebar-close" hidden></button>
+            
+
+<ul>
+  <li><a href="#online">Legyen óvatos az online szolgáltatásokkal</a></li>
+  <li><a href="#everyday">Kis összegek mindennapi használathoz</a></li>
+  <li><a href="#backup">Készítsen biztonsági mentést pénztárcájáról</a>
+    <ul>
+      <li><a href="#backupwhole">Készítsen biztonsági mentést pénztárcája egészéről</a></li>
+      <li><a href="#backuponline">Titkosítsa az online biztonsági mentéseket</a></li>
+      <li><a href="#backupmany">Használjon sok biztonságos helyet</a></li>
+      <li><a href="#backupregular">Készítsen rendszeresen biztonsági mentést</a></li>
+    </ul>
+  </li>
+  <li><a href="#encrypt">Titkosítsa pénztárcáját</a>
+    <ul>
+      <li><a href="#encryptforget">Soha ne felejtse el jelszavát</a></li>
+      <li><a href="#encryptstrong">Használjon erős jelszót</a></li>
+    </ul>
+  </li>
+  <li><a href="#offline">Offline pénztárca megtakarításai számára</a>
+    <ul>
+      <li><a href="#offlinetx">Offline tranzakció-aláírás</a></li>
+      <li><a href="#hardwarewallet">Hardverpénztárcák</a></li>
+    </ul>
+  </li>
+  <li><a href="#update">Tartsa szoftverét naprakészen</a></li>
+  <li><a href="#offlinemulti">Csoportos aláírás a lopások elleni védelemhez</a></li>
+  <li><a href="#offlinetestament">Gondoljon végrendeletére</a></li>
+</ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toccontent">
+      <div class="toccontent-intro">
+    <h2 id="online">Legyen óvatos az online szolgáltatásokkal</h2>
+    <p>A pénze online tárolására tervezett összes szolgáltatással kapcsolatban körültekintően érdemes eljárnia. A múltban a legtöbb tőzsde és online pénztárca biztonságának megsértésétől szenvedett, valamint ez effajta szolgáltatások általában továbbra sem kínálnak elegendő biztosítást és biztonságot ahhoz, hogy pénzét segítségükkel egy bankhoz hasonló módon tárolhassa. Ebből következően érdemes megfontolnia más típusú <a href="/hu/valasszon-penztarcat">Bitcoin-pénztárcák</a> használatát. Ellenkező esetben az ilyesfajta szolgáltatások kiválasztásakor körültekintően érdemes eljárnia. Mindemellett kétlépcsős hitelesítés alkalmazása ajánlott.</p>
+</div>
+
+<div class="toccontent-block secure-content-block boxexpand expanded">
+  <h2 id="everyday">Kis összegek mindennapi használathoz</h2>
+  <p>A Bitcoin-pénztárca olyan, mint egy pénztárca készpénzzel. Ha nem szívesen tart több tízezer dollárt zsebében, akkor érdemes a Bitcoin-pénztárcája esetén is ezt a gyakorlatot követnie. Általában jó gyakorlat a hétköznapi használathoz csupán kis összegű bitcoint tárolnia számítógépén, mobiltelefonján vagy szerverén; a fennmaradó összeget pedig biztonságosabb környezetben tartania.</p>
+</div>
+
+<div class="toccontent-block secure-content-block boxexpand expanded">
+  <h2 id="backup">Készítsen biztonsági mentést pénztárcájáról</h2>
+  <p>Biztonságos helyen tárolva pénztárcája biztonsági mentése megóvhatja Önt a számítógépe meghibásodásából és bármely emberi hibából fakadó problémáktól. Ugyancsak lehetővé teszi pénztárcája visszaállítását mobiltelefonja vagy számítógépe ellopása esetén, amennyiben pénztárcáját titkosítja.</p>
+  <div class="box">
+    <h3 id="backupwhole">Készítsen biztonsági mentést pénztárcája egészéről</h3>
+    <p>Néhány pénztárca számos rejtett, belső, privát kulcsot használ. Ha csupán a látható Bitcoin-címeihez tartozó privát kulcsairól készít biztonsági mentést, akkor előfordulhat, hogy nem tudja majd visszaállítani vagyona nagy részét e biztonsági mentésével.</p>
+  
+    <h3 id="backuponline">Titkosítsa az online biztonsági mentéseket</h3>
+    <p>Bármely online tárolt biztonsági mentés nagyon könnyen lopás áldozatává válhat. Még egy internetkapcsolattal rendelkező számítógép is sebezhető a rosszindulatú szoftverek támadásaival szemben. Így tehát bármely, a hálózatnak kitett biztonsági mentés titkosítása jó biztonsági gyakorlatnak tekinthető.</p>
+  
+    <h3 id="backupmany">Használjon sok biztonságos helyet</h3>
+    <p>A kritikus hibapontok (SPOF) aláássák a biztonságot. Ha biztonsági mentése nem függ egy önálló helytől, kevésbé valószínű, hogy bármely szerencsétlen esemény megakadályozza pénztárcája visszaállítását. Ugyanakkor érdemes megfontolnia eltérő médiumok - mint például pendrive-ok, papírra vetett jegyzetek és CD-k - használatát.</p>
+  
+    <h3 id="backupregular">Készítsen rendszeresen biztonsági mentést</h3>
+    <p>Rendszeresen biztonsági mentést kell készítenie pénztárcájáról, hogy biztosra vehesse, hogy minden, a közelmúltban Ön által készített Bitcoin-változáscím, valamint az összes új Bitcoin-cím részét képezi biztonsági mentésének. Ugyanakkor nemsokára az összes alkalmazás olyan pénztárcákat fog használni, amelyekről csak egyszer szükséges biztonsági mentést készíteni.</p>
+  </div>
+</div>
+
+<div class="toccontent-block secure-content-block boxexpand expanded">
+  <h2 id="encrypt">Titkosítsa pénztárcáját</h2>
+  <p>A pénztárcája vagy okostelefonja titkosítása lehetőséget teremt arra, hogy bármely pénzmozgást jelszóhoz kössön. Ez védelmet nyújt a tolvajok ellen, ám nem nyújt védelmet meg a billentyűzetfigyelő-hardverek vagy szoftverek ellen.</p>
+  
+  <div class="box">
+  
+    <h3 id="encryptforget">Soha ne felejtse el jelszavát</h3>
+    <p>Soha nem szabad elfelejtenie jelszavát, mivel vagyona ebben az esetben örökre el fog veszni. A bankjával ellentétben a Bitcoin esetében nagyon szűk a jelszó-visszaállítási lehetőségek skálája. Sőt mi több, jelszavára akkor is emlékeznie kell, ha évek óta nem használta. Kétség esetén érdemes jelszava másolatát papírra vetve, például egy páncélszekrényben tárolnia.</p>
+  
+    <h3 id="encryptstrong">Használjon erős jelszót</h3>
+    <p>Minden olyan jelszó, amely csak betűkből vagy felismerhető szavakból áll, nagyon gyengének, illetve könnyedén feltörhetőnek tekinthető. Egy erős jelszónak betűket, számokat és írásjeleket kell tartalmaznia, valamint legalább 16 karakter hosszúságúnak kell lennie. A legbiztonságosabb jelszavakat a kifejezetten az erre a célra tervezett programok generálják. Az erős jelszavak nehezen megjegyezhetőek, ezért érdemes időt szánnia megjegyzésükre.</p>
+  
+  </div>
+</div>
+
+<div class="toccontent-block secure-content-block boxexpand expanded">
+  <h2 id="offline">Offline pénztárca megtakarításai számára</h2>
+  <p>A hidegtárolásként is ismert offline pénztárca a megtakarítások legmagasabb szintű védelmét biztosítja. A lényege egy pénztárca biztonságos, hálózathoz nem kapcsolódó helyen való tárolása. Megfelelő kialakítás esetén nagyszerű védelmet biztosít a számítógépek sebezhetőségeivel szemben. Az offline pénztárca biztonsági mentésekkel és titkosítással kombinálva jó gyakorlatot jelent. Az alábbiakban néhány megközelítés áttekintését olvashatja:</p>
+  
+  <div class="box">
+    <h3 id="offlinetx">Offline tranzakció-aláírás</h3>
+    <p>E megközelítés szerint két számítógép egyazon tárca egyes, közös részein osztozik. Az elsőt minden hálózatról le kell választani. Ez az egyetlen gép, amely tartalmazza az egész tárcát, és amellyel aláírhatóak a tranzakciók. A második gép csatlakozik a hálózathoz, és mindössze egy figyelő tárcát tartalmaz, amellyel kizárólag aláíratlan tranzakciók hozhatóak létre. Ily módon biztonságosan hozhatsz létre tranzakciókat a következő lépésekkel.</p>
+    <ol>
+      <li>Hozzon létre egy új tranzakciót az online számítógépén, és mentse el egy pendrive-ra.</li>
+      <li>Írja alá a tranzakciót az offline számítógép segítségével.</li>
+      <li>Küldje el az aláírt tranzakciót az online számítógép segítségével.</li>
+    </ol>
+    <p>Mivel az a számítógép, amely interneteléréssel rendelkezik, nem képes tranzakciót aláírni, veszélyeztetés esetén nem használható pénz felvételére. Az <a href="https://bitcoinarmory.com/tutorials/armory-advanced-features/offline-wallets/">Armory</a> használható offline tranzakciók aláírására.</p>
+  </div>
+
+  <div class="box">
+    <h3 id="hardwarewallet">Hardverpénztárcák</h3>
+    <p>A hardverpénztárcák jelentik a magas szintű biztonság és az egyszerű használat közötti arany középutat. Ezeket a kis készülékeket alapjaiktól kezdve csakis pénztárcának tervezték. Semmilyen szoftver nem telepíthető rájuk, e jellemző pedig igen ellenállóvá teszi őket a számítógépek sebezhetőségeivel, illetve az online tolvajokkal szemben. Mivel lehetséges biztonsági mentést készíteni róluk, ezért akkor is visszaállítható vagyona, ha elveszít egy ilyen készüléket.</p>
+  </div>
+</div>
+
+<div class="toccontent-block secure-content-block boxexpand expanded">
+  <h2 id="update">Tartsa szoftverét naprakészen</h2>
+  <p>A Bitcoin-szoftver legújabb verziójának használata biztosítja Önnek az elengedhetetlen megbízhatóságot és a biztonsági javításokat. A frissítések különböző mélységű problémáktól óvhatják meg, illetve új, hasznos szolgáltatásokat biztosítanak pénztárcája védelmére. A számítógépén és mobiltelefonján található többi szoftver rendszeres frissítése ugyancsak hozzájárul pénztárcája környezetének biztonságosabbá tételéhez.</p>
+</div>
+
+<div class="toccontent-block secure-content-block boxexpand expanded">
+  <h2 id="offlinemulti">Csoportos aláírás a lopások elleni védelemhez</h2>
+  <p>A Bitcoin rendelkezik egy csoportos aláírási szolgáltatással, amely lehetővé teszi, hogy egy tranzakció aláírásához több független jóváhagyás elköltése legyen szükséges. A csoportos aláírás például lehetővé teszi, hogy egy szervezet hozzáférést engedélyezzen tagjai számára pénztárához, ugyanakkor kizárólag akkor engedélyezve egy tranzakciót, ha 3-ból 5 felhasználó aláírja azt. Néhány webes pénztárca-szolgáltató is biztosít csoportos aláírású pénztárcákat a felhasználók számára, a pénzük feletti kontrollt lehetővé téve, ugyanakkor a tolvajok számára lehetetlenné téve, hogy egyetlen készülék vagy szerver feltörésével ellopják a pénzüket.</p>
+</div>
+
+<div class="toccontent-block secure-content-block boxexpand expanded">
+  <h2 id="offlinetestament">Gondoljon végrendeletére</h2>
+  <p>A bitcoinjai örökre elveszhetnek, amennyiben nincsen biztonsági mentésre vonatkozó terve az ismerősei és családja számára. Ha halálát követően a pénztárcáinak vagy jelszavainak helye nem ismert senki számára, nincs remény a vagyonához való hozzáférésre. Már az is óriási különbséget jelenthet, ha egy kis időt szentel ennek a kérdésnek.</p>
+</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/hu/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Támogasd a Bitcoin.org-ot:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Adományozás</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">Bevezetés:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/hu/bitcoin-maganszemelyeknek">Magánszemélyek</a>
+        </li>
+        <li>
+          <a href="/hu/bitcoin-vallalkozasoknak">Vállalkozások</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">Fejlesztők</a>
+        </li>
+        <li>
+          <a href="/hu/vagjon-bele">Vágjon bele</a>
+        </li>
+        <li>
+          <a href="/hu/hogyan-mukodik">Hogyan működik</a>
+        </li>
+        <li>
+          <a href="/hu/amit-tudnia-erdemes">Érdemes tudnia</a>
+        </li>
+        
+        <li>
+          <a href="/hu/papir-bitcoin">Fehérkönyv</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">Információs anyagok:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/hu/informacios-anyagok">Információs anyagok</a>
+        <li>
+          <a href="/hu/tozsdek">Tőzsdék</a>
+        </li>
+        <li>
+          <a href="/hu/kozosseg">Közösség</a>
+        </li>
+        <li>
+          <a href="/hu/szotar">Szótár
+          </a>
+        </li>
+        <li>
+          <a href="/hu/rendezvenyek">Rendezvények</a>
+        </li>
+        
+          <li>
+            <a href="/hu/letoltes">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">Vegyél részt:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/hu/tamogassa-a-bitcoint">Támogasd a Bitcoint</a>
+        
+        
+        <li>
+          <a href="/hu/fejlesztes">Fejlesztés</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Egyéb:</p>
+      
+      <a href="/hu/jogi-vonatkozasok">Jogi vonatkozások</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/hu/sajto">Sajtó</a>
+      <a href="/hu/rolunk">A bitcoin.org-ról</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>E közösségi weboldal szponzora a</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 Az <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT licence</a> alatt közzétéve</div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Hálózat státusza</a>
+        
+<ul class="lang is-expand">
+  <li><a>Magyar</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/amankan-wallet-anda">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/assegura-el-teu-moneder">Català</a></li>
+        
+        
+          <li><a href="/da/sikr-din-tegnebog">Dansk</a></li>
+        
+        
+          <li><a href="/de/sichern-sie-ihre-wallet">Deutsch</a></li>
+        
+        
+          <li><a href="/en/secure-your-wallet">English</a></li>
+        
+        
+          <li><a href="/es/asegure-su-monedero">Español</a></li>
+        
+        
+          <li><a href="/fr/securiser-porte-monnaie">Français</a></li>
+        
+        
+          <li><a href="/it/proteggi-il-portafoglio">Italiano</a></li>
+        
+        
+          <li><a href="/hu/vedje-meg-penztarcajat" class="active">Magyar</a></li>
+        
+        
+          <li><a href="/nl/beveilig-uw-portemonnee">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/zabezpiecz-swoj-portfel">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/proteja-sua-carteira">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/securizeaza-portofelul">Română</a></li>
+        
+        
+          <li><a href="/sl/zavarujte-svojo-denarnico">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/sigurnost-vaseg-novcanik">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/sakra-din-planbok">Svenska</a></li>
+        
+        
+          <li><a href="/tr/cuzdaninizi-guvenceye-almak">Türkçe</a></li>
+        
+        
+          <li><a href="/el/secure-your-wallet">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/secure-your-wallet">български</a></li>
+        
+        
+          <li><a href="/ru/secure-your-wallet">Русский</a></li>
+        
+        
+          <li><a href="/uk/secure-your-wallet">Українська</a></li>
+        
+        
+          <li><a href="/ar/secure-your-wallet">العربية</a></li>
+        
+        
+          <li><a href="/fa/secure-your-wallet">فارسی</a></li>
+        
+        
+          <li><a href="/he/secure-your-wallet">עברית</a></li>
+        
+        
+          <li><a href="/hi/secure-your-wallet">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/secure-your-wallet">한국어</a></li>
+        
+        
+          <li><a href="/ja/secure-your-wallet">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/secure-your-wallet">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/secure-your-wallet">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/amankan-wallet-anda" >Bahasa Indonesia</option>
+              
+              <option value="/ca/assegura-el-teu-moneder" >Català</option>
+              
+              <option value="/da/sikr-din-tegnebog" >Dansk</option>
+              
+              <option value="/de/sichern-sie-ihre-wallet" >Deutsch</option>
+              
+              <option value="/en/secure-your-wallet" >English</option>
+              
+              <option value="/es/asegure-su-monedero" >Español</option>
+              
+              <option value="/fr/securiser-porte-monnaie" >Français</option>
+              
+              <option value="/it/proteggi-il-portafoglio" >Italiano</option>
+              
+              <option value="/hu/vedje-meg-penztarcajat"  selected="selected">Magyar</option>
+              
+              <option value="/nl/beveilig-uw-portemonnee" >Nederlands</option>
+              
+              <option value="/pl/zabezpiecz-swoj-portfel" >Polski</option>
+              
+              <option value="/pt_BR/proteja-sua-carteira" >Português Brasil</option>
+              
+              <option value="/ro/securizeaza-portofelul" >Română</option>
+              
+              <option value="/sl/zavarujte-svojo-denarnico" >Slovenščina</option>
+              
+              <option value="/sr/sigurnost-vaseg-novcanik" >Srpski</option>
+              
+              <option value="/sv/sakra-din-planbok" >Svenska</option>
+              
+              <option value="/tr/cuzdaninizi-guvenceye-almak" >Türkçe</option>
+              
+              <option value="/el/secure-your-wallet" >Ελληνικά</option>
+              
+              <option value="/bg/secure-your-wallet" >български</option>
+              
+              <option value="/ru/secure-your-wallet" >Русский</option>
+              
+              <option value="/uk/secure-your-wallet" >Українська</option>
+              
+              <option value="/ar/secure-your-wallet" >العربية</option>
+              
+              <option value="/fa/secure-your-wallet" >فارسی</option>
+              
+              <option value="/he/secure-your-wallet" >עברית</option>
+              
+              <option value="/hi/secure-your-wallet" >हिन्दी</option>
+              
+              <option value="/ko/secure-your-wallet" >한국어</option>
+              
+              <option value="/ja/secure-your-wallet" >日本語</option>
+              
+              <option value="/zh_CN/secure-your-wallet" >简体中文</option>
+              
+              <option value="/zh_TW/secure-your-wallet" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">hu</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+  <script>updateToc();</script>
+<script>accordion();</script>
+<script>onScrollButton();</script>
+<script>boxShow();</script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,753 @@
+<!DOCTYPE HTML>
+<html lang="ar">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>دعم البت كوين - البت كوين</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+<link rel="stylesheet" href="/css/rtl.css?1651746487">
+
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org is a community funded project, donations are appreciated and used to improve the website.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Make a donation
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org needs your support!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Donate to Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">Use this QR code or address below</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Or custom amount? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Or custom amount? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Optional description (for your wallet)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/ar/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">المقدمة</a>
+    <ul>
+      <li><a href="/ar/bitcoin-for-individuals">الأفراد</a></li>
+      <li><a href="/ar/bitcoin-for-businesses">الأعمال</a></li>
+      <li><a href="https://developer.bitcoin.org/">المطورين</a></li>
+      <li><a href="/ar/getting-started">البداية</a></li>
+      <li><a href="/ar/how-it-works">كيف يعمل</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">المصادر</a>
+    <ul>
+      <li><a href="/ar/resources">المصادر</a>
+      <li><a href="/ar/exchanges">Exchanges</a></li>
+      <li><a href="/ar/community">المجتمع</a></li>
+      
+      
+      <li><a href="/ar/vocabulary">المفردات</a></li>
+      <li><a href="/ar/events">الأحداث</a></li>
+      
+        <li><a href="/ar/download">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/ar/innovation">الإبتكار</a></li>
+  <li><a class="is-expand">المشاركة</a>
+    <ul>
+      <li class="active"><a href="/ar/support-bitcoin">دعم البت كوين</a>
+      <li><a href="/ar/buy">Buy Bitcoin</a></li>
+      
+      <li><a href="/ar/development">التطوير</a></li>
+    </ul>
+  </li>
+  <li><a href="/ar/faq">الأسئلة الشائعة</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>العربية</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/dukung-bitcoin">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/dona-suport-a-bitcoin">Català</a></li>
+        
+        
+          <li><a href="/da/stoet-bitcoin">Dansk</a></li>
+        
+        
+          <li><a href="/de/bitcoin-unterstuetzen">Deutsch</a></li>
+        
+        
+          <li><a href="/en/support-bitcoin">English</a></li>
+        
+        
+          <li><a href="/es/apoya-bitcoin">Español</a></li>
+        
+        
+          <li><a href="/fr/supporter-bitcoin">Français</a></li>
+        
+        
+          <li><a href="/it/sostieni-bitcoin">Italiano</a></li>
+        
+        
+          <li><a href="/hu/tamogassa-a-bitcoint">Magyar</a></li>
+        
+        
+          <li><a href="/nl/help-bitcoin">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/wesprzyj-bitcoin">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/suporte-bitcoin">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/sustine-bitcoin">Română</a></li>
+        
+        
+          <li><a href="/sl/podprite-bitcoin">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/podrzite-bitkoin">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/stod-bitcoin">Svenska</a></li>
+        
+        
+          <li><a href="/tr/bitcoini-destekleyin">Türkçe</a></li>
+        
+        
+          <li><a href="/el/support-bitcoin">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/support-bitcoin">български</a></li>
+        
+        
+          <li><a href="/ru/support-bitcoin">Русский</a></li>
+        
+        
+          <li><a href="/uk/support-bitcoin">Українська</a></li>
+        
+        
+          <li><a href="/ar/support-bitcoin" class="active">العربية</a></li>
+        
+        
+          <li><a href="/fa/support-bitcoin">فارسی</a></li>
+        
+        
+          <li><a href="/he/support-bitcoin">עברית</a></li>
+        
+        
+          <li><a href="/hi/support-bitcoin">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/support-bitcoin">한국어</a></li>
+        
+        
+          <li><a href="/ja/support-bitcoin">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/support-bitcoin">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/support-bitcoin">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/dukung-bitcoin" >Bahasa Indonesia</option>
+            
+            <option value="/ca/dona-suport-a-bitcoin" >Català</option>
+            
+            <option value="/da/stoet-bitcoin" >Dansk</option>
+            
+            <option value="/de/bitcoin-unterstuetzen" >Deutsch</option>
+            
+            <option value="/en/support-bitcoin" >English</option>
+            
+            <option value="/es/apoya-bitcoin" >Español</option>
+            
+            <option value="/fr/supporter-bitcoin" >Français</option>
+            
+            <option value="/it/sostieni-bitcoin" >Italiano</option>
+            
+            <option value="/hu/tamogassa-a-bitcoint" >Magyar</option>
+            
+            <option value="/nl/help-bitcoin" >Nederlands</option>
+            
+            <option value="/pl/wesprzyj-bitcoin" >Polski</option>
+            
+            <option value="/pt_BR/suporte-bitcoin" >Português Brasil</option>
+            
+            <option value="/ro/sustine-bitcoin" >Română</option>
+            
+            <option value="/sl/podprite-bitcoin" >Slovenščina</option>
+            
+            <option value="/sr/podrzite-bitkoin" >Srpski</option>
+            
+            <option value="/sv/stod-bitcoin" >Svenska</option>
+            
+            <option value="/tr/bitcoini-destekleyin" >Türkçe</option>
+            
+            <option value="/el/support-bitcoin" >Ελληνικά</option>
+            
+            <option value="/bg/support-bitcoin" >български</option>
+            
+            <option value="/ru/support-bitcoin" >Русский</option>
+            
+            <option value="/uk/support-bitcoin" >Українська</option>
+            
+            <option value="/ar/support-bitcoin"  selected="selected">العربية</option>
+            
+            <option value="/fa/support-bitcoin" >فارسی</option>
+            
+            <option value="/he/support-bitcoin" >עברית</option>
+            
+            <option value="/hi/support-bitcoin" >हिन्दी</option>
+            
+            <option value="/ko/support-bitcoin" >한국어</option>
+            
+            <option value="/ja/support-bitcoin" >日本語</option>
+            
+            <option value="/zh_CN/support-bitcoin" >简体中文</option>
+            
+            <option value="/zh_TW/support-bitcoin" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">ar</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>دعم البت كوين</h1>
+    <p class="summarytxt">البت كوين هو بروتوكول ظهر للوجود من قبل مجتمع صغير وتطور ونمى بسرعة من حينها. هناك الكثير من الأشياء التي يمكنك فعلها لمساعدة البت كوين على الإنتشار والتحسن مع مرور الوقت.</p>
+  </div>
+</div>
+
+<div class="container">
+  
+  <div class="row card-row">
+    <div class="card support-card">
+      <img class="titleicon" src="/img/icons/ico_multi.svg?1651746487" alt="Icon" />
+      <h2 id="use">إستخدام البت كوين</h2>
+      <p><a href="/ar/getting-started">إستخدام البت كوين</a> هو أول شئ يمكنك فعله لمساعدة البت كوين. هناك العديد من الحالات التي يمكن فيها للبت كوين أن تجعل حياتك أسهل. يمكنك قبول الدفع والشراء بواسطة البت كوين.</p>
+    </div>
+    
+    <div class="card support-card">
+      <img class="titleicon" src="/img/icons/ico_network.svg?1651746487" alt="Icon" />
+      <h2 id="node">كن أنت شبكة البت كوين!</h2>
+      <p>إذا كان لديك اتصال انترنت جيد, يمكنك تقوية شبكة البت كوين عن طريق ابقاء <a href="/ar/download">برنامج عقدة كاملة</a> يعمل على جهاز الكومبيوتر لديك أو سيرفر مع البوابة 8333 مفتوحة. العقد الكاملة تقوم بتأمين و ترحيل كافة التعاملات. </p>
+    </div>
+    
+    <div class="card support-card">
+      <img class="titleicon" src="/img/icons/ico_mining.svg?1651746487" alt="Icon" />
+      <h2 id="mining">التنقيب</h2>
+      <p>يمكنك البدء بـ <a href="http://www.bitcoinmining.com/">التنقيب عن البت كوين</a> للمساعدة في معالجة المعاملات. من أجل حماية الشبكة، يتوجب عليك الإنضمام لـ مجموعات تنقيب أصغر والأفضل الإنضمام للمجموعات غير المركزية كـ <a href="http://p2pool.in/">P2Pool</a> أو <a href="https://en.bitcoin.it/wiki/Comparison_of_mining_pools">المجموعات</a> ذات دعم getblocktemplate (GBT).</p>
+    </div>
+    
+    <div class="card support-card">
+      <img class="titleicon" src="/img/icons/ico_translate.svg?1651746487" alt="Icon" />
+      <h2 id="translate">الترجمة</h2>
+      <p>يمكنك المساعدة في جعل البت كوين متاح للجميع عن طريق تحسين ترجمة الأجزاء الهامة بنظام البت كوين. فقط قم بإختيار مشروع تود المساعدة به وابدأ الآن!</p>
+      <p>
+        <a href="https://www.transifex.com/projects/p/bitcoin/">Bitcoin Core</a> -
+        <a href="https://www.transifex.com/projects/p/bitcoinorg/">Bitcoin.org</a> -
+        <a href="https://en.bitcoin.it/wiki/Bitcoin.it_Wiki">Bitcoin Wiki</a> -
+        <a href="https://www.transifex.com/projects/p/bitcoin-wallet/">Bitcoin Wallet (Android)</a> -
+        <a href="https://crowdin.com/project/electrum">Electrum</a>
+      </p>
+    </div>
+    
+    <div class="card support-card">
+      <img class="titleicon" src="/img/icons/ico_conf.svg?1651746487" alt="Icon" />
+      <h2 id="develop">التطوير</h2>
+      <p>البت كوين هو برنامج مفتوح المصدر. لذا إذا كنت مطور، يمكنك إستخدام مهاراتك الخارقة لعمل شئ ذو قيمة و<a href="/ar/development">تحسين البت كوين</a>. أو يمكنك تطوير خدمات جديدة مذهلة أو برامج يمكنها إستخدام والإستفادة من البت كوين.</p>
+    </div>
+    
+    <div class="card support-card">
+      <img class="titleicon" src="/img/icons/ico_donate.svg?1651746487" alt="Icon" />
+      <h2 id="donation">التبرع</h2>
+      <p>الطريقة الأسهل للمساعدة هي بـ <a href="https://bitcoinfoundation.org/about/donate/">التبرع</a> بمجموعة من عملات البت كوين لمؤسسة البت كوين. أو يمكنك المساعدة بشكل مباشر بتمويل أي مشروع مرتبط بالبت كوين تعتقد أنه سيكون مفيد في المستقبل.</p>
+    </div>
+    
+    <div class="card support-card">
+      <img class="titleicon" src="/img/icons/ico_law.svg?1651746487" alt="Icon" />
+      <h2 id="nonprofit">المنظمات</h2>
+      <p><a href="https://bitcoinfoundation.org/">مؤسسة البت كوين</a> والعديد من <a href="/ar/community#non-profit">المنظمات غير الهادفة للربح</a> الأخرى مخصصة لحماية ونشر البت كوين. يمكنك مساعدة هذه المجموعات بالإنضمام إليها ولعب دور في مشاريعها ومحادثاتها وأحداثها.</p>
+    </div>
+    
+    <div class="card support-card">
+      <img class="titleicon" src="/img/icons/ico_spread.svg?1651746487" alt="Icon" />
+      <h2 id="spread">قم بالنشر!</h2>
+      <p>تحدث عن البت كوين للأشخاص المهتمين. اكتب عن البت كوين في المدونة الخاصة بك. قم بإخبار المتاجر المفضلة لديك أن يقبلوا الدفع عن طريق البت كوين. ساعد بالإبقاء على دليل التجار مُحدث أولاً بأول. أو كن مبدعاً واصنع لنفسك تي شيرت لطيف مطبوعاً عليه لوجو البت كوين.</p>
+    </div>
+    
+    <div class="card support-card">
+      <img class="titleicon" src="/img/icons/ico_docs.svg?1651746487" alt="Icon" />
+      <h2 id="wiki">التوثيق</h2>
+      <p>موقع الـ <a href="https://github.com/bitcoin-dot-org/bitcoin.org#how-to-participate">Bitcoin.org</a> و الـ<a href="https://en.bitcoin.it/">بت كوين ويكي</a> يقوما بتوفير وثائق هامة ومفيدة ونحن نعمل على تحسين المعلومات التي تحتويها بإستمرار. يمكنك أن تساعد على تحسين هذه الموارد والإبقاء عليهم محدثين أولاً بأول.</p>
+    </div>
+    
+    <div class="card support-card">
+      <img class="titleicon" src="/img/icons/ico_chat.svg?1651746487" alt="Icon" />
+      <h2 id="help">تواصل مع الأشخاص المهتمين</h2>
+      <p>يمكنك الإنضمام لـ <a href="/ar/community">مجتمعات</a> البت كوين والتواصل مع آخرين من المتحمسين للبت كوين. يمكنك تعلم المزيد عن البت كوين كل يوم، مساعدة الأعضاء الجدد والمشاركة في مشاريع ممتعة.</p>
+    </div>
+  </div>
+
+</div>
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/ar/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Support Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Donate</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">المقدمة:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/ar/bitcoin-for-individuals">الأفراد</a>
+        </li>
+        <li>
+          <a href="/ar/bitcoin-for-businesses">الأعمال</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">المطورين</a>
+        </li>
+        <li>
+          <a href="/ar/getting-started">البداية</a>
+        </li>
+        <li>
+          <a href="/ar/how-it-works">كيف يعمل</a>
+        </li>
+        <li>
+          <a href="/ar/you-need-to-know">يجب عليك معرفة</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">المصادر:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/ar/resources">المصادر</a>
+        <li>
+          <a href="/ar/exchanges">Exchanges</a>
+        </li>
+        <li>
+          <a href="/ar/community">المجتمع</a>
+        </li>
+        <li>
+          <a href="/ar/vocabulary">المفردات
+          </a>
+        </li>
+        <li>
+          <a href="/ar/events">الأحداث</a>
+        </li>
+        
+          <li>
+            <a href="/ar/download">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">المشاركة:</p>
+      <ul class="footermenu-list">
+        <li class="active">
+          <a href="/ar/support-bitcoin">دعم البت كوين</a>
+        
+        
+        <li>
+          <a href="/ar/development">التطوير</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Other:</p>
+      
+      <a href="/ar/legal">المسائل القانونية</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/ar/press">صحافة</a>
+      <a href="/ar/about-us">حول موقع bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>موقع إلكتروني خاص بمجتمع البت كوين مدعم من قبل</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 مصدر تحت <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT ترخيص</a></div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Network Status</a>
+        
+<ul class="lang is-expand">
+  <li><a>العربية</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/dukung-bitcoin">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/dona-suport-a-bitcoin">Català</a></li>
+        
+        
+          <li><a href="/da/stoet-bitcoin">Dansk</a></li>
+        
+        
+          <li><a href="/de/bitcoin-unterstuetzen">Deutsch</a></li>
+        
+        
+          <li><a href="/en/support-bitcoin">English</a></li>
+        
+        
+          <li><a href="/es/apoya-bitcoin">Español</a></li>
+        
+        
+          <li><a href="/fr/supporter-bitcoin">Français</a></li>
+        
+        
+          <li><a href="/it/sostieni-bitcoin">Italiano</a></li>
+        
+        
+          <li><a href="/hu/tamogassa-a-bitcoint">Magyar</a></li>
+        
+        
+          <li><a href="/nl/help-bitcoin">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/wesprzyj-bitcoin">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/suporte-bitcoin">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/sustine-bitcoin">Română</a></li>
+        
+        
+          <li><a href="/sl/podprite-bitcoin">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/podrzite-bitkoin">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/stod-bitcoin">Svenska</a></li>
+        
+        
+          <li><a href="/tr/bitcoini-destekleyin">Türkçe</a></li>
+        
+        
+          <li><a href="/el/support-bitcoin">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/support-bitcoin">български</a></li>
+        
+        
+          <li><a href="/ru/support-bitcoin">Русский</a></li>
+        
+        
+          <li><a href="/uk/support-bitcoin">Українська</a></li>
+        
+        
+          <li><a href="/ar/support-bitcoin" class="active">العربية</a></li>
+        
+        
+          <li><a href="/fa/support-bitcoin">فارسی</a></li>
+        
+        
+          <li><a href="/he/support-bitcoin">עברית</a></li>
+        
+        
+          <li><a href="/hi/support-bitcoin">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/support-bitcoin">한국어</a></li>
+        
+        
+          <li><a href="/ja/support-bitcoin">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/support-bitcoin">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/support-bitcoin">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/dukung-bitcoin" >Bahasa Indonesia</option>
+              
+              <option value="/ca/dona-suport-a-bitcoin" >Català</option>
+              
+              <option value="/da/stoet-bitcoin" >Dansk</option>
+              
+              <option value="/de/bitcoin-unterstuetzen" >Deutsch</option>
+              
+              <option value="/en/support-bitcoin" >English</option>
+              
+              <option value="/es/apoya-bitcoin" >Español</option>
+              
+              <option value="/fr/supporter-bitcoin" >Français</option>
+              
+              <option value="/it/sostieni-bitcoin" >Italiano</option>
+              
+              <option value="/hu/tamogassa-a-bitcoint" >Magyar</option>
+              
+              <option value="/nl/help-bitcoin" >Nederlands</option>
+              
+              <option value="/pl/wesprzyj-bitcoin" >Polski</option>
+              
+              <option value="/pt_BR/suporte-bitcoin" >Português Brasil</option>
+              
+              <option value="/ro/sustine-bitcoin" >Română</option>
+              
+              <option value="/sl/podprite-bitcoin" >Slovenščina</option>
+              
+              <option value="/sr/podrzite-bitkoin" >Srpski</option>
+              
+              <option value="/sv/stod-bitcoin" >Svenska</option>
+              
+              <option value="/tr/bitcoini-destekleyin" >Türkçe</option>
+              
+              <option value="/el/support-bitcoin" >Ελληνικά</option>
+              
+              <option value="/bg/support-bitcoin" >български</option>
+              
+              <option value="/ru/support-bitcoin" >Русский</option>
+              
+              <option value="/uk/support-bitcoin" >Українська</option>
+              
+              <option value="/ar/support-bitcoin"  selected="selected">العربية</option>
+              
+              <option value="/fa/support-bitcoin" >فارسی</option>
+              
+              <option value="/he/support-bitcoin" >עברית</option>
+              
+              <option value="/hi/support-bitcoin" >हिन्दी</option>
+              
+              <option value="/ko/support-bitcoin" >한국어</option>
+              
+              <option value="/ja/support-bitcoin" >日本語</option>
+              
+              <option value="/zh_CN/support-bitcoin" >简体中文</option>
+              
+              <option value="/zh_TW/support-bitcoin" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">ar</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+
+</body>
+
+</html>

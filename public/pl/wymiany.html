@@ -1,0 +1,1333 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Exchanges - Bitcoin</title>
+<meta name="description" content="Places to buy bitcoin in exchange for other currencies. Exchange US dollars (BTC/USD), Euros (BTC/EUR), Yuan (BTC/CNY) and other currencies for bitcoin.">
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+<link rel="stylesheet" href="/css/sans.css?1651746487">
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org is a community funded project, donations are appreciated and used to improve the website.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Make a donation
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org needs your support!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Donate to Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">Use this QR code or address below</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Or custom amount? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Or custom amount? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Optional description (for your wallet)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/pl/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">Wprowadzenie</a>
+    <ul>
+      <li><a href="/pl/bitcoin-dla-osob-fizycznych">Osób fizycznych</a></li>
+      <li><a href="/pl/bitcoin-dla-biznesu">Firm</a></li>
+      <li><a href="https://developer.bitcoin.org/">Deweloperów</a></li>
+      <li><a href="/pl/pierwsze-kroki">Pierwsze kroki</a></li>
+      <li><a href="/pl/jak-to-dziala">Jak to działa</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">Zasoby</a>
+    <ul>
+      <li><a href="/pl/zasoby">Zasoby</a>
+      <li class="active"><a href="/pl/wymiany">Exchanges</a></li>
+      <li><a href="/pl/spolecznosc">Społeczność</a></li>
+      
+      
+      <li><a href="/pl/slownik">Słownik</a></li>
+      <li><a href="/pl/wydarzenia">Wydarzenia</a></li>
+      
+        <li><a href="/pl/pobieranie">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/pl/innowacje">Innowacje</a></li>
+  <li><a class="is-expand">Weź udział</a>
+    <ul>
+      <li><a href="/pl/wesprzyj-bitcoin">Wesprzyj Bitcoin</a>
+      <li><a href="/pl/kup">Buy Bitcoin</a></li>
+      
+      <li><a href="/pl/rozwoj">Rozwój</a></li>
+    </ul>
+  </li>
+  <li><a href="/pl/faq">FAQ</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>Polski</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/bursa">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/cases-de-canvi">Català</a></li>
+        
+        
+          <li><a href="/da/udvekslinger">Dansk</a></li>
+        
+        
+          <li><a href="/de/boersen">Deutsch</a></li>
+        
+        
+          <li><a href="/en/exchanges">English</a></li>
+        
+        
+          <li><a href="/es/intercambios">Español</a></li>
+        
+        
+          <li><a href="/fr/des-echanges">Français</a></li>
+        
+        
+          <li><a href="/it/borsa">Italiano</a></li>
+        
+        
+          <li><a href="/hu/tozsdek">Magyar</a></li>
+        
+        
+          <li><a href="/nl/beurzen">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/wymiany" class="active">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/trocas">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/schimburi">Română</a></li>
+        
+        
+          <li><a href="/sl/izmenjave">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/menjacnice">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/borser">Svenska</a></li>
+        
+        
+          <li><a href="/tr/borsalari">Türkçe</a></li>
+        
+        
+          <li><a href="/el/exchanges">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/exchanges">български</a></li>
+        
+        
+          <li><a href="/ru/exchanges">Русский</a></li>
+        
+        
+          <li><a href="/uk/exchanges">Українська</a></li>
+        
+        
+          <li><a href="/ar/exchanges">العربية</a></li>
+        
+        
+          <li><a href="/fa/exchanges">فارسی</a></li>
+        
+        
+          <li><a href="/he/exchanges">עברית</a></li>
+        
+        
+          <li><a href="/hi/exchanges">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/exchanges">한국어</a></li>
+        
+        
+          <li><a href="/ja/exchanges">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/exchanges">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/exchanges">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/bursa" >Bahasa Indonesia</option>
+            
+            <option value="/ca/cases-de-canvi" >Català</option>
+            
+            <option value="/da/udvekslinger" >Dansk</option>
+            
+            <option value="/de/boersen" >Deutsch</option>
+            
+            <option value="/en/exchanges" >English</option>
+            
+            <option value="/es/intercambios" >Español</option>
+            
+            <option value="/fr/des-echanges" >Français</option>
+            
+            <option value="/it/borsa" >Italiano</option>
+            
+            <option value="/hu/tozsdek" >Magyar</option>
+            
+            <option value="/nl/beurzen" >Nederlands</option>
+            
+            <option value="/pl/wymiany"  selected="selected">Polski</option>
+            
+            <option value="/pt_BR/trocas" >Português Brasil</option>
+            
+            <option value="/ro/schimburi" >Română</option>
+            
+            <option value="/sl/izmenjave" >Slovenščina</option>
+            
+            <option value="/sr/menjacnice" >Srpski</option>
+            
+            <option value="/sv/borser" >Svenska</option>
+            
+            <option value="/tr/borsalari" >Türkçe</option>
+            
+            <option value="/el/exchanges" >Ελληνικά</option>
+            
+            <option value="/bg/exchanges" >български</option>
+            
+            <option value="/ru/exchanges" >Русский</option>
+            
+            <option value="/uk/exchanges" >Українська</option>
+            
+            <option value="/ar/exchanges" >العربية</option>
+            
+            <option value="/fa/exchanges" >فارسی</option>
+            
+            <option value="/he/exchanges" >עברית</option>
+            
+            <option value="/hi/exchanges" >हिन्दी</option>
+            
+            <option value="/ko/exchanges" >한국어</option>
+            
+            <option value="/ja/exchanges" >日本語</option>
+            
+            <option value="/zh_CN/exchanges" >简体中文</option>
+            
+            <option value="/zh_TW/exchanges" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">pl</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>Bitcoin Exchanges</h1>
+    
+      <p class="summary">Places to buy bitcoin in exchange for other currencies.</p>
+    
+  </div>
+</div>
+
+<div class="container">
+  <h4 class="alert exchanges-note">Note: Exchanges provide highly varying degrees of safety, security, privacy, and control over your funds and information.
+    Perform your own due diligence and
+    <a href="/pl/wybierz-swoj-portfel">choose a wallet</a>
+    where you will keep your bitcoin before selecting an exchange.</h4>
+</div>
+
+<div class="toc-container">
+  <div class="row toc-row">
+
+    <div id="toc" class="toc">
+      <div>
+        <button class="mob-sidebar-open" hidden>View All</button>
+        <div class="sidebar">
+          <div class="sidebar-inner">
+            <button class="mob-sidebar-close" hidden></button>
+            
+
+<ul>
+  <li><a href="#international">International</a></li>
+  <li><a href="#p2p">Peer-to-Peer (P2P)</a></li>
+  <li><a href="#asia">Asia</a>
+    <ul>
+      <li><a href="#bahrain">Bahrain</a></li>
+      <li><a href="#indonesia">Indonesia</a></li>
+      <li><a href="#israel">Israel</a></li>
+      <li><a href="#japan">Japan</a></li>
+      <li><a href="#kuwait">Kuwait</a></li>
+      <li><a href="#malaysia">Malaysia</a></li>
+      <li><a href="#oman">Oman</a></li>
+      <li><a href="#singapore">Singapore</a></li>
+      <li><a href="#south-korea">South Korea</a></li>
+      <li><a href="#saudi-arabia">Saudi Arabia</a></li>
+      <li><a href="#taiwan">Taiwan</a></li>
+      <li><a href="#turkey">Turkey</a></li>
+      <li><a href="#united-arab-emirates">United Arab Emirates</a></li>
+    </ul>
+  </li>
+  <li><a href="#europe">Europe</a>
+    <ul>
+      <li><a href="#netherlands">Netherlands</a></li>
+      <li><a href="#norway">Norway</a></li>
+      <li><a href="#poland">Poland</a></li>
+      <li><a href="#ukraine">Ukraine</a></li>
+      <li><a href="#united-kingdom">United Kingdom</a></li>
+    </ul>
+  </li>
+  <li><a href="#africa">Africa</a>
+    <ul>
+      <li><a href="#nigeria">Nigeria</a></li>
+      <li><a href="#south-africa">South Africa</a></li>
+      <li><a href="#uganda">Uganda</a></li>
+    </ul>
+  </li>
+  <li><a href="#north-america">North America</a>
+    <ul>
+      <li><a href="#canada">Canada</a></li>
+      <li><a href="#mexico">Mexico</a></li>
+      <li><a href="#united-states">United States</a></li>
+    </ul>
+  </li>
+  <li><a href="#south-america">South America</a>
+    <ul>
+      <li><a href="#argentina">Argentina</a></li>
+      <li><a href="#brazil">Brazil</a></li>
+      <li><a href="#chile">Chile</a></li>
+      <li><a href="#colombia">Colombia</a></li>
+      <li><a href="#peru">Peru</a></li>
+      <li><a href="#venezuela">Venezuela</a></li>
+    </ul>
+  </li>
+  <li><a href="#australia">Australia</a></li>
+  <li><a href="#new-zealand">New Zealand</a></li>
+</ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toccontent">
+      <!-- Note: this file exempt from check-for-subheading-anchors check -->
+
+<div class="toccontent-block boxexpand expanded">
+  <h2 class="exchanges-tab-title exchanges-international-title" id="international">International</h2>
+  <p>
+	  
+    <a class="marketplace-link" href="https://www.bitfinex.com/">Bitfinex</a>
+    <br>
+    <a class="marketplace-link" href="https://www.bitstamp.net/">Bitstamp</a>
+    <br>
+    <a class="marketplace-link" href="https://crypto.com/">Crypto.com</a>
+    <br>
+    <a class="marketplace-link" href="https://www.coinbase.com/">Coinbase</a>
+    <br>
+    <a class="marketplace-link" href="https://gemini.com/">Gemini</a>
+    <br>
+    <a class="marketplace-link" href="https://www.kraken.com/">Kraken</a>
+    <br>
+    <a class="marketplace-link" href="https://www.okcoin.com/">OKCoin</a>
+  </p>
+</div>
+
+<div class="toccontent-block boxexpand expanded">
+  <h2 class="exchanges-tab-title exchanges-p2p-title" id="p2p">Peer-to-Peer (P2P)</h2>
+  <p>
+    <a class="marketplace-link" href="https://bisq.network/">Bisq</a>
+    <br>
+    <a class="marketplace-link" href="https://bitquick.co/">BitQuick</a>
+    <br>
+    <a class="marketplace-link" href="https://localbitcoins.com/">Local Bitcoins</a><img src="/img/bo_tag/bo_tag.png?1651746487" alt="Bitcoin Only tag">
+    <br>
+    <a class="marketplace-link" href="https://paxful.com/">Paxful</a>
+  </p>
+</div>
+
+<div class="toccontent-block boxexpand expanded">
+  <h2 class="exchanges-tab-title exchanges-asia-title" id="asia">Asia</h2>
+  <div class="marketplace-row">
+
+    <div class="row marketplace">
+      <img class="marketplace-flag" src="/img/flags/BH.svg?1651746487" alt="Bahrain flag">
+      <div>
+        <h3 id="bahrain" class="no_toc">Bahrain</h3>
+        <p>
+          <a class="marketplace-link" href="https://currency.com/">Currency.com</a>
+          <br>
+          <a class="marketplace-link" href="https://www.rain.bh/">Rain</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row marketplace">
+      <img class="marketplace-flag" src="/img/flags/ID.svg?1651746487" alt="Indonesian flag">
+      <div>
+        <h3 id="indonesia" class="no_toc">Indonesia</h3>
+        <p>
+          <a class="marketplace-link" href="https://indodax.com/">Indodax</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row marketplace">
+      <img class="marketplace-flag" src="/img/flags/IL.svg?1651746487" alt="Israeli flag">
+      <div>
+        <h3 id="israel" class="no_toc">Israel</h3>
+        <p>
+          <a class="marketplace-link" href="https://bit2c.co.il/">Bit2c</a>
+          <br>
+          <a class="marketplace-link" href="https://www.bitsofgold.co.il/">Bits of Gold</a>
+          <br>
+          <a class="marketplace-link" href="https://currency.com/">Currency.com</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row marketplace">
+      <img class="marketplace-flag" src="/img/flags/JP.svg?1651746487" alt="Japanese flag">
+      <div>
+        <h3 id="japan" class="no_toc">Japan</h3>
+        <p>
+          <a class="marketplace-link" href="https://bitbank.cc/">bitbank</a>
+          <br>
+          <a class="marketplace-link" href="https://bitflyer.com/ja-jp/">bitFlyer</a>
+          <br>
+          <a class="marketplace-link" href="https://www.btcbox.co.jp/">BtcBox</a>
+          <br>
+          <a class="marketplace-link" href="https://coincheck.com/">Coincheck</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row marketplace">
+      <img class="marketplace-flag" src="/img/flags/KW.svg?1651746487" alt="Kuwait flag">
+      <div>
+        <h3 id="kuwait" class="no_toc">Kuwait</h3>
+        <p>
+          <a class="marketplace-link" href="https://currency.com/">Currency.com</a>
+          <br>
+          <a class="marketplace-link" href="https://www.rain.bh/">Rain</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row marketplace">
+      <img class="marketplace-flag" src="/img/flags/MY.svg?1651746487" alt="Malaysian flag">
+      <div>
+        <h3 id="malaysia" class="no_toc">Malaysia</h3>
+        <p>
+          <a class="marketplace-link" href="https://currency.com/">Currency.com</a>
+          <br>
+          <a class="marketplace-link" href="https://www.luno.com/">Luno</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row marketplace">
+      <img class="marketplace-flag" src="/img/flags/OM.svg?1651746487" alt="Oman flag">
+      <div>
+        <h3 id="oman" class="no_toc">Oman</h3>
+        <p>
+          <a class="marketplace-link" href="https://currency.com/">Currency.com</a>
+          <br>
+          <a class="marketplace-link" href="https://www.rain.bh/">Rain</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row marketplace">
+      <img class="marketplace-flag" src="/img/flags/SG.svg?1651746487" alt="Singaporean flag">
+      <div>
+        <h3 id="singapore" class="no_toc">Singapore</h3>
+        <p>
+          <a class="marketplace-link" href="https://www.binance.sg/">Binance</a>
+          <br>
+          <a class="marketplace-link" href="https://currency.com/">Currency.com</a>
+          <br>
+          <a class="marketplace-link" href="https://www.minedigital.exchange/">Mine Digital</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row marketplace">
+      <img class="marketplace-flag" src="/img/flags/KR.svg?1651746487" alt="South Korean flag">
+      <div>
+        <h3 id="south-korea" class="no_toc">South Korea</h3>
+        <p>
+          <a class="marketplace-link" href="https://www.bithumb.com/">Bithumb</a>
+          <br>
+          <a class="marketplace-link" href="https://coinone.co.kr/">Coinone</a>
+          <br>
+          <a class="marketplace-link" href="https://currency.com/">Currency.com</a>
+          <br>
+          <a class="marketplace-link" href="https://www.korbit.co.kr/">Korbit</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row marketplace">
+      <img class="marketplace-flag" src="/img/flags/SA.svg?1651746487" alt="Saudi Arabia flag">
+      <div>
+        <h3 id="saudi-arabia" class="no_toc">Saudi Arabia</h3>
+        <p>
+          <a class="marketplace-link" href="https://currency.com/">Currency.com</a>
+          <br>
+          <a class="marketplace-link" href="https://www.rain.bh/">Rain</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row marketplace">
+      <img class="marketplace-flag" src="/img/flags/TW.svg?1651746487" alt="Taiwanese flag">
+      <div>
+        <h3 id="taiwan" class="no_toc">Taiwan</h3>
+        <p>
+          <a class="marketplace-link" href="https://currency.com/">Currency.com</a>
+          <br>
+          <a class="marketplace-link" href="https://max.maicoin.com/">MaiCoin MAX</a>
+          <br>
+          <a class="marketplace-link" href="https://www.bitopro.com/">BitoPro</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row marketplace">
+      <img class="marketplace-flag" src="/img/flags/TR.svg?1651746487" alt="Turkish flag">
+      <div>
+        <h3 id="turkey" class="no_toc">Turkey</h3>
+        <p>
+          <a class="marketplace-link" href="https://www.koinim.com/">Koinim</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row marketplace">
+      <img class="marketplace-flag" src="/img/flags/UAE.svg?1651746487" alt="United Arab Emirates flag">
+      <div>
+        <h3 id="united-arab-emirates" class="no_toc">United Arab Emirates</h3>
+        <p>
+          <a class="marketplace-link" href="https://bitoasis.net/">BitOasis</a>
+          <br>
+          <a class="marketplace-link" href="https://coinmama.net/">Coinmama</a>
+          <br>
+          <a class="marketplace-link" href="https://currency.com/">Currency.com</a>
+          <br>
+          <a class="marketplace-link" href="https://karsha.biz/">Karsha</a>
+          <br>
+          <a class="marketplace-link" href="https://www.rain.bh/">Rain</a>
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="toccontent-block boxexpand expanded exchanges-europe">
+  <h2 class="exchanges-tab-title exchanges-europe-title" id="europe">Europe</h2>
+  <div class="exchanges-content-row">
+
+    <div class="general-marketplace">
+      <p>
+        <a class="marketplace-link" href="https://anycoindirect.eu">AnyCoin Direct</a>
+        <br>
+        <a class="marketplace-link" href="https://www.binance.je/">Binance</a>
+        <br>
+        <a class="marketplace-link" href="https://www.bitcoin.de/">Bitcoin.de</a>
+	<br>
+        <a class="marketplace-link" href="https://bitfinex.com/">Bitfinex</a>
+        <br>
+        <a class="marketplace-link" href="https://bitflyer.com/en-eu/">bitFlyer</a>
+        <br>
+        <a class="marketplace-link" href="https://www.bitpanda.com/">BitPanda</a>
+        <br>
+        <a class="marketplace-link" href="https://bitvavo.com/">Bitvavo</a>
+        <br>
+        <a class="marketplace-link" href="https://coinmama.net/">Coinmama</a>
+        <br>
+        <a class="marketplace-link" href="https://currency.com/">Currency.com</a>
+        <br>
+        <a class="marketplace-link" href="https://kriptomat.io/">Kriptomat</a>
+        <br>
+        <a class="marketplace-link" href="https://www.paymium.com/">Paymium</a>
+        <br>
+        <a class="marketplace-link" href="https://therocktrading.com">The Rock Trading</a>
+      </p>
+    </div>
+
+    <div class="marketplace-row">
+
+      <div class="row marketplace">
+        <img class="marketplace-flag" src="/img/flags/NL.svg?1651746487" alt="Dutch flag">
+        <div>
+          <h3 id="netherlands" class="no_toc">Netherlands</h3>
+          <p>
+            <a class="marketplace-link" href="https://bitvavo.com/">Bitvavo</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="row marketplace">
+        <img class="marketplace-flag" src="/img/flags/NO.svg?1651746487" alt="Norwegian flag">
+        <div>
+          <h3 id="norway" class="no_toc">Norway</h3>
+          <p>
+            <a class="marketplace-link" href="https://nbx.com/">Norwegian Block Exchange</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="row marketplace">
+        <img class="marketplace-flag" src="/img/flags/PL.svg?1651746487" alt="Polish flag">
+        <div>
+          <h3 id="poland" class="no_toc">Poland</h3>
+          <p>
+            <a class="marketplace-link" href="https://www.bitbay.net/">BitBay</a>
+	    <br>
+            <a class="marketplace-link" href="https://bitclude.com/">BitClude</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="row marketplace">
+        <img class="marketplace-flag" src="/img/flags/UA.svg?1651746487" alt="Ukrainian flag">
+        <div>
+          <h3 id="ukraine" class="no_toc">Ukraine</h3>
+          <p>
+            <a class="marketplace-link" href="https://kuna.io/">Kuna</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="row marketplace">
+        <img class="marketplace-flag" src="/img/flags/UK.svg?1651746487" alt="United Kingdom flag">
+        <div>
+          <h3 id="united-kingdom" class="no_toc">United Kingdom</h3>
+          <p>
+            <a class="marketplace-link" href="https://www.binance.je/">Binance</a>
+            <br>
+            <a class="marketplace-link" href="https://bittylicious.com/">Bittylicious</a>
+            <br>
+            <a class="marketplace-link" href="https://www.coincorner.com/">CoinCorner</a>
+            <br>
+            <a class="marketplace-link" href="https://www.coinfloor.co.uk/">Coinfloor</a><img style="width:90px;height:27px;" src="/img/bo_tag/bo_tag.png?1651746487" alt="Bitcoin Only tag">
+            <br>
+            <a class="marketplace-link" href="https://coinmama.net/">Coinmama</a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="toccontent-block boxexpand expanded">
+  <h2 class="exchanges-tab-title exchanges-africa-title" id="africa">Africa</h2>
+  <div class="row marketplace-row">
+
+    <div class="row marketplace">
+      <img class="marketplace-flag" src="/img/flags/NG.svg?1651746487" alt="Nigerian flag">
+      <div>
+        <h3 id="nigeria" class="no_toc">Nigeria</h3>
+        <p>
+          <a class="marketplace-link" href="https://www.luno.com/">Luno</a>
+        </p>
+        <p>
+          <a class="marketplace-link" href="https://buycoins.africa/">BuyCoins</a>
+        </p>
+        <p>
+          <a class="marketplace-link" href="https://currency.com/">Currency.com</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row marketplace">
+      <img class="marketplace-flag" src="/img/flags/ZA.svg?1651746487" alt="South African flag">
+      <div>
+        <h3 id="south-africa" class="no_toc">South Africa</h3>
+        <p>
+          <a class="marketplace-link" href="https://currency.com/">Currency.com</a>
+        </p>
+        <p>
+          <a class="marketplace-link" href="https://www.luno.com/">Luno</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row marketplace">
+      <img class="marketplace-flag" src="/img/flags/UG.svg?1651746487" alt="Ugandan flag">
+      <div>
+        <h3 id="uganda" class="no_toc">Uganda</h3>
+        <p>
+          <a class="marketplace-link" href="https://www.binance.co.ug/">Binance</a>
+        </p>
+        <p>
+          <a class="marketplace-link" href="https://currency.com/">Currency.com</a>
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="toccontent-block boxexpand expanded">
+  <h2 class="exchanges-tab-title exchanges-north-america-title" id="north-america">North America</h2>
+  <div class="row marketplace-row">
+
+    <div class="row marketplace">
+      <img class="marketplace-flag" src="/img/flags/CA.svg?1651746487" alt="Canadian flag">
+      <div>
+        <h3 id="canada" class="no_toc">Canada</h3>
+        <p>
+          <a class="marketplace-link" href="https://bitbuy.ca/">Bitbuy</a>
+          <br>
+          <a class="marketplace-link" href="https://bitvo.com/">Bitvo</a>
+          <br>
+          <a class="marketplace-link" href="https://www.canadianbitcoins.com/">Canadian Bitcoins</a>
+          <br>
+          <a class="marketplace-link" href="https://coinberry.com/">Coinberry</a>
+          <br>
+          <a class="marketplace-link" href="https://www.coinsmart.com/">Coinsmart</a>
+          <br>
+	  <a class="marketplace-link" href="https://ndax.io/">NDAX</a>
+          <br>
+          <a class="marketplace-link" href="https://shakepay.co/">Shakepay</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row marketplace">
+      <img class="marketplace-flag" src="/img/flags/MX.svg?1651746487" alt="Mexican flag">
+      <div>
+        <h3 id="mexico" class="no_toc">Mexico</h3>
+        <p>
+          <a class="marketplace-link" href="https://bitso.com/">Bitso</a>
+          <br>
+          <a class="marketplace-link" href="https://currency.com/">Currency.com</a>
+          <br>
+          <a class="marketplace-link" href="https://www.volabit.com/">Volabit</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row marketplace">
+      <img class="marketplace-flag" src="/img/flags/US.svg?1651746487" alt="United States flag">
+      <div>
+        <h3 id="united-states" class="no_toc">United States</h3>
+        <p>
+          <a class="marketplace-link" href="https://bitflyer.com/en-us/">bitFlyer</a>
+          <br>
+          <a class="marketplace-link" href="https://bittrex.com/">Bittrex</a>
+          <br>
+          <a class="marketplace-link" href="https://coinmama.net/">Coinmama</a>
+          <br>
+          <a class="marketplace-link" href="https://gemini.com/">Gemini</a>
+          <br>
+          <a class="marketplace-link" href="https://www.itbit.com/">itBit</a>
+          <br>
+          <a class="marketplace-link" href="https://river.com/">River Financial</a><img style="width:90px;height:27px;" src="/img/bo_tag/bo_tag.png?1651746487" alt="Bitcoin Only tag">
+          <br>
+          <a class="marketplace-link" href="https://www.swanbitcoin.com/">Swan Bitcoin</a><img style="width:90px;height:27px;" src="/img/bo_tag/bo_tag.png?1651746487" alt="Bitcoin Only tag">
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="toccontent-block boxexpand expanded">
+  <h2 class="exchanges-tab-title exchanges-south-america-title" id="south-america">South America</h2>
+  <div class="marketplace-row">
+
+    <div class="row marketplace">
+      <img class="marketplace-flag" src="/img/flags/AR.svg?1651746487" alt="Argentinan flag">
+      <div>
+        <h3 id="argentina" class="no_toc">Argentina</h3>
+        <p>
+          <a class="marketplace-link" href="https://argenbtc.com/">ArgenBTC</a>
+          <br>
+          <a class="marketplace-link" href="https://currency.com/">Currency.com</a>
+          <br>
+          <a class="marketplace-link" href="https://www.satoshitango.com/">SatoshiTango</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row marketplace">
+      <img class="marketplace-flag" src="/img/flags/BR.svg?1651746487" alt="Brazilian flag">
+      <div>
+        <h3 id="brazil" class="no_toc">Brazil</h3>
+        <p>
+          <a class="marketplace-link" href="https://brasilbitcoin.com.br/">Brasil Bitcoin</a>
+          <br>
+          <a class="marketplace-link" href="https://coinext.com.br/">Coinext</a>
+          <br>
+          <a class="marketplace-link" href="https://currency.com/">Currency.com</a>
+          <br>
+          <a class="marketplace-link" href="https://www.mercadobitcoin.com.br/">Mercado Bitcoin</a>
+          <br>
+          <a class="marketplace-link" href="https://www.novadax.com.br/">NovaDAX</a>
+          <br>
+          <a class="marketplace-link" href="https://walltime.info/">Walltime</a><img style="width:90px;height:27px;" src="/img/bo_tag/bo_tag.png?1651746487" alt="Bitcoin Only tag">
+        </p>
+      </div>
+    </div>
+
+    <div class="row marketplace">
+      <img class="marketplace-flag" src="/img/flags/CL.svg?1651746487" alt="Chilean flag">
+      <div>
+        <h3 id="chile" class="no_toc">Chile</h3>
+        <p>
+          <a class="marketplace-link" href="https://www.buda.com/">Buda</a>
+          <br>
+          <a class="marketplace-link" href="https://currency.com/">Currency.com</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row marketplace">
+      <img class="marketplace-flag" src="/img/flags/CO.svg?1651746487" alt="Colombian flag">
+      <div>
+        <h3 id="colombia" class="no_toc">Colombia</h3>
+        <p>
+          <a class="marketplace-link" href="https://www.buda.com/">Buda</a>
+          <br>
+          <a class="marketplace-link" href="https://currency.com/">Currency.com</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row marketplace">
+      <img class="marketplace-flag" src="/img/flags/PE.png?1651746487" alt="Peruvian flag">
+      <div>
+        <h3 id="peru" class="no_toc">Peru</h3>
+        <p>
+          <a class="marketplace-link" href="https://www.buda.com/">Buda</a>
+          <br>
+          <a class="marketplace-link" href="https://currency.com/">Currency.com</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row marketplace">
+      <img class="marketplace-flag" src="/img/flags/VE.svg?1651746487" alt="Venezuelan flag">
+      <div>
+        <h3 id="venezuela" class="no_toc">Venezuela</h3>
+        <p>
+          <a class="marketplace-link" href="https://www.cryptobuyer.io/">Cryptobuyer</a>
+          <br>
+          <a class="marketplace-link" href="https://currency.com/">Currency.com</a>
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="toccontent-block boxexpand expanded">
+  <h2 class="exchanges-tab-title exchanges-australia-title" id="australia">Australia</h2>
+  <p>
+    <a class="marketplace-link" href="https://www.bitaroo.com.au/">Bitaroo</a><img src="/img/bo_tag/bo_tag.png?1651746487" alt="Bitcoin Only tag">
+    <br>
+    <a class="marketplace-link" href="https://www.btcmarkets.net/">BTC Markets</a>
+    <br>
+    <a class="marketplace-link" href="https://www.coinjar.com/">CoinJar</a>
+    <br>
+    <a class="marketplace-link" href="https://www.coinspot.com.au/">CoinSpot</a>
+    <br>
+    <a class="marketplace-link" href="https://www.cointree.com.au/">CoinTree</a>
+    <br>
+    <a class="marketplace-link" href="https://digitalsurge.com.au/">Digital Surge</a>
+    <br>
+    <a class="marketplace-link" href="https://www.hardblock.com.au/">HardBlock</a><img src="/img/bo_tag/bo_tag.png?1651746487" alt="Bitcoin Only tag">
+    <br>
+    <a class="marketplace-link" href="https://www.independentreserve.com/">Independent Reserve</a>
+    <br>
+    <a class="marketplace-link" href="https://www.minedigital.exchange/">Mine Digital</a>
+    <br>
+    <a class="marketplace-link" href="https://paybtc.com.au/">paybtc</a><img src="/img/bo_tag/bo_tag.png?1651746487" alt="Bitcoin Only tag">
+    <br>
+    <a class="marketplace-link" href="https://swyftx.com.au/">Swyftx</a>
+  </p>
+</div>
+
+<div class="toccontent-block boxexpand expanded">
+  <h2 id="new-zealand" class="exchanges-tab-title exchanges-newzealand-title">New Zealand</h2>
+  <p>
+    <a class="marketplace-link" href="https://www.independentreserve.com/">Independent Reserve</a>
+    <br>
+	    <a class="marketplace-link" href="https://kiwi-coin.com/">Kiwi-coin</a><img src="/img/bo_tag/bo_tag.png?1651746487" alt="Bitcoin Only tag">
+    <br>
+    <a class="marketplace-link" href="https://www.minedigital.exchange/">Mine Digital</a>
+  </p>
+</div>
+
+<p class="introlink exchanges-introlink exchanges-buy-link">Visit
+  <a href="https://www.buybitcoinworldwide.com/">Buy Bitcoin Worldwide</a> for user reviews on some of the above exchanges, or <a href="https://cryptoradar.co">Cryptoradar</a> for comparisons based on prices, fees and features.
+</p>
+<p class="introlink exchanges-introlink">Visit
+  <a href="https://coinatmradar.com/">Coin ATM Radar</a> to find local Bitcoin ATMs.
+</p>
+
+    </div>
+  </div>
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/pl/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Support Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Donate</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">Wprowadzenie:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/pl/bitcoin-dla-osob-fizycznych">Osób fizycznych</a>
+        </li>
+        <li>
+          <a href="/pl/bitcoin-dla-biznesu">Firm</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">Deweloperów</a>
+        </li>
+        <li>
+          <a href="/pl/pierwsze-kroki">Pierwsze kroki</a>
+        </li>
+        <li>
+          <a href="/pl/jak-to-dziala">Jak to działa</a>
+        </li>
+        <li>
+          <a href="/pl/co-potrzebujesz-wiedziec">Musisz to wiedzieć</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">Zasoby:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/pl/zasoby">Zasoby</a>
+        <li class="active">
+          <a href="/pl/wymiany">Exchanges</a>
+        </li>
+        <li>
+          <a href="/pl/spolecznosc">Społeczność</a>
+        </li>
+        <li>
+          <a href="/pl/slownik">Słownik
+          </a>
+        </li>
+        <li>
+          <a href="/pl/wydarzenia">Wydarzenia</a>
+        </li>
+        
+          <li>
+            <a href="/pl/pobieranie">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">Weź udział:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/pl/wesprzyj-bitcoin">Wesprzyj Bitcoin</a>
+        
+        
+        <li>
+          <a href="/pl/rozwoj">Rozwój</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Other:</p>
+      
+      <a href="/pl/informacje-prawne">Informacje prawne</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/pl/prasa">Prasa</a>
+      <a href="/pl/o-nas">O bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>Strona społecznościowa sponsorowana przez</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 Dostępny w ramach <a href="http://opensource.org/licenses/mit-license.php" target="_blank">licencji MIT</a></div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Network Status</a>
+        
+<ul class="lang is-expand">
+  <li><a>Polski</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/bursa">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/cases-de-canvi">Català</a></li>
+        
+        
+          <li><a href="/da/udvekslinger">Dansk</a></li>
+        
+        
+          <li><a href="/de/boersen">Deutsch</a></li>
+        
+        
+          <li><a href="/en/exchanges">English</a></li>
+        
+        
+          <li><a href="/es/intercambios">Español</a></li>
+        
+        
+          <li><a href="/fr/des-echanges">Français</a></li>
+        
+        
+          <li><a href="/it/borsa">Italiano</a></li>
+        
+        
+          <li><a href="/hu/tozsdek">Magyar</a></li>
+        
+        
+          <li><a href="/nl/beurzen">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/wymiany" class="active">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/trocas">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/schimburi">Română</a></li>
+        
+        
+          <li><a href="/sl/izmenjave">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/menjacnice">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/borser">Svenska</a></li>
+        
+        
+          <li><a href="/tr/borsalari">Türkçe</a></li>
+        
+        
+          <li><a href="/el/exchanges">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/exchanges">български</a></li>
+        
+        
+          <li><a href="/ru/exchanges">Русский</a></li>
+        
+        
+          <li><a href="/uk/exchanges">Українська</a></li>
+        
+        
+          <li><a href="/ar/exchanges">العربية</a></li>
+        
+        
+          <li><a href="/fa/exchanges">فارسی</a></li>
+        
+        
+          <li><a href="/he/exchanges">עברית</a></li>
+        
+        
+          <li><a href="/hi/exchanges">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/exchanges">한국어</a></li>
+        
+        
+          <li><a href="/ja/exchanges">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/exchanges">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/exchanges">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/bursa" >Bahasa Indonesia</option>
+              
+              <option value="/ca/cases-de-canvi" >Català</option>
+              
+              <option value="/da/udvekslinger" >Dansk</option>
+              
+              <option value="/de/boersen" >Deutsch</option>
+              
+              <option value="/en/exchanges" >English</option>
+              
+              <option value="/es/intercambios" >Español</option>
+              
+              <option value="/fr/des-echanges" >Français</option>
+              
+              <option value="/it/borsa" >Italiano</option>
+              
+              <option value="/hu/tozsdek" >Magyar</option>
+              
+              <option value="/nl/beurzen" >Nederlands</option>
+              
+              <option value="/pl/wymiany"  selected="selected">Polski</option>
+              
+              <option value="/pt_BR/trocas" >Português Brasil</option>
+              
+              <option value="/ro/schimburi" >Română</option>
+              
+              <option value="/sl/izmenjave" >Slovenščina</option>
+              
+              <option value="/sr/menjacnice" >Srpski</option>
+              
+              <option value="/sv/borser" >Svenska</option>
+              
+              <option value="/tr/borsalari" >Türkçe</option>
+              
+              <option value="/el/exchanges" >Ελληνικά</option>
+              
+              <option value="/bg/exchanges" >български</option>
+              
+              <option value="/ru/exchanges" >Русский</option>
+              
+              <option value="/uk/exchanges" >Українська</option>
+              
+              <option value="/ar/exchanges" >العربية</option>
+              
+              <option value="/fa/exchanges" >فارسی</option>
+              
+              <option value="/he/exchanges" >עברית</option>
+              
+              <option value="/hi/exchanges" >हिन्दी</option>
+              
+              <option value="/ko/exchanges" >한국어</option>
+              
+              <option value="/ja/exchanges" >日本語</option>
+              
+              <option value="/zh_CN/exchanges" >简体中文</option>
+              
+              <option value="/zh_TW/exchanges" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">pl</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+  <script>updateToc();</script>
+<script>accordion();</script>
+<script>onScrollButton();</script>
+<script>boxShow();</script>
+
+
+
+</body>
+
+</html>

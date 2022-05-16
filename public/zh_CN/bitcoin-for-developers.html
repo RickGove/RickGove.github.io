@@ -1,0 +1,735 @@
+<!DOCTYPE HTML>
+<html lang="zh_CN">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>比特币开发者 - 比特币</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+<link rel="stylesheet" href="/css/sans.css?1651746487">
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org 是一个社区支持的社区，我们十分感谢任何捐助。这些捐助会用于改进网站。
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        捐助
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org 需要你的帮助！
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">捐助Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">使用下方二维码或地址</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="或者自定义数量？ (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="或者自定义数量？ (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="（你的钱包的）可选描述"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/zh_CN/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">介绍</a>
+    <ul>
+      <li><a href="/zh_CN/bitcoin-for-individuals">个人</a></li>
+      <li><a href="/zh_CN/bitcoin-for-businesses">商家</a></li>
+      <li><a href="https://developer.bitcoin.org/">开发者</a></li>
+      <li><a href="/zh_CN/getting-started">入门指南</a></li>
+      <li><a href="/zh_CN/how-it-works">工作原理</a></li>
+      
+      <li><a href="/zh_CN/bitcoin-paper">White paper</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">资源</a>
+    <ul>
+      <li><a href="/zh_CN/resources">资源</a>
+      <li><a href="/zh_CN/exchanges">兑换</a></li>
+      <li><a href="/zh_CN/community">社区</a></li>
+      
+      
+      <li><a href="/zh_CN/vocabulary">词汇表</a></li>
+      <li><a href="/zh_CN/events">活动</a></li>
+      
+        <li><a href="/zh_CN/download">比特币核心</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/zh_CN/innovation">创新</a></li>
+  <li><a class="is-expand">参与</a>
+    <ul>
+      <li><a href="/zh_CN/support-bitcoin">支持比特币</a>
+      <li><a href="/zh_CN/buy">购买比特币</a></li>
+      
+      <li><a href="/zh_CN/development">开发</a></li>
+    </ul>
+  </li>
+  <li><a href="/zh_CN/faq">常见问题</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>简体中文</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/bitcoin-untuk-para-pengembang">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/bitcoin-per-desenvolupadors">Català</a></li>
+        
+        
+          <li><a href="/da/bitcoin-for-udviklere">Dansk</a></li>
+        
+        
+          <li><a href="/de/bitcoin-fuer-entwickler">Deutsch</a></li>
+        
+        
+          <li><a href="/en/bitcoin-for-developers">English</a></li>
+        
+        
+          <li><a href="/es/bitcoin-para-desarrolladores">Español</a></li>
+        
+        
+          <li><a href="/fr/bitcoin-pour-developpeurs">Français</a></li>
+        
+        
+          <li><a href="/it/bitcoin-per-sviluppatori">Italiano</a></li>
+        
+        
+          <li><a href="/hu/bitcoin-fejlesztoknek">Magyar</a></li>
+        
+        
+          <li><a href="/nl/bitcoin-voor-ontwikkelaars">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/bitcoin-dla-deweloperow">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/bitcoin-para-desenvolvedores">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/bitcoin-pentru-dezvoltatori">Română</a></li>
+        
+        
+          <li><a href="/sl/bitcoin-za-razvijalce">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/bitkoin-za-programere">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/bitcoin-for-utvecklare">Svenska</a></li>
+        
+        
+          <li><a href="/tr/gelistiriciler-icin-bitcoin">Türkçe</a></li>
+        
+        
+          <li><a href="/el/bitcoin-for-developers">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/bitcoin-for-developers">български</a></li>
+        
+        
+          <li><a href="/ru/bitcoin-for-developers">Русский</a></li>
+        
+        
+          <li><a href="/uk/bitcoin-for-developers">Українська</a></li>
+        
+        
+          <li><a href="/ar/bitcoin-for-developers">العربية</a></li>
+        
+        
+          <li><a href="/fa/bitcoin-for-developers">فارسی</a></li>
+        
+        
+          <li><a href="/he/bitcoin-for-developers">עברית</a></li>
+        
+        
+          <li><a href="/hi/bitcoin-for-developers">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/bitcoin-for-developers">한국어</a></li>
+        
+        
+          <li><a href="/ja/bitcoin-for-developers">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/bitcoin-for-developers" class="active">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/bitcoin-for-developers">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/bitcoin-untuk-para-pengembang" >Bahasa Indonesia</option>
+            
+            <option value="/ca/bitcoin-per-desenvolupadors" >Català</option>
+            
+            <option value="/da/bitcoin-for-udviklere" >Dansk</option>
+            
+            <option value="/de/bitcoin-fuer-entwickler" >Deutsch</option>
+            
+            <option value="/en/bitcoin-for-developers" >English</option>
+            
+            <option value="/es/bitcoin-para-desarrolladores" >Español</option>
+            
+            <option value="/fr/bitcoin-pour-developpeurs" >Français</option>
+            
+            <option value="/it/bitcoin-per-sviluppatori" >Italiano</option>
+            
+            <option value="/hu/bitcoin-fejlesztoknek" >Magyar</option>
+            
+            <option value="/nl/bitcoin-voor-ontwikkelaars" >Nederlands</option>
+            
+            <option value="/pl/bitcoin-dla-deweloperow" >Polski</option>
+            
+            <option value="/pt_BR/bitcoin-para-desenvolvedores" >Português Brasil</option>
+            
+            <option value="/ro/bitcoin-pentru-dezvoltatori" >Română</option>
+            
+            <option value="/sl/bitcoin-za-razvijalce" >Slovenščina</option>
+            
+            <option value="/sr/bitkoin-za-programere" >Srpski</option>
+            
+            <option value="/sv/bitcoin-for-utvecklare" >Svenska</option>
+            
+            <option value="/tr/gelistiriciler-icin-bitcoin" >Türkçe</option>
+            
+            <option value="/el/bitcoin-for-developers" >Ελληνικά</option>
+            
+            <option value="/bg/bitcoin-for-developers" >български</option>
+            
+            <option value="/ru/bitcoin-for-developers" >Русский</option>
+            
+            <option value="/uk/bitcoin-for-developers" >Українська</option>
+            
+            <option value="/ar/bitcoin-for-developers" >العربية</option>
+            
+            <option value="/fa/bitcoin-for-developers" >فارسی</option>
+            
+            <option value="/he/bitcoin-for-developers" >עברית</option>
+            
+            <option value="/hi/bitcoin-for-developers" >हिन्दी</option>
+            
+            <option value="/ko/bitcoin-for-developers" >한국어</option>
+            
+            <option value="/ja/bitcoin-for-developers" >日本語</option>
+            
+            <option value="/zh_CN/bitcoin-for-developers"  selected="selected">简体中文</option>
+            
+            <option value="/zh_TW/bitcoin-for-developers" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">zh_CN</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>比特币开发者</h1>
+    <p class="summary">比特币可以用于达成惊人成就，也可以用于满足日常所需。</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row card-row">
+    <div class="card developers-card">
+      <img class="titleicon" src="/img/icons/ico_simple_payment.svg?1651746487" alt="Icon" />
+      <h2 id="simple">最简单的支付系统</h2>
+      <p>除非付款需要自动生成发票，接受付款和支付比特币一样简单：无论是以链接还是二维码的方式。这个任何用户都可以完成的简单设定已经足以满足相当多客户的需要，尤其适用于公共场合的透明捐款和小费。</p>
+    </div>
+
+    <div class="card developers-card">
+      <img class="titleicon" src="/img/icons/ico_api.svg?1651746487" alt="Icon" />
+      <h2 id="api">众多的第三方API</h2>
+      <p>很多第三方支付处理服务都提供API（应用程序接口）；你不用将比特币存储在你的服务器上，不用应付随之而产生的安全性问题。同时，大多数API都可以让您处理发票并以低廉的费率将比特币兑换成当地货币。</p>
+    </div>
+
+    <div class="card developers-card">
+      <img class="titleicon" src="/img/icons/ico_own.svg?1651746487" alt="Icon" />
+      <h2 id="own">你可以拥有自己的财务系统</h2>
+      <p>即使你不使用任何第三方API，也可以将比特币服务直接整合到你自己的应用程序中，让你成为自己的银行和支付服务。只要你能承担相应的责任，你就能够打造出一个出色的、几乎无需费用的比特币交易系统。
+</p>
+    </div>
+
+    <div class="card developers-card">
+      <img class="titleicon" src="/img/icons/ico_address.svg?1651746487" alt="Icon" />
+      <h2 id="invoice">用比特币地址跟踪账单</h2>
+      <p>比特币为每一笔交易生成独立唯一的地址。所以如果您想建立一个支持发票功能的支付系统，只需为每次支付生成一个新地址并对其进行监控即可。建议您不要使用相同的地址进行多笔交易。</p>
+    </div>
+
+    <div class="card developers-card">
+      <img class="titleicon" src="/img/icons/ico_security.svg?1651746487" alt="Icon" />
+      <h2 id="security">大部分的安全保障都在客户端实现</h2>
+      <p>协议保障了大部分安全性，所以无需服从PCI。防止诈骗可以简单到只关注一个指标：<a href="/zh_CN/you-need-to-know#instant">确认评分</a>。除此之外，保护你的比特币安全的最主要的事是<a href="/zh_CN/secure-your-wallet">保证你的钱包安全</a>，以及使用HTTPS或者其它安全的协议来发送支付请求给消费者。
+</p>
+    </div>
+
+    <div class="card developers-card">
+      <img class="titleicon" src="/img/icons/ico_new_possibilities.svg?1651746487" alt="Icon" />
+      <h2 id="micro">新的支付可能</h2>
+      <p>比特币允许您设计新的且有活力的在线服务，这些服务是现有的金融限制无法做到的。这包括了小费系统、自动支付解决方案、分布式讨债服务、时间锁定支付管理、公共资产追踪、低信用第三方服务、微型支付通道等等。
+</p>
+    </div>
+  </div>
+
+  <div class="btn-container">
+    <a class="btn btn-bright get-started-btn" href="https://developer.bitcoin.org/">比特币开发者</a>
+  </div>
+
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/zh_CN/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">支持Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">捐助</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">介绍:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/zh_CN/bitcoin-for-individuals">个人</a>
+        </li>
+        <li>
+          <a href="/zh_CN/bitcoin-for-businesses">商家</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">开发者</a>
+        </li>
+        <li>
+          <a href="/zh_CN/getting-started">入门指南</a>
+        </li>
+        <li>
+          <a href="/zh_CN/how-it-works">工作原理</a>
+        </li>
+        <li>
+          <a href="/zh_CN/you-need-to-know">注意事项</a>
+        </li>
+        
+        <li>
+          <a href="/zh_CN/bitcoin-paper">White paper</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">资源:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/zh_CN/resources">资源</a>
+        <li>
+          <a href="/zh_CN/exchanges">兑换</a>
+        </li>
+        <li>
+          <a href="/zh_CN/community">社区</a>
+        </li>
+        <li>
+          <a href="/zh_CN/vocabulary">词汇表
+          </a>
+        </li>
+        <li>
+          <a href="/zh_CN/events">活动</a>
+        </li>
+        
+          <li>
+            <a href="/zh_CN/download">比特币核心</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">参与:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/zh_CN/support-bitcoin">支持比特币</a>
+        
+        
+        <li>
+          <a href="/zh_CN/development">开发</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">其他:</p>
+      
+      <a href="/zh_CN/legal">法律</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/zh_CN/press">新闻媒体</a>
+      <a href="/zh_CN/about-us">关于bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>社区网站主办方：</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 基于<a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT协议</a>授权发布</div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Network Status</a>
+        
+<ul class="lang is-expand">
+  <li><a>简体中文</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/bitcoin-untuk-para-pengembang">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/bitcoin-per-desenvolupadors">Català</a></li>
+        
+        
+          <li><a href="/da/bitcoin-for-udviklere">Dansk</a></li>
+        
+        
+          <li><a href="/de/bitcoin-fuer-entwickler">Deutsch</a></li>
+        
+        
+          <li><a href="/en/bitcoin-for-developers">English</a></li>
+        
+        
+          <li><a href="/es/bitcoin-para-desarrolladores">Español</a></li>
+        
+        
+          <li><a href="/fr/bitcoin-pour-developpeurs">Français</a></li>
+        
+        
+          <li><a href="/it/bitcoin-per-sviluppatori">Italiano</a></li>
+        
+        
+          <li><a href="/hu/bitcoin-fejlesztoknek">Magyar</a></li>
+        
+        
+          <li><a href="/nl/bitcoin-voor-ontwikkelaars">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/bitcoin-dla-deweloperow">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/bitcoin-para-desenvolvedores">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/bitcoin-pentru-dezvoltatori">Română</a></li>
+        
+        
+          <li><a href="/sl/bitcoin-za-razvijalce">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/bitkoin-za-programere">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/bitcoin-for-utvecklare">Svenska</a></li>
+        
+        
+          <li><a href="/tr/gelistiriciler-icin-bitcoin">Türkçe</a></li>
+        
+        
+          <li><a href="/el/bitcoin-for-developers">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/bitcoin-for-developers">български</a></li>
+        
+        
+          <li><a href="/ru/bitcoin-for-developers">Русский</a></li>
+        
+        
+          <li><a href="/uk/bitcoin-for-developers">Українська</a></li>
+        
+        
+          <li><a href="/ar/bitcoin-for-developers">العربية</a></li>
+        
+        
+          <li><a href="/fa/bitcoin-for-developers">فارسی</a></li>
+        
+        
+          <li><a href="/he/bitcoin-for-developers">עברית</a></li>
+        
+        
+          <li><a href="/hi/bitcoin-for-developers">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/bitcoin-for-developers">한국어</a></li>
+        
+        
+          <li><a href="/ja/bitcoin-for-developers">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/bitcoin-for-developers" class="active">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/bitcoin-for-developers">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/bitcoin-untuk-para-pengembang" >Bahasa Indonesia</option>
+              
+              <option value="/ca/bitcoin-per-desenvolupadors" >Català</option>
+              
+              <option value="/da/bitcoin-for-udviklere" >Dansk</option>
+              
+              <option value="/de/bitcoin-fuer-entwickler" >Deutsch</option>
+              
+              <option value="/en/bitcoin-for-developers" >English</option>
+              
+              <option value="/es/bitcoin-para-desarrolladores" >Español</option>
+              
+              <option value="/fr/bitcoin-pour-developpeurs" >Français</option>
+              
+              <option value="/it/bitcoin-per-sviluppatori" >Italiano</option>
+              
+              <option value="/hu/bitcoin-fejlesztoknek" >Magyar</option>
+              
+              <option value="/nl/bitcoin-voor-ontwikkelaars" >Nederlands</option>
+              
+              <option value="/pl/bitcoin-dla-deweloperow" >Polski</option>
+              
+              <option value="/pt_BR/bitcoin-para-desenvolvedores" >Português Brasil</option>
+              
+              <option value="/ro/bitcoin-pentru-dezvoltatori" >Română</option>
+              
+              <option value="/sl/bitcoin-za-razvijalce" >Slovenščina</option>
+              
+              <option value="/sr/bitkoin-za-programere" >Srpski</option>
+              
+              <option value="/sv/bitcoin-for-utvecklare" >Svenska</option>
+              
+              <option value="/tr/gelistiriciler-icin-bitcoin" >Türkçe</option>
+              
+              <option value="/el/bitcoin-for-developers" >Ελληνικά</option>
+              
+              <option value="/bg/bitcoin-for-developers" >български</option>
+              
+              <option value="/ru/bitcoin-for-developers" >Русский</option>
+              
+              <option value="/uk/bitcoin-for-developers" >Українська</option>
+              
+              <option value="/ar/bitcoin-for-developers" >العربية</option>
+              
+              <option value="/fa/bitcoin-for-developers" >فارسی</option>
+              
+              <option value="/he/bitcoin-for-developers" >עברית</option>
+              
+              <option value="/hi/bitcoin-for-developers" >हिन्दी</option>
+              
+              <option value="/ko/bitcoin-for-developers" >한국어</option>
+              
+              <option value="/ja/bitcoin-for-developers" >日本語</option>
+              
+              <option value="/zh_CN/bitcoin-for-developers"  selected="selected">简体中文</option>
+              
+              <option value="/zh_TW/bitcoin-for-developers" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">zh_CN</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+
+</body>
+
+</html>

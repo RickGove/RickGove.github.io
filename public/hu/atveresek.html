@@ -1,0 +1,821 @@
+<!DOCTYPE HTML>
+<html lang="hu">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Átverések megelőzése - Bitcoin</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        A Bitcoin.org egy közösség finanszírozta projekt, nagyra értékeljük az adományokat és segítségével fejleszteni tudjuk a honlapot.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Adományozás
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    A Bitcoin.org-nak szüksége van a támogatásodra!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Adományozz a Bitcoin.org-nak</p>
+    </div>
+    <p class="modal-subheader">Használd a lenti QR kódot vagy címet</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Vagy tetszőleges összeg? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Vagy tetszőleges összeg? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Opcionális leírás (a tárcádhoz)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/hu/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">Bevezetés</a>
+    <ul>
+      <li><a href="/hu/bitcoin-maganszemelyeknek">Magánszemélyek</a></li>
+      <li><a href="/hu/bitcoin-vallalkozasoknak">Vállalkozások</a></li>
+      <li><a href="https://developer.bitcoin.org/">Fejlesztők</a></li>
+      <li><a href="/hu/vagjon-bele">Vágjon bele</a></li>
+      <li><a href="/hu/hogyan-mukodik">Hogyan működik</a></li>
+      
+      <li><a href="/hu/papir-bitcoin">Fehérkönyv</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">Információs anyagok</a>
+    <ul>
+      <li><a href="/hu/informacios-anyagok">Információs anyagok</a>
+      <li><a href="/hu/tozsdek">Tőzsdék</a></li>
+      <li><a href="/hu/kozosseg">Közösség</a></li>
+      
+      
+      <li><a href="/hu/szotar">Szótár</a></li>
+      <li><a href="/hu/rendezvenyek">Rendezvények</a></li>
+      
+        <li><a href="/hu/letoltes">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/hu/innovacio">Innováció</a></li>
+  <li><a class="is-expand">Vegyél részt</a>
+    <ul>
+      <li><a href="/hu/tamogassa-a-bitcoint">Támogasd a Bitcoint</a>
+      <li><a href="/hu/vasarlas">Vásárolj bitcoint</a></li>
+      
+      <li><a href="/hu/fejlesztes">Fejlesztés</a></li>
+    </ul>
+  </li>
+  <li><a href="/hu/gyik">GYIK</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>Magyar</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/scam">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/estafes">Català</a></li>
+        
+        
+          <li><a href="/da/">Dansk</a></li>
+        
+        
+          <li><a href="/de/scams">Deutsch</a></li>
+        
+        
+          <li><a href="/en/scams">English</a></li>
+        
+        
+          <li><a href="/es/">Español</a></li>
+        
+        
+          <li><a href="/fr/">Français</a></li>
+        
+        
+          <li><a href="/it/truffe">Italiano</a></li>
+        
+        
+          <li><a href="/hu/atveresek" class="active">Magyar</a></li>
+        
+        
+          <li><a href="/nl/oplichtingspraktijken">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/fraudes">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/">Română</a></li>
+        
+        
+          <li><a href="/sl/">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/prevare">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/bedragerier">Svenska</a></li>
+        
+        
+          <li><a href="/tr/">Türkçe</a></li>
+        
+        
+          <li><a href="/el/">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/">български</a></li>
+        
+        
+          <li><a href="/ru/">Русский</a></li>
+        
+        
+          <li><a href="/uk/">Українська</a></li>
+        
+        
+          <li><a href="/ar/">العربية</a></li>
+        
+        
+          <li><a href="/fa/">فارسی</a></li>
+        
+        
+          <li><a href="/he/">עברית</a></li>
+        
+        
+          <li><a href="/hi/">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/">한국어</a></li>
+        
+        
+          <li><a href="/ja/scams">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/scam" >Bahasa Indonesia</option>
+            
+            <option value="/ca/estafes" >Català</option>
+            
+            <option value="/da/" >Dansk</option>
+            
+            <option value="/de/scams" >Deutsch</option>
+            
+            <option value="/en/scams" >English</option>
+            
+            <option value="/es/" >Español</option>
+            
+            <option value="/fr/" >Français</option>
+            
+            <option value="/it/truffe" >Italiano</option>
+            
+            <option value="/hu/atveresek"  selected="selected">Magyar</option>
+            
+            <option value="/nl/oplichtingspraktijken" >Nederlands</option>
+            
+            <option value="/pl/" >Polski</option>
+            
+            <option value="/pt_BR/fraudes" >Português Brasil</option>
+            
+            <option value="/ro/" >Română</option>
+            
+            <option value="/sl/" >Slovenščina</option>
+            
+            <option value="/sr/prevare" >Srpski</option>
+            
+            <option value="/sv/bedragerier" >Svenska</option>
+            
+            <option value="/tr/" >Türkçe</option>
+            
+            <option value="/el/" >Ελληνικά</option>
+            
+            <option value="/bg/" >български</option>
+            
+            <option value="/ru/" >Русский</option>
+            
+            <option value="/uk/" >Українська</option>
+            
+            <option value="/ar/" >العربية</option>
+            
+            <option value="/fa/" >فارسی</option>
+            
+            <option value="/he/" >עברית</option>
+            
+            <option value="/hi/" >हिन्दी</option>
+            
+            <option value="/ko/" >한국어</option>
+            
+            <option value="/ja/scams" >日本語</option>
+            
+            <option value="/zh_CN/" >简体中文</option>
+            
+            <option value="/zh_TW/" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">hu</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>Átverések megelőzése</h1>
+    <p class="summarytxt">Ismerkedj meg a legismertebb bitcoin átverésekkel, hogy megvédhesd magadat és a pénzügyeidet.</p>
+  </div>
+</div>
+
+<div class="toc-container">
+  <div class="row toc-row">
+    <div id="toc" class="toc">
+      <div>
+        <button class="mob-sidebar-open" hidden>Átverés típusok</button>
+        <div class="sidebar">
+          <div class="sidebar-inner vocabulary-list">
+            <button class="mob-sidebar-close" hidden></button>
+            <ul>
+            
+              <li><a href="#zsarolas">Zsarolás</a></li>
+            
+              <li><a href="#hamis-tozsdek">Hamis tőzsdék</a></li>
+            
+              <li><a href="#ingyenes-ajandekosztasok">Ajándékosztások</a></li>
+            
+              <li><a href="#megszemelyesites">Megszemélyesítés</a></li>
+            
+              <li><a href="#malware">Malware</a></li>
+            
+              <li><a href="#szemelyes-talalkozo">Találkozz személyesen</a></li>
+            
+              <li><a href="#penzutalasi-csalasok">Pénzutalási átverések</a></li>
+            
+              <li><a href="#adathalasz-e-mailek">Adathalász e-mailek</a></li>
+            
+              <li><a href="#adathalasz-oldalak">Adathalász oldalak</a></li>
+            
+              <li><a href="#ponzi-semak">Ponzi-sémák</a></li>
+            
+              <li><a href="#piramisjatekok">Piramisjátékok</a></li>
+            
+              <li><a href="#ajandekosztasok">Ajándékosztások</a></li>
+            
+              <li><a href="#pumpa-semak">Pumpa sémák</a></li>
+            
+              <li><a href="#ransomware">Ransomware</a></li>
+            
+              <li><a href="#scamcoinok">Scamcoinok</a></li>
+            
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toccontent">
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="zsarolas">Zsarolás</h2>
+        <p>Légy óvatos a zsarolási támadásokkal, ahol idegenek zsarolnak a bitcoinjaidért cserébe. Egy mindennapos módszer erre az e-mail, ahol a küldő küld egy üzenetet melyben azt állítja, hogy meghackelte a számítógépedet és távoli asztali protokollról (RDP) irányítja. A küldő azt állítja, hogy billentyűzetfigyelőt telepített és a webkameráddal olyat rögzített, amit nem szeretnél, ha mások is tudnának. A küldő két opciót ajánl - küldj neki bitcoint, hogy eltüntesse az anyagot vagy küldj semmit és figyeld ahogy elküldi az e-mail kapcsolataidnak és elterjeszti a közösségi médián. A csalók lopott e-mail listákat és más kiszivárgott információkat használnak a séma tömeges futtatásához.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="hamis-tozsdek">Hamis tőzsdék</h2>
+        <p>Ahogy egyre népszerűbbé vált a bitcoin, egyre több embert kívánt szerezni belőle. Sajnos a csaló emberek kihasználták ezt és e célra hamis bitcoin tőzsdéket hoztak létre. Ezek a hamis tőzsdék tőrbe csalhatják a felhasználókat extrém kedvező piaci árakkal, ami miatt az áldozatok azt hiszik, megütötték a főnyereményt a gyors és könnyen hozzáférhető olcsó bitcoinnal. Győződj meg róla hogy <a href="/en/exchanges">bevált tőzsdét</a> használsz mikor bitcoint adsz vagy veszel.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="ingyenes-ajandekosztasok">Ajándékosztások</h2>
+        <p>Az információ virális természete miatt és ahogy terjed az interneten, a csalók úgy akarnak hasznot húzni az emberekből, hogy ingyenes bitcoin osztást vagy más digitális pénzosztást szerveznek a tőzsdéken egy kis összegű regisztrációért cserébe, vagy bizonyos személyes információ megadásával. Amikor ilyet látsz egy oldalon vagy közösségi médián, jobb, ha azonnal jelented a tartalmat mint csalás, hogy még véletlenül se essenek mások is áldozatukul.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="megszemelyesites">Megszemélyesítés</h2>
+        <p>Sajnos nagyon könnyű a csalóknak közösségi média számlákat kreálniuk és másoknak kiadni magukat. Gyakran kivárnak mindaddig, amíg a személy akinek kiadják magukat tartalmakat tesz közzé. A dublőr ilyenkor egy követő üzenetet vagy egy cselekvésre való felhívást küld - mint például ingyenes osztást - egy olyan számláról, ami szinte megegyezik az eredeti posztolóéval vagy íróéval. Ez úgy fog látszani, mintha az eredeti személy írta volna. Alternatívaként az imposztorok ezeket a hamis számlákat arra is felhasználhatják, hogy másokat becsapva privát vagy közvetlen üzenetekkel bizonyos akciókra bírják rá az áldozatokat annak érdekében, hogy átverjék vagy aláássák őket. Soha ne vegyél részt ingyenes osztásokban és ha egy furcsa felkérést kapsz valakitől a közösségi hálódból, a legjobb megoldás, ha kétszer is ellenőrzöd az autentikusságát különböző kommunikációs médiumokon keresztül.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="malware">Malware</h2>
+        <p>A hackerek nagyon kreatívakká váltak az emberektől való lopásban. Bitcoin küldésekor mindig győződj meg róla, hogy kétszer vagy háromszor is ellenőrzöd a küldött címet. Néhány rosszindulatú program, amit csak egyszer kell telepíteni, megváltoztatja a bitcoin címeket mikor a felhasználó beilleszti őket a vágólapjából, így a bitcoinok a hacker címére érkeznek. Mivel nagyon kevés az esélye annak, hogy egy bitcoin tranzakciót visszafordíthassanak akkor, ha azt a hálózat már megerősítette, és ezért ezt később észrevéve már nem lehet visszacsinálni. Fontos, hogy rendkívül óvatos legyél abban, hogy milyen programoknak engedélyezed az adminisztrátori hozzáférést az eszközökön. Egy naprakész, jó hírű víruskereső is segít, de nem jelent garantált védettséget.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="szemelyes-talalkozo">Találkozz személyesen</h2>
+        <p>Amikor helyben vásárolsz vagy adsz el bitcoint, a másik fél arra kérhet, hogy személyesen találkozzatok az ügylet kivitelezésére. Amennyiben egy olyan személy, akit még nem ismersz, akkor ez egy nagyon kockázatos ajánlat és akár ki is rabolhatnak, vagy akár bajod is eshet. A csalók arról ismertek, hogy hamis fiatpénzekkel fizetnek a bitcoinjaidért cserébe. Tanácsos egy peer-to-peer platformot használni a források letétbe helyezése érdekében ahelyett, hogy személyesen találkoznál a személlyel.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="penzutalasi-csalasok">Pénzutalási átverések</h2>
+        <p>Ne válaszolj idegenek e-mailjeire vagy bejövő üzenetekre, amelyek azt állítják, hogy segítségre van szükségük egy kis pénz átutalásához és majd a szolgáltatásaidért cserébe megkapod a források egy részét.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="adathalasz-e-mailek">Adathalász e-mailek</h2>
+        <p>Figyelj az olyan e-mailekre, melyek hamisan olyan szolgáltatásoktól erednek, ahol például jelszavad visszaállítására kérnek fel, vagy interakcióra késztetnek a számláddal kapcsolatosan. Nagyon nehéz észrevenni a különbséget egy valódi és egy hamis e-mail között, egy olyan között, ami arra próbál rávenni, hogy kompromittáld a számládat, és egy olyan között, amit jogszerűen küldtek ki egy általad használt termék vagy szolgáltatás kapcsán. Mikor nem vagy biztos benne, ellenőrizd le háromszor is az üzenet hitelességét a honlapon talált e-mail használatával, telefonon történő hívás útján, és/vagy hivatalos közösségi médiafiókjukon keresztül.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="adathalasz-oldalak">Adathalász oldalak</h2>
+        <p>Az adathalász oldalak gyakran kéz a kézben járnak az adathalász e-mailekkel. Az adathalász e-mailek olyan oldalmásolatokra linkelhetnek, amelyek ellophatják a bejelentkezéskor megadott hitelesítő adatokat, vagy kártékony programokat telepíthetnek. Ne telepíts szoftvert, vagy jelentkezz be egy webhelyre, csak akkor, ha 100%-ban biztos vagy abban, hogy nem hamis. Az adathalász webhelyek a keresőmotorok vagy a mobileszközök alkalmazáspiacainak szponzorált találatai is lehetnek. Ügyelj arra, hogy nem töltesz le hamis alkalmazást, vagy kattintasz egy szponzorált linkre ami egy hamis weboldalra visz.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="ponzi-semak">Ponzi-sémák</h2>
+        <p>Ne vegyél részt olyan ajánlatokban, ahol egy vagy több ember garantált hozamot biztosít egy előre befizetett összegért cserébe. Ezt Ponzi-sémának nevezik, ahol a jövőbeni betétesek díjait a korábban befektetőknek fizetik ki. A végeredmény általában, hogy sok ember egy csomó pénzt veszít.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="piramisjatekok">Piramisjátékok</h2>
+        <p>A piramisjáték a résztvevők számára jutalékot garantál az általuk meghívott személyek után. Ez lehetővé teszi, hogy a rendszer virálisan és gyorsan növekedjen, de leggyakrabban nem eredményez semmilyen komolyabb hozamot a tagok és/vagy a meghívottak számára. Soha ne kérd fel a személyes ismerőseidet egy termék vagy szolgáltatás jutalmának vagy megtérülésének összegyűjtésére, és ne járulj hozzá a saját tőkéddel mások megbízásából, hogy felgyorsítsd a folyamatot.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="ajandekosztasok">Ajándékosztások</h2>
+        <p>Az ingyenes ajándékosztásokhoz hasonlóan a díjnyeremény csalások arra veszik rá az embereket, hogy cselekedjenek, vagy hogy információt szolgáltassanak magukról. Például a nevük, címük, e-mail címük és telefonszámuk megadását kérik a nyereményük kikéréséhez. Ez lehetővé teszi a hacker számára, hogy az így gyűjtött információkkal fiókokhoz férjen hozzá vagy a nevedben járjanak el.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="pumpa-semak">Pumpa sémák</h2>
+        <p>Ne bízz olyan emberekben, akik arra biztatnak téged vagy másokat, hogy befektess, mert tudják, hogy mi lesz a bitcoin ára. A pumpa-sémák során egy személy (vagy személyek) megpróbálják mesterségesen emelni az árat annak érdekében, hogy nyereségesen szabadulhassanak meg a vagyonuktól.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="ransomware">Ransomware</h2>
+        <p>Az ilyesfajta malware program részben vagy teljesen blokkolja az eszközhöz való hozzáférést, kivéve, ha bitcoinban megfizeted a váltságdíjat. A legjobb megoldás egy megbízható számítógépes szakember tanácsának kikérése az eltávolításáról, sem mint a váltságdíj megfizetése. Ügyelj arra, hogy milyen eszközöket telepítesz az eszközeidre, különösen azokkal légy óvatos, amelyek rendszergazdai hozzáférést kérnek. Győződj meg róla kétszer is, hogy a letöltött alkalmazás nem egy olyan hamisítvány, ami egy korábban használt legitim szoftver másolata.</p>
+      </div>
+      
+      <div class="toccontent-block boxexpand expanded">
+        <h2 id="scamcoinok">Scamcoinok</h2>
+        <p>Légy óvatos az alternatív érmékbe (altcoinok) történő befektetésnél. Az altcoinok között lehetnek átverések, amik arra csábítják a felhasználókat, hogy privát módon vagy előzetes kedvezményekkel fektessenek be. A csaló érmék (scamcoinok) harsány weboldallal rendelkeznek, és/vagy nagy közösséggel büszkélkednek azért, hogy az emberekben félelmet keltsenek, ha kihagyják a lehetőséget. Ez segít a korai tulajdonosok számára, hogy felpumpálják az árat azért, hogy profitért el tudják adni és zárhassák a pozíciójukat. A nagy közösségek nélküli scamcoinok airdropot alkalmazhatnak - ingyenes érméket (vagy tokeneket) kínálnak a csatlakozásáért cserébe. Ez lehetővé teszi, hogy a scamcoinok léggömbszerű trakcióval prezentálják kezdeményezéseiket, hogy a befektetők úgy érezzék, ki fogják hagyni amikor eljön az ideje, hogy eldönthessék, szeretnének-e befektetni. A scamcoinok gyakran használják a Bitcoin szót arra, hogy megpróbálják becsapni vagy félrevezetni az embereket azt sejtetve, hogy legitim kapcsolat van a scamcoinjuk és a Bitcoin között.</p>
+      </div>
+      
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/hu/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Támogasd a Bitcoin.org-ot:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Adományozás</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">Bevezetés:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/hu/bitcoin-maganszemelyeknek">Magánszemélyek</a>
+        </li>
+        <li>
+          <a href="/hu/bitcoin-vallalkozasoknak">Vállalkozások</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">Fejlesztők</a>
+        </li>
+        <li>
+          <a href="/hu/vagjon-bele">Vágjon bele</a>
+        </li>
+        <li>
+          <a href="/hu/hogyan-mukodik">Hogyan működik</a>
+        </li>
+        <li>
+          <a href="/hu/amit-tudnia-erdemes">Érdemes tudnia</a>
+        </li>
+        
+        <li>
+          <a href="/hu/papir-bitcoin">Fehérkönyv</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">Információs anyagok:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/hu/informacios-anyagok">Információs anyagok</a>
+        <li>
+          <a href="/hu/tozsdek">Tőzsdék</a>
+        </li>
+        <li>
+          <a href="/hu/kozosseg">Közösség</a>
+        </li>
+        <li>
+          <a href="/hu/szotar">Szótár
+          </a>
+        </li>
+        <li>
+          <a href="/hu/rendezvenyek">Rendezvények</a>
+        </li>
+        
+          <li>
+            <a href="/hu/letoltes">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">Vegyél részt:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/hu/tamogassa-a-bitcoint">Támogasd a Bitcoint</a>
+        
+        
+        <li>
+          <a href="/hu/fejlesztes">Fejlesztés</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Egyéb:</p>
+      
+      <a href="/hu/jogi-vonatkozasok">Jogi vonatkozások</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/hu/sajto">Sajtó</a>
+      <a href="/hu/rolunk">A bitcoin.org-ról</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>E közösségi weboldal szponzora a</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 Az <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT licence</a> alatt közzétéve</div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Hálózat státusza</a>
+        
+<ul class="lang is-expand">
+  <li><a>Magyar</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/scam">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/estafes">Català</a></li>
+        
+        
+          <li><a href="/da/">Dansk</a></li>
+        
+        
+          <li><a href="/de/scams">Deutsch</a></li>
+        
+        
+          <li><a href="/en/scams">English</a></li>
+        
+        
+          <li><a href="/es/">Español</a></li>
+        
+        
+          <li><a href="/fr/">Français</a></li>
+        
+        
+          <li><a href="/it/truffe">Italiano</a></li>
+        
+        
+          <li><a href="/hu/atveresek" class="active">Magyar</a></li>
+        
+        
+          <li><a href="/nl/oplichtingspraktijken">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/fraudes">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/">Română</a></li>
+        
+        
+          <li><a href="/sl/">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/prevare">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/bedragerier">Svenska</a></li>
+        
+        
+          <li><a href="/tr/">Türkçe</a></li>
+        
+        
+          <li><a href="/el/">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/">български</a></li>
+        
+        
+          <li><a href="/ru/">Русский</a></li>
+        
+        
+          <li><a href="/uk/">Українська</a></li>
+        
+        
+          <li><a href="/ar/">العربية</a></li>
+        
+        
+          <li><a href="/fa/">فارسی</a></li>
+        
+        
+          <li><a href="/he/">עברית</a></li>
+        
+        
+          <li><a href="/hi/">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/">한국어</a></li>
+        
+        
+          <li><a href="/ja/scams">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/scam" >Bahasa Indonesia</option>
+              
+              <option value="/ca/estafes" >Català</option>
+              
+              <option value="/da/" >Dansk</option>
+              
+              <option value="/de/scams" >Deutsch</option>
+              
+              <option value="/en/scams" >English</option>
+              
+              <option value="/es/" >Español</option>
+              
+              <option value="/fr/" >Français</option>
+              
+              <option value="/it/truffe" >Italiano</option>
+              
+              <option value="/hu/atveresek"  selected="selected">Magyar</option>
+              
+              <option value="/nl/oplichtingspraktijken" >Nederlands</option>
+              
+              <option value="/pl/" >Polski</option>
+              
+              <option value="/pt_BR/fraudes" >Português Brasil</option>
+              
+              <option value="/ro/" >Română</option>
+              
+              <option value="/sl/" >Slovenščina</option>
+              
+              <option value="/sr/prevare" >Srpski</option>
+              
+              <option value="/sv/bedragerier" >Svenska</option>
+              
+              <option value="/tr/" >Türkçe</option>
+              
+              <option value="/el/" >Ελληνικά</option>
+              
+              <option value="/bg/" >български</option>
+              
+              <option value="/ru/" >Русский</option>
+              
+              <option value="/uk/" >Українська</option>
+              
+              <option value="/ar/" >العربية</option>
+              
+              <option value="/fa/" >فارسی</option>
+              
+              <option value="/he/" >עברית</option>
+              
+              <option value="/hi/" >हिन्दी</option>
+              
+              <option value="/ko/" >한국어</option>
+              
+              <option value="/ja/scams" >日本語</option>
+              
+              <option value="/zh_CN/" >简体中文</option>
+              
+              <option value="/zh_TW/" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">hu</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+  <script>updateToc();</script>
+<script>accordion();</script>
+<script>onScrollButton();</script>
+<script>boxShow();</script>
+
+
+
+
+
+</body>
+
+</html>

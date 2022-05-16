@@ -1,0 +1,909 @@
+<!DOCTYPE HTML>
+<html lang="tr">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Basın - Bitcoin</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+<link rel="stylesheet" href="/css/sans.css?1651746487">
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org is a community funded project, donations are appreciated and used to improve the website.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Make a donation
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org needs your support!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Donate to Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">Use this QR code or address below</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="Or custom amount? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="Or custom amount? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Optional description (for your wallet)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/tr/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">Giriş</a>
+    <ul>
+      <li><a href="/tr/bireyler-icin-bitcoin">Bireyler</a></li>
+      <li><a href="/tr/isletmeler-icin-bitcoin">İşletmeler</a></li>
+      <li><a href="https://developer.bitcoin.org/">Geliştiriciler</a></li>
+      <li><a href="/tr/baslarken">Başlarken</a></li>
+      <li><a href="/tr/nasil-calisir">Nasıl Çalışır</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">Kaynaklar</a>
+    <ul>
+      <li><a href="/tr/kaynaklar">Kaynaklar</a>
+      <li><a href="/tr/borsalari">Exchanges</a></li>
+      <li><a href="/tr/topluluk">Topluluk</a></li>
+      
+      
+      <li><a href="/tr/kelime-haznesi">Sözlük</a></li>
+      <li><a href="/tr/etkinlikler">Etkinlikler</a></li>
+      
+        <li><a href="/tr/indir">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/tr/yenilik">Yenilik</a></li>
+  <li><a class="is-expand">Katılın</a>
+    <ul>
+      <li><a href="/tr/bitcoini-destekleyin">Bitcoin'i Destekleyin</a>
+      <li><a href="/tr/satin">Buy Bitcoin</a></li>
+      
+      <li><a href="/tr/gelistirme">Gelişim</a></li>
+    </ul>
+  </li>
+  <li><a href="/tr/sss">SSS</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>Türkçe</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/pers">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/premsa">Català</a></li>
+        
+        
+          <li><a href="/da/presse">Dansk</a></li>
+        
+        
+          <li><a href="/de/presse">Deutsch</a></li>
+        
+        
+          <li><a href="/en/press">English</a></li>
+        
+        
+          <li><a href="/es/prensa">Español</a></li>
+        
+        
+          <li><a href="/fr/presse">Français</a></li>
+        
+        
+          <li><a href="/it/stampa">Italiano</a></li>
+        
+        
+          <li><a href="/hu/sajto">Magyar</a></li>
+        
+        
+          <li><a href="/nl/pers">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/prasa">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/imprensa">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/presa">Română</a></li>
+        
+        
+          <li><a href="/sl/mediji">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/mediji">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/press">Svenska</a></li>
+        
+        
+          <li><a href="/tr/basin" class="active">Türkçe</a></li>
+        
+        
+          <li><a href="/el/press">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/press">български</a></li>
+        
+        
+          <li><a href="/ru/press">Русский</a></li>
+        
+        
+          <li><a href="/uk/press">Українська</a></li>
+        
+        
+          <li><a href="/ar/press">العربية</a></li>
+        
+        
+          <li><a href="/fa/press">فارسی</a></li>
+        
+        
+          <li><a href="/he/press">עברית</a></li>
+        
+        
+          <li><a href="/hi/press">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/press">한국어</a></li>
+        
+        
+          <li><a href="/ja/press">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/press">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/press">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/pers" >Bahasa Indonesia</option>
+            
+            <option value="/ca/premsa" >Català</option>
+            
+            <option value="/da/presse" >Dansk</option>
+            
+            <option value="/de/presse" >Deutsch</option>
+            
+            <option value="/en/press" >English</option>
+            
+            <option value="/es/prensa" >Español</option>
+            
+            <option value="/fr/presse" >Français</option>
+            
+            <option value="/it/stampa" >Italiano</option>
+            
+            <option value="/hu/sajto" >Magyar</option>
+            
+            <option value="/nl/pers" >Nederlands</option>
+            
+            <option value="/pl/prasa" >Polski</option>
+            
+            <option value="/pt_BR/imprensa" >Português Brasil</option>
+            
+            <option value="/ro/presa" >Română</option>
+            
+            <option value="/sl/mediji" >Slovenščina</option>
+            
+            <option value="/sr/mediji" >Srpski</option>
+            
+            <option value="/sv/press" >Svenska</option>
+            
+            <option value="/tr/basin"  selected="selected">Türkçe</option>
+            
+            <option value="/el/press" >Ελληνικά</option>
+            
+            <option value="/bg/press" >български</option>
+            
+            <option value="/ru/press" >Русский</option>
+            
+            <option value="/uk/press" >Українська</option>
+            
+            <option value="/ar/press" >العربية</option>
+            
+            <option value="/fa/press" >فارسی</option>
+            
+            <option value="/he/press" >עברית</option>
+            
+            <option value="/hi/press" >हिन्दी</option>
+            
+            <option value="/ko/press" >한국어</option>
+            
+            <option value="/ja/press" >日本語</option>
+            
+            <option value="/zh_CN/press" >简体中文</option>
+            
+            <option value="/zh_TW/press" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">tr</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>Basın merkezi</h1>
+    
+      <p class="summarytxt">Ropörtaj için kişiler, cevaplar ve yüksek kalite basın materyalleri bulun.</p>
+    
+  </div>
+</div>
+
+<div class="toc-container">
+  <div class="row toc-row">
+
+    <div id="toc" class="toc">
+      <div>
+        <button class="mob-sidebar-open" hidden>View All</button>
+        <div class="sidebar">
+          <div class="sidebar-inner">
+            <button class="mob-sidebar-close" hidden></button>
+            
+
+<ul>
+  <li><a href="#volunteer">Ropörtaj için kişiler</a></li>
+  <li><a href="#layout">SSS</a>
+    <ul>
+      <li><a href="#whatisbitcoin">Bitcoin Nedir?</a></li>
+      <li><a href="#howitworks">Bitcoin nasıl çalışır?</a></li>
+      <li><a href="#whatismining">Bitcoin madenciliği nedir?</a></li>
+      <li><a href="#acquire">Bitcoin nasıl elde edilir?</a></li>
+      <li><a href="#used">İnsanlar gerçekten Bitcoin’i kullanıyor mu?</a></li>
+      <li><a href="#makepayment">Bitcoin ödemesi yapmak ne kadar zordur?</a></li>
+      <li><a href="#advantages">Bitcoin’in avantajları nelerdir?</a></li>
+      <li><a href="#disadvantages">Bitcoin’in dezavantajları nelerdir?</a></li>
+      <li><a href="#secure">Bitcoin güvenli midir?</a></li>
+      <li><a href="#islegal">Bitcoin yasal mıdır?</a></li>
+      <li><a href="#taxes">Peki ya Bitcoin ve vergiler?</a></li>
+      <li><a href="#illegalactivities">Bitcoin yasadışı faaliyetlerde işe yarar mı?</a></li>
+      <li><a href="#bubble">Bitcoin bir balon mu?</a></li>
+      <li><a href="#whyvalue">Bitcoinlerin neden değeri vardır?</a></li>
+      <li><a href="#ponzi">Bitcoin bir saadet zinciri mi?</a></li>
+      <li><a href="#creator">Bitcoin’i kim yaptı?</a></li>
+      <li><a href="#worthless">Bitcoinler değersiz hale gelebilir mi?</a></li>
+      <li><a href="#virtual">Bitcoin tamamen sanal ve soyut mudur?</a></li>
+      <li><a href="#trust">İnsanlar neden Bitcoin’e güveniyor?</a></li>
+      <li><a href="#anonymous">Bitcoin anonim midir?</a></li>
+    </ul>
+  </li>
+</ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toccontent">
+      <div class="toccontent-intro">
+  <h2 id="volunteer">Ropörtaj için kişiler</h2>
+  <p><a href="https://bitcoinfoundation.org/contact/">Bitcoin Kuruluşu</a> ile yada yerel <a href="/tr/topluluk#kar-etmeyen"> kar amacı gütmeyen kuruluşlar</a> ile iletişime geçin.</p>
+</div>
+
+<div class="toccontent-block boxexpand expanded">
+  <h2 id="layout">SSS</h2>
+  <div class="press-faq">
+    <div>
+      <h3 id="whatisbitcoin" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Bitcoin Nedir?</h3>
+      <div>
+        <p>Bitcoin yeni bir ödeme sistemini bizlere sunan bir konsensus ağı ve tamamen dijital bir paradır. Sahibi ve merkezi bir otoritesi bulunmayan ve gücünü kullanıcılarından alan ilk eşler arası ödeme yöntemidir. Bir kullanıcının persfektifinden bakacak olursak Bitcoin normal parayla internetten alışveriş yapmaya benzer. Bitcoin ayrıca en çok öne çıkan <a href="http://financialcryptography.com/mt/archives/001325.html">üçlü kayıt usülü muhasebe sistemi</a> sayılır.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="howitworks" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Bitcoin nasıl çalışır?</h3>
+      <div>
+        <p>Bir kullanıcının gözünden bakacak olursak, Bitcoin, kişiye özel bir Bitcoin cüzdanı veren ve bu cüzdan ile kullanıcılar arasından bitcoin alıp, yollamaya yarayan bir uygulamadan ya da bilgisayar programından farklı değildir. Bir çok kişi Bitcoin'i bu şekilde biliyor.</p>
+        <p>Kamera arkasında, Bitcoin ağı "blok zinciri" adı verilen bir ana hesap defterini paylaşır. Bu defter yapılan tüm işlemleri kapsar ve kullanıcının bilgisayarının bir işlemin geçerliliğini doğrulamasına izin verir. Her işlemin gerçekliği gönderen adrese karşılık gelen sanal imzalarla korunur ve tüm kullanıcıların kendi Bitcoin adreslerinden bitcoin gönderebilmelerine izin verir. Ayrıca, herkes özel donanımların işlem gücü yardımıyla işlemlerin işlenmesine yardımcı olabilir ve karşılığında bitcoin şeklinde bir ödül alabilir. Buna genelde "madencilik" denir. Bitcoin hakkında daha fazla öğrenmek için  <a href="/tr/nasil-calisir">ilgili sayfayı</a> ve <a href="/bitcoin.pdf">ilk belgeyi</a> okuyabilirsiniz.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="whatismining" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Bitcoin madenciliği nedir?</h3>
+      <div>
+        <p>Madencilik, işlemlerin gerçekleşmesini sağlamaya, ağı güvenli kılmaya ve herkesi birlikte sistemde senkronize bir şekilde tutmaya yarayan hesaplama gücü işlemidir. Bu Bitcoin bilgi merkezinin bütün kontrolünün dünyanın heryerindeki madencilerin işlemleri ile merkezsizleştiği ve hiç bir şahısın ağı kontrol edemeyeceği düşünülebilir. Bu işleme "madencilik" denmektedir çünkü, bu işlemleri yaparken aynı zamanda yeni bitcoinler üretirsiniz ve bu da altın madenciliği gibidir. Altın madenciliği gibi olmayan şey ise, Bitcoin madenciliği güvenli bir ödeme ağı oluşturulmasına ihtiyacı olan kullanışlı bir servisi beraberinde getirerek bir ödül sağlar. Madencilik son bitcoin üretildikten sonra dahi hala gerekecektir.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="acquire" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Bitcoin nasıl elde edilir?</h3>
+      <div>
+        <ul>
+          <li>Mal veya hizmet karşılığında ödeme olarak.</li>
+          <li><a href="https://www.buybitcoinworldwide.com">Bitcoin exchange</a>'de bitcoin satın alın.</li>
+          <li> <a href="https://localbitcoins.com/">Size yakın biriyle</a> bitcoin takas edin.</li>
+          <li>Rekabetçi <a href="http://www.bitcoinmining.com/">madencilik</a> yoluyla bitcoin kazanın.</li>
+        </ul>
+        <p>Her ne kadar bitcoinlerini PayPal ya da kredi kartından para karşılığı bozdurmak isteyen kullanıcılar bulabilmeniz mümkün olsa da bir çok takas çeşidi bu tip bir ödeme metoduna izin vermez. Bunların nedeni bazılarının PayPal ile bitcoin alıp daha sonra kendi işlemlerinin yarısını geri almasıdır. Bu kredi kartı ya da diğer sistemlerin işlemi onaylamadığında başına gelen bir şeydir.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="used" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">İnsanlar gerçekten Bitcoin'i kullanıyor mu?</h3>
+      <div>
+        <p>Evet. Bitcoin'i kullanan işletmelerin ve kişilerin sayısı giderek artmaktadır. Bunlar günlük hayattaki restorant, apartman, avukatlık bürosu gibi işletmeler ve Namecheap, WordPress, Reddit ve Flattr gibi popüler online hizmetleri de kapsar. Bitcoin nispeten yeni bir olay olsa da hızlıca büyümektedir. Ağustos 2013'ün sonunda <a href="https://bitcoincharts.com/bitcoin/">tedavüldeki tüm bitcoinlerin değeri</a> $1.5 milyar doları geçti ve günde milyonlarca dolarlık bitcoinler alınıp veriliyordu.</p>
+        <p>
+          <img style="height:165px;width:380px;" src="/img/faq/merchants_map.png?1651746487" alt="Screenshot">
+        </p>
+      </div>
+    </div>
+    <div>
+      <h3 id="makepayment" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Bitcoin ödemesi yapmak ne kadar zordur?</h3>
+      <div>
+        <p>Bitcoin ödemeleri kredi kartı ya da banka kartı ödemelerinden daha kolaydır ve satıcı hesabı olmaksızın ödeme alınabilir. Ödemeler akıllı telefonunuzda ya da bilgisayarınızda ki cüzdan yazılımına ödeme miktarı ve alıcı adresi girilerek gönderilebilir. Ödeme yapılacak olan alıcının adresini daha kolay bulabilmek için bir çok cüzdan QR kodunu arayabilir ya da NFC teknolojisi ile telefonlarınızı birbirine dokundurabilirsiniz.</p>
+        <p>
+          <img src="/img/faq/mobile_send.png?1651746487" style="height:325px;width:190px;" alt="Screenshot">
+          <img src="/img/faq/mobile_receive.png?1651746487" style="height:325px;width:190px;" alt="Screenshot">
+        </p>
+      </div>
+    </div>
+    <div>
+      <h3 id="advantages" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Bitcoin'in avantajları nelerdir?</h3>
+      <div>
+        <ul>
+          <li><em><b>Ödeme özgürlüğü</b></em> - Dünyanın her yerinde, her zaman, anında herhangi bir miktar para gönderip almak mümkündür. Banka tatilleri yok. Sınırlar yok. Zorunlu limitler yok. Bitcoin kullanıcılarına paralarını tam kontrol etme imkanı sunar.</li>
+          <li><em><b>Çok düşük ücretler</b></em> - Bitcoin ödemeleri şu anda ya hiç bir ödeme yapılmadan ya da çok düşük bir ücretle gerçekleşmektedir. Kullanıcılar işlemlere bu ücretleri ekleyerek, ağ tarafından işlem onay hızını arttırarak öncelik sağlayabilirler. Ek olarak, o an gerçekleşen işlemlere yardım eden bir mağaza işlemcileri vardır. Bitcoinleri yasal para birimine çevirir ve bu gelirleri doğrudan mağazanın banka hesabı günlüğünde biriktirir. Bitcoin bütün bu servisleri ile PayPal ya da kredi kartları ağlarından çok daha düşük işlem ücreti önerebiliyor.</li>
+          <li><em><b>Mağazalar için daha az risk</b></em> - Bitcoin işlemleri güvenlidir, geri alınamazlar, ve müşterilerin kişisel veya gizli bilgilerini içermezler. Bu mağazaların dolandırıcılıktan ve benzeri sebeplerden para kaybetmelerini önler, ve PCI uyumuna gerek yoktur. Tüccarlar kolayca kredi kartlarının olmadığı veya dolandırıcılığın fazlaca yaygın olduğu yeni marketlere açılabilirler. Nihai getirisi ise düşük ücret, büyük market, ve çok az idari maliyettir.</li>
+          <li><em><b>Güvenlik ve kontrol</b></em> - Bitcoin kullanıcıları işlemleri üzerinde tam kontrole sahiptir; diğer ödeme yöntemlerinde başınıza gelebilecek istenmeyen ya da habersiz ödemelerin mağaza tarafından alınabilmesini imkansız kılar. Bitcoin ödemeleri yapılacak işlemlere kendi kimlik bilgilerinizi göstermeden de yapılabilir. Bu kimlik hırsızlığına karşı güçlü bir önlemdir. Bitcoin kullanıcıları ayrıca bitcoinlerini şifreleyerek ya da yedekleyerek koruyabilirler.</li>
+          <li><em><b>Şeffaf ve tarafsız</b></em> - Bitcoin para kaynağını ilgilendiren <a href="https://live.blockcypher.com/btc/">tüm bilgiler</a> hazır halde blok zincirinde isteyen herkesin doğrulaması ve kullanmasına hazırdır. Hiç bir kuruluş veya şahıs Bitcoin protokolünü kontrol veya manipüle edemez çünkü şifresel olarak güvenlidir. Bu Bitcoin'in özünün tamamen tarafsız, saydam ve öngörülebilir olmasına yol açar.</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3 id="disadvantages" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Bitcoin'in dezavantajları nelerdir?</h3>
+      <div>
+        <ul>
+          <li><em><b>Kabul Edilme Oranı</b></em> - Bir çok kişi hala Bitcoin'den habersiz. Her gün bir çok işletme bitcoin kullanmaya başlıyor ve avantajlarından yararlanıyor. Fakat bu liste hala çok kısa ve <a href="https://en.wikipedia.org/wiki/Network_effect">ağ etkisi</a> ile faydalarının artması için uzamak zorunda.</li>
+          <li><em><b>Dalgalanma</b></em> - Tedavüldeki bitcoin'lerin  <a href="https://bitcoincharts.com/bitcoin/">toplam değeri</a>  ve Bitcoin kullanan işletmelerin sayısı hala düşük. Bu yüzden, nisbeten daha küçük olaylar, ticaretler veya işletme faaliyetleri ciddi ölçüde fiyatı etkiliyor. Teoride, Bitcoin piyasaları ve teknolojisi olgunlaştıkça bu fiyatlarda görülen bu dalgalanma azalacaktır. Dünya daha önce hiç böyle kurmaca bir para birimi görmedi, bu yüzden nasıl ilerleyeceğini hayal etmek gerçekten çok zor (ve heyecan verici).</li>
+          <li><em><b>Devam eden geliştirmeler</b></em> - Bitcoin yazılımı hala beta sürümündedir ve bir çok tamamlanmamış özelliği geliştiriliyor. Yeni araçlar, özellikler ve servisler bir çok kişi tarafından kullanılması ve daha güvenli bir Bitcoin için geliştirilmeye devam ediliyor. Bunlardan bazıları şimdilik herkese uygun değil. Bir çok Bitcoin işletmesi hala çok yeni ve sigorta sunamıyorlar. Bitcoin gelişmekte olan bir yazılım diyebiliriz.</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3 id="secure" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Bitcoin güvenli midir?</h3>
+      <div>
+        <p>Bitcoin teknolojisi - protokol ve kriptografi - çok sağlam güvenlikli bir geçmiş kayıt sistemine sahiptir ve Bitcoin ağı muhtemelen dünyadaki en çok yayılmış bilgisayar yazılımı projesidir. Bitcoin'in en kırılgan özelliği kullanıcı hatalarıdır. İşlem yapabilmek için gerekli olan özel anahtarları içinde bulunduran Bitcoin cüzdanı kazara silinebilir, kaybedilebilir ya da çalınabilir. Bu fiziki paranın dijital bir formda saklanması gibidir. Neyseki kullanıcılar paralarını koruyabilmek için <a href="/tr/cuzdaninizi-guvenceye-almak">güvenlik pratikleri</a> kullanabiliyor ya da çok sağlam güvenlik oranı vadeden ve kayıpların garantisini veren servisler kullanabiliyorlar.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="islegal" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Bitcoin yasal mıdır?</h3>
+      <div>
+        <p>Bilindiği kadarı ile Bitcoin bir çok hükümet tarafından <a href="https://en.wikipedia.org/wiki/Legality_of_bitcoin_by_country">yasa dışı bulunmamıştır</a>. Fakat bazı hükümetler (Arjantin ve Rusya gibi) tüm yabancı para formlarını ya ciddi şekilde kısıtlar ya da yasaklarlar. Bazı diğer hükümetler de (Tayland gibi) Bitcoin takası gibi bazı alış veriş yöntemlerini kısıtlayabilir.</p>
+        <p>Çeşitli hukuki otoritelerden yetkililer, bireyler ve işletmelere bu yeni teknolojiyi halihazırdaki resmi ve denetimli finansal sisteme entegre etmeleri için düzenlemeler sağlamaya yönelik adımlar atmakta. Örneğin, ABD hazine departmanındaki bir büro olan Finansal Suçlar İnfaz Şebekesi (FinCEN) sanal para birimleriyle ilgili bazı aktiviteleri nasıl tanımladığına dair bağlayıcılığı olmayan bir rehber yayımladı.</p>
+        <ul>
+          <li>
+            <a href="https://www.ecb.europa.eu/pub/pdf/other/virtualcurrencyschemes201210en.pdf">Virtual Currency Schemes - European Central Bank</a>
+          </li>
+          <li>
+            <a href="https://www.fincen.gov/statutes_regs/guidance/pdf/FIN-2013-G001.pdf">Application of FinCEN’s Regulations to Persons Administering, Exchanging, or Using Virtual Currencies</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3 id="taxes" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Peki ya Bitcoin ve vergiler?</h3>
+      <div>
+        <p>Bitcoin herhangi bir yasal otoriteye bağlı olmayan bir para birimidir. Ortalama kullanımın önemi olmaksızın vergi yükümlülükleri sıklıkla oluşabilir. Bitcoin için farklı yasal sistemler içinde geniş çaplı mevzuatlarda, gelir vergisi, satış, sermaye geliri ve benzeri şekillerde görünen vergilendirme şekilleri ortaya çıkabilmektedir. </p>
+      </div>
+    </div>
+    <div>
+      <h3 id="illegalactivities" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Bitcoin yasadışı faaliyetlerde işe yarar mı?</h3>
+      <div>
+        <p>Bitcoin bir para birimidir ve para her zaman yasal ve yasa dışı amaçlar için kullanılır. Nakit para, kredi kartı ve şimdiki banka sistemi, Bitcoin'i finansal suçlar yönünden açık ara geride bırakırlar. Bitcoin ödeme sistemine faydalı yenilikler getirmiştir ve bu yeniliklerin yararları, potansiyel eksikliklerine karşın genellikle daha fazla olarak görülür.</p>
+        <p>Bitcoin parayı çok daha güvenli hale getirmek için büyük bir basamak olarak dizayn edildi ve bir çok finansal suçun önüne geçme konusunda büyük faydaları dokunabilir. Örneğin, bitcoinlerin sahtesini çıkarmak tamamen imkansızdır. Kullanıcılar ödemeler konusunda tam yetkiye sahiptir ve kredi kart dolandırıcılığında olabildiği gibi onaylanmayan ödemeler gerçekleşemez. Bitcoin işlemleri geri dönüşümsüzdür ve geri ödeme talebi dolandırıcılığına karşı duyarlıdır. Bitcoin, yedekleme, şifreleme ve çoklu imza seçenekleri gibi çok güçlü mekanizmaları sayesinde paranın hırsızlığa ve kaybolmaya karşı güvenli olmasını sağlar.</p>
+        <p>Bitcoin'le yapılan işlemlerin gizli ve geri alınamaz olmasından dolayı suçlular için daha çekici olacağı hakkında endişeler dile getirildi. Ancak bu özellikler zaten nakit para ve havalede de en geniş anlamıyla kullanılmakta. Bitcoin kullanımı halihazırdaki mali sistemin bulundurduğu yönetmeliklere şüphesiz tabi olacaktır ve Bitcoin'in cezai soruşturmaları durdurması muhtemel değildir. Genel olarak önemli buluşların yararları tam anlaşılmadan önce tartışmalı olarak görülmesi yaygın bir durumdur. İnternet diğer birçok şeyle beraber bu durumu gayet güzel örneklendirmektedir.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="bubble" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Bitcoin bir balon mu?</h3>
+      <div>
+        <p>Fiyatlardaki ani yükselişler her zaman bunun bir balon olduğunu göstermez. Yapay yüksek değerlemeler genellikle gerçek değerine dengelemesine yarayan ani düşüşleri de beraberinde getirir ve bu da balon izlenimi oluşturur. Pazardaki mevcut binlerce insanın ve katılımcının fiyatı keşfetmeye yönelik eylemleri Bitcoin fiyatlarındaki dalgalanmalara yol açar.  İnsanların konu üzerindeki sahip olduğu duygu ve düşünceler, oluşan bu ani fiyat değişiklikler sonucu Bitcoin üzerindeki güvenlerini kaybetmelerine yol açabilir. Gerçek değeri ve biçilmiş değeri arasında oluşan fark Bitcoin ekonomisinin temellerine dayanmamaktadır. Basının artan ilgisi ve basındaki yer alışların artışıyla, talep artmaktadır. Haliyle eski kafalı insaftan yoksun spekülasyonculara fırsat doğmaktadır. İşte bu yüzden Bitcoin adına sahte belirsizlikler ve korku yayılmaktadır.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="whyvalue" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Bitcoinlerin neden değeri vardır?</h3>
+      <div>
+        <p>Bitcoinlerin bir değeri vardır çünkü bir para türü gibi kullanışlıdır. Bitcoin paranın karakteristik özelliklerini (dayanıklılık, taşınabilirlik, takas edilebilirlik, limitli sayıda olması, bölünebilir olması ve tanınabilir olması) taşır, fiziksel özelliklere (altın ya da gümüş gibi) güvenmek ya da merkezi otoriteye (para birimleri gibi) bel bağlamak yerine matematiksel özelliklere dayanır. Kısaca Bitcoin matematiğe dayanır. Bu tavırları ile, bir para formu olabilmek için tek gerekli olan şey güven ve benimsemedir. Bu konuda ise Bitcoin artan kullanıcı sayısı, mağazaları ve yeni başlayanları ile ölçülebilir. Tüm bitcoin değeri onu bir ödeme yöntemi olarak kabul eden insanlardan gelir.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="ponzi" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Bitcoin bir saadet zinciri mi?</h3>
+      <div>
+        <p>Saadet zinciri, sermaye sahiplerine işletmecilerin kar ettiği para yerine sermaye sahiplerinin kendi paralarını ya da sonraki sermaye sahiplerinin parasını ödeyen bir yatırım dolandırıcılığı işlemidir. Saadet zinciri, yeni katılımcıların yetersiz kaldığı durumlarda son yatırımcının masraflarda çökebilecek şekilde dizayn edilmiştir.</p>
+        <p>Bitcoin merkezi otoritesi bulunmayan ücretsiz bir yazılım projesidir. Sonuç olarak hiç kimse yatırım getirileri hakkında  dolandırıcılık yapabilecek pozisyona sahip değildir. Tıpkı Altın, Amerikan Doları, Avro, Yen vb. diğer değerli birimlerde olduğu gibi, sürekli güçlü kalma garantisi yoktur ve takas değeri değişkenlik gösterecektir. Bu da bitcoin kullanıcılarının para kazanmasına ya da kaybetmesine neden olacak dalgalanmayı beraberinde getirir. Spekülasyonların ötesinde Bitcoin, ayrıca çok kullanışlı ve binlerce kullanıcı ve mağaza tarafından kullanılan rekabetçi özellikleri olan bir ödeme sistemidir.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="creator" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Bitcoin'i kim yaptı?</h3>
+      <div>
+        <p>Bitcoin, ilk olarak 1998 yılında Wei Dai tarafından "cypherpunks" e-posta listesinde, merkezi bir sistem yerine kriptografi kullanılarak yaratılan ve işletilen para fikri olarak ortaya atılmıştır. İlk Bitcoin tanımı ve konsepti  2009'da kriptografi e-posta listesinde Satoshi Nakamoto tarafından basılmıştır. Satoshi 2010'un sonuna doğru kendisi hakkında pek bilgi vermeden projeden ayrıldı. Bu zamandan beri camia <a href="/tr/gelistirme">birçok geliştiricinin</a> Bitcoin'le çalışmasıyla büyümüştür.</p>
+        <p>Satoshi'nin çok tanınmıyor olması sık sık haksız endişelere yol açtı ve bunların çoğu Bitcoin'in açık-kaynak doğasının yanlış anlaşılmasıyla ilgiliydi. Bitcoin protokolü ve yazılımı açıkça yayımlanır ve dünyadaki herhangi bir geliştirici kodu gözden geçirebilir veya Bitcoin yazılımının kendi değiştirilmiş versiyonunu yayımlayabilir. Aynı şimdiki geliştiriciler gibi, Satoshi'nin etkisi yaptığı değişimlerin başkaları tarafından kabul edilmesine bağlıydı ve bu nedenle Bitcoin'i kontrol eden o değildi. Dolayısıyla Bitcoin'i yaratanın kim olduğu günümüzde ancak kağıdı kimin bulduğu kadar önemlidir.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="worthless" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Bitcoinler değersiz hale gelebilir mi?</h3>
+      <div>
+        <p>Evet. Tarih içerisinde <a href="https://en.wikipedia.org/wiki/German_gold_mark">Alman Markı</a> Weimar Cumhuriyetinden sonra ve daha yeni olarak <a href="https://en.wikipedia.org/wiki/Zimbabwean_dollar">Zimbabwe Doları</a> gibi bazı para birimleri başarısız oldu ve artık kullanılmıyor. Her ne kadar bu eski para birimlerinin başarısızlığı hiper enflasyondan kaynaklanıyor olsa ve bu Bitcoin için imkansız olsa da her zaman teknik hatalar, para birimi rekabeti, politik mevzular gibi nedenlerden dolayı başarısızlık ihtimali vardır. Bitcoin başlangıcından beri yıllardır güvenilirliğini korudu ve Bitcoinin genişlemesi için bir çok potansiyeli var. Yine de hiç kimse Bitcoin'in geleceğini tahmin edebilecek bir posizyonda değil.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="virtual" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Bitcoin tamamen sanal ve soyut mudur?</h3>
+      <div>
+        <p>Bitcoin, insanların her gün kullandıkları kredi kartları ve online banka ağları kadar sanaldır. Bitcoin online olarak internetten kullanıldığı gibi gerçek mağazalarda da diğer paralar gibi harcanabilir. Bitcoin ayrıca <a href="https://www.casascius.com/">Casascius parası</a> gibi fiziksel paralarla da takas yapılabilse de, telefon uygulamaları ile kullanmak daha pratiktir. Bitcoin bakiyesi geniş, dağınık bir ağa yayılmıştır ve kimse tarafından dolandırıcılık yolu ile değiştirilmesi imkansızdır. Diğer bir deyiş ile, Bitcoin kullanıcıları kendi varlıkları üzerinde geniş bir kontrole sahiptir ve sırf bu para sanal diye öylece ortadan kaybolacak değil.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="trust" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">İnsanlar neden Bitcoin'e güveniyor?</h3>
+      <div>
+        <p>Bitcoin'e duyulan güvenin çoğunun sebebi Bitcoin'e güven duyulmasına gerek olmamasıdır. Bitcoin tamamen açık-kaynaktır ve merkezi değildir. Bu demektir ki herkes her anda kaynak kodunun tümüne erişebilir. Dünyadaki herhangi bir geliştirici böylece Bitcoin'in çalışma şeklini doğrulayabilir. Var olan tüm işlemler ve bitcoinler herhangi biri tarafından gerçek zamanda açıkça kontrol edilebilir. Üçüncü partiye gerek duymadan tüm ödemeler yapılabilir ve tüm sistem e-bankalardaki gibi akran değerlendirmesi yapılmış kriptografik algoritmalarla korunur. Hiçbir şahıs veya kurum Bitcoin'i yönetemez ve tüm kullanıcılar güvenilir olmasa da ağ güvendedir.</p>
+      </div>
+    </div>
+    <div>
+      <h3 id="anonymous" onclick="faqShow(event);" ontouchstart="faqShow(event);" class="link-js">Bitcoin anonim midir?</h3>
+      <div>
+        <p>Bitcoin, diğer para türlerinin yanı sıra kabul edilebilir düzeydeki gizlilik seviyesiyle kullanıcılarına ödemelerini yapma ve alma imkanı tanımak üzere tasarlandı. Ancak, Bitcoin anonim değildir ve nakit para ile aynı seviyede gizlilik sunamaz. Bitcoin kullanımı kapsamlı bir kamu kaydı bırakır. <a href="/tr/gizliliginizi-koruyun"> Kullanıcı mahremiyetini korumak için çeşitli mekanizmalar</a> vardır ve daha fazlası da geliştirilmektedir. Ancak, bu özellikler bir çok Bitcoin kullanıcısı tarafından düzgün bir biçimde kullanılana kadar yapılması gereken daha çok iş vardır.</p>
+        <p>Bitcoin ile yapılan özel işlemlerin yasadışı amaçlar için kullanılabileceğine dair bazı endişeler oluştu. Ancak Bitcoin'in mevcut bulunan finans sistemlerindeki yönetmeliklere tabi olacağı dile getirilmeye değer bir konu. Bitcoin nakit paradan daha fazla anonim olamaz ve cezai soruşturmaları engellemek muhtemel değildir. Dahası Bitcoin mali suçların geniş bir alanını engellemek için tasarlanmıştır.</p>
+      </div>
+    </div>
+    <p>Bitcoin hakkında daha fazla bilgi için lütfen <a href="/en/faq">SSS</a> bölümünü yada  <a href="https://en.bitcoin.it/wiki/Help:FAQ">Bitcoin Wiki</a> bölümünü ziyaret edin.</p>
+  </div>
+</div>
+
+
+
+    </div>
+  </div>
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/tr/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Support Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Donate</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">Giriş:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/tr/bireyler-icin-bitcoin">Bireyler</a>
+        </li>
+        <li>
+          <a href="/tr/isletmeler-icin-bitcoin">İşletmeler</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">Geliştiriciler</a>
+        </li>
+        <li>
+          <a href="/tr/baslarken">Başlarken</a>
+        </li>
+        <li>
+          <a href="/tr/nasil-calisir">Nasıl Çalışır</a>
+        </li>
+        <li>
+          <a href="/tr/bilmeniz-gerekenler">Bilmeniz gerekenler</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">Kaynaklar:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/tr/kaynaklar">Kaynaklar</a>
+        <li>
+          <a href="/tr/borsalari">Exchanges</a>
+        </li>
+        <li>
+          <a href="/tr/topluluk">Topluluk</a>
+        </li>
+        <li>
+          <a href="/tr/kelime-haznesi">Sözlük
+          </a>
+        </li>
+        <li>
+          <a href="/tr/etkinlikler">Etkinlikler</a>
+        </li>
+        
+          <li>
+            <a href="/tr/indir">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">Katılın:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/tr/bitcoini-destekleyin">Bitcoin'i Destekleyin</a>
+        
+        
+        <li>
+          <a href="/tr/gelistirme">Gelişim</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Other:</p>
+      
+      <a href="/tr/yasal">Yasal</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/tr/basin">Basın</a>
+      <a href="/tr/hakkimizda">Bitcoin.org hakkında</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>Sponsor bir topluluğun web sitesi</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT lisansı</a> altında yayınlanmaktadır</div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Network Status</a>
+        
+<ul class="lang is-expand">
+  <li><a>Türkçe</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/pers">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/premsa">Català</a></li>
+        
+        
+          <li><a href="/da/presse">Dansk</a></li>
+        
+        
+          <li><a href="/de/presse">Deutsch</a></li>
+        
+        
+          <li><a href="/en/press">English</a></li>
+        
+        
+          <li><a href="/es/prensa">Español</a></li>
+        
+        
+          <li><a href="/fr/presse">Français</a></li>
+        
+        
+          <li><a href="/it/stampa">Italiano</a></li>
+        
+        
+          <li><a href="/hu/sajto">Magyar</a></li>
+        
+        
+          <li><a href="/nl/pers">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/prasa">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/imprensa">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/presa">Română</a></li>
+        
+        
+          <li><a href="/sl/mediji">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/mediji">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/press">Svenska</a></li>
+        
+        
+          <li><a href="/tr/basin" class="active">Türkçe</a></li>
+        
+        
+          <li><a href="/el/press">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/press">български</a></li>
+        
+        
+          <li><a href="/ru/press">Русский</a></li>
+        
+        
+          <li><a href="/uk/press">Українська</a></li>
+        
+        
+          <li><a href="/ar/press">العربية</a></li>
+        
+        
+          <li><a href="/fa/press">فارسی</a></li>
+        
+        
+          <li><a href="/he/press">עברית</a></li>
+        
+        
+          <li><a href="/hi/press">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/press">한국어</a></li>
+        
+        
+          <li><a href="/ja/press">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/press">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/press">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/pers" >Bahasa Indonesia</option>
+              
+              <option value="/ca/premsa" >Català</option>
+              
+              <option value="/da/presse" >Dansk</option>
+              
+              <option value="/de/presse" >Deutsch</option>
+              
+              <option value="/en/press" >English</option>
+              
+              <option value="/es/prensa" >Español</option>
+              
+              <option value="/fr/presse" >Français</option>
+              
+              <option value="/it/stampa" >Italiano</option>
+              
+              <option value="/hu/sajto" >Magyar</option>
+              
+              <option value="/nl/pers" >Nederlands</option>
+              
+              <option value="/pl/prasa" >Polski</option>
+              
+              <option value="/pt_BR/imprensa" >Português Brasil</option>
+              
+              <option value="/ro/presa" >Română</option>
+              
+              <option value="/sl/mediji" >Slovenščina</option>
+              
+              <option value="/sr/mediji" >Srpski</option>
+              
+              <option value="/sv/press" >Svenska</option>
+              
+              <option value="/tr/basin"  selected="selected">Türkçe</option>
+              
+              <option value="/el/press" >Ελληνικά</option>
+              
+              <option value="/bg/press" >български</option>
+              
+              <option value="/ru/press" >Русский</option>
+              
+              <option value="/uk/press" >Українська</option>
+              
+              <option value="/ar/press" >العربية</option>
+              
+              <option value="/fa/press" >فارسی</option>
+              
+              <option value="/he/press" >עברית</option>
+              
+              <option value="/hi/press" >हिन्दी</option>
+              
+              <option value="/ko/press" >한국어</option>
+              
+              <option value="/ja/press" >日本語</option>
+              
+              <option value="/zh_CN/press" >简体中文</option>
+              
+              <option value="/zh_TW/press" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">tr</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+  <script>updateToc();</script>
+<script>accordion();</script>
+<script>onScrollButton();</script>
+<script>boxShow();</script>
+
+
+
+</body>
+
+</html>

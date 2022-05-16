@@ -1,0 +1,870 @@
+<!DOCTYPE HTML>
+<html lang="ca">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Comunitat - Bitcoin</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org és un projecte finançat per la comunitat, les donacions s'agraeixen i s'utilitzen per millorar el lloc web.
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        Fes una donació
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org necessita el teu suport!
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Feu una donació a Bitcoin.org </p>
+    </div>
+    <p class="modal-subheader">Utilitzeu aquest codi QR o adreça a continuació</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="O quantitat personalitzada? (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="O quantitat personalitzada? (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="Descripció opcional (per a la teva cartera)"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/ca/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">Introducció</a>
+    <ul>
+      <li><a href="/ca/bitcoin-per-persones">Persones</a></li>
+      <li><a href="/ca/bitcoin-per-empreses">Empreses</a></li>
+      <li><a href="https://developer.bitcoin.org/">Desenvolupadors</a></li>
+      <li><a href="/ca/iniciat">Inicia't</a></li>
+      <li><a href="/ca/com-funciona">Com funciona</a></li>
+      
+      <li><a href="/ca/paper-bitcoin">Paper blanc</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">Recursos</a>
+    <ul>
+      <li><a href="/ca/recursos">Recursos</a>
+      <li><a href="/ca/cases-de-canvi">Intercanvis</a></li>
+      <li class="active"><a href="/ca/comunitat">Comunitat</a></li>
+      
+      
+      <li><a href="/ca/vocabulari">Vocabulari</a></li>
+      <li><a href="/ca/events">Esdeveniments</a></li>
+      
+        <li><a href="/ca/descarrega">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/ca/innovacio">Innovació</a></li>
+  <li><a class="is-expand">Participa</a>
+    <ul>
+      <li><a href="/ca/dona-suport-a-bitcoin">Dóna suport a Bitcoin</a>
+      <li><a href="/ca/comprar">Comprar Bitcoin</a></li>
+      
+      <li><a href="/ca/desenvolupament">Desenvolupament</a></li>
+    </ul>
+  </li>
+  <li><a href="/ca/faq">FAQ</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>Català</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/komunitas">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/comunitat" class="active">Català</a></li>
+        
+        
+          <li><a href="/da/faellesskab">Dansk</a></li>
+        
+        
+          <li><a href="/de/community">Deutsch</a></li>
+        
+        
+          <li><a href="/en/community">English</a></li>
+        
+        
+          <li><a href="/es/comunidad">Español</a></li>
+        
+        
+          <li><a href="/fr/communaute">Français</a></li>
+        
+        
+          <li><a href="/it/comunita">Italiano</a></li>
+        
+        
+          <li><a href="/hu/kozosseg">Magyar</a></li>
+        
+        
+          <li><a href="/nl/community">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/spolecznosc">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/comunidade">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/comunitate">Română</a></li>
+        
+        
+          <li><a href="/sl/skupnost">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/zajednica">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/community">Svenska</a></li>
+        
+        
+          <li><a href="/tr/topluluk">Türkçe</a></li>
+        
+        
+          <li><a href="/el/community">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/community">български</a></li>
+        
+        
+          <li><a href="/ru/community">Русский</a></li>
+        
+        
+          <li><a href="/uk/community">Українська</a></li>
+        
+        
+          <li><a href="/ar/community">العربية</a></li>
+        
+        
+          <li><a href="/fa/community">فارسی</a></li>
+        
+        
+          <li><a href="/he/community">עברית</a></li>
+        
+        
+          <li><a href="/hi/community">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/community">한국어</a></li>
+        
+        
+          <li><a href="/ja/community">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/community">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/community">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/komunitas" >Bahasa Indonesia</option>
+            
+            <option value="/ca/comunitat"  selected="selected">Català</option>
+            
+            <option value="/da/faellesskab" >Dansk</option>
+            
+            <option value="/de/community" >Deutsch</option>
+            
+            <option value="/en/community" >English</option>
+            
+            <option value="/es/comunidad" >Español</option>
+            
+            <option value="/fr/communaute" >Français</option>
+            
+            <option value="/it/comunita" >Italiano</option>
+            
+            <option value="/hu/kozosseg" >Magyar</option>
+            
+            <option value="/nl/community" >Nederlands</option>
+            
+            <option value="/pl/spolecznosc" >Polski</option>
+            
+            <option value="/pt_BR/comunidade" >Português Brasil</option>
+            
+            <option value="/ro/comunitate" >Română</option>
+            
+            <option value="/sl/skupnost" >Slovenščina</option>
+            
+            <option value="/sr/zajednica" >Srpski</option>
+            
+            <option value="/sv/community" >Svenska</option>
+            
+            <option value="/tr/topluluk" >Türkçe</option>
+            
+            <option value="/el/community" >Ελληνικά</option>
+            
+            <option value="/bg/community" >български</option>
+            
+            <option value="/ru/community" >Русский</option>
+            
+            <option value="/uk/community" >Українська</option>
+            
+            <option value="/ar/community" >العربية</option>
+            
+            <option value="/fa/community" >فارسی</option>
+            
+            <option value="/he/community" >עברית</option>
+            
+            <option value="/hi/community" >हिन्दी</option>
+            
+            <option value="/ko/community" >한국어</option>
+            
+            <option value="/ja/community" >日本語</option>
+            
+            <option value="/zh_CN/community" >简体中文</option>
+            
+            <option value="/zh_TW/community" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">ca</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>Comunitats Bitcoin</h1>
+    <p class="summary">Troba gent, grups i comunitats interessants relacionades amb el Bitcoin.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="community">
+    <div class="row community-row">
+    
+      <div class="community-card card">
+        <h2 id="forums">
+          <img src="/img/icons/ico_forum.svg?1651746487" class="titleicon" alt="Icon">Fòrums</h2>
+                
+        <p><a href="https://bitcointalk.org/">BitcoinTalk Fòrum</a></p>
+        
+        <p>
+          <a href="https://reddit.com/r/Bitcoin/">Comunitat Bitcoin a Reddit</a>
+        </p>
+        <p>
+          <a href="https://bitcoin.stackexchange.com/">Bitcoin a StackExchange (Preguntes i respostes)</a>
+        </p>
+      </div>
+    
+      <div class="community-card card">
+        <h2 id="social">
+          <img src="/img/icons/ico_social.svg?1651746487" class="titleicon" alt="Icon">Xarxes socials</h2>
+         
+        <p>
+          <a href="https://twitter.com/search?q=bitcoin">Twitter</a>
+        </p>
+        <p><a href="https://www.facebook.com/hashtag/bitcoin">Facebook</a></p>
+      </div>
+    
+      <div class="community-card card">
+        <h2 id="meetups">
+          <img src="/img/icons/ico_meetups.svg?1651746487" class="titleicon" alt="Icon">Trobades</h2>
+        <p>
+          <a href="/ca/events">Conferències i Events Bitcoin</a>
+        </p>
+        <p>
+          <a href="https://bitcoin.meetup.com/">Grups Meetup Bitcoin</a>
+        </p>
+        <p>
+          <a href="https://bitcointalk.org/index.php?board=86.0">Meetups Bitcoin a BitcoinTalk</a>
+        </p>
+        <p>
+          <a href="https://en.bitcoin.it/wiki/Meetups">Meetups Bitcoin a la Wiki</a>
+        </p>
+      </div>
+    
+      <div class="community-card card">
+        <h2 id="irc">
+          <img src="/img/icons/ico_conversation.svg?1651746487" class="titleicon" alt="Icon">Xat IRC</h2>
+        <p>Canals IRC a <a href="https://webchat.freenode.net/?channels=bitcoin&amp;uio=d4">freenode</a>.</p>
+        <p>#bitcoin
+          <small>(General relacionat amb Bticoin)</small>
+        </p>
+        <p>#bitcoin-core-dev
+          <small>(Tècnic i desenvolupament)</small>
+        </p>
+        <p>#bitcoin-otc
+          <small>(sobre l'Oficina de Canvi)</small>
+        </p>
+        <p>#bitcoin-market
+          <small>(cotitzacions dels mercats financers)</small>
+        </p>
+        <p>#bitcoin-mining
+          <small>(relacionat amb la mineria Bitcoin)</small>
+        </p>
+         
+      </div>
+    </div>
+    
+    <div class="organizations">
+      <h2 class="organizations-title" id="nonprofit-organizations" name="sense-lucre">Organitzacions sense ànim de lucre
+      </h2>
+    
+      <div class="row organizations-row">
+
+        <div class="row organizations-item">
+          <img class="organization-img" src="/img/flags/AR.svg?1651746487" alt="Argentinan flag">
+          <div>
+            <h3 class="organization-country" id="argentina">Argentina</h3>
+            <a class="organization-link" href="https://www.bitcoinargentina.org/">Fundación Bitcoin Argentina</a>
+          </div>
+        </div>
+        
+        <div class="row organizations-item">
+          <img class="organization-img" src="/img/flags/AU.svg?1651746487" alt="Australian flag">
+          <div>
+            <h3 class="organization-country" id="australia">Australia</h3>
+            <a class="organization-link" href="https://bitcoinindustrybody.org.au/">Australian Bitcoin Industry Body</a>
+          </div>
+        </div>
+        
+        <div class="row organizations-item">
+          <img class="organization-img" src="/img/flags/AT.svg?1651746487" alt="Austrian flag">
+          <div>
+            <h3 class="organization-country" id="austria">Austria</h3>
+            <a class="organization-link" href="https://bitcoin-austria.at/">Bitcoin Austria</a>
+          </div>
+        </div>
+        
+        <div class="row organizations-item">
+          <img class="organization-img" src="/img/flags/CL.svg?1651746487" alt="Chilean flag">
+          <div>
+            <h3 class="organization-country" id="chile">Chile</h3>
+            <a class="organization-link" href="https://www.asociacionbitcoin.org/">Asociación Bitcoin Chile</a>
+          </div>
+        </div>
+        
+        <div class="row organizations-item">
+          <img class="organization-img" src="/img/flags/DE.svg?1651746487" alt="German flag">
+          <div>
+            <h3 class="organization-country" id="germany">Germany</h3>
+            <a class="organization-link" href="https://www.bundesverband-bitcoin.de/">Bundesverband Bitcoin e.V.</a>
+          </div>
+        </div>
+
+        <div class="row organizations-item">
+          <img class="organization-img" src="/img/flags/IE.svg?1651746487" alt="Irish flag">
+          <div>
+            <h3 class="organization-country" id="ireland">Ireland</h3>
+            <a class="organization-link" href="https://www.bani.org.uk/">Bitcoin Association of Northern Ireland</a>
+          </div>
+        </div>
+        
+        <div class="row organizations-item">
+          <img class="organization-img" src="/img/flags/IL.svg?1651746487" alt="Israeli flag">
+          <div>
+            <h3 class="organization-country" id="israel">Israel</h3>
+            <a class="organization-link" href="https://www.bitcoin.org.il/">איגוד הביטקוין הישראלי</a>
+          </div>
+        </div>
+        
+        <div class="row organizations-item">
+          <img class="organization-img" src="/img/flags/IT.svg?1651746487" alt="Italian flag">
+          <div>
+            <h3 class="organization-country" id="italy">Italy</h3>
+            <a class="organization-link" href="https://www.bitcoin-italia.org/">Bitcoin Foundation Italia</a>
+          </div>
+        </div>   
+        
+        <div class="row organizations-item">
+          <img class="organization-img" src="/img/flags/NL.svg?1651746487" alt="Dutch flag">
+          <div>
+            <h3 class="organization-country" id="netherlands">Netherlands</h3>
+            <a class="organization-link" href="https://stichtingbitcoin.nl/">Stichting Bitcoin Nederland</a>
+          </div>
+        </div>
+        
+        <div class="row organizations-item">
+          <img class="organization-img" src="/img/flags/PL.svg?1651746487" alt="Polish flag">
+          <div>
+            <h3 class="organization-country" id="poland">Poland</h3>
+            <a class="organization-link" href="https://www.bitcoin.org.pl/">Polish Bitcoin Association</a>
+          </div>
+        </div>  
+        
+        <div class="row organizations-item">
+          <img class="organization-img" src="/img/flags/SI.svg?1651746487" alt="Slovenian flag">
+          <div>
+            <h3 class="organization-country" id="slovenia">Slovenia</h3>
+            <a class="organization-link" href="https://bitcoin.si/">Bitcoin Društvo Slovenije</a>
+          </div>
+        </div>
+        
+        <div class="row organizations-item">
+          <img class="organization-img" src="/img/flags/ES.svg?1651746487" alt="Spanish flag">
+          <div>
+            <h3 class="organization-country" id="spain">Spain</h3>
+            <a class="organization-link" href="http://avalbit.org/">Avalbit</a>
+          </div>
+        </div>
+        
+        <div class="row organizations-item">
+          <img class="organization-img" src="/img/flags/CH.svg?1651746487" alt="Swiss flag">
+          <div>
+            <h3 class="organization-country" id="switzerland">Switzerland</h3>
+            <a class="organization-link" href="https://bitcoinassociation.ch/">Bitcoin Association Switzerland</a>
+          </div>
+        </div>
+        
+      <div class="introlink">Visita el <a href="https://en.bitcoin.it/wiki/Bitcoin:Community_portal">portal de la comunitat</a> a la wiki.</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/ca/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Suporta Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">Dóna</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">Introducció:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/ca/bitcoin-per-persones">Persones</a>
+        </li>
+        <li>
+          <a href="/ca/bitcoin-per-empreses">Empreses</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">Desenvolupadors</a>
+        </li>
+        <li>
+          <a href="/ca/iniciat">Inicia't</a>
+        </li>
+        <li>
+          <a href="/ca/com-funciona">Com funciona</a>
+        </li>
+        <li>
+          <a href="/ca/necessites-saber">Necessites saber</a>
+        </li>
+        
+        <li>
+          <a href="/ca/paper-bitcoin">Paper blanc</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">Recursos:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/ca/recursos">Recursos</a>
+        <li>
+          <a href="/ca/cases-de-canvi">Intercanvis</a>
+        </li>
+        <li class="active">
+          <a href="/ca/comunitat">Comunitat</a>
+        </li>
+        <li>
+          <a href="/ca/vocabulari">Vocabulari
+          </a>
+        </li>
+        <li>
+          <a href="/ca/events">Esdeveniments</a>
+        </li>
+        
+          <li>
+            <a href="/ca/descarrega">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">Participa:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/ca/dona-suport-a-bitcoin">Dóna suport a Bitcoin</a>
+        
+        
+        <li>
+          <a href="/ca/desenvolupament">Desenvolupament</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">Altres:</p>
+      
+      <a href="/ca/legal">Legal</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/ca/premsa">Premsa</a>
+      <a href="/ca/sobre-nosaltres">Sobre bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>Una comunitat web esponsoritzada per</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 publicat sota la <a href="http://opensource.org/licenses/mit-license.php" target="_blank">llicència MIT</a></div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Estat de la xarxa</a>
+        
+<ul class="lang is-expand">
+  <li><a>Català</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/komunitas">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/comunitat" class="active">Català</a></li>
+        
+        
+          <li><a href="/da/faellesskab">Dansk</a></li>
+        
+        
+          <li><a href="/de/community">Deutsch</a></li>
+        
+        
+          <li><a href="/en/community">English</a></li>
+        
+        
+          <li><a href="/es/comunidad">Español</a></li>
+        
+        
+          <li><a href="/fr/communaute">Français</a></li>
+        
+        
+          <li><a href="/it/comunita">Italiano</a></li>
+        
+        
+          <li><a href="/hu/kozosseg">Magyar</a></li>
+        
+        
+          <li><a href="/nl/community">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/spolecznosc">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/comunidade">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/comunitate">Română</a></li>
+        
+        
+          <li><a href="/sl/skupnost">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/zajednica">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/community">Svenska</a></li>
+        
+        
+          <li><a href="/tr/topluluk">Türkçe</a></li>
+        
+        
+          <li><a href="/el/community">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/community">български</a></li>
+        
+        
+          <li><a href="/ru/community">Русский</a></li>
+        
+        
+          <li><a href="/uk/community">Українська</a></li>
+        
+        
+          <li><a href="/ar/community">العربية</a></li>
+        
+        
+          <li><a href="/fa/community">فارسی</a></li>
+        
+        
+          <li><a href="/he/community">עברית</a></li>
+        
+        
+          <li><a href="/hi/community">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/community">한국어</a></li>
+        
+        
+          <li><a href="/ja/community">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/community">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/community">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/komunitas" >Bahasa Indonesia</option>
+              
+              <option value="/ca/comunitat"  selected="selected">Català</option>
+              
+              <option value="/da/faellesskab" >Dansk</option>
+              
+              <option value="/de/community" >Deutsch</option>
+              
+              <option value="/en/community" >English</option>
+              
+              <option value="/es/comunidad" >Español</option>
+              
+              <option value="/fr/communaute" >Français</option>
+              
+              <option value="/it/comunita" >Italiano</option>
+              
+              <option value="/hu/kozosseg" >Magyar</option>
+              
+              <option value="/nl/community" >Nederlands</option>
+              
+              <option value="/pl/spolecznosc" >Polski</option>
+              
+              <option value="/pt_BR/comunidade" >Português Brasil</option>
+              
+              <option value="/ro/comunitate" >Română</option>
+              
+              <option value="/sl/skupnost" >Slovenščina</option>
+              
+              <option value="/sr/zajednica" >Srpski</option>
+              
+              <option value="/sv/community" >Svenska</option>
+              
+              <option value="/tr/topluluk" >Türkçe</option>
+              
+              <option value="/el/community" >Ελληνικά</option>
+              
+              <option value="/bg/community" >български</option>
+              
+              <option value="/ru/community" >Русский</option>
+              
+              <option value="/uk/community" >Українська</option>
+              
+              <option value="/ar/community" >العربية</option>
+              
+              <option value="/fa/community" >فارسی</option>
+              
+              <option value="/he/community" >עברית</option>
+              
+              <option value="/hi/community" >हिन्दी</option>
+              
+              <option value="/ko/community" >한국어</option>
+              
+              <option value="/ja/community" >日本語</option>
+              
+              <option value="/zh_CN/community" >简体中文</option>
+              
+              <option value="/zh_TW/community" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">ca</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+
+</body>
+
+</html>

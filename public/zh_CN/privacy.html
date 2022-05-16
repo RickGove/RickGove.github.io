@@ -1,0 +1,721 @@
+<!DOCTYPE HTML>
+<html lang="zh_CN">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>隐私 - Bitcoin</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+<link rel="stylesheet" href="/css/sans.css?1651746487">
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org 是一个社区支持的社区，我们十分感谢任何捐助。这些捐助会用于改进网站。
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        捐助
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org 需要你的帮助！
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">捐助Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">使用下方二维码或地址</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="或者自定义数量？ (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="或者自定义数量？ (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="（你的钱包的）可选描述"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/zh_CN/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">介绍</a>
+    <ul>
+      <li><a href="/zh_CN/bitcoin-for-individuals">个人</a></li>
+      <li><a href="/zh_CN/bitcoin-for-businesses">商家</a></li>
+      <li><a href="https://developer.bitcoin.org/">开发者</a></li>
+      <li><a href="/zh_CN/getting-started">入门指南</a></li>
+      <li><a href="/zh_CN/how-it-works">工作原理</a></li>
+      
+      <li><a href="/zh_CN/bitcoin-paper">White paper</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">资源</a>
+    <ul>
+      <li><a href="/zh_CN/resources">资源</a>
+      <li><a href="/zh_CN/exchanges">兑换</a></li>
+      <li><a href="/zh_CN/community">社区</a></li>
+      
+      
+      <li><a href="/zh_CN/vocabulary">词汇表</a></li>
+      <li><a href="/zh_CN/events">活动</a></li>
+      
+        <li><a href="/zh_CN/download">比特币核心</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/zh_CN/innovation">创新</a></li>
+  <li><a class="is-expand">参与</a>
+    <ul>
+      <li><a href="/zh_CN/support-bitcoin">支持比特币</a>
+      <li><a href="/zh_CN/buy">购买比特币</a></li>
+      
+      <li><a href="/zh_CN/development">开发</a></li>
+    </ul>
+  </li>
+  <li><a href="/zh_CN/faq">常见问题</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>简体中文</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/privasi">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/privacitat">Català</a></li>
+        
+        
+          <li><a href="/da/privatliv">Dansk</a></li>
+        
+        
+          <li><a href="/de/privatsphaere">Deutsch</a></li>
+        
+        
+          <li><a href="/en/privacy">English</a></li>
+        
+        
+          <li><a href="/es/">Español</a></li>
+        
+        
+          <li><a href="/fr/confidentialite">Français</a></li>
+        
+        
+          <li><a href="/it/privacy">Italiano</a></li>
+        
+        
+          <li><a href="/hu/adatvedelem">Magyar</a></li>
+        
+        
+          <li><a href="/nl/privacy">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/prywatnosc">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/privacidade">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/confidentialitate">Română</a></li>
+        
+        
+          <li><a href="/sl/">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/privatnost">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/integritet">Svenska</a></li>
+        
+        
+          <li><a href="/tr/gizlilik">Türkçe</a></li>
+        
+        
+          <li><a href="/el/privacy">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/privacy">български</a></li>
+        
+        
+          <li><a href="/ru/privacy">Русский</a></li>
+        
+        
+          <li><a href="/uk/privacy">Українська</a></li>
+        
+        
+          <li><a href="/ar/">العربية</a></li>
+        
+        
+          <li><a href="/fa/privacy">فارسی</a></li>
+        
+        
+          <li><a href="/he/">עברית</a></li>
+        
+        
+          <li><a href="/hi/privacy">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/privacy">한국어</a></li>
+        
+        
+          <li><a href="/ja/privacy">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/privacy" class="active">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/privacy">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/privasi" >Bahasa Indonesia</option>
+            
+            <option value="/ca/privacitat" >Català</option>
+            
+            <option value="/da/privatliv" >Dansk</option>
+            
+            <option value="/de/privatsphaere" >Deutsch</option>
+            
+            <option value="/en/privacy" >English</option>
+            
+            <option value="/es/" >Español</option>
+            
+            <option value="/fr/confidentialite" >Français</option>
+            
+            <option value="/it/privacy" >Italiano</option>
+            
+            <option value="/hu/adatvedelem" >Magyar</option>
+            
+            <option value="/nl/privacy" >Nederlands</option>
+            
+            <option value="/pl/prywatnosc" >Polski</option>
+            
+            <option value="/pt_BR/privacidade" >Português Brasil</option>
+            
+            <option value="/ro/confidentialitate" >Română</option>
+            
+            <option value="/sl/" >Slovenščina</option>
+            
+            <option value="/sr/privatnost" >Srpski</option>
+            
+            <option value="/sv/integritet" >Svenska</option>
+            
+            <option value="/tr/gizlilik" >Türkçe</option>
+            
+            <option value="/el/privacy" >Ελληνικά</option>
+            
+            <option value="/bg/privacy" >български</option>
+            
+            <option value="/ru/privacy" >Русский</option>
+            
+            <option value="/uk/privacy" >Українська</option>
+            
+            <option value="/ar/" >العربية</option>
+            
+            <option value="/fa/privacy" >فارسی</option>
+            
+            <option value="/he/" >עברית</option>
+            
+            <option value="/hi/privacy" >हिन्दी</option>
+            
+            <option value="/ko/privacy" >한국어</option>
+            
+            <option value="/ja/privacy" >日本語</option>
+            
+            <option value="/zh_CN/privacy"  selected="selected">简体中文</option>
+            
+            <option value="/zh_TW/privacy" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">zh_CN</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>隐私</h1>
+  </div>
+</div>
+
+<div class="privacy">
+  <div class="container">
+    <p>这个页面提供您的信息是我们的收集政策，我们收到来自我们比特币官方网站（https://bitcoin.org）用户的个人信息的使用与泄露方面的政策。我们使用你的个人信息是为了更好理解你对我们站点的使用，并且收集网络交通统计信息。</p>
+  
+    <p>通过使用网站，您同意本项政策的收集和信息的使用。</p>
+  
+    <h2 id="logdata">日志数据</h2>
+    <p>像许多网站的操作员们一样，我们收集你的浏览器发送您访问我们站点（“日志数据”）的信息。这种日志数据也许包括了例如你的电脑因特网协议（“IP”）地址（只替换了最后的字节）、浏览器类型、浏览器版本、您访问我们站点的页面、时间和你访问的日期、在网页上花费的时间以及其它统计信息。</p>
+  
+    <h2 id="cookies">本地储存数据（Cookie）</h2>
+    <p>Cookie都是小量的数据文件，其中也许包含一个匿名唯一识别符。Cookie都是从网站发送到你的浏览器，然后存储在你的电脑硬盘上。您可以命令你的浏览器重用所有的Cookie，或者指明什么时候发送一个Cookie。然而如果您不接受Cookie的话，您也许无法使用我们站点的一些页面。</p>
+  
+    <p>我们使用Cookie的目的是如下这些：</p>
+    <ul>
+      <li>记得您是否按下了Cookie免责声明中的确定按钮。如果是的话，我们不会继续提醒您。</li>
+      <li>我们的分析软件（Google分析）使用了Cookie来分析和更好地理解我们网站上的用户互动。您可以阅读更多关于Google分析是如何使用Cookie的<a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage">文档</a>。</li>
+    </ul>
+  
+    <h2 id="analytics">Google分析</h2>
+    <p>我们使用了第三方的JavaScript插件，这是由Google提供的一个名叫“Google分析”的Java脚本代码，它提供我们使用网络交通统计然后更好地理解您是如何使用我们网站的。我们不会直接访问来自Google分析所得到的信息，但Google提供给我们一个她们的仪表板总结信息。</p>
+  
+    <p>我们也许与我们网站等广告的企业伙伴分享从Google分析获得的信息。与这些企业伙伴分享的信息不会包含任何一种个人识别信息（Google不会直接提供给我们访问这些数据，所以我们无法看到个人信息）。</p>
+  
+    <p>你下载安装Google提供的关闭Google Analytics的插件来不禁止Google Analytics收集你的信息。这完全不会影响网页浏览。你可以在<a href="https://tools.google.com/dlpage/gaoptout">这里</a>下载插件。我们也会尊重Do Not Track头声明并不会跟踪打开了Do Not Track的访客。</p>
+  
+    <h2 id="changes">这项隐私政策的变更</h2>
+    <p>我们也许随着时间更新这项隐私政策。我们会提醒您任何发布在网站上的新隐私政策变更。建议您定期审阅这项隐私政策的变更。</p>
+  
+    <p>这项隐私政策是最新的: 5th July, 2016.</p>
+  
+    <h2 id="contact">联系我们</h2>
+    <p>如果您有任何关于隐私政策的问题，或者是你的数据是如何收集的以及如何处理你的数据方面的问题，请给我们发送电子邮件到比特币官方邮箱<a href="mailto:privacy@bitcoin.org?Subject=Privacy">privacy@bitcoin.org</a>。</p>
+  
+  </div>
+</div>
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/zh_CN/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">支持Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">捐助</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">介绍:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/zh_CN/bitcoin-for-individuals">个人</a>
+        </li>
+        <li>
+          <a href="/zh_CN/bitcoin-for-businesses">商家</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">开发者</a>
+        </li>
+        <li>
+          <a href="/zh_CN/getting-started">入门指南</a>
+        </li>
+        <li>
+          <a href="/zh_CN/how-it-works">工作原理</a>
+        </li>
+        <li>
+          <a href="/zh_CN/you-need-to-know">注意事项</a>
+        </li>
+        
+        <li>
+          <a href="/zh_CN/bitcoin-paper">White paper</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">资源:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/zh_CN/resources">资源</a>
+        <li>
+          <a href="/zh_CN/exchanges">兑换</a>
+        </li>
+        <li>
+          <a href="/zh_CN/community">社区</a>
+        </li>
+        <li>
+          <a href="/zh_CN/vocabulary">词汇表
+          </a>
+        </li>
+        <li>
+          <a href="/zh_CN/events">活动</a>
+        </li>
+        
+          <li>
+            <a href="/zh_CN/download">比特币核心</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">参与:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/zh_CN/support-bitcoin">支持比特币</a>
+        
+        
+        <li>
+          <a href="/zh_CN/development">开发</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">其他:</p>
+      
+      <a href="/zh_CN/legal">法律</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/zh_CN/press">新闻媒体</a>
+      <a href="/zh_CN/about-us">关于bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>社区网站主办方：</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 基于<a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT协议</a>授权发布</div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Network Status</a>
+        
+<ul class="lang is-expand">
+  <li><a>简体中文</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/privasi">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/privacitat">Català</a></li>
+        
+        
+          <li><a href="/da/privatliv">Dansk</a></li>
+        
+        
+          <li><a href="/de/privatsphaere">Deutsch</a></li>
+        
+        
+          <li><a href="/en/privacy">English</a></li>
+        
+        
+          <li><a href="/es/">Español</a></li>
+        
+        
+          <li><a href="/fr/confidentialite">Français</a></li>
+        
+        
+          <li><a href="/it/privacy">Italiano</a></li>
+        
+        
+          <li><a href="/hu/adatvedelem">Magyar</a></li>
+        
+        
+          <li><a href="/nl/privacy">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/prywatnosc">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/privacidade">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/confidentialitate">Română</a></li>
+        
+        
+          <li><a href="/sl/">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/privatnost">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/integritet">Svenska</a></li>
+        
+        
+          <li><a href="/tr/gizlilik">Türkçe</a></li>
+        
+        
+          <li><a href="/el/privacy">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/privacy">български</a></li>
+        
+        
+          <li><a href="/ru/privacy">Русский</a></li>
+        
+        
+          <li><a href="/uk/privacy">Українська</a></li>
+        
+        
+          <li><a href="/ar/">العربية</a></li>
+        
+        
+          <li><a href="/fa/privacy">فارسی</a></li>
+        
+        
+          <li><a href="/he/">עברית</a></li>
+        
+        
+          <li><a href="/hi/privacy">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/privacy">한국어</a></li>
+        
+        
+          <li><a href="/ja/privacy">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/privacy" class="active">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/privacy">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/privasi" >Bahasa Indonesia</option>
+              
+              <option value="/ca/privacitat" >Català</option>
+              
+              <option value="/da/privatliv" >Dansk</option>
+              
+              <option value="/de/privatsphaere" >Deutsch</option>
+              
+              <option value="/en/privacy" >English</option>
+              
+              <option value="/es/" >Español</option>
+              
+              <option value="/fr/confidentialite" >Français</option>
+              
+              <option value="/it/privacy" >Italiano</option>
+              
+              <option value="/hu/adatvedelem" >Magyar</option>
+              
+              <option value="/nl/privacy" >Nederlands</option>
+              
+              <option value="/pl/prywatnosc" >Polski</option>
+              
+              <option value="/pt_BR/privacidade" >Português Brasil</option>
+              
+              <option value="/ro/confidentialitate" >Română</option>
+              
+              <option value="/sl/" >Slovenščina</option>
+              
+              <option value="/sr/privatnost" >Srpski</option>
+              
+              <option value="/sv/integritet" >Svenska</option>
+              
+              <option value="/tr/gizlilik" >Türkçe</option>
+              
+              <option value="/el/privacy" >Ελληνικά</option>
+              
+              <option value="/bg/privacy" >български</option>
+              
+              <option value="/ru/privacy" >Русский</option>
+              
+              <option value="/uk/privacy" >Українська</option>
+              
+              <option value="/ar/" >العربية</option>
+              
+              <option value="/fa/privacy" >فارسی</option>
+              
+              <option value="/he/" >עברית</option>
+              
+              <option value="/hi/privacy" >हिन्दी</option>
+              
+              <option value="/ko/privacy" >한국어</option>
+              
+              <option value="/ja/privacy" >日本語</option>
+              
+              <option value="/zh_CN/privacy"  selected="selected">简体中文</option>
+              
+              <option value="/zh_TW/privacy" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">zh_CN</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+
+</body>
+
+</html>

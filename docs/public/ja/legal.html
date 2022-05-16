@@ -1,0 +1,858 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>利用規約 - ビットコイン</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.orgはコミュニティの支援金によって成り立つプロジェクトであり、頂いた寄付は、本ウェブサイトの改善に使用します。
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        寄付する
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.orgにはサポートが必要です！
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">Bitcoin.orgに寄付する</p>
+    </div>
+    <p class="modal-subheader">このQRコードまたは以下のアドレスを使用する</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="または自分で金額を設定しますか？ (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="または自分で金額を設定しますか？ (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="（各ユーザーのウォレットのための）追加の記述"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/ja/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">紹介</a>
+    <ul>
+      <li><a href="/ja/bitcoin-for-individuals">個人</a></li>
+      <li><a href="/ja/bitcoin-for-businesses">ビジネス</a></li>
+      <li><a href="https://developer.bitcoin.org/">開発者</a></li>
+      <li><a href="/ja/getting-started">開始する</a></li>
+      <li><a href="/ja/how-it-works">ビットコインの仕組み</a></li>
+      
+      <li><a href="/ja/bitcoin-paper">ホワイトペーパー</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">リソース</a>
+    <ul>
+      <li><a href="/ja/resources">リソース</a>
+      <li><a href="/ja/exchanges">取引所</a></li>
+      <li><a href="/ja/community">コミュニティ</a></li>
+      
+      
+      <li><a href="/ja/vocabulary">用語</a></li>
+      <li><a href="/ja/events">イベント</a></li>
+      
+        <li><a href="/ja/download">Bitcoin Core</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/ja/innovation">革新</a></li>
+  <li><a class="is-expand">参加</a>
+    <ul>
+      <li><a href="/ja/support-bitcoin">ビットコインを支援</a>
+      <li><a href="/ja/buy">ビットコインを購入</a></li>
+      
+      <li><a href="/ja/development">開発</a></li>
+    </ul>
+  </li>
+  <li><a href="/ja/faq">よくある質問</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>日本語</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/sah">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/legal">Català</a></li>
+        
+        
+          <li><a href="/da/juridisk">Dansk</a></li>
+        
+        
+          <li><a href="/de/rechtliches">Deutsch</a></li>
+        
+        
+          <li><a href="/en/legal">English</a></li>
+        
+        
+          <li><a href="/es/legal">Español</a></li>
+        
+        
+          <li><a href="/fr/legal">Français</a></li>
+        
+        
+          <li><a href="/it/note-legali">Italiano</a></li>
+        
+        
+          <li><a href="/hu/jogi-vonatkozasok">Magyar</a></li>
+        
+        
+          <li><a href="/nl/juridisch">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/informacje-prawne">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/legal">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/legal">Română</a></li>
+        
+        
+          <li><a href="/sl/pravno">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/zakon">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/juridiskt">Svenska</a></li>
+        
+        
+          <li><a href="/tr/yasal">Türkçe</a></li>
+        
+        
+          <li><a href="/el/legal">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/legal">български</a></li>
+        
+        
+          <li><a href="/ru/legal">Русский</a></li>
+        
+        
+          <li><a href="/uk/legal">Українська</a></li>
+        
+        
+          <li><a href="/ar/legal">العربية</a></li>
+        
+        
+          <li><a href="/fa/legal">فارسی</a></li>
+        
+        
+          <li><a href="/he/legal">עברית</a></li>
+        
+        
+          <li><a href="/hi/legal">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/legal">한국어</a></li>
+        
+        
+          <li><a href="/ja/legal" class="active">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/legal">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/legal">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/sah" >Bahasa Indonesia</option>
+            
+            <option value="/ca/legal" >Català</option>
+            
+            <option value="/da/juridisk" >Dansk</option>
+            
+            <option value="/de/rechtliches" >Deutsch</option>
+            
+            <option value="/en/legal" >English</option>
+            
+            <option value="/es/legal" >Español</option>
+            
+            <option value="/fr/legal" >Français</option>
+            
+            <option value="/it/note-legali" >Italiano</option>
+            
+            <option value="/hu/jogi-vonatkozasok" >Magyar</option>
+            
+            <option value="/nl/juridisch" >Nederlands</option>
+            
+            <option value="/pl/informacje-prawne" >Polski</option>
+            
+            <option value="/pt_BR/legal" >Português Brasil</option>
+            
+            <option value="/ro/legal" >Română</option>
+            
+            <option value="/sl/pravno" >Slovenščina</option>
+            
+            <option value="/sr/zakon" >Srpski</option>
+            
+            <option value="/sv/juridiskt" >Svenska</option>
+            
+            <option value="/tr/yasal" >Türkçe</option>
+            
+            <option value="/el/legal" >Ελληνικά</option>
+            
+            <option value="/bg/legal" >български</option>
+            
+            <option value="/ru/legal" >Русский</option>
+            
+            <option value="/uk/legal" >Українська</option>
+            
+            <option value="/ar/legal" >العربية</option>
+            
+            <option value="/fa/legal" >فارسی</option>
+            
+            <option value="/he/legal" >עברית</option>
+            
+            <option value="/hi/legal" >हिन्दी</option>
+            
+            <option value="/ko/legal" >한국어</option>
+            
+            <option value="/ja/legal"  selected="selected">日本語</option>
+            
+            <option value="/zh_CN/legal" >简体中文</option>
+            
+            <option value="/zh_TW/legal" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">ja</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  <div class="hero">
+  <div class="container hero-container">
+    <h1>利用規約</h1>
+    
+      <p class="summarytxt"></p>
+    
+  </div>
+</div>
+
+<div class="toc-container">
+  <div class="row toc-row">
+
+    <div id="toc" class="toc">
+      <div>
+        <button class="mob-sidebar-open" hidden>View All</button>
+        <div class="sidebar">
+          <div class="sidebar-inner">
+            <button class="mob-sidebar-close" hidden></button>
+            
+
+<ul>
+  <li><a href="#information">1. bitcoin.org で公開された情報</a></li>
+  <li><a href="#translations">2. 翻訳</a></li>
+  <li><a href="#userisks">3. ビットコインの利用に関するリスク</a></li>
+  <li><a href="#investmentrisks">4. 投資リスク</a></li>
+  <li><a href="#taxcompliance">5. 納税義務の遵守</a></li>
+  <li><a href="#noissuer">6. 当ウェブサイトは、ビットコインの保管または送受信を行いません。</a></li>
+  <li><a href="#nowarranties">7. 無保証</a></li>
+  <li><a href="#noliability">8. 賠償責任の制限</a></li>
+  <li><a href="#arbitration">9. 調停</a></li>
+  <li><a href="#lastchange">10. 最終改正</a></li>
+  <li><a href="#english-information">1. Information published on bitcoin.org</a></li>
+  <li><a href="#english-translations">2. Translations</a></li>
+  <li><a href="#english-userisks">3. Risks related to the use of Bitcoin</a></li>
+  <li><a href="#english-investmentrisks">4. Investment risks</a></li>
+  <li><a href="#english-taxcompliance">5. Compliance with tax obligations</a></li>
+  <li><a href="#english-noissuer">6. The Website does not store, send, or receive bitcoins</a></li>
+  <li><a href="#english-nowarranties">7. No warranties</a></li>
+  <li><a href="#english-noliability">8. Limitation of liability </a></li>
+  <li><a href="#english-arbitration">9. Arbitration</a></li>
+  <li><a href="#english-lastchange">10. Last amendment</a></li>
+</ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toccontent">
+        
+
+  <div class="toccontent-block boxexpand expanded">
+    <h3 id="information">1. bitcoin.org で公開された情報</h3>
+    <p>ウェブサイト https://bitcoin.org/ （以下、「ウェブサイト」）は一般的な情報や資料を提供します。法律アドバイス、ビジネスアドバイスの他、あらゆるアドバイスを行う際に、このウェブサイトを使用する事は許可されておらず、これに頼るべきではありません。ウェブサイトの内容については、ご自身の責任の下、ご利用ください。何かしらの判断に基づいた決定を行う際には、関連する管轄区域でライセンスを有する弁護士にご相談ください。このウェブサイトの所有者および貢献者は、本ウェブサイトの使用に起因する行為や決定、その他に関し、一切責任を負いません。</p>
+  </div>
+
+  <div class="toccontent-block boxexpand expanded">
+    <h3 id="translations">2. 翻訳</h3>
+    <p>このウェブサイトには、英語版のコンテンツの翻訳が含まれている場合があります。これらの翻訳は便宜上提供されています。英語版と翻訳版に違いがある場合は、英語版が優先されます。矛盾に気づかれた際には、<a href="https://github.com/bitcoin-dot-org/bitcoin.org">GitHub</a>でご報告ください。</p>
+  </div>
+
+  <div class="toccontent-block boxexpand expanded">
+    <h3 id="userisks">3. ビットコインの利用に関するリスク</h3>
+    <p>当ウェブサイトは、いかなる損失、損害または以下5つのカテゴリーの事象から生じたクレームの責任を負いかねます。</p>
+    <p>(1) ビットコイン関連のソフトウェアやサービスに関するユーザーによる間違い。例えば、パスワードを忘れる、間違ったビットコイン・アドレスに支払いを送る、ウォレットを誤って削除する等。</p>
+    <p>(2) 当ウェブサイトまたはビットコイン関連のソフトウェアやサービスに関する問題。例えば、ウォレットファイルの破損、間違って構築されたトランザクション、安全でない暗号化ライブラリ、ウェブサイトまたはビットコイン関連のソフトウェアやサービスに影響を与えるマルウェア等。</p>
+    <p>(3) ビットコイン関連のソフトウェアやサービスの利用者のハードウェアにおける、技術的障害。例えば、ストレージ・デバイスの障害によるデータ紛失等。</p>
+    <p>(4) ビットコイン関連のソフトウエアやサービスの利用者に生じたセキュリティー問題。例えば、利用者のウォレットやアカウントへの不正アクセス等。</p>
+    <p>(5) 第三者が行動した事や行動しない事により生じたもの、あるいは第三者に生じた事象。例えば、サービス提供者の倒産、サービス提供者への情報セキュリティ攻撃、第三者が行なった詐欺等。</p>
+  </div>
+
+  <div class="toccontent-block boxexpand expanded">
+    <h3 id="investmentrisks">4. 投資リスク</h3>
+    <p>ビットコインへの投資が、短期あるいは長期にわたる金銭の損失に繋がる事があります。ビットコインの投資家は、価格に大きな変動がある事を予期する必要があります。このウェブサイトに公表された情報は、ビットコインの投資家が金銭を失わない事を保証するものではありません。</p>
+  </div>
+
+  <div class="toccontent-block boxexpand expanded">
+    <h3 id="taxcompliance">5. 納税義務の遵守</h3>
+    <p>ビットコイン取引に課税がされるのであれば、どの様な税金が適応されるのかを決定するのは、このウェブサイト利用者の責任です。このウェブサイトの所有者または貢献者には、ビットコイン取引に適応される税金を決定する責任は一切ありません。</p>
+  </div>
+
+  <div class="toccontent-block boxexpand expanded">
+    <h3 id="noissuer">6. 当ウェブサイトは、ビットコインの保管または送受信を行いません。</h3>
+    <p>当ウェブサイトは、ビットコインの保管または送受信を行いません。なぜなら、ビットコインは、ビットコイン・ネットワークに維持された所有者記録に基いて存在しているためです。ビットコインでの権利譲渡は、このウェブサイト上ではなく、分散型ビットコイン・ネットワーク内でなされます。</p>
+  </div>
+
+  <div class="toccontent-block boxexpand expanded">
+    <h3 id="nowarranties">7. 無保証</h3>
+    <p>当ウェブサイトでは、ウェブサイト、コンテンツ、データ、素材等のウェブサイト上で提供されるサービスの全てに関し、一切の保証はなく、「現状のまま」提供しています。</p>
+  </div>
+
+  <div class="toccontent-block boxexpand expanded">
+    <h3 id="noliability">8. 賠償責任の制限</h3>
+    <p>法律により要求されない限り、当ウェブサイトの所有者や貢献者は、使用不能による損失、利益の損失、データの損失等、あらゆる種類の当ウェブサイトの使用に関わる損害に対して、一切の責任を負いません。</p>
+  </div>
+
+  <div class="toccontent-block boxexpand expanded">
+    <h3 id="arbitration">9. 調停</h3>
+    <p>当ウェブサイトの利用者は、著作権、ロゴ、商標、商号、企業秘密や特許に関する紛争を除き、当ウェブサイトに関連して生じたいかなる紛争に対しても、調停に委ねる事について合意するものとします。</p>
+  </div>
+
+  <div class="toccontent-block boxexpand expanded">
+    <h3 id="lastchange">10. 最終改正</h3>
+    <p>本免責事項の最終改定日： July 5th, 2016.</p>
+  </div>
+  
+   
+  
+  <div class="toccontent-intro">
+    <h1 id="english-version">English version</h1>
+  </div>
+  
+  <div class="toccontent-block boxexpand expanded">
+    <h3 id="english-information">1. Information published on bitcoin.org</h3>
+    <p>The website https://bitcoin.org/ (hereinafter, referred to as the "Website") provides information and material of a general nature. You are not authorized and nor should you rely on the Website for legal advice, business advice, or advice of any kind. You act at your own risk in reliance on the contents of the Website. Should you make a decision to act or not act you should contact a licensed attorney in the relevant jurisdiction in which you want or need help. In no way are the owners of, or contributors to, the Website responsible for the actions, decisions, or other behavior taken or not taken by you in reliance upon the Website.</p>
+  </div>
+
+  <div class="toccontent-block boxexpand expanded">
+    <h3 id="english-translations">2. Translations</h3>
+    <p>The Website may contain translations of the English version of the content available on the Website. These translations are provided only as a convenience. In the event of any conflict between the English language version and the translated version, the English language version shall take precedence. If you notice any inconsistency, please report them on <a href="https://github.com/bitcoin-dot-org/bitcoin.org">GitHub</a>.</p>
+  </div>
+
+  <div class="toccontent-block boxexpand expanded">
+    <h3 id="english-userisks">3. Risks related to the use of Bitcoin</h3>
+    <p>The Website will not be responsible for any losses, damages or claims arising from events falling within the scope of the following five categories:</p>
+    <p>(1) Mistakes made by the user of any Bitcoin-related software or service, e.g., forgotten passwords, payments sent to wrong Bitcoin addresses, and accidental deletion of wallets.</p>
+    <p>(2) Software problems of the Website and/or any Bitcoin-related software or service, e.g., corrupted wallet file, incorrectly constructed transactions, unsafe cryptographic libraries, malware affecting the Website and/or any Bitcoin-related software or service.</p>
+    <p>(3) Technical failures in the hardware of the user of any Bitcoin-related software or service, e.g., data loss due to a faulty or damaged storage device.</p>
+    <p>(4) Security problems experienced by the user of any Bitcoin-related software or service, e.g., unauthorized access to users' wallets and/or accounts.</p>
+    <p>(5) Actions or inactions of third parties and/or events experienced by third parties, e.g., bankruptcy of service providers, information security attacks on service providers, and fraud conducted by third parties.</p>
+  </div>
+
+  <div class="toccontent-block boxexpand expanded">
+    <h3 id="english-investmentrisks">4. Investment risks</h3>
+    <p>The investment in Bitcoin can lead to loss of money over short or even long periods. The investors in Bitcoin should expect prices to have large range fluctuations. The information published on the Website cannot guarantee that the investors in Bitcoin would not lose money.</p>
+  </div>
+
+  <div class="toccontent-block boxexpand expanded">
+    <h3 id="english-taxcompliance">5. Compliance with tax obligations</h3>
+    <p>The users of the Website are solely responsible to determinate what, if any, taxes apply to their Bitcoin transactions. The owners of, or contributors to, the Website are NOT responsible for determining the taxes that apply to Bitcoin transactions.</p>
+  </div>
+
+  <div class="toccontent-block boxexpand expanded">
+    <h3 id="english-noissuer">6. The Website does not store, send, or receive bitcoins</h3>
+    <p>The Website does not store, send or receive bitcoins. This is because bitcoins exist only by virtue of the ownership record maintained in the Bitcoin network. Any transfer of title in bitcoins occurs within a decentralized Bitcoin network, and not on the Website.</p>
+  </div>
+
+  <div class="toccontent-block boxexpand expanded">
+    <h3 id="english-nowarranties">7. No warranties</h3>
+    <p>The Website is provided on an "as is" basis without any warranties of any kind regarding the Website and/or any content, data, materials and/or services provided on the Website.</p>
+  </div>
+
+  <div class="toccontent-block boxexpand expanded">
+    <h3 id="english-noliability">8. Limitation of liability </h3>
+    <p>Unless otherwise required by law, in no event shall the owners of, or contributors to, the Website be liable for any damages of any kind, including, but not limited to, loss of use, loss of profits, or loss of data arising out of or in any way connected with the use of the Website.</p>
+  </div>
+
+  <div class="toccontent-block boxexpand expanded">
+    <h3 id="english-arbitration">9. Arbitration</h3>
+    <p>The user of the Website agrees to arbitrate any dispute arising from or in connection with the Website or this disclaimer, except for disputes related to copyrights, logos, trademarks, trade names, trade secrets or patents.</p>
+  </div>
+
+  <div class="toccontent-block boxexpand expanded">
+    <h3 id="english-lastchange">10. Last amendment</h3>
+    <p>This disclaimer was amended for the last time on July 5th, 2016.</p>
+  </div>
+  
+  
+
+    </div>
+  </div>
+</div>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/ja/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">Bitcoin.orgを支援する:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">寄付する</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">紹介:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/ja/bitcoin-for-individuals">個人</a>
+        </li>
+        <li>
+          <a href="/ja/bitcoin-for-businesses">ビジネス</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">開発者</a>
+        </li>
+        <li>
+          <a href="/ja/getting-started">開始する</a>
+        </li>
+        <li>
+          <a href="/ja/how-it-works">ビットコインの仕組み</a>
+        </li>
+        <li>
+          <a href="/ja/you-need-to-know">知っておくべき事</a>
+        </li>
+        
+        <li>
+          <a href="/ja/bitcoin-paper">ホワイトペーパー</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">リソース:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/ja/resources">リソース</a>
+        <li>
+          <a href="/ja/exchanges">取引所</a>
+        </li>
+        <li>
+          <a href="/ja/community">コミュニティ</a>
+        </li>
+        <li>
+          <a href="/ja/vocabulary">用語
+          </a>
+        </li>
+        <li>
+          <a href="/ja/events">イベント</a>
+        </li>
+        
+          <li>
+            <a href="/ja/download">Bitcoin Core</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">参加:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/ja/support-bitcoin">ビットコインを支援</a>
+        
+        
+        <li>
+          <a href="/ja/development">開発</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">その他:</p>
+      
+      <a href="/ja/legal">法律</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/ja/press">プレス</a>
+      <a href="/ja/about-us">bitcoin.org について</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>コミュニティ・ウェブサイト　主催：</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MITライセンス</a>の下でのリリース</div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">ネットワークステータス</a>
+        
+<ul class="lang is-expand">
+  <li><a>日本語</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/sah">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/legal">Català</a></li>
+        
+        
+          <li><a href="/da/juridisk">Dansk</a></li>
+        
+        
+          <li><a href="/de/rechtliches">Deutsch</a></li>
+        
+        
+          <li><a href="/en/legal">English</a></li>
+        
+        
+          <li><a href="/es/legal">Español</a></li>
+        
+        
+          <li><a href="/fr/legal">Français</a></li>
+        
+        
+          <li><a href="/it/note-legali">Italiano</a></li>
+        
+        
+          <li><a href="/hu/jogi-vonatkozasok">Magyar</a></li>
+        
+        
+          <li><a href="/nl/juridisch">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/informacje-prawne">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/legal">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/legal">Română</a></li>
+        
+        
+          <li><a href="/sl/pravno">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/zakon">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/juridiskt">Svenska</a></li>
+        
+        
+          <li><a href="/tr/yasal">Türkçe</a></li>
+        
+        
+          <li><a href="/el/legal">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/legal">български</a></li>
+        
+        
+          <li><a href="/ru/legal">Русский</a></li>
+        
+        
+          <li><a href="/uk/legal">Українська</a></li>
+        
+        
+          <li><a href="/ar/legal">العربية</a></li>
+        
+        
+          <li><a href="/fa/legal">فارسی</a></li>
+        
+        
+          <li><a href="/he/legal">עברית</a></li>
+        
+        
+          <li><a href="/hi/legal">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/legal">한국어</a></li>
+        
+        
+          <li><a href="/ja/legal" class="active">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/legal">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/legal">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/sah" >Bahasa Indonesia</option>
+              
+              <option value="/ca/legal" >Català</option>
+              
+              <option value="/da/juridisk" >Dansk</option>
+              
+              <option value="/de/rechtliches" >Deutsch</option>
+              
+              <option value="/en/legal" >English</option>
+              
+              <option value="/es/legal" >Español</option>
+              
+              <option value="/fr/legal" >Français</option>
+              
+              <option value="/it/note-legali" >Italiano</option>
+              
+              <option value="/hu/jogi-vonatkozasok" >Magyar</option>
+              
+              <option value="/nl/juridisch" >Nederlands</option>
+              
+              <option value="/pl/informacje-prawne" >Polski</option>
+              
+              <option value="/pt_BR/legal" >Português Brasil</option>
+              
+              <option value="/ro/legal" >Română</option>
+              
+              <option value="/sl/pravno" >Slovenščina</option>
+              
+              <option value="/sr/zakon" >Srpski</option>
+              
+              <option value="/sv/juridiskt" >Svenska</option>
+              
+              <option value="/tr/yasal" >Türkçe</option>
+              
+              <option value="/el/legal" >Ελληνικά</option>
+              
+              <option value="/bg/legal" >български</option>
+              
+              <option value="/ru/legal" >Русский</option>
+              
+              <option value="/uk/legal" >Українська</option>
+              
+              <option value="/ar/legal" >العربية</option>
+              
+              <option value="/fa/legal" >فارسی</option>
+              
+              <option value="/he/legal" >עברית</option>
+              
+              <option value="/hi/legal" >हिन्दी</option>
+              
+              <option value="/ko/legal" >한국어</option>
+              
+              <option value="/ja/legal"  selected="selected">日本語</option>
+              
+              <option value="/zh_CN/legal" >简体中文</option>
+              
+              <option value="/zh_TW/legal" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">ja</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+  <script>updateToc();</script>
+<script>accordion();</script>
+<script>onScrollButton();</script>
+<script>boxShow();</script>
+
+
+
+</body>
+
+</html>

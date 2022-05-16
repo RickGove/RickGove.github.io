@@ -1,0 +1,714 @@
+<!DOCTYPE HTML>
+<html lang="zh_CN">
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta property="og:image" content="https://bitcoin.org/img/icons/opengraph.png?1651746487" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>会议和活动 - 比特币</title>
+
+<link rel="stylesheet" href="/css/font-awesome-4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css?1651746487">
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css"><script type="text/javascript" src="/js/ie.js"></script><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/css/ie8.css"><![endif]-->
+
+<link rel="stylesheet" href="/css/sans.css?1651746487">
+<script type="text/javascript" src="/js/base.js?1651746487"></script>
+<script type="text/javascript" src="/js/main.js?1651746487"></script>
+<script src="/js/jquery/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery/jquery-ui.min.js"></script>
+<script src="/js/jquery/jquery.qrcode.min.js"></script>
+<link rel="shortcut icon" href="/favicon.png?1651746487">
+<link rel="apple-touch-icon-precomposed" href="/img/icons/logo_ios.png?1651746487"/>
+<script>
+    window.cookieconsent_options = {
+        theme: 'light-floating'
+    }
+</script>
+<script type="text/javascript" src="/js/cookieconsent/cookieconsent.js?1651746487"></script>
+<script>
+if( navigator.doNotTrack != "yes" && navigator.doNotTrack != "1" && window.doNotTrack != "1" && navigator.msDoNotTrack != "1" ){
+	var script = document.createElement('script');
+	script.src = '/js/analytics.js'
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+
+</head>
+
+<body>
+
+
+
+<div class="donation-container">
+  <div class="donation-text">
+    <div class="donation-text-container">
+      <button onclick="closeDonationBanner()" class="donation-modal-close">
+        <img src="/img/icons/ico_close.svg?1651746487" alt="Close">
+      </button>
+      <p>
+        Bitcoin.org 是一个社区支持的社区，我们十分感谢任何捐助。这些捐助会用于改进网站。
+      </p>
+      <button type="button" class="donation-btn" onclick="openDonationModal()">
+        捐助
+      </button>
+    </div>
+  </div>
+  <button type="button" class="donation-visibility-toggle" onclick="toggleDonationBanner()">
+    Bitcoin.org 需要你的帮助！
+  </button>
+</div>
+
+
+
+<div id="donation-modal" style="display: none" class="donation-modal hidden">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-close-btn" onclick="closeDonationModal()">×</div>
+      <p class="modal-header-text section-title">捐助Bitcoin.org</p>
+    </div>
+    <p class="modal-subheader">使用下方二维码或地址</p>
+    <div style="text-align: center;">
+      <div id="donation-qr-code" data-address="3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"></div>
+    </div>
+    <div>
+      <a
+        class="donation-btc-address"
+        href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd"
+        target="_blank">
+        3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd
+      </a>
+    </div>
+    <div class="modal-body bg-white" style="overflow-y:hidden;text-align: center;">
+      <div>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="5">
+          $5.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="25">
+          $25.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+        <button type="button" class="donation-amount-btn" data-amount-usd="50">
+          $50.00
+          <div class="donation-amount-usd-in-btc">(... BTC)</div>
+        </button>
+        
+      </div>
+
+      <div>
+        <input
+          style="margin-right: 15px"
+          type="text"
+          placeholder="或者自定义数量？ (BTC)"
+          id="donation-input-amount-btc" class="donation-amount-input">
+        <input
+          type="text"
+          placeholder="或者自定义数量？ (USD)"
+          id="donation-input-amount-usd" class="donation-amount-input">
+      </div>
+
+      <div>
+        <textarea
+          class="donation-amount-input"
+          id="donation-input-message"
+          placeholder="（你的钱包的）可选描述"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="detectmobile" class="detectmobile"></div>
+
+
+
+
+
+
+
+<div class="head"><div>
+  
+
+<a class="logo" href="/zh_CN/"><img src="/img/icons/logotop.svg?1651746487" alt="Bitcoin"></a>
+
+  
+
+<ul id="menusimple" class="menusimple menumain" onclick="mobileMenuHover(event);" ontouchstart="mobileMenuHover(event);">
+  <li><a class="is-expand">介绍</a>
+    <ul>
+      <li><a href="/zh_CN/bitcoin-for-individuals">个人</a></li>
+      <li><a href="/zh_CN/bitcoin-for-businesses">商家</a></li>
+      <li><a href="https://developer.bitcoin.org/">开发者</a></li>
+      <li><a href="/zh_CN/getting-started">入门指南</a></li>
+      <li><a href="/zh_CN/how-it-works">工作原理</a></li>
+      
+      <li><a href="/zh_CN/bitcoin-paper">White paper</a></li>
+      
+    </ul>
+  </li>
+  <li><a class="is-expand">资源</a>
+    <ul>
+      <li><a href="/zh_CN/resources">资源</a>
+      <li><a href="/zh_CN/exchanges">兑换</a></li>
+      <li><a href="/zh_CN/community">社区</a></li>
+      
+      
+      <li><a href="/zh_CN/vocabulary">词汇表</a></li>
+      <li class="active"><a href="/zh_CN/events">活动</a></li>
+      
+        <li><a href="/zh_CN/download">比特币核心</a></li>
+      
+    </ul>
+  </li>
+  <li><a href="/zh_CN/innovation">创新</a></li>
+  <li><a class="is-expand">参与</a>
+    <ul>
+      <li><a href="/zh_CN/support-bitcoin">支持比特币</a>
+      <li><a href="/zh_CN/buy">购买比特币</a></li>
+      
+      <li><a href="/zh_CN/development">开发</a></li>
+    </ul>
+  </li>
+  <li><a href="/zh_CN/faq">常见问题</a></li>
+</ul>
+
+  
+
+<a id="menumobile" class="menumobile" onclick="mobileMenuShow(event);" ontouchstart="mobileMenuShow(event);"></a>
+
+  
+<ul class="lang is-expand">
+  <li><a>简体中文</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/acara">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/events">Català</a></li>
+        
+        
+          <li><a href="/da/begivenheder">Dansk</a></li>
+        
+        
+          <li><a href="/de/events">Deutsch</a></li>
+        
+        
+          <li><a href="/en/events">English</a></li>
+        
+        
+          <li><a href="/es/eventos">Español</a></li>
+        
+        
+          <li><a href="/fr/evenements">Français</a></li>
+        
+        
+          <li><a href="/it/eventi">Italiano</a></li>
+        
+        
+          <li><a href="/hu/rendezvenyek">Magyar</a></li>
+        
+        
+          <li><a href="/nl/evenementen">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/wydarzenia">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/eventos">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/evenimente">Română</a></li>
+        
+        
+          <li><a href="/sl/dogodki">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/dogadaji">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/evenemang">Svenska</a></li>
+        
+        
+          <li><a href="/tr/etkinlikler">Türkçe</a></li>
+        
+        
+          <li><a href="/el/events">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/events">български</a></li>
+        
+        
+          <li><a href="/ru/events">Русский</a></li>
+        
+        
+          <li><a href="/uk/events">Українська</a></li>
+        
+        
+          <li><a href="/ar/events">العربية</a></li>
+        
+        
+          <li><a href="/fa/events">فارسی</a></li>
+        
+        
+          <li><a href="/he/events">עברית</a></li>
+        
+        
+          <li><a href="/hi/events">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/events">한국어</a></li>
+        
+        
+          <li><a href="/ja/events">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/events" class="active">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/events">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+
+  
+<div id="langselect" class="langselect">
+    <label for="select-input" class="center-select">
+        <select id="select-input" class="center-select__input" onchange="window.location=this.value;">
+            
+            <option value="/id/acara" >Bahasa Indonesia</option>
+            
+            <option value="/ca/events" >Català</option>
+            
+            <option value="/da/begivenheder" >Dansk</option>
+            
+            <option value="/de/events" >Deutsch</option>
+            
+            <option value="/en/events" >English</option>
+            
+            <option value="/es/eventos" >Español</option>
+            
+            <option value="/fr/evenements" >Français</option>
+            
+            <option value="/it/eventi" >Italiano</option>
+            
+            <option value="/hu/rendezvenyek" >Magyar</option>
+            
+            <option value="/nl/evenementen" >Nederlands</option>
+            
+            <option value="/pl/wydarzenia" >Polski</option>
+            
+            <option value="/pt_BR/eventos" >Português Brasil</option>
+            
+            <option value="/ro/evenimente" >Română</option>
+            
+            <option value="/sl/dogodki" >Slovenščina</option>
+            
+            <option value="/sr/dogadaji" >Srpski</option>
+            
+            <option value="/sv/evenemang" >Svenska</option>
+            
+            <option value="/tr/etkinlikler" >Türkçe</option>
+            
+            <option value="/el/events" >Ελληνικά</option>
+            
+            <option value="/bg/events" >български</option>
+            
+            <option value="/ru/events" >Русский</option>
+            
+            <option value="/uk/events" >Українська</option>
+            
+            <option value="/ar/events" >العربية</option>
+            
+            <option value="/fa/events" >فارسی</option>
+            
+            <option value="/he/events" >עברית</option>
+            
+            <option value="/hi/events" >हिन्दी</option>
+            
+            <option value="/ko/events" >한국어</option>
+            
+            <option value="/ja/events" >日本語</option>
+            
+            <option value="/zh_CN/events"  selected="selected">简体中文</option>
+            
+            <option value="/zh_TW/events" >繁體中文</option>
+            
+        </select>
+        <span class="center-select__text">Language: <span class="is-capital">zh_CN</span></span>
+    </label>
+</div>
+
+</div></div>
+
+<div class="body">
+  
+
+<div class="breadcrumbs">
+  <div class="container">
+    
+  </div>
+</div>
+
+  
+
+<div id="content" class="content">
+  
+<!-- Note: this file is built non-deterministically -->
+<link rel="alternate" type="application/rss+xml" href="/en/rss/events.rss" title="Bitcoin conferences and events">
+<div class="hero">
+  <div class="container hero-container">
+    <h1>会议和活动</h1>
+    <p class="summary">寻找世界各地的活动，会议和集会。 <a class="rss-link" type="application/rss+xml" href="/en/rss/events.rss">订阅RSS推送</a></p>
+  </div>
+</div>
+
+<div class="events">
+  <div class="container">
+    <h2 class="section-title events-title center" id="upcoming">即将到来的活动和会议</h2>
+    <ul class="post-list clearfix">
+      
+    </ul>
+    <div class="btn-container">
+      <button class="button btn-dark" id="loadMore">加载更多活动</button>
+    </div>
+    <div class="additional-links events-links row">
+      <div>
+        <p><a href="http://bitcoin.meetup.com/">比特币聚会小组</a></p>
+        <p><a href="https://bitcointalk.org/index.php?board=86.0">BitcoinTalk上的比特币聚会</a></p>
+        <p><a href="https://en.bitcoin.it/wiki/Meetups">维基上的比特币聚会</a></p>
+      </div>
+      <div>
+        <a class="button btn-bright event-btn" href="https://github.com/bitcoin-dot-org/bitcoin.org/issues/new?title=New%20event&amp;body=%20%20%20%20-%20date%3A%20YYYY-MM-DD%0A%20%20%20%20%20%20title%3A%20%22%22%0A%20%20%20%20%20%20venue%3A%20%22%22%0A%20%20%20%20%20%20address%3A%20%22%22%0A%20%20%20%20%20%20city%3A%20%22%22%0A%20%20%20%20%20%20country%3A%20%22%22%0A%20%20%20%20%20%20link%3A%20%22%22">提交一个事件</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/loadMorePosts.js"></script>
+
+</div>
+
+  <div class="footer">
+    <div class="container">
+       
+
+<a class="logo-footer" href="/zh_CN/">
+  <img src="/img/icons/logo-footer.svg?1651746487" alt="Bitcoin">
+</a> 
+       
+
+<div class="row footer-row">
+  <div class="donate">
+    <div class="row donate-row">
+      <div>
+        <span class="footer-title">支持Bitcoin.org:</span>
+        <a onclick="openDonationModal()" class="donate-btn btn-bright">捐助</a>
+        <p class="donate-text">
+          <a class="donate-link" href="bitcoin:3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd" target="_blank">3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row footermenu">
+    <div class="footermenu-item footermenu-introduction">
+      <p class="footer-title">介绍:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/zh_CN/bitcoin-for-individuals">个人</a>
+        </li>
+        <li>
+          <a href="/zh_CN/bitcoin-for-businesses">商家</a>
+        </li>
+        <li>
+          <a href="https://developer.bitcoin.org/">开发者</a>
+        </li>
+        <li>
+          <a href="/zh_CN/getting-started">入门指南</a>
+        </li>
+        <li>
+          <a href="/zh_CN/how-it-works">工作原理</a>
+        </li>
+        <li>
+          <a href="/zh_CN/you-need-to-know">注意事项</a>
+        </li>
+        
+        <li>
+          <a href="/zh_CN/bitcoin-paper">White paper</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-resources">
+      <p class="footer-title">资源:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/zh_CN/resources">资源</a>
+        <li>
+          <a href="/zh_CN/exchanges">兑换</a>
+        </li>
+        <li>
+          <a href="/zh_CN/community">社区</a>
+        </li>
+        <li>
+          <a href="/zh_CN/vocabulary">词汇表
+          </a>
+        </li>
+        <li class="active">
+          <a href="/zh_CN/events">活动</a>
+        </li>
+        
+          <li>
+            <a href="/zh_CN/download">比特币核心</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="footermenu-item footermenu-participate">
+      <p class="footer-title">参与:</p>
+      <ul class="footermenu-list">
+        <li>
+          <a href="/zh_CN/support-bitcoin">支持比特币</a>
+        
+        
+        <li>
+          <a href="/zh_CN/development">开发</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footermenu-item footermenu-other">
+      <p class="footer-title">其他:</p>
+      
+      <a href="/zh_CN/legal">法律</a>
+      
+      <a href="/en/privacy">Privacy Policy</a>
+      
+      <a href="/zh_CN/press">新闻媒体</a>
+      <a href="/zh_CN/about-us">关于bitcoin.org</a>
+      <a href="/en/blog">Blog</a>
+    </div>
+  </div>
+</div>
+ 
+       
+
+<div class="footersponsor">
+  <!--<div><span>社区网站主办方：</span> <a href="https://bitcoinfoundation.org/"><img src="/img/brand/bitcoinfoundation.png?1651746487" alt="Bitcoin Foundation"></a></div>-->
+</div>
+
+    </div>
+    
+
+<div class="footer-bottom">
+  <div class="container">
+    <div class="row footer-bottom-row">
+      <div class="footerlicense">© Bitcoin Project 2009-2022 基于<a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT协议</a>授权发布</div>
+      <div class="row footer-status-block">
+        <a href="/en/alerts" class="statusmenu">Network Status</a>
+        
+<ul class="lang is-expand">
+  <li><a>简体中文</a>
+  <ul>
+    <li><ul>
+      
+      
+        
+          <li><a href="/id/acara">Bahasa Indonesia</a></li>
+        
+        
+          <li><a href="/ca/events">Català</a></li>
+        
+        
+          <li><a href="/da/begivenheder">Dansk</a></li>
+        
+        
+          <li><a href="/de/events">Deutsch</a></li>
+        
+        
+          <li><a href="/en/events">English</a></li>
+        
+        
+          <li><a href="/es/eventos">Español</a></li>
+        
+        
+          <li><a href="/fr/evenements">Français</a></li>
+        
+        
+          <li><a href="/it/eventi">Italiano</a></li>
+        
+        
+          <li><a href="/hu/rendezvenyek">Magyar</a></li>
+        
+        
+          <li><a href="/nl/evenementen">Nederlands</a></li>
+        
+        
+          <li><a href="/pl/wydarzenia">Polski</a></li>
+        
+        
+          <li><a href="/pt_BR/eventos">Português Brasil</a></li>
+        
+        
+          <li><a href="/ro/evenimente">Română</a></li>
+        
+        
+          <li><a href="/sl/dogodki">Slovenščina</a></li>
+        
+        
+          <li><a href="/sr/dogadaji">Srpski</a></li>
+        
+        </ul></li><li><ul>
+          <li><a href="/sv/evenemang">Svenska</a></li>
+        
+        
+          <li><a href="/tr/etkinlikler">Türkçe</a></li>
+        
+        
+          <li><a href="/el/events">Ελληνικά</a></li>
+        
+        
+          <li><a href="/bg/events">български</a></li>
+        
+        
+          <li><a href="/ru/events">Русский</a></li>
+        
+        
+          <li><a href="/uk/events">Українська</a></li>
+        
+        
+          <li><a href="/ar/events">العربية</a></li>
+        
+        
+          <li><a href="/fa/events">فارسی</a></li>
+        
+        
+          <li><a href="/he/events">עברית</a></li>
+        
+        
+          <li><a href="/hi/events">हिन्दी</a></li>
+        
+        
+          <li><a href="/ko/events">한국어</a></li>
+        
+        
+          <li><a href="/ja/events">日本語</a></li>
+        
+        
+          <li><a href="/zh_CN/events" class="active">简体中文</a></li>
+        
+        
+          <li><a href="/zh_TW/events">繁體中文</a></li>
+        
+      </ul></li>
+    </ul>
+  </li>
+</ul>
+ 
+        <div id="footer-langselect" class="footer-langselect langselect">
+          <label for="select-input-footer" class="center-select">
+            <select class="center-select__input" onchange="window.location=this.value; ">
+              
+              <option value="/id/acara" >Bahasa Indonesia</option>
+              
+              <option value="/ca/events" >Català</option>
+              
+              <option value="/da/begivenheder" >Dansk</option>
+              
+              <option value="/de/events" >Deutsch</option>
+              
+              <option value="/en/events" >English</option>
+              
+              <option value="/es/eventos" >Español</option>
+              
+              <option value="/fr/evenements" >Français</option>
+              
+              <option value="/it/eventi" >Italiano</option>
+              
+              <option value="/hu/rendezvenyek" >Magyar</option>
+              
+              <option value="/nl/evenementen" >Nederlands</option>
+              
+              <option value="/pl/wydarzenia" >Polski</option>
+              
+              <option value="/pt_BR/eventos" >Português Brasil</option>
+              
+              <option value="/ro/evenimente" >Română</option>
+              
+              <option value="/sl/dogodki" >Slovenščina</option>
+              
+              <option value="/sr/dogadaji" >Srpski</option>
+              
+              <option value="/sv/evenemang" >Svenska</option>
+              
+              <option value="/tr/etkinlikler" >Türkçe</option>
+              
+              <option value="/el/events" >Ελληνικά</option>
+              
+              <option value="/bg/events" >български</option>
+              
+              <option value="/ru/events" >Русский</option>
+              
+              <option value="/uk/events" >Українська</option>
+              
+              <option value="/ar/events" >العربية</option>
+              
+              <option value="/fa/events" >فارسی</option>
+              
+              <option value="/he/events" >עברית</option>
+              
+              <option value="/hi/events" >हिन्दी</option>
+              
+              <option value="/ko/events" >한국어</option>
+              
+              <option value="/ja/events" >日本語</option>
+              
+              <option value="/zh_CN/events"  selected="selected">简体中文</option>
+              
+              <option value="/zh_TW/events" >繁體中文</option>
+              
+            </select>
+            <span class="center-select__text">zh_CN</span>
+          </label>
+        </div>
+      </div>
+<!--      <div class="row">  -->
+        
+<!--    </div> -->
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  fallbackSVG();
+  addAnchorLinks();
+  trackOutgoingLinks();
+  toggleDarkMode();
+</script>
+
+
+
+
+
+
+</body>
+
+</html>
